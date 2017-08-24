@@ -1,7 +1,7 @@
 call plug#begin()
-Plug 'ayu-theme/ayu-vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
+Plug 'morhetz/gruvbox'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
@@ -32,11 +32,11 @@ let mapleader=","
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
-syntax on
+let g:airline_theme='powerlineish'
 
-set termguicolors
-let ayucolor="dark"
-colorscheme ayu
+set background=dark
+colorscheme gruvbox
+syntax on
 
 set number
 set showcmd
