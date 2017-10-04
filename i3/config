@@ -29,6 +29,7 @@ font pango:monospace 10
 # i3-gaps
 for_window [class="^.*"] border pixel 0
 hide_edge_borders both
+
 gaps inner 20
 gaps outer 20
 
@@ -98,16 +99,16 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # move workspaces between monitors
-bindsym $mod+o move workspace to output left
-bindsym $mod+p move workspace to output right
+bindsym $mod+less move workspace to output left
+bindsym $mod+greater move workspace to output right
 
 # browser opening
 bindsym $mod+g exec google-chrome --incognito
 bindsym $mod+Shift+g exec google-chrome 
 
 # shutdown/restart
-bindsym $mod+k exec shutdown now
-bindsym $mod+Shift+k exec shutdown -r now
+#bindsym $mod+k exec shutdown now
+#bindsym $mod+Shift+k exec shutdown -r now
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -198,7 +199,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar
 bar {
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	#status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	status_command i3status -c ~/.config/i3/i3status.conf
 	colors {
 		background $bg-color
 		separator #757575
@@ -227,10 +229,8 @@ bindsym XF86AudioPlay exec playerctl play-pause; exec cmus-remote -u;
 bindsym XF86AudioNext exec playerctl next; exec cmus-remote -n;
 bindsym XF86AudioPrev exec playerctl previous; exec cmus-remote -r;
 
-exec --no-startup-id xrandr --output HDMI-1 --left-of LVDS-1  
+exec --no-startup-id xrandr --output HDMI-1 --right-of LVDS-1  
 exec --no-startup-id nm-applet
-
-exec --no-startup-id i3-msg ' workspace $ws10; exec gnome-terminal -e cmus;'
 
 exec_always xsetroot -solid '#222222'
 
