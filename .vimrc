@@ -23,7 +23,6 @@ Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'omnisharp/omnisharp-vim'
 call plug#end()
 
 " Automatic reloading of .vimrc
@@ -62,6 +61,7 @@ set ignorecase
 set smartcase
 
 set laststatus=2
+set cursorline
 
 " Backups
 set dir=~/.vim/swap//
@@ -99,3 +99,6 @@ nnoremap <silent> vh <C-w>h
 nnoremap <silent> vj <C-w>j
 nnoremap <silent> vk <C-w>k
 nnoremap <silent> vl <C-w>l
+nnoremap <silent> v= <C-w>=
+nnoremap <silent> <Leader>l :setlocal cursorline!<CR>
+nnoremap <silent> <Leader>n :setlocal number!<CR>
