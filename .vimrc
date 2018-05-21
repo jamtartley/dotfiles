@@ -42,7 +42,7 @@ let mapleader=","
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
-let g:airline_theme='powerlineish'
+let g:airline_theme='dracula'
 
 syntax on
 color dracula 
