@@ -23,6 +23,7 @@ Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'oranget/vim-csharp'
 call plug#end()
 
 " Automatic reloading of .vimrc
@@ -102,3 +103,4 @@ nnoremap <silent> vl <C-w>l
 nnoremap <silent> v= <C-w>=
 nnoremap <silent> <Leader>l :setlocal cursorline!<CR>
 nnoremap <silent> <Leader>n :setlocal number!<CR>
+nnoremap <leader>s :%s/\s\+$//e<CR>
