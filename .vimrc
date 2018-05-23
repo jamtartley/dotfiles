@@ -37,6 +37,8 @@ set clipboard=unnamed
 
 let mapleader=","
 
+set timeoutlen=1000 ttimeoutlen=0
+
 " Easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
 " then press ``>`` several times.
