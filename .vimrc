@@ -53,6 +53,8 @@ set termguicolors
 
 set number
 set showcmd
+set backspace=indent,eol,start
+set list
 
 set tabstop=4
 set softtabstop=4 expandtab
