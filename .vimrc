@@ -81,6 +81,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
 map <C-Left> :tabprevious<CR>
 map <C-Right> :tabnext<CR>
+map <F8> :!clear;g++ *.cpp -o output;./output<CR>
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -96,6 +97,7 @@ nnoremap <silent> <leader>n :setlocal number!<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
+nnoremap <leader>t :!clear;tag_finder<CR>
 
 " Easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
