@@ -62,6 +62,10 @@ let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_cache_dir = $HOME . './cache/ctrlp'
+if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 
@@ -92,12 +96,13 @@ nnoremap <silent> vj <C-w>j
 nnoremap <silent> vk <C-w>k
 nnoremap <silent> vl <C-w>l
 nnoremap <silent> v= <C-w>=
+nnoremap <CR> :noh<CR><CR>
 nnoremap <silent> <leader>l :setlocal cursorline!<CR>
 nnoremap <silent> <leader>n :setlocal number!<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
-nnoremap <leader>t :!clear;tag_finder<CR>
+nnoremap <leader>t :!clear;tagf<CR>
 
 " Easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
