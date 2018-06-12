@@ -1,15 +1,15 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 filetype plugin on
 
 call plug#begin()
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-Plug 'dracula/vim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ayu-theme/ayu-vim'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
@@ -29,9 +29,10 @@ call plug#end()
 let mapleader=","
 
 syntax on
-color dracula
 set termguicolors
-let g:airline_theme='dracula'
+let ayucolor="dark"
+colorscheme ayu
+let g:airline_theme='ayu'
 
 set number
 set showcmd
@@ -47,6 +48,7 @@ set smartcase
 set showmatch
 set incsearch
 set hlsearch
+set ignorecase
 set laststatus=2
 set cursorline
 set splitbelow
@@ -81,10 +83,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd! bufwritepost .vimrc source %
 
 " Custom key mappings
+map <C-a> ggVG<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
 map <C-Left> :tabprevious<CR>
 map <C-Right> :tabnext<CR>
+map <F5> :!./scripts/dev.sh<CR>
 map <F8> :!clear;g++ *.cpp -o output;./output<CR>
 
 nnoremap n nzz
@@ -101,6 +105,7 @@ nnoremap <silent> <leader>l :setlocal cursorline!<CR>
 nnoremap <silent> <leader>n :setlocal number!<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>g :Gdiff :0<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
 nnoremap <leader>t :!clear;tagf<CR>
 
