@@ -28,12 +28,19 @@ call plug#end()
 
 let mapleader=","
 
+set term=xterm-256
 syntax on
 set termguicolors
 let ayucolor="dark"
 colorscheme ayu
 let g:airline_theme='ayu'
 
+" Cygwin compatibility
+set t_Co=8
+set t_Sb=m
+set t_Sf=m
+
+set nocp
 set number
 set showcmd
 set backspace=indent,eol,start
