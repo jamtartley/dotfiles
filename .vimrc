@@ -89,6 +89,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+" Highlight tag_finder keywords
+highlight TagFinder cterm=bold term=bold ctermfg=blue
+match TagFinder /.*\(TODO\|HACK\|SPEED\|EFFICIENCY\|BUG\|USABILITY\|ROBUSTNESS\|TEMPORARY\|CLEANUP\).*/
+
 " Custom key mappings
 map <C-a> ggVG<CR>
 map <C-n> :NERDTreeToggle<CR>
