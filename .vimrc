@@ -28,7 +28,10 @@ call plug#end()
 
 let mapleader=","
 
-set term=xterm-256
+if has("win32unix")
+    set term=xterm-256
+endif
+
 syntax on
 set termguicolors
 let ayucolor="dark"
@@ -91,7 +94,7 @@ autocmd! bufwritepost .vimrc source %
 
 " Highlight tag_finder keywords
 highlight TagFinder cterm=bold term=bold ctermfg=blue
-match TagFinder /.*\(TODO\|HACK\|SPEED\|EFFICIENCY\|BUG\|USABILITY\|ROBUSTNESS\|TEMPORARY\|CLEANUP\).*/
+match TagFinder /.*\(TODO\|HACK\|SPEED\|REFACTOR\|EFFICIENCY\|BUG\|USABILITY\|ROBUSTNESS\|TEMPORARY\|CLEANUP\).*/
 
 " Custom key mappings
 map <C-a> ggVG<CR>
