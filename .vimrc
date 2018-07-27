@@ -9,7 +9,7 @@ filetype plugin on
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
@@ -34,9 +34,7 @@ endif
 
 syntax on
 set termguicolors
-let ayucolor="dark"
-colorscheme ayu
-let g:airline_theme='ayu'
+colorscheme dracula
 
 " Cygwin compatibility
 set t_Co=8
@@ -121,7 +119,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>g :Gdiff :0<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
-nnoremap <leader>t :!clear;tagf<CR>
+nnoremap <leader>t :!clear;tagg<CR>
 
 " Easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
