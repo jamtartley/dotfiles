@@ -56,7 +56,7 @@ let ayucolor="mirage"
 colorscheme ayu
 
 if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_user_command = 'ag %s -l --path-to-ignore ~/.ignore --nocolor -g ""'
 endif
 let g:ctrlp_cache_dir = $HOME . './cache/ctrlp'
 
