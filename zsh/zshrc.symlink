@@ -21,6 +21,7 @@ alias gs='git status'
 alias gits='git status'
 alias gitd='git diff'
 
+alias dev="cd $DEV"
 alias dots="cd $DOTFILES"
 
 for file in $DOTFILES/*/*.zsh; do

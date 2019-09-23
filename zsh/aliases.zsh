@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-alias vimrc="vim $DOTFILES/vim/vimrc.symlink"
+alias zshrc="vim $DOTFILES/zsh/zshrc.symlink"

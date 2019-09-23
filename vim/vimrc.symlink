@@ -25,6 +25,7 @@ set list
 set nobackup
 set noswapfile
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set ignorecase
 set smartcase
 set showmatch incsearch hlsearch
 set laststatus=2
