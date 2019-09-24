@@ -1,16 +1,29 @@
 filetype plugin on
 
 call plug#begin()
-Plug 'airblade/vim-gitgutter'
-Plug 'ayu-theme/ayu-vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'groenewege/vim-less'
-Plug 'pangloss/vim-javascript'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" General programming
+Plug 'scrooloose/syntastic'
+Plug 'valloric/youcompleteme'
+" Git
+Plug 'airblade/vim-gitgutter'
+" Javascript
+Plug 'pangloss/vim-javascript'
+" LESS
+Plug 'groenewege/vim-less'
+" NERDTree
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+" Theme
+Plug 'ayu-theme/ayu-vim'
+" Typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+Plug 'quramy/tsuquyomi'
+" Vim workflow
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " Cygwin compatibility
@@ -64,6 +77,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Typescript
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " Close vim if NERDTree is the only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
