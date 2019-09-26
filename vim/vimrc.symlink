@@ -4,6 +4,8 @@ call plug#begin()
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" C#
+Plug 'omnisharp/omnisharp-vim'
 " General programming
 Plug 'scrooloose/syntastic'
 Plug 'valloric/youcompleteme'
@@ -16,6 +18,8 @@ Plug 'groenewege/vim-less'
 " NERDTree
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+" React
+Plug 'maxmellon/vim-jsx-pretty'
 " Theme
 Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim'
@@ -77,10 +81,17 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = "✗"
 
 " Typescript
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+" CSS
+let g:ycm_semantic_triggers = { 'css': [ 're!^', 're!^\s+', ': ' ] }
+
+" C#
+let g:syntastic_cs_checkers = ['code_checker']
 
 " Close vim if NERDTree is the only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
