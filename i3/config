@@ -63,14 +63,23 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #e9e9f4 #f1f2f8 #282936 #f1f2f8   #e9e9f4
-client.focused_inactive #282936 #888995 #e9e9f4 #888995   #282936
-client.unfocused        #282936 #888995 #e9e9f4 #888995   #282936
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+set $bgb            #282a36
+set $bg             #282a36AA
+set $fg             #f8f8f2
+set $tf             #f8f8f2AA
+set $hi             #f1fa7c
+set $tx             #040404
+set $pk             #ff79c6
+set $yw             #f1fa7c
+set $gn             #50fa7b
+set $rd             #ff5555
+set $id             #ff79c6
 
-client.background       #ffffff
+client.focused              $id     $pk         $tx     $id
+client.unfocused            $bg     $bg         $tf     $id
+client.focused_inactive     $bg     $bg         $pk     $id
+client.urgent               $yw     $yw         $tx     $id
+client.placeholder          $bg     $bg         $bg     $bg
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
