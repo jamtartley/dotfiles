@@ -2,20 +2,6 @@
 
 set -e
 
-hasManager() {
-    [ -x "$(which $1)" ]
-}
-
-set_package_manager() {
-    if hasManager apt-get &>/dev/null;
-    then
-        export PACKAGE_MANAGER="apt-get"
-    elif hasManager dnf;
-    then
-        export PACKAGE_MANAGER="dnf"
-    fi
-}
-
 sym_file() {
     if [ -e "$2" ];
     then
@@ -37,7 +23,6 @@ sym_dots() {
         done
     }
 
-set_package_manager
 sym_dots
 
 git ls-tree --name-only -r HEAD | grep install.sh | while read -r installer;

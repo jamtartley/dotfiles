@@ -4,8 +4,6 @@ call plug#begin()
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" C#
-Plug 'omnisharp/omnisharp-vim'
 " General programming
 Plug 'scrooloose/syntastic'
 Plug 'valloric/youcompleteme'
@@ -36,6 +34,7 @@ set t_Co=8
 set t_Sb=m
 set t_Sf=m
 
+set completeopt-=preview
 set nocp
 set number
 set backspace=indent,eol,start
@@ -83,15 +82,15 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "✗"
 
-" Typescript
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
-
 " CSS
 let g:ycm_semantic_triggers = { 'css': [ 're!^', 're!^\s+', ': ' ] }
 
 " C#
 let g:syntastic_cs_checkers = ['code_checker']
+
+" Typescript
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " Close vim if NERDTree is the only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
