@@ -34,12 +34,14 @@ fi
 
 sym_dots
 
-sudo dnf install python3
+sudo dnf install -y python3
 sudo pip3 install --upgrade taggregator
 
+bash -c "$(wget -q0- https://git.io/vQgMr)"
+
 FONTS=$HOME/.fonts
-mkdir $FONTS
-wget https://www.levien.com/type/myfonts/Inconsolata.otf -P FONTS
+mkdir -p $FONTS
+wget https://www.levien.com/type/myfonts/Inconsolata.otf -P $FONTS
 
 git ls-tree --name-only -r HEAD | grep install.sh | while read -r installer;
 do

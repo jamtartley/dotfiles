@@ -13,6 +13,12 @@ EOF
 sudo dnf check-update
 sudo dnf install code
 
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo wget -q -O /etc/yum.repos.d/microsoft-prod.repo https://packages.microsoft.com/config/fedora/30/prod.repo
+
+sudo dnf update -y
+sudo dnf install -y dotnet-sdk-3.0
+
 VSCODE=$HOME/.config/Code/User
 mkdir -p $VSCODE
 ln -sf $(pwd)/settings.json $VSCODE/
