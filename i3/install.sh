@@ -9,7 +9,3 @@ ln -sf $(pwd)/scripts $I3
 
 sudo mkdir -p /usr/share/rofi/themes
 ln -sf $(pwd)/dracula.rasi /usr/share/rofi/themes
-
-FONTS=$HOME/.fonts
-mkdir $FONTS
-wget https://www.levien.com/type/myfonts/Inconsolata.otf -P FONTS
