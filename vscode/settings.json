@@ -1,0 +1,35 @@
+{
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Dracula",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.minimap.enabled": false,
+    "csharp.referencesCodeLens.enabled": false,
+    "macros": {
+        "run_tagg": [
+            "workbench.action.terminal.focus",
+            {
+                "command": "workbench.action.terminal.sendSequence",
+                "args": {
+                    "text": "clear;tagg\u000d"
+                }
+            }
+        ]
+    },
+    "vim.leader": ",",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "v"],
+            "commands": ["workbench.action.splitEditor"]
+        },
+        {
+            "before": ["<leader>", "h"],
+            "commands": ["workbench.action.focusPreviousGroup"]
+        },
+        {
+            "before": ["<leader>", "l"],
+            "commands": ["workbench.action.focusNextGroup"]
+        }
+    ]
+}

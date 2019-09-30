@@ -1,0 +1,7 @@
+dracula-theme.theme-dracula
+geddski.macros
+ms-python.python
+ms-vscode.cpptools
+ms-vscode.csharp
+Unity.unity-debug
+vscodevim.vim

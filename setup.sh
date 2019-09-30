@@ -23,7 +23,19 @@ sym_dots() {
         done
     }
 
+if [[ $(uname -s) != *"Linux"* ]];
+then
+    if [[ $(lsb_release -is) != *"Fedora"* ]];
+    then
+        echo "Only supporting Fedora at the minute..."
+        exit 0
+    fi
+fi
+
 sym_dots
+
+sudo dnf install python3
+sudo pip3 install --upgrade taggregator
 
 git ls-tree --name-only -r HEAD | grep install.sh | while read -r installer;
 do
