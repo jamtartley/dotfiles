@@ -12,8 +12,8 @@ purple = #bd93f9
 red = #ff5555
 yellow = #f1fa8c
 
-[bar/top]
-monitor = DP-2
+[bar/main]
+monitor = ${env:MONITOR}
 monitor-fallback = DP-1
 monitor-strict = false
 override-redirect = false
@@ -30,7 +30,7 @@ font-0 = M+ 1mn:style=regular:size=12;2
 font-1 = mplus Nerd Font:style=regular:size=14;2
 font-2 = mplus Nerd Font:style=regular:size=30;4
 font-3 = mplus Nerd Font:style=regular:size=30;4
-modules-left = launcher left1 title left2
+modules-left = title left2
 modules-center = workspaces
 modules-right = right5 pulseaudio right4 memory right3 cpu right2 time right1 powermenu
 dim-value = 1.0
