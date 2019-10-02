@@ -1,6 +1,6 @@
 set $mod Mod1
 
-font pango:Inconsolata 13
+font pango:System San Fransisco Display 20
 
 # i3-gaps
 for_window [class="^.*"] border pixel 4

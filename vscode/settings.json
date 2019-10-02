@@ -9,6 +9,8 @@
     "editor.detectIndentation": false,
     "editor.minimap.enabled": false,
 
+    "keyboard.dispatch": "keyCode",
+
     "csharp.referencesCodeLens.enabled": false,
     "macros": {
         "run_tagg": [

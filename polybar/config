@@ -30,9 +30,9 @@ font-0 = M+ 1mn:style=regular:size=12;2
 font-1 = mplus Nerd Font:style=regular:size=14;2
 font-2 = mplus Nerd Font:style=regular:size=30;4
 font-3 = mplus Nerd Font:style=regular:size=30;4
-modules-left = title left2
+modules-left = i3 left1 title left2
 modules-center = workspaces
-modules-right = right5 pulseaudio right4 memory right3 cpu right2 time right1 powermenu
+modules-right = memory cpu time powermenu
 dim-value = 1.0
 wm-name = i3
 tray-position = none
@@ -117,6 +117,8 @@ label = %title%
 label-maxlen = 32
 label-empty = glyphi@archlinux ~
 label-empty-foreground = ${root.foreground}
+
+[module/i3]
 
 [module/workspaces]
 type = internal/xworkspaces
