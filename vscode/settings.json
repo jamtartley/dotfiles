@@ -8,6 +8,12 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
     "editor.minimap.enabled": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.overviewRulerBorder": false,
+    "editor.lineNumbers": "relative",
+
+    "breadcrumbs.enabled": false,
 
     "keyboard.dispatch": "keyCode",
 
