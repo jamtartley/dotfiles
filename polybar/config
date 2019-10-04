@@ -1,9 +1,6 @@
 [colors]
 background = #282a36
-current-line = #44475a
-selection = #44475a
 foreground = #f8f8f2
-comment = #6272a4
 cyan = #8be9fd
 green = #50fa7b
 orange = #ffb86c
@@ -16,109 +13,65 @@ yellow = #f1fa8c
 monitor = ${env:MONITOR}
 monitor-fallback = DP-1
 monitor-strict = false
+
 override-redirect = false
 bottom = false
 fixed-center = true
-height = 40
-offset-y = 0
+height = 50
 background = ${colors.background}
 foreground = ${colors.background}
 line-size = 2
-padding = 0
 module-margin = 0
-font-0 = M+ 1mn:style=regular:size=12;2
+
+font-0 = M+ 1mn:style=regular:size=15;2
 font-1 = mplus Nerd Font:style=regular:size=14;2
-font-2 = mplus Nerd Font:style=regular:size=30;4
-font-3 = mplus Nerd Font:style=regular:size=30;4
-modules-left = i3 left1 title left2
+font-2 = mplus Nerd Font:style=regular:size=30;6
+font-3 = mplus Nerd Font:style=regular:size=30;6
+
+modules-left = title left1
 modules-center = workspaces
-modules-right = memory cpu time powermenu
-dim-value = 1.0
+modules-right = right1 pulseaudio-control right2 time
+
 wm-name = i3
-tray-position = none
-tray-detached = false
-tray-maxsize = 16
-tray-transparent = false
-tray-background = ${root.background}
-tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 0
-tray-scale = 1.0
 dpi-x = 96
 dpi-y = 96
-enable-ipc = false
-click-left = 
-click-middle = 
-click-right =
 scroll-up = i3 workspace next
 scroll-down = i3 workspace previous
-double-click-left =
-double-click-middle =
-double-click-right =
-cursor-click = 
-cursor-scroll = 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/left1]
 type = custom/text
 content = "%{T3}%{T-}"
-content-background = ${colors.orange}
 content-foreground = ${colors.green}
-
-[module/left2]
-type = custom/text
-content = "%{T3}%{T-}"
-content-background = ${root.background}
-content-foreground = ${colors.orange}
 
 [module/right1]
 type = custom/text
 content = "%{T4}%{T-}"
-content-background = ${colors.yellow}
-content-foreground = ${colors.cyan}
+content-foreground = ${colors.purple}
+content-background = ${root.background}
 
 [module/right2]
 type = custom/text
 content = "%{T4}%{T-}"
-content-background = ${colors.red}
-content-foreground = ${colors.yellow}
-
-[module/right3]
-type = custom/text
-content = "%{T4}%{T-}"
-content-background = ${colors.purple}
-content-foreground = ${colors.red}
-
-[module/right4]
-type = custom/text
-content = "%{T4}%{T-}"
-content-background = ${colors.pink}
-content-foreground = ${colors.purple}
-
-[module/right5]
-type = custom/text
-content = "%{T4}%{T-}"
-content-background = ${root.background}
 content-foreground = ${colors.pink}
+content-background = ${colors.purple}
 
-[module/launcher]
-type = custom/text
-content = 
-content-background = ${colors.green}
-content-foreground = ${root.foreground}
-content-padding = 2
-click-left = rofi -show drun -fullscreen True -theme dracula
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [module/title]
 type = internal/xwindow
 format = <label>
-format-background = ${colors.orange}
+format-background = ${colors.green}
 format-foreground = ${root.foreground}
-format-padding = 2
+format-padding = 8
+label-font = 1
 label = %title%
-label-maxlen = 32
-label-empty = glyphi@archlinux ~
+label-maxlen =
+label-empty = 
 label-empty-foreground = ${root.foreground}
 
-[module/i3]
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/workspaces]
 type = internal/xworkspaces
@@ -143,85 +96,32 @@ label-empty = ﱤ
 label-empty-foreground = ${colors.foreground}
 label-empty-padding = 2
 
-[module/alsa]
-type = internal/alsa
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = HD-Audio Generic
-master-mixer = Master
-speaker-mixer = Speaker
-headphone-mixer = Headphone
-headphone-id = 18
-mapped = true
-interval = 5.0
-format-volume = <ramp-volume> <label-volume>
-format-volume-background = ${colors.pink}
-format-volume-padding = 2
-label-muted = ﱝ
-label-muted-foreground = ${root.foreground}
-ramp-volume-0 = 奄
-ramp-volume-1 = 奔
-ramp-volume-2 = 墳
-ramp-headphones-0 = 
-ramp-headphones-1 = 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[module/pulseaudio]
-type = internal/pulseaudio
-sink = alsa_input.pci-0000_09_00.3.analog-stereo
-use-ui-max = true
-interval = 0.5
-format-volume = <ramp-volume> <label-volume>
-format-volume-background = ${colors.pink}
-format-volume-padding = 2
-label-muted = ﱝ
-label-muted-foreground = ${root.foreground}
-ramp-volume-0 = 奄
-ramp-volume-1 = 奔
-ramp-volume-2 = 墳
-ramp-headphones-0 = 
-ramp-headphones-1 = 
-
-[module/memory]
-type = internal/memory
-interval = 1.0
-format = <label>
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+label=%output%
 format-background = ${colors.purple}
-format-padding = 2
-label =  %gb_free%
 
-[module/cpu]
-type = internal/cpu
-interval = 1.0
-format = <label>
-format-background = ${colors.red}
-format-padding = 2 
-label =  %percentage%%
+exec = ~/.config/polybar/scripts/pulseaudio-control.sh --listen
+click-right = exec pavucontrol &
+click-left = ~/.config/polybar/scripts/pulseaudio-control.sh --togmute
+click-middle = ~/.config/polybar/scripts/pulseaudio-control.sh --change
+scroll-up = ~/.config/polybar/scripts/pulseaudio-control.sh --up
+scroll-down = ~/.config/polybar/scripts/pulseaudio-control.sh --down
+label-padding = 2
+label-foreground = ${colors.foreground}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/time]
 type = internal/date
 interval = 1.0
 time = %l:%M %p
 format =  <label>
-format-background = ${colors.yellow}
+format-background = ${colors.pink}
 format-padding = 2
 label = %time%
 label-font = 1
 label-foreground = ${root.foreground}
-[module/powermenu]
-type = custom/menu
-expand-right = true
-menu-0-0 = Reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = Shutdown
-menu-0-1-exec = menu-open-2
-menu-1-0 = Confirm?
-menu-1-0-exec = systemctl reboot
-menu-2-0 = Confirm?
-menu-2-0-exec = systemctl poweroff
-format-background = ${colors.cyan}
-format-foreground = ${root.background}
-format-spacing = 1
-format-padding = 2
-label-open = 襤
-label-close = Back
-label-separator = 

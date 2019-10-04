@@ -12,7 +12,9 @@ popd
 
 POLYBAR=$HOME/.config/polybar
 mkdir -p $POLYBAR
+mkdir -p $POLYBAR/scripts
 ln -sf $(pwd)/config $POLYBAR/
 ln -sf $(pwd)/launch.sh $POLYBAR/
+ln -sf $(pwd)/pulseaudio-control.sh $POLYBAR/scripts
 
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/MPlus/Regular/complete/M%2B%201mn%20Nerd%20Font%20Complete.ttf -P $HOME/.fonts
