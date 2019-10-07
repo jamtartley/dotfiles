@@ -9,9 +9,9 @@ NORMAL_COLOR="%{F#282a36}"  # Color when the audio is muted
 MUTED_ICON="ﱝ "  # Muted volume icon
 MUTED_COLOR="%{F#7e649c}"  # Color when the audio is muted
 DEFAULT_SINK_ICON="# "  # The default sink icon if a custom one isn't found
-CUSTOM_SINK_ICONS=("" "奄 " " ")  # Custom sink icons in index of sink order
+CUSTOM_SINK_ICONS=( )  # Custom sink icons in index of sink order
 NOTIFICATIONS="no"  # Notifications when switching sinks if enabled
-SINK_BLACKLIST=( 0 )  # Index blacklist for sinks when switching between them
+SINK_BLACKLIST=( )  # Index blacklist for sinks when switching between them
 
 # Global script variables
 isMuted="no"

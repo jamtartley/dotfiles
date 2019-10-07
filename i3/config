@@ -96,3 +96,5 @@ bindsym $mod+d exec rofi -show run -theme dracula -lines 5
 exec feh --bg-scale $HOME/.config/i3/wallpaper.png
 exec compton -f -I 0.1 -O 0.07
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+exec --no-startup-id ~/.config/i3/alternating_layouts.py
