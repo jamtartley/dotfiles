@@ -29,14 +29,14 @@ font-2 = mplus Nerd Font:style=regular:size=30;6
 font-3 = mplus Nerd Font:style=regular:size=30;6
 
 modules-left = title left1
-modules-center = workspaces
+modules-center = bspwm
 modules-right = right1 pulseaudio-control right2 time
 
-wm-name = i3
+wm-name = bspwm
 dpi-x = 96
 dpi-y = 96
-scroll-up = i3 workspace next
-scroll-down = i3 workspace previous
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -73,28 +73,26 @@ label-empty-foreground = ${root.foreground}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[module/workspaces]
-type = internal/xworkspaces
-pin-workspaces = true
-enable-click = true
-enable-scroll = false
-format = <label-state>
-label-monitor = %name%
-label-active = ﱣ
-label-active-foreground = ${colors.cyan}
-label-active-background = ${root.background}
-label-active-padding = 2
-label-occupied = ﱣ
-label-occupied-foreground = ${colors.cyan}
-label-occupied-background = ${root.background}
-label-occupied-padding = 2
-label-urgent = ﱣ
-label-urgent-foreground = ${colors.red}
-label-urgent-background = ${root.background}
-label-urgent-padding = 2
-label-empty = ﱤ
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name%
+label-focused-font = 3 
+label-focused-foreground= ${colors.green}
+label-focused-underline= ${colors.green}
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-foreground = ${colors.purple}
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${colors.pink}
+label-urgent-padding = 1
+
+label-empty = %name%
 label-empty-foreground = ${colors.foreground}
-label-empty-padding = 2
+label-empty-padding = 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

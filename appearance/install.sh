@@ -19,7 +19,11 @@ popd
 
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="$HOME/.icons" sh
 
+sudo mkdir -p /usr/share/rofi/themes
+sudo ln -sf $(pwd)/dracula.rasi /usr/share/rofi/themes
+
 ln -sf $(pwd)/.gtkrc-2.0.mine $HOME
 ln -sf $(pwd)/.Xresources $HOME
+ln -sf $(pwd)/wallpaper.jpg $HOME
 
 xrdb $HOME/.Xresources
