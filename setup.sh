@@ -34,7 +34,7 @@ fi
 
 sym_dots
 
-sudo dnf install -y python htop
+sudo dnf install -y python htop qutebrowser xterm
 sudo pip3 install --upgrade taggregator
 
 bash -c "$(wget -q0- https://git.io/vQgMr)"

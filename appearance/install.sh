@@ -20,3 +20,6 @@ popd
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="$HOME/.icons" sh
 
 ln -sf $(pwd)/.gtkrc-2.0.mine $HOME
+ln -sf $(pwd)/.Xresources $HOME
+
+xrdb $HOME/.Xresources
