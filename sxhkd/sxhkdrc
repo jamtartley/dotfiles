@@ -19,6 +19,9 @@ alt + shift + g
 alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
 
+alt + r
+    redshift -x && killall -q redshift # resets screen temperature
+
 #
 # bspwm hotkeys
 #

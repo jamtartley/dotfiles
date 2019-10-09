@@ -67,8 +67,8 @@ format-foreground = ${root.foreground}
 format-padding = 8
 label-font = 1
 label = %title%
-label-maxlen =
-label-empty = 
+label-maxlen = 80
+label-empty = This page is left intentionally blank
 label-empty-foreground = ${root.foreground}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
