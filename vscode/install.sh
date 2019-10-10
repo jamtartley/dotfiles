@@ -19,11 +19,13 @@ sudo wget -q -O /etc/yum.repos.d/microsoft-prod.repo https://packages.microsoft.
 sudo dnf update -y
 sudo dnf install -y dotnet-sdk-3.0
 
+dir="$(dirname -- "$(readlink -f -- "$0")")"
+
 VSCODE=$HOME/.config/Code/User
 mkdir -p $VSCODE
-ln -sf $(pwd)/settings.json $VSCODE/
-ln -sf $(pwd)/keybindings.json $VSCODE/
-ln -sf $(pwd)/snippets $VSCODE/
+ln -sf $dir/settings.json $VSCODE/
+ln -sf $dir/keybindings.json $VSCODE/
+ln -sf $dir/snippets $VSCODE/
 
 code --list-extensions | xargs -n 1 code --uninstall-extension
-cat $(pwd)/extensions.txt | xargs -n 1 code --install-extension
+cat $dir/extensions.txt | xargs -n 1 code --install-extension

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y feh compton
+sudo dnf install -y feh compton tar
+
+dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 mkdir -p $HOME/.themes
 wget https://github.com/EliverLara/Ant-Dracula/releases/download/v1.3.0/Ant-Dracula.tar -P $HOME/.themes
@@ -20,7 +22,7 @@ popd
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="$HOME/.icons" sh
 
 sudo mkdir -p /usr/share/rofi/themes
-sudo ln -sf $(pwd)/dracula.rasi /usr/share/rofi/themes
+sudo ln -sf $dir/dracula.rasi /usr/share/rofi/themes
 
-ln -sf $(pwd)/.gtkrc-2.0.mine $HOME
-ln -sf $(pwd)/wallpaper.jpg $HOME
+ln -sf $dir/.gtkrc-2.0.mine $HOME
+ln -sf $dir/wallpaper.jpg $HOME

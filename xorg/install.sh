@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-ln -sf $(pwd)/.Xresources $HOME/.Xresources
-ln -sf $(pwd)/.xinitrc $HOME/.xinitrc
+dir="$(dirname -- "$(readlink -f -- "$0")")"
+ln -sf $dir/.Xresources $HOME/.Xresources
+ln -sf $dir/.xinitrc $HOME/.xinitrc
