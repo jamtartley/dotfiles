@@ -15,3 +15,5 @@ then
 else
     xterm -geometry 80x24-0-0
 fi
+
+setxkbmap -option caps:escape

@@ -33,8 +33,8 @@ sudo dnf -y install ffmpeg
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
 
-git ls-tree --name-only -r HEAD | grep install.sh | while read -r installer;
-do
-    chmod +x $installer
-    sh -c "$installer"
-done
+find . -type f -name 'install.sh' -exec sh -c '
+for f do
+    chmod +x $f
+    sh -c $f
+done' sh {} +
