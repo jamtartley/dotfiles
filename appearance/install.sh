@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y feh compton tar wget
+sudo dnf install -y feh compton rofi tar wget
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 

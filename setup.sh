@@ -23,15 +23,15 @@ then
  fi
 fi
 
-sudo dnf install -y python htop qutebrowser xterm
-sudo pip3 install --upgrade taggregator
+sudo dnf install -y python htop qutebrowser firefox xterm
+pip3 install --user taggregator
 
 sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install ffmpeg
 
 ln -sf $(pwd)/.ignore $HOME
-ln -sf $(pwd)/.profile $HOME
+ln -sf $(pwd)/.zprofile $HOME
 
 git ls-tree --name-only -r HEAD | grep install.sh | while read -r installer;
 do
