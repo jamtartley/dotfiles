@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y vim cmake gcc-c++ make python3-devel
+sudo dnf install -y vim cmake gcc-c++ make python3-devel nodejs
 
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
