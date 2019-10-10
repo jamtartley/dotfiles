@@ -7,4 +7,4 @@ dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 DUNST=$HOME/.config/dunst
 mkdir -p $DUNST
-ln -s $dir/dunstrc $DUNST
+ln -sf $dir/dunstrc $DUNST

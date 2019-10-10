@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y feh compton tar
+sudo dnf install -y feh compton tar wget
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
