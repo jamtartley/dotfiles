@@ -14,15 +14,6 @@ sym_file() {
  ln -sf "$1" "$2"
 }
 
-sym_dots() {
- find -H "$(pwd -P)" -maxdepth 3 -name "*.symlink" -not -path "*.git" |
-     while read -r src;
-     do
-         dest="$HOME/.$(basename "${src%.*}")"
-         sym_file "$src" "$dest"
-     done
- }
-
 if [[ $(uname -s) != *"Linux"* ]];
 then
  if [[ $(lsb_release -is) != *"Fedora"* ]];
@@ -31,8 +22,6 @@ then
      exit 0
  fi
 fi
-
-sym_dots
 
 sudo dnf install -y python htop qutebrowser xterm
 sudo pip3 install --upgrade taggregator
