@@ -29,3 +29,5 @@ alias dots="cd $DOTFILES"
 for file in $DOTFILES/*/*.zsh; do
     source "$file"
 done
+
+bindkey -v
