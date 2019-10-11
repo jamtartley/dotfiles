@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo dnf remove xfce4-notifyd
-sudo dnf install -y dunst
+sudo dnf install -y dunst libnotify
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 

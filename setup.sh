@@ -23,7 +23,9 @@ then
  fi
 fi
 
-sudo dnf install -y python htop qutebrowser firefox xterm
+sudo dnf install -y python pulseaudio pavucontrol htop qutebrowser firefox xterm
+sudo dnf install -y pulseaudio pulseaudio-utils alsa-utils
+sudo usermod -aG pulse,pulse-access sam
 pip3 install --user taggregator
 
 sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm

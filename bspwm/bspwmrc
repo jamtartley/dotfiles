@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 sxhkd &
+pulseaudio -D &
 $HOME/.config/polybar/launch.sh &
 feh --bg-scale $HOME/wallpaper.jpg &
 compton -f -I 0.1 -O 0.07 &
