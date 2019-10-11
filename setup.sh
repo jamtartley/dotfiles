@@ -23,6 +23,11 @@ then
  fi
 fi
 
+read -r -p "git author: " git_author
+read -p "git email: " git_email
+git config --global user.name "$git_author"
+git config --global user.email "$git_email"
+
 sudo dnf install -y @development-tools cmake gcc-c++ autoconf automake
 sudo dnf install -y xcb-util-xrm-devel xcb-proto xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel xcb-util-image-devel alsa-lib-devel pulseaudio-libs-devel i3-ipc jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel cairo-devel
 sudo dnf install -y python pulseaudio pavucontrol htop qutebrowser firefox xterm
@@ -35,13 +40,12 @@ sudo dnf install -y sxhkd
 sudo dnf install -y vim cmake gcc-c++ make python3-devel nodejs
 sudo dnf install -y @base-x
 sudo dnf install -y zsh util-linux-user
-
-sudo usermod -aG pulse,pulse-access sam
-pip3 install --user taggregator
-
 sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install ffmpeg
+
+sudo usermod -aG pulse,pulse-access sam
+pip3 install --user taggregator
 
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
