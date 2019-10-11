@@ -23,8 +23,19 @@ then
  fi
 fi
 
+sudo dnf install -y @development-tools cmake gcc-c++ autoconf automake
+sudo dnf install -y xcb-util-xrm-devel xcb-proto xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel xcb-util-image-devel alsa-lib-devel pulseaudio-libs-devel i3-ipc jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel cairo-devel
 sudo dnf install -y python pulseaudio pavucontrol htop qutebrowser firefox xterm
 sudo dnf install -y pulseaudio pulseaudio-utils alsa-utils
+sudo dnf install -y bspwm i3lock
+sudo dnf remove xfce4-notifyd
+sudo dnf install -y dunst libnotify
+sudo dnf install -y redshift
+sudo dnf install -y sxhkd
+sudo dnf install -y vim cmake gcc-c++ make python3-devel nodejs
+sudo dnf install -y @base-x
+sudo dnf install -y zsh util-linux-user
+
 sudo usermod -aG pulse,pulse-access sam
 pip3 install --user taggregator
 

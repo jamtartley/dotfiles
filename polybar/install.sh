@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y @development-tools cmake gcc-c++ autoconf automake
-sudo dnf install -y xcb-util-xrm-devel xcb-proto xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel xcb-util-image-devel alsa-lib-devel pulseaudio-libs-devel i3-ipc jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel cairo-devel
-
 pushd /tmp
 git clone --recursive https://github.com/polybar/polybar.git
 pushd polybar/
