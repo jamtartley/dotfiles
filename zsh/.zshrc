@@ -3,6 +3,7 @@ export DEV=$HOME/dev
 export EDITOR=vim
 export GITHUB=https://github.com/jamtartley
 export ZSH=$HOME/.oh-my-zsh
+export PATH=/usr/local/lib:$PATH
 
 DISABLE_AUTO_UPDATE="false"
 ZSH_THEME="bira"
@@ -29,5 +30,3 @@ alias dots="cd $DOTFILES"
 for file in $DOTFILES/*/*.zsh; do
     source "$file"
 done
-
-bindkey -v
