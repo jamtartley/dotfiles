@@ -37,7 +37,9 @@ sudo dnf config-manager -y --set-enabled rpmfusion-nonfree-steam
 sudo dnf install -y steam nvidia-driver akmod-nvidia
 
 sudo ln -s /var/lib/snapd/snap /snap
-snap install spotify
+sudo snap install spotify discord
+
+sudo hostnamectl set-hostname jamtartley
 
 sudo usermod -aG pulse,pulse-access sam
 pip3 install --user taggregator
