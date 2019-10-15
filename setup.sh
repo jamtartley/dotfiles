@@ -1,26 +1,26 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 set -e
 
 sym_file() {
- if [ -e "$2" ];
- then
-     if [ "$(readlink "$2")" = "$1" ];
-     then
-         return 0
-     fi
- fi
+    if [ -e "$2" ];
+    then
+        if [ "$(readlink "$2")" = "$1" ];
+        then
+            return 0
+        fi
+    fi
 
- ln -sf "$1" "$2"
+    ln -sf "$1" "$2"
 }
 
 if [[ $(uname -s) != *"Linux"* ]];
 then
- if [[ $(lsb_release -is) != *"Fedora"* ]];
- then
-     echo "Only supporting Fedora at the minute..."
-     exit 0
- fi
+    if [[ $(lsb_release -is) != *"Fedora"* ]];
+    then
+        echo "Only supporting Fedora at the minute..."
+        exit 0
+    fi
 fi
 
 read -r -p "git author: " git_author
@@ -29,22 +29,15 @@ git config --global user.name "$git_author"
 git config --global user.email "$git_email"
 git config credential.helper cache
 
-sudo dnf install -y @development-tools cmake gcc-c++ autoconf automake
-sudo dnf install -y xcb-util-xrm-devel xcb-proto xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel xcb-util-image-devel alsa-lib-devel pulseaudio-libs-devel i3-ipc jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel cairo-devel
-sudo dnf install -y python pulseaudio pavucontrol htop qutebrowser firefox xterm
-sudo dnf install -y pulseaudio pulseaudio-utils alsa-utils
-sudo dnf install -y bspwm i3lock
-sudo dnf remove xfce4-notifyd
-sudo dnf install -y dunst libnotify
-sudo dnf install -y redshift
-sudo dnf install -y sxhkd
-sudo dnf install -y vim cmake gcc-c++ make python3-devel nodejs
-sudo dnf install -y @base-x
-sudo dnf install -y zsh util-linux-user
-sudo dnf install -y lxappearance thunar vifm
-sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf -y install ffmpeg
+packages=`cat $(pwd)/packages`
+sudo dnf install -y $packages
+
+sudo dnf config-manager -y --set-enabled rpmfusion-nonfree-nvidia-driver
+sudo dnf config-manager -y --set-enabled rpmfusion-nonfree-steam
+sudo dnf install -y steam nvidia-driver akmod-nvidia
+
+sudo ln -s /var/lib/snapd/snap /snap
+snap install spotify
 
 sudo usermod -aG pulse,pulse-access sam
 pip3 install --user taggregator
