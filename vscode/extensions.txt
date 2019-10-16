@@ -3,5 +3,6 @@ geddski.macros
 ms-python.python
 ms-vscode.cpptools
 ms-vscode.csharp
+naumovs.color-highlight
 Unity.unity-debug
 vscodevim.vim
