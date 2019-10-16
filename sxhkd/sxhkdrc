@@ -20,7 +20,10 @@ alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
 
 alt + r
-    redshift -x && killall -q redshift # resets screen temperature
+    redshift -c $HOME/.config/redshift/redshift.conf
+
+alt + shift + r
+    redshift -x && pkill redshift # resets screen temperature
 
 #
 # bspwm hotkeys
