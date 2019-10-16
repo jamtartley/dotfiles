@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 cat <<EOF | sudo tee /etc/yum.repos.d/vscode.repo

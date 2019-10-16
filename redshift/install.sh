@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
