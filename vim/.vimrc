@@ -4,8 +4,6 @@ call plug#begin()
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" General programming
-Plug 'scrooloose/syntastic'
 " Git
 Plug 'airblade/vim-gitgutter'
 " Javascript
@@ -65,20 +63,6 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --path-to-ignore ~/.ignore --nocolor -g ""'
 endif
 let g:ctrlp_cache_dir = $HOME . './cache/ctrlp'
-
-set statusline=
-set statusline+=%#warningsmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = "✗"
-
-" CSS
-let g:ycm_semantic_triggers = { 'css': [ 're!^', 're!^\s+', ': ' ] }
 
 " Close vim if NERDTree is the only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

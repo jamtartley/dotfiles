@@ -3,7 +3,7 @@ export DEV=$HOME/dev
 export EDITOR=vim
 export GITHUB=https://github.com/jamtartley
 export ZSH=$HOME/.oh-my-zsh
-export PATH=/usr/local/lib:$PATH
+export PATH=/usr/local/lib:/opt/piavpn/bin:$PATH
 
 DISABLE_AUTO_UPDATE="false"
 ZSH_THEME="bira"

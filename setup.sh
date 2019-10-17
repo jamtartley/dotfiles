@@ -38,6 +38,7 @@ sudo dnf install -y steam nvidia-driver akmod-nvidia
 
 sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install spotify discord
+sudo snap install slack --classic
 
 sudo hostnamectl set-hostname jamtartley
 

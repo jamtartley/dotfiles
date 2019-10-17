@@ -21,6 +21,7 @@ i3-ipc
 i3lock
 ImageMagick
 jsoncpp-devel
+keepassxc
 libcurl-devel
 libmpdclient-devel
 libnl3-devel
@@ -50,6 +51,7 @@ thunar
 util-linux-user
 vifm
 vim
+weechat
 wireless-tools-devel
 xcb-proto
 xcb-util-cursor-devel
@@ -57,5 +59,7 @@ xcb-util-devel
 xcb-util-image-devel
 xcb-util-wm-devel
 xcb-util-xrm-devel
+xclip
+xdg-utils
 xterm
 zsh
