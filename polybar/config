@@ -17,20 +17,16 @@ monitor-strict = false
 override-redirect = false
 bottom = false
 fixed-center = true
-height = 50
-background = ${colors.background}
+height = 60
 foreground = ${colors.background}
 line-size = 2
 module-margin = 0
 
-font-0 = M+ 1mn:style=regular:size=15;2
-font-1 = mplus Nerd Font:style=regular:size=14;2
-font-2 = mplus Nerd Font:style=regular:size=30;6
-font-3 = mplus Nerd Font:style=regular:size=30;6
+font-0 = M+ 1mn:style=regular:size=18;4
 
-modules-left = title left1
+modules-left = spotify title 
 modules-center = bspwm
-modules-right = right1 pulseaudio-control right2 time
+modules-right = pulseaudio-control time
 
 wm-name = bspwm
 dpi-x = 96
@@ -40,34 +36,31 @@ scroll-down = bspwm-deskprev
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[module/left1]
-type = custom/text
-content = "%{T3}%{T-}"
-content-foreground = ${colors.green}
+[module/spotify]
+type = custom/script
+exec = python ~/.config/polybar/scripts/spotify-status.py -f '{artist} - {song}'
+interval = 
 
-[module/right1]
-type = custom/text
-content = "%{T4}%{T-}"
-content-foreground = ${colors.purple}
-content-background = ${root.background}
+format = <label>
+format-background = ${colors.purple}
+format-padding = 4
+format-prefix = " "
 
-[module/right2]
-type = custom/text
-content = "%{T4}%{T-}"
-content-foreground = ${colors.pink}
-content-background = ${colors.purple}
+label-foreground = ${root.foreground}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/title]
 type = internal/xwindow
+
 format = <label>
 format-background = ${colors.green}
 format-foreground = ${root.foreground}
-format-padding = 8
+format-padding = 4
+
 label-font = 1
 label = %title%
-label-maxlen = 80
+label-maxlen = 50
 label-empty = This page is left intentionally blank
 label-empty-foreground = ${root.foreground}
 
@@ -98,18 +91,22 @@ label-empty-padding = 1
 
 [module/pulseaudio-control]
 type = custom/script
-tail = true
-label=%output%
-format-background = ${colors.purple}
-
 exec = ~/.config/polybar/scripts/pulseaudio-control.sh --listen
+tail = true
+
+label=%output%
+label-padding = 2
+label-foreground = ${colors.foreground}
+
+format-background = ${colors.purple}
+format-padding = 4
+
 click-right = exec pavucontrol &
 click-left = ~/.config/polybar/scripts/pulseaudio-control.sh --togmute
 click-middle = ~/.config/polybar/scripts/pulseaudio-control.sh --change
+
 scroll-up = ~/.config/polybar/scripts/pulseaudio-control.sh --up
 scroll-down = ~/.config/polybar/scripts/pulseaudio-control.sh --down
-label-padding = 2
-label-foreground = ${colors.foreground}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -117,9 +114,11 @@ label-foreground = ${colors.foreground}
 type = internal/date
 interval = 1.0
 time = %l:%M %p
-format =  <label>
+
+format = <label>
 format-background = ${colors.pink}
-format-padding = 2
+format-padding = 4
+
 label = %time%
 label-font = 1
 label-foreground = ${root.foreground}
