@@ -45,6 +45,7 @@ rpm-fusion-nonfree-nvidia-driver
 scrot
 snapd
 sxhkd
+systemd-devel
 thunar
 util-linux-user
 vifm
