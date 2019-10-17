@@ -9,7 +9,6 @@ cairo-devel
 cmake
 cmake
 @development-tools
-dunst
 fedora-workstation-repositories
 ffmpeg
 firefox
@@ -31,11 +30,14 @@ make
 mutt
 nodejs
 pavucontrol
+playerctl
+psmisc
 pulseaudio
 pulseaudio
 pulseaudio-libs-devel
 pulseaudio-utils
 python
+python-dbus
 python3-devel
 qutebrowser
 redshift
