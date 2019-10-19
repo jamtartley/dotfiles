@@ -2,6 +2,17 @@
 
 set -e
 
+ln -sf $(pwd)/.ignore $HOME
+ln -sf $(pwd)/.zprofile $HOME
+
+find . -type f -name 'install.sh' -exec sh -c '
+for f do
+    chmod +x $f
+    sh -c $f
+done' sh {} +
+
+exit 0
+
 sym_file() {
     if [ -e "$2" ];
     then
@@ -31,15 +42,12 @@ git config --global credential.helper cache
 
 sudo dnf install -y `cat $(pwd)/packages`
 
-sudo ln -s /var/lib/snapd/snap /snap
-sudo snap install spotify discord
-sudo snap install slack --classic
+sudo ln -sf /var/lib/snapd/snap /snap
 
 sudo hostnamectl set-hostname jamtartley
 
 sudo usermod -aG pulse,pulse-access sam
-pip3 install --user taggregator
-sudo pip install hidapi rivalcfg
+pip3 install --user taggregator hidapi rivalcfg
 
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
