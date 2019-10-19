@@ -2,17 +2,6 @@
 
 set -e
 
-ln -sf $(pwd)/.ignore $HOME
-ln -sf $(pwd)/.zprofile $HOME
-
-find . -type f -name 'install.sh' -exec sh -c '
-for f do
-    chmod +x $f
-    sh -c $f
-done' sh {} +
-
-exit 0
-
 sym_file() {
     if [ -e "$2" ];
     then

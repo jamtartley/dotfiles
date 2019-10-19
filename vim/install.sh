@@ -6,4 +6,4 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 ln -sf $dir/.vimrc $HOME/.vimrc
 
-vim -u NONE +'PlugClean' +'PlugInstall --sync' +'PlugUpdate' +qa
+vim +'PlugClean' +'PlugInstall --sync' +'PlugUpdate' +qa
