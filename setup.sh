@@ -36,7 +36,8 @@ sudo ln -sf /var/lib/snapd/snap /snap
 sudo hostnamectl set-hostname jamtartley
 
 sudo usermod -aG pulse,pulse-access sam
-pip3 install --user taggregator hidapi rivalcfg
+pip3 install --user taggregator
+sudo pip install hidapi rivalcfg
 
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME

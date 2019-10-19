@@ -32,11 +32,11 @@ pavucontrol
 playerctl
 psmisc
 pulseaudio
-pulseaudio
 pulseaudio-libs-devel
 pulseaudio-utils
 python
 python-dbus
+python-devel
 python3-devel
 qutebrowser
 redshift
