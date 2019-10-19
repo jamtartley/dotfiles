@@ -29,12 +29,14 @@ git config --global user.name "$git_author"
 git config --global user.email "$git_email"
 git config --global credential.helper cache
 
-packages=`cat $(pwd)/packages`
-sudo dnf install -y $packages
-
+sudo dnf install -y fedora-workstation-repositories
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf config-manager -y --set-enabled rpmfusion-nonfree-nvidia-driver
 sudo dnf config-manager -y --set-enabled rpmfusion-nonfree-steam
 sudo dnf install -y steam nvidia-driver akmod-nvidia
+
+sudo dnf install -y `cat $(pwd)/packages`
 
 sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install spotify discord

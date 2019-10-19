@@ -1,4 +1,3 @@
-4-notifyd
 alsa-lib-devel
 alsa-utils
 autoconf
@@ -9,14 +8,11 @@ cairo-devel
 cmake
 cmake
 @development-tools
-fedora-workstation-repositories
 ffmpeg
 firefox
 gcc-c++
 gcc-c++
 htop
-https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 i3-ipc
 i3lock
 ImageMagick
@@ -42,7 +38,6 @@ python-dbus
 python3-devel
 qutebrowser
 redshift
-rpm-fusion-nonfree-nvidia-driver
 scrot
 snapd
 sxhkd
