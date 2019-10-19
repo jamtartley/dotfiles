@@ -22,6 +22,8 @@ libcurl-devel
 libmpdclient-devel
 libnl3-devel
 libnotify
+libusb
+libusb-devel
 lxappearance
 make
 mutt
