@@ -51,15 +51,25 @@ const data = [
     }
 ];
 
+const colours = [
+    "#FF6E67",
+    "#5AF78E",
+    "#F4F99D",
+    "#CAA9FA",
+    "#FF92D0",
+    "#9AEDFE"
+].sort((a, b) => { return Math.random() > 0.5 ? 1 : -1; });
+
 let root = document.getElementById("sections");
 
 sortAlphabeticallyByProperty(data, "header");
 
-for (let section of data) {
+data.forEach((section, idx) => {
     let sectionRoot = document.createElement("div");
     sectionRoot.classList.add("section");
+    sectionRoot.style.borderLeft = "8px solid " + getColourForIndex(idx);
 
-    sectionRoot.appendChild(getTitleElement(section.header));
+    sectionRoot.appendChild(getTitleElement(section.header, idx));
 
     let linkContainer = document.createElement("div");
     linkContainer.classList.add("links");
@@ -72,12 +82,13 @@ for (let section of data) {
 
     sectionRoot.appendChild(linkContainer);
     root.appendChild(sectionRoot);
-}
+});
 
-function getTitleElement(title) {
+function getTitleElement(title, i) {
     let elem = document.createElement("span");
     elem.classList.add("header");
     elem.innerText = "[" + title + "]";
+    elem.style.color = getColourForIndex(i);
 
     return elem;
 }
@@ -86,13 +97,17 @@ function getLinkElement(link) {
     var anchor = document.createElement("a");
     anchor.setAttribute("href", link.address);
     anchor.classList.add("link");
-    anchor.innerText = link.text.replace(" ", "_");
+    anchor.innerText = link.text.replace(/ /g, "_");
 
     return anchor;
 }
 
 function sortAlphabeticallyByProperty(list, property) {
-    list.sort(function(a, b) {
+    list.sort((a, b) => {
         return a[property].localeCompare(b[property]);
     });
+}
+
+function getColourForIndex(i) {
+    return colours[i % colours.length];
 }
