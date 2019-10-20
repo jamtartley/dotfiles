@@ -27,10 +27,10 @@ const data = [
         ]
     },
     {
-        "header": "programming",
+        "header": "dev",
         "links": [
-            { "text": "apple dev console", "address": "https://itunesconnect.apple.com" },
-            { "text": "google dev console", "address": "https://play.google.com/apps/publish" },
+            { "text": "apple", "address": "https://itunesconnect.apple.com" },
+            { "text": "google", "address": "https://play.google.com/apps/publish" },
             { "text": "github", "address": "https://github.com/jamtartley" },
             { "text": "aws", "address": "https://aws.amazon.com" }
         ]
@@ -67,7 +67,9 @@ sortAlphabeticallyByProperty(data, "header");
 data.forEach((section, idx) => {
     let sectionRoot = document.createElement("div");
     sectionRoot.classList.add("section");
+    sectionRoot.classList.add("animate-slide-in");
     sectionRoot.style.borderLeft = "8px solid " + getColourForIndex(idx);
+    sectionRoot.style.setProperty("--animation-time", 0.1 + (0.05 * idx) + "s");
 
     sectionRoot.appendChild(getTitleElement(section.header, idx));
 

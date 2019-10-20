@@ -36,7 +36,6 @@ h1 {
     flex: 1 1 50%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     background: #343747;
     margin: 16px 64px;
@@ -57,11 +56,28 @@ h1 {
     display: inline-block;
     margin: 12px;
     font-size: 1.2em;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+    transition: all 0.1s ease;
 }
 
 .link:hover {
-    -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
+
+.animate-slide-in {
+    position: relative;
+    left: -150px;
+    opacity: 0;
+    animation: slide-in 0.5s forwards;
+    animation-delay: var(--animation-time);
+}
+
+:delay-time {
+    --animation-time: 2s;
+}
+
+@keyframes slide-in {
+    100% {
+        opacity: 1;
+        left: 0;
+    }
 }
