@@ -41,6 +41,16 @@ const data = [
         ]
     },
     {
+        "header": "projects",
+        "links": [
+            { "text": "minions", "address": "https://minions.jamtartley.com" },
+            { "text": "jamtartley.com", "address": "https://jamtartley.com" },
+            { "text": "maze", "address": "https://path.jamtartley.com" },
+            { "text": "color crunch", "address": "https://jamtartley.com/color-crunch" },
+            { "text": "cv", "address": "https://cv-sam-hartley.s3.eu-west-2.amazonaws.com/cv.pdf" },
+        ]
+    },
+    {
         "header": "sport",
         "links": [
             { "text": "bbc football", "address": "https://www.bbc.com/sport/football" },
