@@ -11,7 +11,7 @@
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.vertical": "hidden",
     "editor.overviewRulerBorder": false,
-    "editor.lineNumbers": "relative",
+    "editor.lineNumbers": "on",
 
     "breadcrumbs.enabled": false,
 

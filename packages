@@ -12,6 +12,7 @@ ffmpeg
 firefox
 gcc-c++
 gcc-c++
+GConf2
 htop
 i3-ipc
 i3lock
@@ -26,6 +27,8 @@ libusb
 libusb-devel
 lxappearance
 make
+mesa-libGLU
+mpv
 mutt
 nodejs
 pavucontrol
@@ -40,6 +43,7 @@ python-devel
 python3-devel
 qutebrowser
 redshift
+ripgrep
 scrot
 snapd
 sxhkd
@@ -59,4 +63,5 @@ xcb-util-xrm-devel
 xclip
 xdg-utils
 xterm
+youtube-dl
 zsh

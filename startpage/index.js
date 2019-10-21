@@ -24,6 +24,10 @@ const data = [
             { "text": "linux", "address": "https://reddit.com/r/linux" },
             { "text": "programming", "address": "https://reddit.com/r/programming" },
             { "text": "gamedev", "address": "https://reddit.com/r/gamedev" },
+            { "text": "fedora", "address": "https://reddit.com/r/fedora" },
+            { "text": "unity2d", "address": "https://reddit.com/r/unity2d" },
+            { "text": "unity3d", "address": "https://reddit.com/r/unity3d" },
+            { "text": "mk", "address": "https://reddit.com/r/mechanicalkeyboards" },
         ]
     },
     {
@@ -32,14 +36,18 @@ const data = [
             { "text": "apple", "address": "https://itunesconnect.apple.com" },
             { "text": "google", "address": "https://play.google.com/apps/publish" },
             { "text": "github", "address": "https://github.com/jamtartley" },
+            { "text": "gitlab", "address": "https://gitlab.com/jamtartley" },
             { "text": "aws", "address": "https://aws.amazon.com" }
         ]
     },
     {
         "header": "sport",
         "links": [
-            { "text": "football", "address": "https://www.bbc.com/sport/football" },
-            { "text": "pj_buckingham", "address": "https://twitter.com/PJBuckingham" }
+            { "text": "bbc football", "address": "https://www.bbc.com/sport/football" },
+            { "text": "pj buckingham", "address": "https://twitter.com/PJBuckingham" },
+            { "text": "bbc snooker", "address": "https://www.bbc.com/sport/snooker" },
+            { "text": "world snooker", "address": "http://www.worldsnooker.com" },
+            { "text": "live snooker scores", "address": "http://livescores.worldsnookerdata.com" }
         ]
     },
     {

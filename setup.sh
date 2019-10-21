@@ -27,7 +27,7 @@ read -r -p "git author: " git_author
 read -p "git email: " git_email
 git config --global user.name "$git_author"
 git config --global user.email "$git_email"
-git config --global credential.helper cache
+git config --global credential.helper store
 
 sudo dnf install -y `cat $(pwd)/packages`
 
