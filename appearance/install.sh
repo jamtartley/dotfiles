@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y feh compton rofi tar wget
+sudo pacman -S --noconfirm lxappearance feh compton rofi tar wget thunar
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 

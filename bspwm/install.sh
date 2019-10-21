@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo pacman -S --noconfirm bspwm
+
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 BSPWM=$HOME/.config/bspwm

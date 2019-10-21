@@ -2,48 +2,36 @@
 
 set -e
 
-sym_file() {
-    if [ -e "$2" ];
-    then
-        if [ "$(readlink "$2")" = "$1" ];
-        then
-            return 0
-        fi
-    fi
-
-    ln -sf "$1" "$2"
-}
-
-if [[ $(uname -s) != *"Linux"* ]];
-then
-    if [[ $(lsb_release -is) != *"Fedora"* ]];
-    then
-        echo "Only supporting Fedora at the minute..."
-        exit 0
-    fi
-fi
-
 read -r -p "git author: " git_author
 read -p "git email: " git_email
 git config --global user.name "$git_author"
 git config --global user.email "$git_email"
-git config --global credential.helper store
+git config --global credential.helper 'cache --timeout=999999'
 
-sudo dnf install -y `cat $(pwd)/packages`
-
-sudo ln -sf /var/lib/snapd/snap /snap
-
-sudo hostnamectl set-hostname jamtartley
-
+sudo groupadd pulse
+sudo groupadd pulse-access
 sudo usermod -aG pulse,pulse-access sam
+sudo pacman -S --noconfirm python python2 python-pip python2-pip python-dbus
+
+pushd $HOME
+git clone https://aur.archlinux.org/yay.git
+pushd yay
+makepkg -si --noconfirm
+popd
+popd
+
 pip3 install --user taggregator
 sudo pip install hidapi rivalcfg
 
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
 
+sudo pacman -S --noconfirm xterm pulseaudio neofetch playerctl keepassxc nodejs npm i3lock scrot imagemagick thunar firefox pavucontrol
+
 find . -type f -name 'install.sh' -exec sh -c '
 for f do
     chmod +x $f
     sh -c $f
 done' sh {} +
+
+chsh -s $(which zsh)

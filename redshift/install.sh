@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo pacman -S --noconfirm redshift
+
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 REDSHIFT=$HOME/.config/redshift

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo pacman -S --noconfirm sxhkd
+
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 SXHKD=$HOME/.config/sxhkd
