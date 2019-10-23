@@ -35,16 +35,16 @@ XF86AudioRaiseVolume
     pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 XF86AudioPrev
-    playerctl previous
+    mpc previous
 
 XF86AudioNext
-    playerctl next
+    mpc next
 
 XF86AudioPlay
-    playerctl play-pause
+    mpc toggle
 
 XF86AudioPause
-    playerctl play-pause
+    mpc toggle
 
 #
 # bspwm hotkeys

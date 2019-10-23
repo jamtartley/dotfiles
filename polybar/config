@@ -1,13 +1,12 @@
 [colors]
-background = #282a36
-foreground = #f8f8f2
-cyan = #8be9fd
-green = #50fa7b
-orange = #ffb86c
-pink = #ff79c6
-purple = #bd93f9
-red = #ff5555
-yellow = #f1fa8c
+foreground = ${xrdb:*.foreground}
+background = ${xrdb:*.background}
+green = ${xrdb:*.color2}
+pink = ${xrdb:*.color5}
+purple = ${xrdb:*.color4}
+blue = ${xrdb:*.color6}
+yellow = ${xrdb:*.color3}
+red = ${xrdb:*.color1}
 
 [bar/main]
 monitor = ${env:MONITOR}
@@ -25,7 +24,7 @@ module-margin = 0
 font-0 = M+ 1mn:style=regular:size=18;4
 font-1 = M+ 1mn:style=regular:size=32;4
 
-modules-left = spotify title
+modules-left = mpd title
 modules-center = bspwm
 modules-right = pulseaudio-control time
 
@@ -37,18 +36,21 @@ scroll-down = bspwm-deskprev
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[module/spotify]
-type = custom/script
-exec = python ~/.config/polybar/scripts/spotify-status.py -f '{artist} - {song}'
-interval =
+[module/mpd]
+type = internal/mpd
+interval = 1
 
-format = <label>
-format-background = ${colors.purple}
-format-padding = 4
-format-prefix = " "
+format-online = <label-song>
+format-online-background = ${colors.red}
+format-online-foreground = ${root.foreground}
+format-online-padding = 4
+format-online-font = 0
 
+label-offline = mpd is offline
+label-song-maxlen = 30
+label-song-ellipsis = true
+label-background = ${colors.yellow}
 label-foreground = ${root.foreground}
-label-maxlen = 30
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -56,7 +58,7 @@ label-maxlen = 30
 type = internal/xwindow
 
 format = <label>
-format-background = ${colors.green}
+format-background = ${colors.yellow}
 format-foreground = ${root.foreground}
 format-padding = 4
 
@@ -100,7 +102,7 @@ label=%output%
 label-padding = 2
 label-foreground = ${colors.foreground}
 
-format-background = ${colors.purple}
+format-background = ${colors.blue}
 format-padding = 4
 
 click-left = ~/.config/polybar/scripts/pulseaudio-control.sh --togmute

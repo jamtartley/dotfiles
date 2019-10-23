@@ -17,6 +17,7 @@ alias cv='clear;vim'
 alias v='vim'
 alias l="ls -alhG"
 alias ls="ls -alhG"
+alias mkd="mkdir -pv"
 
 alias ag="ag --path-to-ignore ~/.ignore"
 
