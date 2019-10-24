@@ -8,6 +8,14 @@ export PATH=/usr/local/lib:/.local/lib/python3.7/site-packages:/opt/piavpn/bin:$
 DISABLE_AUTO_UPDATE="false"
 ZSH_THEME="bira"
 
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh

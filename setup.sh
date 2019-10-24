@@ -26,7 +26,8 @@ sudo pip install hidapi rivalcfg
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
 
-sudo pacman -S --noconfirm xterm pulseaudio neofetch playerctl keepassxc nodejs npm i3lock scrot imagemagick thunar firefox pavucontrol ncmpcpp ripgrep man mpc
+sudo pacman -S --noconfirm xterm pulseaudio neofetch playerctl keepassxc nodejs npm i3lock scrot imagemagick thunar firefox pavucontrol ncmpcpp ripgrep man mpc mpv youtube-dl git-lts lib32-glu htop
+yay -S unityhub
 
 find . -type f -name 'install.sh' -exec sh -c '
 for f do
