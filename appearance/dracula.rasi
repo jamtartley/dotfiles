@@ -144,8 +144,9 @@ listview {
 
 element {
     border:                      0px;
-    padding:                     0.3em;
+    padding:                     1em;
     border-color:                @normal-background;
+    font:                        "Inconsolata 20";
 }
 
 element.normal.normal {
@@ -207,7 +208,7 @@ scrollbar {
 }
 
 inputbar {
-    spacing:                     0;
+    spacing:                     15px;
     text-color:                  @foreground;
     padding:                     8px;
     children:                    [prompt, textbox-prompt-sep, entry,
@@ -215,7 +216,7 @@ inputbar {
 }
 
 prompt, entry {
-    font:                        "Exo2 48";
+    font:                        "Inconsolata 64";
     spacing:                     0;
     text-color:                  @foreground;
 }
