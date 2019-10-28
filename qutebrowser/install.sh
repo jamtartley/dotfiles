@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm qutebrowser
+sudo pacman -S --noconfirm --needed qutebrowser
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 

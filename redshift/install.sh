@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm redshift
+sudo pacman -S --noconfirm --needed redshift
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 

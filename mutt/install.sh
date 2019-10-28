@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm mutt
+sudo pacman -S --noconfirm --needed mutt
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 

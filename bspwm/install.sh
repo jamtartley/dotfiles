@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm bspwm
+sudo pacman -S --noconfirm --needed bspwm
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 

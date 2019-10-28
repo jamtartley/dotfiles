@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm ncmpcpp
+sudo pacman -S --noconfirm --needed ncmpcpp
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 

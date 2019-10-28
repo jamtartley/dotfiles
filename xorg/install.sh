@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm xorg-server xorg-xinit xorg-xrandr
+sudo pacman -S --noconfirm --needed xorg-server xorg-xinit xorg-xrandr
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 ln -sf $dir/.Xresources $HOME

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm zsh curl
+sudo pacman -S --noconfirm --needed zsh curl
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 

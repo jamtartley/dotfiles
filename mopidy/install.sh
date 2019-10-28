@@ -1,7 +1,7 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm mopidy
-yay -S --noconfirm mopidy-spotify mopidy-spotify-tunigo
+sudo pacman -S --noconfirm --needed mopidy
+yay -S --noconfirm --needed mopidy-spotify mopidy-spotify-tunigo
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 

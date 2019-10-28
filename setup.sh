@@ -11,12 +11,12 @@ git config --global credential.helper 'cache --timeout=999999'
 sudo groupadd pulse
 sudo groupadd pulse-access
 sudo usermod -aG pulse,pulse-access sam
-sudo pacman -S --noconfirm python python2 python-pip python2-pip python-dbus
+sudo pacman -S --noconfirm --needed python python2 python-pip python2-pip python-dbus
 
 pushd $HOME
 git clone https://aur.archlinux.org/yay.git
 pushd yay
-makepkg -si --noconfirm
+makepkg -si --noconfirm --needed
 popd
 popd
 
@@ -26,8 +26,8 @@ sudo pip install hidapi rivalcfg
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
 
-sudo pacman -S --noconfirm xterm pulseaudio neofetch playerctl keepassxc nodejs npm i3lock scrot imagemagick thunar firefox pavucontrol ncmpcpp ripgrep man mpc mpv youtube-dl git-lts lib32-glu htop
-yay -S unityhub
+sudo pacman -S --noconfirm --needed xterm pulseaudio neofetch playerctl keepassxc nodejs npm i3lock scrot imagemagick thunar firefox pavucontrol ncmpcpp ripgrep man mpc mpv youtube-dl git-lts lib32-glu htop nvidia-settings
+yay -S --noconfirm --needed unityhub
 
 find . -type f -name 'install.sh' -exec sh -c '
 for f do

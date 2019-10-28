@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm sxhkd
+sudo pacman -S --noconfirm --needed sxhkd
 
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
