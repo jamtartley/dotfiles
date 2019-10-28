@@ -46,6 +46,12 @@ XF86AudioPlay
 XF86AudioPause
     mpc toggle
 
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
 #
 # bspwm hotkeys
 #

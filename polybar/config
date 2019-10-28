@@ -34,6 +34,8 @@ dpi-y = 96
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
+tray-position = left
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/mpd]
