@@ -90,7 +90,7 @@ nnoremap <silent> vs <C-w>s
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> v= <C-w>=
 
-nnoremap <leader>C :!shellcheck %<CR>
+nnoremap <leader>C :!clear;shellcheck %<CR>
 nnoremap <leader>g :!git diff %<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
 nnoremap <leader>t :!clear;tagg<CR>

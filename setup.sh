@@ -2,11 +2,23 @@
 
 set -e
 
-read -r -p "git author: " git_author
-read -p "git email: " git_email
-git config --global user.name "$git_author"
-git config --global user.email "$git_email"
-git config --global credential.helper 'cache --timeout=999999'
+set_git_user_opt() {
+    key="$1"
+    prompt="$2"
+
+    if ! [[ $(git config --global "$key") ]];
+    then
+        read -p "$prompt: " val
+        git config --global $key "$val"
+    fi
+}
+
+set_git_user_opt "user.name" "git author"
+set_git_user_opt "user.email" "git email"
+
+[ -n "$(git config --global credential.helper)" ] && git config --global credential.helper 'cache --timeout=999999'
+
+exit 0
 
 sudo groupadd -f pulse
 sudo groupadd -f pulse-access

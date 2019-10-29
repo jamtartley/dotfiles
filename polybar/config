@@ -82,11 +82,11 @@ label-focused-underline= ${colors.green}
 label-focused-padding = 1
 
 label-occupied = %name%
-label-occupied-foreground = ${colors.purple}
+label-occupied-foreground = ${colors.pink}
 label-occupied-padding = 1
 
 label-urgent = %name%
-label-urgent-background = ${colors.pink}
+label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 
 label-empty = %name%
@@ -97,7 +97,7 @@ label-empty-padding = 1
 
 [module/pulseaudio-control]
 type = custom/script
-exec = ~/.config/polybar/scripts/pulseaudio-control.sh --listen
+exec = $HOME/.config/polybar/scripts/pulseaudio-control.sh --listen
 tail = true
 
 label=%output%
@@ -107,24 +107,26 @@ label-foreground = ${colors.foreground}
 format-background = ${colors.blue}
 format-padding = 4
 
-click-left = ~/.config/polybar/scripts/pulseaudio-control.sh --togmute
-click-right = ~/.config/polybar/scripts/pulseaudio-control.sh --change
+click-left = $HOME/.config/polybar/scripts/pulseaudio-control.sh --togmute
+click-right = $HOME/.config/polybar/scripts/pulseaudio-control.sh --change
 click-middle = exec pavucontrol &
 
-scroll-up = ~/.config/polybar/scripts/pulseaudio-control.sh --up
-scroll-down = ~/.config/polybar/scripts/pulseaudio-control.sh --down
+scroll-up = $HOME/.config/polybar/scripts/pulseaudio-control.sh --up
+scroll-down = $HOME/.config/polybar/scripts/pulseaudio-control.sh --down
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/time]
 type = internal/date
 interval = 1.0
-time = %l:%M %p
+
+date = %d/%m
+time = %H:%M
 
 format = <label>
-format-background = ${colors.pink}
+format-background = ${colors.purple}
 format-padding = 4
 
-label = %time%
+label = %time% %date%
 label-font = 1
 label-foreground = ${root.foreground}
