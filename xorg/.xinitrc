@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
+export PATH=$HOME/.scripts:$HOME/.local/bin:/usr/local/lib:/.local/lib/python3.7/site-packages:/opt/piavpn/bin:$PATH
+
 xrdb -load ~/.Xresources
 setxkbmap -option caps:escape
+pulseaudio -k
+pulseaudio -D
 
 for i in $(xinput list --id-only);
 do

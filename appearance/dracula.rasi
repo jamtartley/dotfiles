@@ -216,7 +216,7 @@ inputbar {
 }
 
 prompt, entry {
-    font:                        "Inconsolata 64";
+    font:                        "Inconsolata 48";
     spacing:                     0;
     text-color:                  @foreground;
 }

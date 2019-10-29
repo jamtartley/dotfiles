@@ -4,7 +4,7 @@ sxhkd &
 pulseaudio -D &
 mopidy &
 $HOME/.config/polybar/launch.sh &
-feh --bg-scale $HOME/wallpaper.jpg &
+feh --randomize --bg-fill $HOME/Pictures/Wallpapers/* &
 compton -f -I 0.1 -O 0.07 &
 pidof redshift || redshift -c $HOME/.config/redshift/redshift.conf &
 killall -9 dunst && dunst &

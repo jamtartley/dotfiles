@@ -4,7 +4,7 @@ alt + Return
 
 # program launcher
 alt + d
-    rofi -show run -theme dracula -lines 10
+    rofi -show run -theme dracula -lines 5
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -18,6 +18,9 @@ alt + shift + g
 
 alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
+
+alt + p
+    rofi_projects
 
 alt + s
     redshift -c $HOME/.config/redshift/redshift.conf
@@ -56,11 +59,9 @@ XF86MonBrightnessDown
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
 alt + shift + {q,r}
     bspc {quit,wm -r}
 
-# close and kill
 alt + q
     bspc node -c
 

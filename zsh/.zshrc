@@ -3,7 +3,6 @@ export DEV=$HOME/dev
 export EDITOR=vim
 export GITHUB=https://github.com/jamtartley
 export ZSH=$HOME/.oh-my-zsh
-export PATH=/usr/local/lib:/.local/lib/python3.7/site-packages:/opt/piavpn/bin:$PATH
 
 DISABLE_AUTO_UPDATE="false"
 ZSH_THEME="bira"
@@ -24,7 +23,6 @@ alias c='clear'
 alias cv='clear;vim'
 alias v='vim'
 alias l="ls -alhG"
-alias ls="ls -alhG"
 alias mkd="mkdir -pv"
 
 alias ag="ag --path-to-ignore ~/.ignore"

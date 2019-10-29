@@ -24,7 +24,10 @@ wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-
 sudo mkdir -p /usr/share/rofi/themes
 sudo ln -sf $dir/dracula.rasi /usr/share/rofi/themes
 
+wallpaper_dir="$HOME/Pictures/Wallpapers"
+mkdir -p $wallpaper_dir
+ln -sf $dir/wallpapers $wallpaper_dir
+
 cp $dir/.gtkrc-2.0 $HOME
 ln -sf $dir/.gtkrc-2.0 $HOME
 ln -sf $dir/.gtkrc-2.0.mine $HOME
-ln -sf $dir/wallpaper.jpg $HOME
