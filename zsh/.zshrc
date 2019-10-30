@@ -1,5 +1,5 @@
-export DOTFILES=$HOME/.dotfiles
 export DEV=$HOME/dev
+export DOTFILES=$DEV/.dotfiles
 export EDITOR=vim
 export GITHUB=https://github.com/jamtartley
 export ZSH=$HOME/.oh-my-zsh

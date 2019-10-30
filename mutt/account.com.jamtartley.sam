@@ -13,4 +13,4 @@ set move = no
 set imap_keepalive = 900
 
 # encrypted IMAP/SMTP passwords
-source "gpg -d ~/.mutt/password.gpg |" 
+source "gpg -d ~/config/mutt/password.gpg |" 

@@ -4,8 +4,6 @@ export PATH=$HOME/.scripts:$HOME/.local/bin:/usr/local/lib:/.local/lib/python3.7
 
 xrdb -load ~/.Xresources
 setxkbmap -option caps:escape
-pulseaudio -k
-pulseaudio -D
 
 for i in $(xinput list --id-only);
 do

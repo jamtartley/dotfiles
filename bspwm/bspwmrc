@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 sxhkd &
-pulseaudio -D &
 mopidy &
 $HOME/.config/polybar/launch.sh &
 feh --randomize --bg-fill $HOME/Pictures/Wallpapers/* &

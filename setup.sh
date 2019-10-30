@@ -18,8 +18,6 @@ set_git_user_opt "user.email" "git email"
 
 [ -n "$(git config --global credential.helper)" ] && git config --global credential.helper 'cache --timeout=999999'
 
-exit 0
-
 sudo groupadd -f pulse
 sudo groupadd -f pulse-access
 sudo usermod -aG pulse,pulse-access sam
@@ -39,7 +37,7 @@ sudo pip install hidapi rivalcfg
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
 
-sudo pacman -S --noconfirm --needed xterm pulseaudio pulseaudio-alsa neofetch playerctl keepassxc nodejs npm i3lock scrot imagemagick thunar firefox pavucontrol ncmpcpp ripgrep man mpc mpv youtube-dl git-lfs lib32-glu htop nvidia-settings xclip network-manager-applet shellcheck dunst
+sudo pacman -S --noconfirm --needed xterm pulseaudio pulseaudio-alsa neofetch playerctl keepassxc nodejs npm i3lock scrot imagemagick thunar firefox pavucontrol ncmpcpp ripgrep man mpc mpv youtube-dl git-lfs lib32-glu htop nvidia-settings xclip network-manager-applet shellcheck weechat
 yay -S --noconfirm --needed unityhub
 
 find . -type f -name 'install.sh' -exec sh -c '

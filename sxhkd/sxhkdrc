@@ -59,11 +59,14 @@ XF86MonBrightnessDown
 # bspwm hotkeys
 #
 
-alt + shift + {q,r}
-    bspc {quit,wm -r}
+alt + shift + r
+    bspc wm -r
 
 alt + q
     bspc node -c
+
+alt + shift + q
+    confirm "Logout?" "bspc quit"
 
 #
 # state/flags
