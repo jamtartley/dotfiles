@@ -44,6 +44,7 @@ set splitbelow
 set timeoutlen=1000 ttimeoutlen=0
 set wildmenu
 set wildmode=longest:full,full
+set wildignore+=*/.git/*,*/tmp/*,*.swp
 
 let mapleader=","
 
@@ -59,10 +60,11 @@ syntax on
 set termguicolors
 colorscheme dracula
 
-if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --path-to-ignore ~/.ignore --nocolor -g ""'
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 endif
-let g:ctrlp_cache_dir = $HOME . './cache/ctrlp'
+let g:ctrlp_show_hidden = 1
 
 " Close vim if NERDTree is the only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
