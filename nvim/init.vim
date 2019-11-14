@@ -15,11 +15,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" Cygwin compatibility
-set t_Co=8
-set t_Sb=m
-set t_Sf=m
-
 set clipboard+=unnamed,unnamedplus
 set completeopt=longest,menuone,preview,noinsert
 set cursorline
@@ -44,10 +39,6 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
 
-if has("win32unix")
-    set term=xterm-256
-endif
-
 syntax on
 set termguicolors
 colorscheme dracula
@@ -65,6 +56,9 @@ let g:ctrlp_show_hidden = 1
 " Deoplete
 " ===================
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('omni_patterns', {
+    \ 'cs': '\w\.',
+\})
 inoremap <expr><tab> pumvisible() ? "\<CR>" : "\<tab>"
 
 " ===================
@@ -85,7 +79,7 @@ augroup omnisharp_commands
     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
     autocmd FileType cs nnoremap <buffer> <leader>g :OmniSharpGotoDefinition<CR>
     autocmd FileType cs nnoremap <buffer> <leader>f :OmniSharpCodeFormat<CR>
-    autocmd FileType cs nnoremap <buffer> <C-r> :OmniSharpRename<CR>
+    autocmd FileType cs nnoremap <buffer> <leader>r :OmniSharpRename<CR>
 augroup END
 
 " ===================
