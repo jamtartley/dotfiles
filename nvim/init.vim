@@ -27,24 +27,22 @@ set t_Co=8
 set t_Sb=m
 set t_Sf=m
 
+set clipboard+=unnamed,unnamedplus
 set completeopt-=preview
-set nocp
-set number
-set backspace=indent,eol,start
+set cursorline
+set ignorecase
 set list
 set nobackup
+set nocp
 set noswapfile
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-set ignorecase
+set number
+set showmatch
 set smartcase
-set showmatch incsearch hlsearch
-set laststatus=2
-set cursorline
 set splitbelow
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set timeoutlen=1000 ttimeoutlen=0
-set wildmenu
-set wildmode=longest:full,full
 set wildignore+=*/.git/*,*/tmp/*,*.swp
+set wildmode=longest:full,full
 
 let mapleader=","
 
@@ -62,7 +60,7 @@ colorscheme dracula
 
 if executable('rg')
   set grepprg=rg\ --color=never
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_user_command = 'rg %s --files --color=never -g "!*.meta" -g "!*.prefab" -g "!*.asset"'
 endif
 let g:ctrlp_show_hidden = 1
 
@@ -92,10 +90,15 @@ nnoremap <silent> vs <C-w>s
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> v= <C-w>=
 
+map <C-t> :split \| resize 15 \| terminal<CR>
+
 nnoremap <leader>C :!clear;shellcheck %<CR>
 nnoremap <leader>g :!git diff %<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
 nnoremap <leader>t :!clear;tagg<CR>
+
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-9> :q!<CR>
 
 vnoremap < <gv
 vnoremap > >gv

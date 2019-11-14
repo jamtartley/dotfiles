@@ -792,7 +792,7 @@ c.content.private_browsing = True
 ##   - true
 ##   - false
 ##   - ask
-# c.content.ssl_strict = 'ask'
+c.content.ssl_strict = False
 
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File

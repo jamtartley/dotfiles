@@ -1,9 +1,11 @@
 export BROWSER=qutebrowser
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
-export EDITOR=vim
+export EDITOR=nvim
 export GITHUB=https://github.com/jamtartley
 export TERM=xterm-256color
+export VISUAL=nvim
+export XDG_CONFIG_HOME=$HOME/.config
 export ZSH=$HOME/.oh-my-zsh
 
 DISABLE_AUTO_UPDATE="false"
