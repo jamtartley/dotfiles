@@ -1,8 +1,35 @@
+# See for full action names:
+# https://gist.github.com/ahushh/4bb5fbc38e149bfd6a08
+
 def_key "l"
-  next_column
+    next_column
 def_key "h"
-  previous_column
+    previous_column
 def_key "k"
-  scroll_up
+    scroll_up
 def_key "j"
-  scroll_down
+    scroll_down
+
+def_key "f"
+    start_searching
+
+def_key "space"
+    pause
+
+def_key "h"
+    seek_backward
+def_key "l"
+    seek_forward
+
+def_key "n"
+    next_found_item
+def_key "N"
+    previous_found_item
+
+def_key "d"
+    delete_playlist_items
+def_key "d"
+    delete_browser_items
+
+def_key "mouse"
+    mouse_event

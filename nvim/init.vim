@@ -85,6 +85,7 @@ augroup omnisharp_commands
     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
     autocmd FileType cs nnoremap <buffer> <leader>g :OmniSharpGotoDefinition<CR>
     autocmd FileType cs nnoremap <buffer> <leader>f :OmniSharpCodeFormat<CR>
+    autocmd FileType cs nnoremap <buffer> <C-r> :OmniSharpRename<CR>
 augroup END
 
 " ===================
