@@ -1,5 +1,7 @@
 #!/bin/sh
 
+pip install --user --upgrade pynvim
+
 sudo pacman -S --noconfirm --needed neovim curl
 yay -S --noconfirm --needed neovim-symlinks
 

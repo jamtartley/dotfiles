@@ -1,25 +1,18 @@
-filetype plugin on
-
 call plug#begin()
-" Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Git
 Plug 'airblade/vim-gitgutter'
-" Javascript
-Plug 'pangloss/vim-javascript'
-" LESS
+Plug 'ayu-theme/ayu-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
+Plug 'dracula/vim'
 Plug 'groenewege/vim-less'
-" NERDTree
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-" React
-Plug 'maxmellon/vim-jsx-pretty'
-" Theme
-Plug 'ayu-theme/ayu-vim'
-Plug 'dracula/vim'
-" Vim workflow
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Cygwin compatibility
@@ -28,7 +21,7 @@ set t_Sb=m
 set t_Sf=m
 
 set clipboard+=unnamed,unnamedplus
-set completeopt-=preview
+set completeopt=longest,menuone,preview,noinsert
 set cursorline
 set ignorecase
 set list
@@ -36,6 +29,7 @@ set nobackup
 set nocp
 set noswapfile
 set number
+set previewheight=5
 set showmatch
 set smartcase
 set splitbelow
@@ -62,10 +56,36 @@ colorscheme dracula
 " Ctrlp
 " ===================
 if executable('rg')
-  set grepprg=rg\ --color=never
-  let g:ctrlp_user_command = 'rg %s --files --color=never -g "!*.meta" -g "!*.prefab" -g "!*.asset"'
+    set grepprg=rg\ --color=never
+    let g:ctrlp_user_command = 'rg %s --files --hidden --color=never -g "*.{cs,js,json,md,git*,py,c,h,ts,sh,zsh,vim}"'
 endif
 let g:ctrlp_show_hidden = 1
+
+" ===================
+" Deoplete
+" ===================
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<CR>" : "\<tab>"
+
+" ===================
+" OmniSharp
+" ===================
+let g:OmniSharp_highlight_types = 3
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_selector_ui = 'ctrlp'
+let g:OmniSharp_timeout = 5
+
+let g:ale_linters = {
+    \ 'cs': ['OmniSharp']
+\}
+
+augroup omnisharp_commands
+    autocmd!
+
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+    autocmd FileType cs nnoremap <buffer> <leader>g :OmniSharpGotoDefinition<CR>
+    autocmd FileType cs nnoremap <buffer> <leader>f :OmniSharpCodeFormat<CR>
+augroup END
 
 " ===================
 " Terminal
