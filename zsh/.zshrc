@@ -24,16 +24,16 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 alias c='clear'
-alias cv='clear;vim'
-alias v='vim'
 alias l="ls -alhG"
 alias mkd="mkdir -pv"
 
-alias ag="ag --path-to-ignore ~/.ignore"
+if type nvim > /dev/null 2>&1;
+then
+    alias v='nvim'
+    alias vim="nvim"
+fi
 
-alias gs='git status'
-alias gits='git status'
-alias gitd='git diff'
+alias gs='git status -s'
 
 alias dev="cd $DEV"
 alias dots="cd $DOTFILES"

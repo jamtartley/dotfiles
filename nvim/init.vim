@@ -58,24 +58,53 @@ syntax on
 set termguicolors
 colorscheme dracula
 
+" ===================
+" Ctrlp
+" ===================
 if executable('rg')
   set grepprg=rg\ --color=never
   let g:ctrlp_user_command = 'rg %s --files --color=never -g "!*.meta" -g "!*.prefab" -g "!*.asset"'
 endif
 let g:ctrlp_show_hidden = 1
 
+" ===================
+" Terminal
+" ===================
+let g:term_buf = 0
+let g:term_win = 0
+
+function! Term_toggle(height)
+    if win_gotoid(g:term_win)
+        hide
+    else
+        botright new
+        exec "resize " . a:height
+        try
+            exec "buffer " . g:term_buf
+        catch
+            call termopen($SHELL, {"detach": 0})
+            let g:term_buf = bufnr("")
+        endtry
+        startinsert!
+        let g:term_win = win_getid()
+    endif
+endfunction
+
+nnoremap <C-t> :call Term_toggle(15)<cr>
+tnoremap <C-t> <C-\><C-n>:call Term_toggle(15)<cr>
+
+" ===================
+" NERDTree
+" ===================
+map <C-f> :NERDTreeFind<CR>
+map <C-n> :NERDTreeToggle<CR>
 " Close vim if NERDTree is the only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
 
 " ===================
 " Custom key mappings
 " ===================
 map <C-a> ggVG<CR>
-map <C-f> :NERDTreeFind<CR>
-map <C-n> :NERDTreeToggle<CR>
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -90,15 +119,10 @@ nnoremap <silent> vs <C-w>s
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> v= <C-w>=
 
-map <C-t> :split \| resize 15 \| terminal<CR>
-
 nnoremap <leader>C :!clear;shellcheck %<CR>
 nnoremap <leader>g :!git diff %<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
 nnoremap <leader>t :!clear;tagg<CR>
-
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-9> :q!<CR>
 
 vnoremap < <gv
 vnoremap > >gv
