@@ -12,7 +12,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -38,15 +37,9 @@ set wildmode=longest:full,full
 
 let mapleader=","
 
-let NERDTreeQuitOnOpen=1
-let NERDTreeMinimalUI=1
-let NERDTreeShowHidden=1
-
 syntax on
 set termguicolors
 colorscheme dracula
-
-"let g:ctrlp_user_command = 'rg %s --files --hidden --color=never -g "*.{c,cs,git*,h,js,json,md,py,sh,sql,ts,txt,vim,zsh}"'
 
 " ===================
 " Deoplete
@@ -58,6 +51,17 @@ call deoplete#custom#option('omni_patterns', {
 inoremap <expr><tab> pumvisible() ? "\<CR>" : "\<tab>"
 
 let g:deoplete#sources#jedi#enable_typeinfo = 0
+
+" ===================
+" netrw
+" ===================
+let g:netrw_banner       = 0
+let g:netrw_keepdir      = 0
+let g:netrw_liststyle    = 1 " or 3
+let g:netrw_sort_options = 'i'
+autocmd VimEnter * if !argc() | Explore | endif
+
+nnoremap <C-n> :Explore <CR>
 
 " ===================
 " OmniSharp
@@ -145,16 +149,7 @@ nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>zz
 
 " ===================
-" NERDTree
-" ===================
-map <C-f> :NERDTreeFind<CR>
-map <C-n> :NERDTreeToggle<CR>
-
-" Close vim if NERDTree is the only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" ===================
-" Custom key mappings
+" Misc key mappings
 " ===================
 nnoremap <C-a> ggVG<CR>
 nnoremap <C-g> :Rg<Cr>
