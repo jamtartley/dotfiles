@@ -1,6 +1,7 @@
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
 Plug 'deoplete-plugins/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
@@ -58,9 +59,11 @@ let g:ctrlp_show_hidden = 1
 " ===================
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('omni_patterns', {
-    \ 'cs': '\w\.',
+    \ 'cs': ['\w\.']
 \})
 inoremap <expr><tab> pumvisible() ? "\<CR>" : "\<tab>"
+
+let g:deoplete#sources#jedi#enable_typeinfo = 0
 
 " ===================
 " OmniSharp
