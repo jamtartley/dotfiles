@@ -3,6 +3,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
+Plug 'deoplete-plugins/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 Plug 'dracula/vim'
 Plug 'groenewege/vim-less'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -66,7 +67,7 @@ inoremap <expr><tab> pumvisible() ? "\<CR>" : "\<tab>"
 " ===================
 let g:OmniSharp_highlight_types = 3
 let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_selector_ui = 'ctrlp'
+let g:OmniSharp_selector_ui = 'fzf'
 let g:OmniSharp_timeout = 5
 
 let g:ale_linters = {
@@ -77,9 +78,13 @@ augroup omnisharp_commands
     autocmd!
 
     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+    autocmd FileType cs nnoremap <buffer> <leader>c :OmniSharpCodeFormat<CR>
+    autocmd FileType cs nnoremap <buffer> <leader>f :OmniSharpFindSymbol<CR>
     autocmd FileType cs nnoremap <buffer> <leader>g :OmniSharpGotoDefinition<CR>
-    autocmd FileType cs nnoremap <buffer> <leader>f :OmniSharpCodeFormat<CR>
     autocmd FileType cs nnoremap <buffer> <leader>r :OmniSharpRename<CR>
+    autocmd FileType cs nnoremap <buffer> <leader>t :OmniSharpTypeLookup<CR>
+
+    inoremap <silent> <C-Space> <C-x><C-o>
 augroup END
 
 " ===================
