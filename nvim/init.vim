@@ -1,4 +1,5 @@
 call plug#begin()
+Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern' }
@@ -7,6 +8,7 @@ Plug 'dense-analysis/ale'
 Plug 'deoplete-plugins/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 Plug 'dracula/vim'
 Plug 'groenewege/vim-less'
+Plug 'junegunn/fzf.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'pangloss/vim-javascript'
@@ -50,7 +52,7 @@ colorscheme dracula
 " ===================
 if executable('rg')
     set grepprg=rg\ --color=never
-    let g:ctrlp_user_command = 'rg %s --files --hidden --color=never -g "*.{cs,js,json,md,git*,py,c,h,ts,sh,zsh,vim}"'
+    let g:ctrlp_user_command = 'rg %s --files --hidden --color=never -g "*.{c,cs,git*,h,js,json,md,py,sh,sql,ts,txt,vim,zsh}"'
 endif
 let g:ctrlp_show_hidden = 1
 
@@ -82,7 +84,8 @@ augroup omnisharp_commands
 
     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
     autocmd FileType cs nnoremap <buffer> <leader>c :OmniSharpCodeFormat<CR>
-    autocmd FileType cs nnoremap <buffer> <leader>f :OmniSharpFindSymbol<CR>
+    autocmd FileType cs nnoremap <buffer> <leader>fs :OmniSharpFindSymbol<CR>
+    autocmd FileType cs nnoremap <buffer> <leader>fu :OmniSharpFindUsage<CR>
     autocmd FileType cs nnoremap <buffer> <leader>g :OmniSharpGotoDefinition<CR>
     autocmd FileType cs nnoremap <buffer> <leader>r :OmniSharpRename<CR>
     autocmd FileType cs nnoremap <buffer> <leader>t :OmniSharpTypeLookup<CR>
@@ -115,6 +118,39 @@ endfunction
 
 nnoremap <C-t> :call Term_toggle(15)<cr>
 tnoremap <C-t> <C-\><C-n>:call Term_toggle(15)<cr>
+
+" ===================
+" Toggle QuickFix
+" ===================
+
+function! s:GetBufferList()
+    redir =>buflist
+    silent! ls
+    redir END
+    return buflist
+endfunction
+
+function! ToggleQuickfixList()
+    for bufnum in map(filter(split(s:GetBufferList(), '\n'), 'v:val =~ "Quickfix List"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+        if bufwinnr(bufnum) != -1
+            cclose
+            return
+        endif
+    endfor
+    let winnr = winnr()
+    if exists("g:toggle_list_copen_command")
+        exec(g:toggle_list_copen_command)
+    else
+        copen
+        return
+    endif
+    if winnr() != winnr
+        wincmd p
+    endif
+endfunction
+
+nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>zz
 
 " ===================
 " NERDTree
