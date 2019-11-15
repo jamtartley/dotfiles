@@ -2,6 +2,7 @@ export BROWSER=qutebrowser
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
+export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g "*.{c,cs,git*,h,js,json,md,py,sh,sql,ts,txt,vim,zsh}"'
 export GITHUB=https://github.com/jamtartley
 export TERM=xterm-256color
 export VISUAL=nvim

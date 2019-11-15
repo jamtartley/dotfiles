@@ -3,7 +3,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern' }
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
 Plug 'deoplete-plugins/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 Plug 'dracula/vim'
@@ -47,14 +46,7 @@ syntax on
 set termguicolors
 colorscheme dracula
 
-" ===================
-" Ctrlp
-" ===================
-if executable('rg')
-    set grepprg=rg\ --color=never
-    let g:ctrlp_user_command = 'rg %s --files --hidden --color=never -g "*.{c,cs,git*,h,js,json,md,py,sh,sql,ts,txt,vim,zsh}"'
-endif
-let g:ctrlp_show_hidden = 1
+"let g:ctrlp_user_command = 'rg %s --files --hidden --color=never -g "*.{c,cs,git*,h,js,json,md,py,sh,sql,ts,txt,vim,zsh}"'
 
 " ===================
 " Deoplete
@@ -157,13 +149,16 @@ autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>zz
 " ===================
 map <C-f> :NERDTreeFind<CR>
 map <C-n> :NERDTreeToggle<CR>
+
 " Close vim if NERDTree is the only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ===================
 " Custom key mappings
 " ===================
-map <C-a> ggVG<CR>
+nnoremap <C-a> ggVG<CR>
+nnoremap <C-g> :Rg<Cr>
+nnoremap <C-p> :Files<Cr>
 
 nnoremap n nzz
 nnoremap N Nzz
