@@ -2,24 +2,21 @@ call plug#begin()
 Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern' }
-Plug 'dense-analysis/ale'
-Plug 'deoplete-plugins/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 Plug 'dracula/vim'
 Plug 'groenewege/vim-less'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'OmniSharp/omnisharp-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Sirver/ultisnips'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 set clipboard+=unnamed,unnamedplus
+set cmdheight=2
 set completeopt=longest,menuone,preview,noinsert
 set cursorline
 set ignorecase
@@ -29,11 +26,15 @@ set nocp
 set noswapfile
 set number
 set previewheight=5
+set shortmess+=c
 set showmatch
+set signcolumn=yes
 set smartcase
 set splitbelow
+set statusline^=%{coc#status()}
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=500 ttimeoutlen=0
+set updatetime=300
 set wildignore+=*/.git/*,*/tmp/*,*.swp
 set wildmode=longest:full,full
 
@@ -44,15 +45,50 @@ set termguicolors
 colorscheme dracula
 
 " ===================
-" Deoplete
+" coc.nvim
 " ===================
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('omni_patterns', {
-    \ 'cs': ['\w\.']
-\})
-inoremap <expr><tab> pumvisible() ? "\<CR>" : "\<tab>"
 
-let g:deoplete#sources#jedi#enable_typeinfo = 0
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-utils', 'coc-python', 'coc-tsserver', 'coc-snippets' ]
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> rn <Plug>(coc-rename)
+
+xmap <leader>f  <Plug>(coc-format-selected)<CR>
+nmap <leader>f  <Plug>(coc-format-selected)<CR>
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " ===================
 " netrw
@@ -64,32 +100,6 @@ let g:netrw_sort_options = 'i'
 autocmd VimEnter * if !argc() | Explore | endif
 
 nnoremap <C-n> :Explore <CR>
-
-" ===================
-" OmniSharp
-" ===================
-let g:OmniSharp_highlight_types = 3
-let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_selector_ui = 'fzf'
-let g:OmniSharp_timeout = 5
-
-let g:ale_linters = {
-    \ 'cs': ['OmniSharp']
-\}
-
-augroup omnisharp_commands
-    autocmd!
-
-    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-    autocmd FileType cs nnoremap <buffer> <leader>c :OmniSharpCodeFormat<CR>
-    autocmd FileType cs nnoremap <buffer> <leader>fs :OmniSharpFindSymbol<CR>
-    autocmd FileType cs nnoremap <buffer> <leader>fu :OmniSharpFindUsage<CR>
-    autocmd FileType cs nnoremap <buffer> <leader>g :OmniSharpGotoDefinition<CR>
-    autocmd FileType cs nnoremap <buffer> <leader>r :OmniSharpRename<CR>
-    autocmd FileType cs nnoremap <buffer> <leader>t :OmniSharpTypeLookup<CR>
-
-    inoremap <silent> <C-Space> <C-x><C-o>
-augroup END
 
 " ===================
 " Terminal
@@ -153,7 +163,7 @@ autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>zz
 " ===================
 " Ultisnips
 " ===================
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<C-y>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
@@ -178,9 +188,10 @@ nnoremap <silent> vv <C-w>v
 nnoremap <silent> v= <C-w>=
 
 nnoremap <leader>C :!clear;shellcheck %<CR>
+nnoremap <leader>ff :Rg 
 nnoremap <leader>g :!git diff %<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
-nnoremap <leader>t :!clear;tagg<CR>
+nnoremap <leader>T :!clear;tagg<CR>
 
 vnoremap < <gv
 vnoremap > >gv
