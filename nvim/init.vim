@@ -7,12 +7,14 @@ Plug 'dense-analysis/ale'
 Plug 'deoplete-plugins/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 Plug 'dracula/vim'
 Plug 'groenewege/vim-less'
+Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Sirver/ultisnips'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
@@ -147,6 +149,13 @@ endfunction
 
 nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>zz
+
+" ===================
+" Ultisnips
+" ===================
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 " ===================
 " Misc key mappings

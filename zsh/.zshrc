@@ -27,6 +27,7 @@ source $ZSH/oh-my-zsh.sh
 alias c='clear'
 alias l="ls -alhG"
 alias mkd="mkdir -pv"
+alias rz="source $HOME/.zshrc"
 
 if type nvim > /dev/null 2>&1;
 then
@@ -34,7 +35,9 @@ then
     alias vim="nvim"
 fi
 
-alias gs='git status -s'
+alias vf='vim $(fzf)'
+
+alias gs='git status'
 
 alias dev="cd $DEV"
 alias dots="cd $DOTFILES"
