@@ -2,7 +2,7 @@ export BROWSER=qutebrowser
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
-export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g "*.{c,cs,git*,h,js,json,md,py,sh,sql,ts,txt,vim,zsh}"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,cs,css,git*,h,html,js,json,less,md,py,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
 export GITHUB=https://github.com/jamtartley
 export TERM=xterm-256color
 export VISUAL=nvim
@@ -10,7 +10,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export ZSH=$HOME/.oh-my-zsh
 
 DISABLE_AUTO_UPDATE="false"
-ZSH_THEME="bira"
+ZSH_THEME="bureau"
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -35,9 +35,10 @@ then
     alias vim="nvim"
 fi
 
+alias cf='cat $(fzf)'
 alias vf='vim $(fzf)'
 
-alias gs='git status'
+alias g='git status'
 
 alias dev="cd $DEV"
 alias dots="cd $DOTFILES"

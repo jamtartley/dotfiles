@@ -93,11 +93,10 @@ endfunction
 " ===================
 " netrw
 " ===================
-let g:netrw_banner       = 0
-let g:netrw_keepdir      = 0
-let g:netrw_liststyle    = 1 " or 3
+let g:netrw_banner = 0
+let g:netrw_keepdir = 0
+let g:netrw_liststyle = 3
 let g:netrw_sort_options = 'i'
-autocmd VimEnter * if !argc() | Explore | endif
 
 nnoremap <C-n> :Explore <CR>
 
@@ -187,11 +186,14 @@ nnoremap <silent> vs <C-w>s
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> v= <C-w>=
 
-nnoremap <leader>C :!clear;shellcheck %<CR>
+nnoremap <leader>bp :!killall mupdf;pdflatex %;mupdf %:r.pdf &<CR><CR>
 nnoremap <leader>ff :Rg 
 nnoremap <leader>g :!git diff %<CR>
+nnoremap <leader>o :on<CR>
+nnoremap <leader>rz :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
-nnoremap <leader>T :!clear;tagg<CR>
+nnoremap <leader>sc :!clear;shellcheck %<CR>
+nnoremap <leader>tg :!clear;tagg<CR>
 
 vnoremap < <gv
 vnoremap > >gv
