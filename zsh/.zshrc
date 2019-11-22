@@ -2,7 +2,7 @@ export BROWSER=qutebrowser
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
-export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,cs,css,git*,h,html,js,json,less,md,py,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,cs,css,git*,h,html,js,json,less,md,pdf,py,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
 export GITHUB=https://github.com/jamtartley
 export TERM=xterm-256color
 export VISUAL=nvim
@@ -20,9 +20,24 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 
-plugins=(git)
-
 source $ZSH/oh-my-zsh.sh
+
+# zplug
+source $HOME/.zplug/init.zsh
+zplug "plugins/git",   from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "$HOME/.zsh", from:local
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
 
 alias c='clear'
 alias l="ls -alhG"

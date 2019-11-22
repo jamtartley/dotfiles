@@ -123,8 +123,8 @@ function! Term_toggle(height)
     endif
 endfunction
 
-nnoremap <C-t> :call Term_toggle(15)<cr>
-tnoremap <C-t> <C-\><C-n>:call Term_toggle(15)<cr>
+nnoremap <C-t> :call Term_toggle(25)<cr>
+tnoremap <C-t> <C-\><C-n>:call Term_toggle(25)<cr>
 
 " ===================
 " Toggle QuickFix
