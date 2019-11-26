@@ -54,6 +54,8 @@ alias cf='cat $(fzf)'
 alias vf='vim $(fzf)'
 
 alias g='git status'
+alias gs='git status -s'
+alias gl='git log'
 
 alias dev="cd $DEV"
 alias dots="cd $DOTFILES"

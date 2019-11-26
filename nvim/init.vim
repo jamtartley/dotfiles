@@ -193,7 +193,7 @@ nnoremap <leader>o :on<CR>
 nnoremap <leader>rz :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
 nnoremap <leader>sc :!clear;shellcheck %<CR>
-nnoremap <leader>tg :!clear;tagg<CR>
+nnoremap <leader>t :!clear;tagg<CR>
 
 vnoremap < <gv
 vnoremap > >gv

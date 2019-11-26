@@ -12,7 +12,7 @@ alt + d
     rofi -show run -theme dracula -lines 5
 
 alt + {_, shift + } g
-    {firefox --private, qutebrowser}
+    {google-chrome-stable --incognito, qutebrowser}
 
 alt + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
@@ -45,6 +45,9 @@ alt + {_, shift + } s
 
 alt + {t,shift + t,f,shift + f}
     bspc node -t {tiled,pseudo_tiled,fullscreen,floating}
+
+alt + u
+    unityhub
 
 alt + {_, shift + } w
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
