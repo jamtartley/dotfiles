@@ -1,5 +1,6 @@
 {
     "coc.preferences.useQuickfixForLocations": true,
+    "coc.preferences.formatOnSaveFiletypes": ["cs"],
     "diagnostic.checkCurrentLine": true,
     "diagnostic.refreshOnInsertMode": true
 }

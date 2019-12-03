@@ -1,7 +1,6 @@
 call plug#begin()
 Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
-Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim'
 Plug 'groenewege/vim-less'
 Plug 'honza/vim-snippets'
@@ -11,6 +10,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Sirver/ultisnips'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
@@ -48,7 +50,7 @@ colorscheme dracula
 " coc.nvim
 " ===================
 
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-utils', 'coc-python', 'coc-tsserver', 'coc-snippets' ]
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-utils', 'coc-python', 'coc-tsserver', 'coc-snippets', 'coc-prettier' ]
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -167,8 +169,17 @@ let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 " ===================
-" Misc key mappings
+" Misc
 " ===================
+
+" Automatically source init.vim on write
+augroup initvim
+    au!
+    au BufWritePost init.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
 nnoremap <C-a> ggVG<CR>
 nnoremap <C-g> :Rg<Cr>
 nnoremap <C-p> :Files<Cr>
@@ -188,7 +199,7 @@ nnoremap <silent> v= <C-w>=
 
 nnoremap <leader>bp :!killall mupdf;pdflatex %;mupdf %:r.pdf &<CR><CR>
 nnoremap <leader>ff :Rg 
-nnoremap <leader>g :!git diff %<CR>
+nnoremap <leader>g :Gdiff<CR>
 nnoremap <leader>o :on<CR>
 nnoremap <leader>rz :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>

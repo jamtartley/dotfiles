@@ -22,6 +22,11 @@ setopt HIST_IGNORE_ALL_DUPS
 
 source $ZSH/oh-my-zsh.sh
 
+if [ "$ISLINUX" '==' 'true' ]; then
+    { infocmp -1 xterm-256color ; echo "\tsitm=\\E[3m,\n\tritm=\\E[23m,"; } | \
+        tic -x -
+fi
+
 # zplug
 source $HOME/.zplug/init.zsh
 zplug "plugins/git",   from:oh-my-zsh
