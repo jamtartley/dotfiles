@@ -4,6 +4,7 @@ export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,cs,css,git*,h,html,js,json,less,md,pdf,py,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
 export GITHUB=https://github.com/jamtartley
+export KEYTIMEOUT=25
 export TERM=xterm-256color
 export VISUAL=nvim
 export XDG_CONFIG_HOME=$HOME/.config
@@ -30,8 +31,9 @@ fi
 # zplug
 source $HOME/.zplug/init.zsh
 zplug "plugins/git",   from:oh-my-zsh
+zplug "softmoth/zsh-vim-mode"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zdharma/fast-syntax-highlighting", defer:2
 zplug "$HOME/.zsh", from:local
 
 # Install plugins if there are plugins that have not been installed
@@ -43,6 +45,9 @@ if ! zplug check; then
 fi
 
 zplug load
+
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
 
 alias c='clear'
 alias l="ls -alhG"

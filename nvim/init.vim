@@ -9,12 +9,14 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'Sirver/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 set clipboard+=unnamed,unnamedplus
@@ -93,14 +95,22 @@ function! s:show_documentation()
 endfunction
 
 " ===================
-" netrw
+" NERDTree
 " ===================
-let g:netrw_banner = 0
-let g:netrw_keepdir = 0
-let g:netrw_liststyle = 3
-let g:netrw_sort_options = 'i'
 
-nnoremap <C-n> :Explore <CR>
+let NERDTreeQuitOnOpen=1
+let NERDTreeMinimalUI=1
+let NERDTreeShowHidden=1
+
+" Open NERDTree if vim starts on a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" Close vim if last buffer is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+map <C-f> :NERDTreeFind<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " ===================
 " Terminal
@@ -186,6 +196,7 @@ nnoremap <C-p> :Files<Cr>
 
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap / /\v
 nnoremap <CR> :noh<CR><CR>
 
 nnoremap <silent> vh <C-w>h
@@ -208,3 +219,4 @@ nnoremap <leader>t :!clear;tagg<CR>
 
 vnoremap < <gv
 vnoremap > >gv
+vnoremap / /\v
