@@ -31,17 +31,20 @@ alt + m
 alt + {_,shift + } n
     xterm -e {ncmpcpp, newsboat}
 
+alt + {_, shift + } o
+    {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
+
 alt + p
     rofi_projects
 
 alt + {_, shift + } q
     bspc node -{c,k}
 
-alt + shift + r
-    bspc wm -r
+alt + {_, shift + } r
+    redshift {-c $HOME/.config/redshift/redshift.conf, redshift -x && pkill redshift}
 
 alt + {_, shift + } s
-    redshift {-c $HOME/.config/redshift/redshift.conf, redshift -x && pkill redshift}
+    {steam, spotify}
 
 alt + {t,shift + t,f,shift + f}
     bspc node -t {tiled,pseudo_tiled,fullscreen,floating}
@@ -49,8 +52,11 @@ alt + {t,shift + t,f,shift + f}
 alt + u
     unityhub
 
-alt + {_, shift + } w
-    {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
+alt + v
+    VirtualBox
+
+alt + w
+    xterm -e weechat
 
 alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
