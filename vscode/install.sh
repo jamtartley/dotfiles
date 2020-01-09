@@ -1,8 +1,5 @@
 #!/bin/sh
 
-yay -S --noconfirm --needed visual-studio-code-bin
-sudo pacman -S --noconfirm --needed dotnet-runtime dotnet-sdk mono
-
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 VSCODE=$HOME/.config/Code/User

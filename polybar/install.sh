@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-sudo pacman -S --noconfirm --needed wget
-yay -S --noconfirm --needed polybar
-
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 POLYBAR=$HOME/.config/polybar

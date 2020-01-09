@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-sudo pacman -S --noconfirm --needed lxappearance feh compton rofi tar wget thunar
-
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 mkdir -p $HOME/.themes

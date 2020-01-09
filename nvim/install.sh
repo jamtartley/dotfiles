@@ -2,9 +2,6 @@
 
 pip install --user --upgrade pylint pynvim
 
-sudo pacman -S --noconfirm --needed neovim curl npm
-yay -S --noconfirm --needed neovim-symlinks
-
 sudo npm install -H -g follow-redirects
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

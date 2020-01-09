@@ -1,7 +1,5 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm --needed newsboat
-
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 NEWSBOAT=$HOME/.config/newsboat

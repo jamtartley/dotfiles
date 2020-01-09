@@ -1,7 +1,5 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm --needed mutt
-
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 MUTT=$HOME/.config/mutt
