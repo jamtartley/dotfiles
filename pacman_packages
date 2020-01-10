@@ -697,7 +697,6 @@ qt5-webchannel
 qt5-webengine
 qt5-x11extras
 quazip
-qutebrowser
 re2
 readline
 redshift
@@ -728,7 +727,6 @@ spice
 spirv-tools
 sqlite
 startup-notification
-steam
 stfl
 sudo
 sxhkd
@@ -759,7 +757,6 @@ vde2
 vid.stab
 virglrenderer
 virtualbox
-virtualbox-host-modules-arch
 vte-common
 vte3
 vulkan-icd-loader
