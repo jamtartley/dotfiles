@@ -2,13 +2,15 @@ export BROWSER=qutebrowser
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
-export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,cs,css,git*,h,html,js,json,less,md,pdf,py,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,cs,css,erb,git*,h,html,js,json,less,md,pdf,py,rb,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
 export GITHUB=https://github.com/jamtartley
 export KEYTIMEOUT=25
 export TERM=xterm-256color
 export VISUAL=nvim
 export XDG_CONFIG_HOME=$HOME/.config
 export ZSH=$HOME/.oh-my-zsh
+
+export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
 
 DISABLE_AUTO_UPDATE="false"
 ZSH_THEME="bureau"

@@ -12,7 +12,7 @@ alt + d
     rofi -show run -theme dracula -lines 5
 
 alt + {_, shift + } g
-    {google-chrome-stable --incognito, qutebrowser}
+    {google-chrome-stable --incognito, google-chrome-stable}
 
 alt + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
