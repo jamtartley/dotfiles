@@ -2,7 +2,7 @@ export BROWSER=qutebrowser
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
-export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,cs,css,erb,git*,h,html,js,json,less,md,pdf,py,rb,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,coffee,cs,css,erb,git*,h,hbs,html,js,json,less,md,pdf,py,rb,sass,scss,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
 export GITHUB=https://github.com/jamtartley
 export KEYTIMEOUT=25
 export TERM=xterm-256color
@@ -71,6 +71,10 @@ alias gl='git log'
 
 alias dev="cd $DEV"
 alias dots="cd $DOTFILES"
+
+tldr() {
+  curl "https://cheat.sh/$1"
+}
 
 for file in $DOTFILES/*/*.zsh; do
     source "$file"

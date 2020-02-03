@@ -4,8 +4,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dracula/vim'
 Plug 'groenewege/vim-less'
 Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'kchmck/vim-coffee-script'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
@@ -36,7 +39,7 @@ set signcolumn=yes
 set smartcase
 set splitbelow
 set statusline^=%{coc#status()}
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set timeoutlen=500 ttimeoutlen=0
 set updatetime=300
 set wildignore+=*/.git/*,*/tmp/*,*.swp
@@ -52,7 +55,7 @@ colorscheme dracula
 " coc.nvim
 " ===================
 
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-utils', 'coc-python', 'coc-tsserver', 'coc-snippets', 'coc-prettier' ]
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-utils', 'coc-python', 'coc-tsserver', 'coc-snippets', 'coc-prettier', 'coc-solargraph']
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -101,6 +104,7 @@ endfunction
 let NERDTreeQuitOnOpen=1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
+let g:NERDTreeWinSize=60
 
 " Open NERDTree if vim starts on a directory
 autocmd StdinReadPre * let s:std_in=1
@@ -208,6 +212,7 @@ nnoremap <silent> vs <C-w>s
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> v= <C-w>=
 
+nnoremap <leader>b :!npm run build<CR><CR>
 nnoremap <leader>bp :!killall mupdf;pdflatex %;mupdf %:r.pdf &<CR><CR>
 nnoremap <leader>ff :Rg 
 nnoremap <leader>g :Gdiff<CR>
