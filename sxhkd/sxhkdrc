@@ -8,6 +8,9 @@ alt + Escape
 alt + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
 
+alt + c
+    code
+
 alt + d
     rofi -show run -theme dracula -lines 5
 
@@ -60,6 +63,9 @@ alt + w
 
 alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
+
+alt + y
+    clipboard_chrome
 
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle

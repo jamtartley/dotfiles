@@ -4,7 +4,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dracula/vim'
 Plug 'groenewege/vim-less'
 Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
+Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -55,7 +55,7 @@ colorscheme dracula
 " coc.nvim
 " ===================
 
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-utils', 'coc-python', 'coc-tsserver', 'coc-snippets', 'coc-prettier', 'coc-solargraph']
+let g:coc_global_extensions=['coc-omnisharp', 'coc-utils', 'coc-python', 'coc-tsserver', 'coc-snippets', 'coc-prettier', 'coc-solargraph']
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -69,6 +69,7 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
@@ -214,7 +215,7 @@ nnoremap <silent> v= <C-w>=
 
 nnoremap <leader>b :!npm run build<CR><CR>
 nnoremap <leader>bp :!killall mupdf;pdflatex %;mupdf %:r.pdf &<CR><CR>
-nnoremap <leader>ff :Rg 
+nnoremap <leader>ff :Rg
 nnoremap <leader>g :Gdiff<CR>
 nnoremap <leader>o :on<CR>
 nnoremap <leader>rz :source ~/.config/nvim/init.vim<CR>

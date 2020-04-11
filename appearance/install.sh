@@ -9,13 +9,7 @@ rm $HOME/.themes/Ant-Dracula.tar
 
 FONTS=$HOME/.fonts
 mkdir -p $FONTS
-pushd $FONTS
-wget https://www.levien.com/type/myfonts/Inconsolata.otf -P $FONTS
-wget https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
-unzip master.zip
-mv YosemiteSanFranciscoFont-master/*.ttf $FONTS
-rm -rf YosemiteSanFranciscoFont-master master.zip
-popd
+ln -sf $dir/fonts/* $FONTS
 
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="$HOME/.icons" sh
 

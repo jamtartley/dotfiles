@@ -1,7 +1,5 @@
 auto-reload yes
 
-browser qutebrowser
-
 bind-key j down
 bind-key k up
 bind-key j next articlelist

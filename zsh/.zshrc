@@ -1,8 +1,8 @@
-export BROWSER=qutebrowser
+export BROWSER=google-chrome-stable
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
-export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,coffee,cs,css,erb,git*,h,hbs,html,js,json,less,md,pdf,py,rb,sass,scss,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,coffee,cs,css,erb,git*,graphql,h,hbs,html,js,json,less,md,pdf,py,rb,sass,scss,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
 export GITHUB=https://github.com/jamtartley
 export KEYTIMEOUT=25
 export TERM=xterm-256color

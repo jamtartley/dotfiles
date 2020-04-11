@@ -18,13 +18,14 @@ bottom = false
 fixed-center = true
 height = 60
 foreground = ${colors.background}
+background = ${colors.background}
 line-size = 2
 module-margin = 0
 
-font-0 = M+ 1mn:style=regular:size=18;4
-font-1 = M+ 1mn:style=regular:size=32;4
+font-0 = DejaVuSansMono:style=Book:size=14
+font-1 = DejaVuSansMono:style=Bold:size=28
 
-modules-left = mpd title
+modules-left = mpd corona
 modules-center = bspwm
 modules-right = pulseaudio-control time
 
@@ -46,7 +47,6 @@ format-online = <label-song>
 format-online-background = ${colors.red}
 format-online-foreground = ${root.foreground}
 format-online-padding = 4
-format-online-font = 0
 
 label-offline = mpd is offline
 label-song-maxlen = 30
@@ -56,30 +56,14 @@ label-foreground = ${root.foreground}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[module/title]
-type = internal/xwindow
-
-format = <label>
-format-background = ${colors.yellow}
-format-foreground = ${root.foreground}
-format-padding = 4
-
-label-font = 1
-label = %title%
-label-maxlen = 30
-label-empty = This page is intentionally left blank
-label-empty-foreground = ${root.foreground}
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 [module/bspwm]
 type = internal/bspwm
 
 label-focused = [%name%]
-label-focused-font = 2
 label-focused-foreground= ${colors.green}
 label-focused-underline= ${colors.green}
 label-focused-padding = 1
+label-focused-font = 2
 
 label-occupied = %name%
 label-occupied-foreground = ${colors.pink}
@@ -92,6 +76,20 @@ label-urgent-padding = 1
 label-empty = %name%
 label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/corona]
+type = custom/script
+exec = $HOME/.scripts/corona
+interval = 3600
+ 
+label=%output%
+label-padding = 2
+label-foreground = ${root.foreground}
+
+format-background = ${colors.yellow}
+format-padding = 4
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -121,12 +119,11 @@ type = internal/date
 interval = 1.0
 
 date = %d/%m
-time = %H:%M
+time = %H:%M:%S
 
 format = <label>
 format-background = ${colors.purple}
 format-padding = 4
 
 label = %time% %date%
-label-font = 1
 label-foreground = ${root.foreground}

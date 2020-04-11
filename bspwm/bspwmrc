@@ -4,11 +4,10 @@ sxhkd &
 mopidy &
 nm-applet &
 $HOME/.config/polybar/launch.sh &
-feh --randomize --bg-fill $HOME/Pictures/Wallpapers/* &
 picom -f -I 0.1 -O 0.07 &
 pidof redshift || redshift -c $HOME/.config/redshift/redshift.conf &
 killall -9 dunst && dunst &
-
+blueman-tray &
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width 6
