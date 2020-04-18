@@ -1,10 +1,18 @@
 {
-    "window.zoomLevel": 3,
+    "window.zoomLevel": 2,
     "window.titleBarStyle": "custom",
+
+    "css.remoteStyleSheets": [
+      "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    ],
+
+    "emmet.includeLanguages": {
+      "jsx-sublime-babel-tags": "javascriptreact"
+    },
 
     "workbench.colorTheme": "Dracula",
 
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
     "editor.minimap.enabled": false,

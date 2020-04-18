@@ -82,7 +82,7 @@ label-empty-padding = 1
 [module/corona]
 type = custom/script
 exec = $HOME/.scripts/corona
-interval = 3600
+interval = 900
  
 label=%output%
 label-padding = 2

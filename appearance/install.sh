@@ -23,3 +23,8 @@ ln -sf $dir/wallpapers $wallpaper_dir
 cp $dir/.gtkrc-2.0 $HOME
 ln -sf $dir/.gtkrc-2.0 $HOME
 ln -sf $dir/.gtkrc-2.0.mine $HOME
+
+sudo chmod 777 /opt/spotify -R
+spicetify backup apply enable-devtool
+pushd $HOME/.local/share/Steam/skins
+git clone https://github.com/dracula/steam.git

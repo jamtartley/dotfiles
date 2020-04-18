@@ -37,13 +37,8 @@ sudo pip install hidapi rivalcfg
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
 
-while read -r PACMAN_PACKAGE; do
-    sudo pacman -S --noconfirm --needed $PACMAN_PACKAGE
-done < pacman_packages
-
-while read -r YAY_PACKAGE; do
-    yay -S --noconfirm --needed $YAY_PACKAGE
-done < yay_packages
+sudo pacman -S --noconfirm --needed < pacman_packages
+yay -S --noconfirm --needed < yay_packages
 
 find . -type f -name 'install.sh' -exec sh -c '
 for f do

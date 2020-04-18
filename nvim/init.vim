@@ -1,8 +1,10 @@
 call plug#begin()
 Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'epilande/vim-react-snippets'
 Plug 'groenewege/vim-less'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
@@ -55,13 +57,25 @@ colorscheme dracula
 " coc.nvim
 " ===================
 
-let g:coc_global_extensions=['coc-omnisharp', 'coc-utils', 'coc-python', 'coc-tsserver', 'coc-snippets', 'coc-prettier', 'coc-solargraph']
+let g:coc_global_extensions = [
+  \ 'coc-eslint',
+  \ 'coc-json',
+  \ 'coc-omnisharp',
+  \ 'coc-prettier',
+  \ 'coc-python',
+  \ 'coc-snippets',
+  \ 'coc-solargraph',
+  \ 'coc-tsserver',
+  \ 'coc-utils',
+  \ ]
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -221,7 +235,7 @@ nnoremap <leader>o :on<CR>
 nnoremap <leader>rz :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
 nnoremap <leader>sc :!clear;shellcheck %<CR>
-nnoremap <leader>t :!clear;tagg<CR>
+nnoremap <leader>t :terminal clear;tagg<CR>
 
 vnoremap < <gv
 vnoremap > >gv

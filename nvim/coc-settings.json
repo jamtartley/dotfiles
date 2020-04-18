@@ -2,5 +2,6 @@
     "coc.preferences.useQuickfixForLocations": true,
     "coc.preferences.formatOnSaveFiletypes": ["cs"],
     "codeLens.enable": true,
-    "solargraph.useBundler": true
+    "solargraph.useBundler": true,
+    "suggest.autoTrigger": "always"
 }
