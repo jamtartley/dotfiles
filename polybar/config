@@ -28,7 +28,7 @@ font-1 = DejaVuSansMono:style=Bold:size=28
 
 modules-left = corona
 modules-center = bspwm
-modules-right = pulseaudio-control time
+modules-right = pulseaudio-control date
 
 module-margin-left = 1
 module-margin-right = 2
@@ -100,17 +100,10 @@ click-middle = exec pavucontrol &
 scroll-up = $HOME/.config/polybar/scripts/pulseaudio-control.sh --up
 scroll-down = $HOME/.config/polybar/scripts/pulseaudio-control.sh --down
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[module/time]
+[module/date]
 type = internal/date
 interval = 1.0
-
-date = %d/%m
+date = %m/%d%
 time = %H:%M:%S
-
-format = <label>
-format-underline = ${colors.purple}
-format-padding = 1
-
-label = %time% %date%
+label = %date% %time%
+label-underline = ${colors.purple}
