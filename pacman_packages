@@ -362,6 +362,7 @@ libiec61883
 libindicator-gtk2
 libinput
 libjpeg-turbo
+libkeybinder3
 libksba
 libkscreen
 libldap
@@ -673,11 +674,13 @@ python2-appdirs
 python2-backports
 python2-backports-abc
 python2-cachecontrol
+python2-cairo
 python2-cffi
 python2-chardet
 python2-colorama
 python2-configparser
 python2-contextlib2
+python2-dbus
 python2-distlib
 python2-distro
 python2-futures
@@ -696,6 +699,7 @@ python2-pep517
 python2-pip
 python2-ply
 python2-progress
+python2-psutil
 python2-pycparser
 python2-pyparsing
 python2-pytoml
@@ -768,6 +772,7 @@ talloc
 tar
 tcl
 tdb
+terminator
 tevent
 texinfo
 thunar
@@ -829,6 +834,7 @@ xkeyboard-config
 xorg-bdftopcf
 xorg-font-util
 xorg-font-utils
+xorg-fonts-alias
 xorg-fonts-encodings
 xorg-luit
 xorg-mkfontscale

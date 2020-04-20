@@ -9,6 +9,7 @@ pidof redshift || redshift -c $HOME/.config/redshift/redshift.conf &
 killall -9 dunst && dunst &
 blueman-tray &
 bspc monitor -d I II III IV V VI VII VIII IX X
+feh --randomize --bg-fill $HOME/Pictures/Wallpapers/* &
 
 bspc config border_width 6
 bspc config window_gap 20

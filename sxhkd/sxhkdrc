@@ -1,5 +1,5 @@
-alt + Return
-    xterm
+alt + {_, shift + } Return
+    {xterm, tabbed -c xterm -into &}
 
 # make sxhkd reload its configuration files:
 alt + Escape

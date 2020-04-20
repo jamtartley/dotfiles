@@ -4,10 +4,6 @@ OSD="no"  # On Screen Display message for KDE if enabled
 INC=5  # Increment when lowering/rising the volume
 MAX_VOL=130  # Maximum volume
 AUTOSYNC="yes"  # All programs have the same volume if enabled
-VOLUME_ICONS=( "奄 " "奔 " "墳 " )  # 3rd one has 2 spaces because volume would be 3 digits
-NORMAL_COLOR="%{F#282a36}"  # Color when the audio is muted
-MUTED_ICON="ﱝ "  # Muted volume icon
-MUTED_COLOR="%{F#7e649c}"  # Color when the audio is muted
 DEFAULT_SINK_ICON="#"  # The default sink icon if a custom one isn't found
 CUSTOM_SINK_ICONS=( )  # Custom sink icons in index of sink order
 NOTIFICATIONS="no"  # Notifications when switching sinks if enabled
@@ -208,9 +204,9 @@ function output() {
 
     # Showing the formatted message
     if [ "${isMuted}" = "yes" ]; then
-        echo "${MUTED_COLOR}${MUTED_ICON}${curVol}%   ${sinkIcon}${activeSink}${endColor}"
+        echo "${MUTED_ICON}${curVol}%   ${sinkIcon}${activeSink}${endColor}"
     else
-        echo "${NORMAL_COLOR}${volIcon}${curVol}%   ${sinkIcon}${activeSink}${endColor}"
+        echo "${volIcon}${curVol}%   ${sinkIcon}${activeSink}${endColor}"
     fi
 }
 

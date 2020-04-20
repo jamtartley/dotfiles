@@ -215,6 +215,7 @@ nnoremap <C-p> :Files<Cr>
 
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap Q :q<CR>
 nnoremap / /\v
 nnoremap <CR> :noh<CR><CR>
 

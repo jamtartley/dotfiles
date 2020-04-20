@@ -15,46 +15,37 @@ monitor-strict = false
 
 override-redirect = false
 bottom = false
-fixed-center = true
-height = 60
-foreground = ${colors.background}
+width = 99.3%
+height = 3%
+foreground = ${colors.foreground}
 background = ${colors.background}
-line-size = 2
 module-margin = 0
 
-font-0 = DejaVuSansMono:style=Book:size=14
+underline-size = 4
+
+font-0 = ProggyVector:size=14
 font-1 = DejaVuSansMono:style=Bold:size=28
 
-modules-left = mpd corona
+modules-left = corona
 modules-center = bspwm
 modules-right = pulseaudio-control time
 
+module-margin-left = 1
+module-margin-right = 2
+offset-x = 12
+offset-y = 12
+padding-left = 0
+padding-right = 4
+
 wm-name = bspwm
-dpi-x = 96
-dpi-y = 96
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
 tray-position = left
+tray-padding = 4
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[module/mpd]
-type = internal/mpd
-interval = 1
-
-format-online = <label-song>
-format-online-background = ${colors.red}
-format-online-foreground = ${root.foreground}
-format-online-padding = 4
-
-label-offline = mpd is offline
-label-song-maxlen = 30
-label-song-ellipsis = true
-label-background = ${colors.yellow}
-label-foreground = ${root.foreground}
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/bspwm]
 type = internal/bspwm
@@ -70,8 +61,6 @@ label-occupied-foreground = ${colors.pink}
 label-occupied-padding = 1
 
 label-urgent = %name%
-label-urgent-background = ${colors.red}
-label-urgent-padding = 1
 
 label-empty = %name%
 label-empty-foreground = ${colors.foreground}
@@ -85,11 +74,11 @@ exec = $HOME/.scripts/corona
 interval = 900
  
 label=%output%
-label-padding = 2
+label-padding = 1
 label-foreground = ${root.foreground}
 
-format-background = ${colors.yellow}
-format-padding = 4
+format-underline = ${colors.yellow}
+format-padding = 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -99,11 +88,10 @@ exec = $HOME/.config/polybar/scripts/pulseaudio-control.sh --listen
 tail = true
 
 label=%output%
-label-padding = 2
-label-foreground = ${colors.foreground}
+label-padding = 1
 
-format-background = ${colors.blue}
-format-padding = 4
+format-underline = ${colors.blue}
+format-padding = 1
 
 click-left = $HOME/.config/polybar/scripts/pulseaudio-control.sh --togmute
 click-right = $HOME/.config/polybar/scripts/pulseaudio-control.sh --change
@@ -122,8 +110,7 @@ date = %d/%m
 time = %H:%M:%S
 
 format = <label>
-format-background = ${colors.purple}
-format-padding = 4
+format-underline = ${colors.purple}
+format-padding = 1
 
 label = %time% %date%
-label-foreground = ${root.foreground}

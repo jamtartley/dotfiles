@@ -1,8 +1,11 @@
 gconf
+gohufont
 google-chrome
+gst-python2
 libcurl-openssl-1.0
 libspotify
 mongodb-bin
+mongodb-compass
 mongodb-tools-bin
 msbuild-stable
 neovim-symlinks
@@ -13,11 +16,13 @@ spicetify-cli
 spicetify-themes-git
 spotify
 steam-fonts
+tabbed-vain
 ttf-anka-coder
 ttf-anka-coder-condensed
 ttf-meslo
 ttf-monaco
 ttf-ms-fonts
+ttf-proggy-vector
 ttf-tahoma
 unityhub
 visual-studio-code-bin
