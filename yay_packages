@@ -1,3 +1,4 @@
+cozette-otb
 gconf
 gohufont
 google-chrome
@@ -9,6 +10,7 @@ mongodb-compass
 mongodb-tools-bin
 msbuild-stable
 neovim-symlinks
+nerd-fonts-terminus
 obinskit
 polybar
 postman

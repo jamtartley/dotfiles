@@ -13,18 +13,20 @@ monitor = ${env:MONITOR}
 monitor-fallback = DP-1
 monitor-strict = false
 
+wm-restack = bspwm
 override-redirect = false
 bottom = false
-width = 99.3%
-height = 3%
+width = 99%
+height = 3.5%
 foreground = ${colors.foreground}
 background = ${colors.background}
 module-margin = 0
 
-underline-size = 4
+underline-size = 6
 
-font-0 = ProggyVector:size=14
-font-1 = DejaVuSansMono:style=Bold:size=28
+font-0 = TerminessTTF Nerd Font Mono:size=18
+font-1 = TerminessTTF Nerd Font Mono:size=40
+font-2 = DejaVuSansMono:size=20
 
 modules-left = corona
 modules-center = bspwm
@@ -32,7 +34,7 @@ modules-right = pulseaudio-control date
 
 module-margin-left = 1
 module-margin-right = 2
-offset-x = 12
+offset-x = 20
 offset-y = 12
 padding-left = 0
 padding-right = 4
@@ -70,15 +72,16 @@ label-empty-padding = 1
 
 [module/corona]
 type = custom/script
-exec = $HOME/.scripts/corona
-interval = 900
- 
+exec = corona --watch
+tail = true
+
 label=%output%
 label-padding = 1
-label-foreground = ${root.foreground}
 
-format-underline = ${colors.yellow}
+format-underline = ${colors.red}
 format-padding = 1
+
+click-left = corona --toggle
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -100,10 +103,12 @@ click-middle = exec pavucontrol &
 scroll-up = $HOME/.config/polybar/scripts/pulseaudio-control.sh --up
 scroll-down = $HOME/.config/polybar/scripts/pulseaudio-control.sh --down
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [module/date]
 type = internal/date
 interval = 1.0
 date = %m/%d%
 time = %H:%M:%S
 label = %date% %time%
-label-underline = ${colors.purple}
+label-underline = ${colors.yellow}

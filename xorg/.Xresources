@@ -19,8 +19,8 @@
 *.color15:    #E6E6E6
 
 ! == xterm ==
-xterm*faceName: ProggyVector
-xterm*faceSize: 12
+xterm*faceName: TerminessTTF Nerd Font Mono:style=Medium
+xterm*faceSize: 22
 xterm*scrollBar: false
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 xterm*selectToClipboard: true
@@ -29,3 +29,5 @@ XTerm*vt100.translations: #override \
     Shift Ctrl <Key> V: insert-selection(CLIPBOARD) \n\
     Ctrl <Key> minus: smaller-vt-font() \n\
     Ctrl <Key> plus: larger-vt-font()
+
+Xft.dpi: 96

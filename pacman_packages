@@ -194,6 +194,7 @@ ijs
 imagemagick
 imlib2
 inetutils
+inotify-tools
 intltool
 iproute2
 iptables
@@ -640,6 +641,7 @@ python-packaging
 python-pep517
 python-pip
 python-progress
+python-psutil
 python-pygments
 python-pykka
 python-pyparsing
