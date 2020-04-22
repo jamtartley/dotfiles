@@ -25,7 +25,7 @@ output() {
     tail -1 |
     sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g ; s/║//g ; s/▲//g" |
     sed "s/\s//g ; s/|/;/g" |
-    awk -v header=$HEADER -F'│' '{print "☠" $5 " △" $6 " (" header ")"}'
+    awk -v header=$HEADER -F'│' '{print "☠" $5 " △" (match($6, /[^$]/) ? $6 : 0) " (" header ")"}'
 }
 
 case "$1" in
