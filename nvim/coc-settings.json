@@ -1,7 +1,8 @@
 {
+    "coc.preferences.formatOnSaveFiletypes": ["javascript","javascriptreact","json","cs"],
     "coc.preferences.useQuickfixForLocations": true,
-    "coc.preferences.formatOnSaveFiletypes": ["cs"],
-    "codeLens.enable": true,
+    "emmet.includeLanguages": {"javascript": "javascriptreact"},
+    "eslint.filetypes": ["javascript","javascriptreact"],
     "solargraph.useBundler": true,
     "suggest.autoTrigger": "always"
 }

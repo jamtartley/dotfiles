@@ -2,7 +2,13 @@ export BROWSER=google-chrome-stable
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
-export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never -g ".*" -g "*.{c,coffee,cs,css,erb,git*,graphql,h,hbs,html,js,jsx,json,less,md,pdf,py,rb,sass,scss,sh,sql,tex,ts,tsx,txt,vim,zsh}"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs -g "!{node_modules,.git}"'
+export FZF_DEFAULT_OPTS='--height 96%'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=dark
+--color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
+--color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+'
 export GITHUB=https://github.com/jamtartley
 export KEYTIMEOUT=25
 export TERM=xterm-256color
@@ -79,3 +85,5 @@ tldr() {
 for file in $DOTFILES/*/*.zsh; do
     source "$file"
 done
+
+source ~/.zsh_aliases

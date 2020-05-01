@@ -12,7 +12,6 @@ SINK_BLACKLIST=( )  # Index blacklist for sinks when switching between them
 # Global script variables
 isMuted="no"
 activeSink=""
-endColor="%{F-}"
 
 function getCurVol {
     curVol=$(pacmd list-sinks | grep -A 15 'index: '"$activeSink"'' | grep 'volume:' | grep -E -v 'base volume:' | awk -F : '{print $3}' | grep -o -P '.{0,3}%'| sed s/.$// | tr -d ' ')
@@ -204,9 +203,9 @@ function output() {
 
     # Showing the formatted message
     if [ "${isMuted}" = "yes" ]; then
-        echo "${MUTED_ICON}${curVol}%   ${sinkIcon}${activeSink}${endColor}"
+        echo "[#${activeSink}]"
     else
-        echo "${volIcon}${curVol}%   ${sinkIcon}${activeSink}${endColor}"
+        echo "${volIcon}${curVol}%   ${sinkIcon}${activeSink}"
     fi
 }
 

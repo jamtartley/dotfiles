@@ -8,6 +8,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
@@ -59,7 +61,10 @@ colorscheme dracula
 " ===================
 
 let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-emmet',
   \ 'coc-eslint',
+  \ 'coc-html',
   \ 'coc-json',
   \ 'coc-omnisharp',
   \ 'coc-prettier',
@@ -208,10 +213,14 @@ augroup initvim
     au BufWritePost init.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
+" Goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+nnoremap <C-g> :Goyo<CR>
+
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 nnoremap <C-a> ggVG<CR>
-nnoremap <C-g> :Rg<Cr>
 nnoremap <C-p> :Files<Cr>
 
 nnoremap n nzz
@@ -231,7 +240,7 @@ nnoremap <silent> v= <C-w>=
 
 nnoremap <leader>b :!npm run build<CR><CR>
 nnoremap <leader>bp :!killall mupdf;pdflatex %;mupdf %:r.pdf &<CR><CR>
-nnoremap <leader>ff :Rg
+nnoremap <leader>ff :Rg 
 nnoremap <leader>g :Gdiff<CR>
 nnoremap <leader>o :on<CR>
 nnoremap <leader>rz :source ~/.config/nvim/init.vim<CR>
@@ -242,3 +251,5 @@ nnoremap <leader>t :terminal clear;tagg<CR>
 vnoremap < <gv
 vnoremap > >gv
 vnoremap / /\v
+
+autocmd FileType cs setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab

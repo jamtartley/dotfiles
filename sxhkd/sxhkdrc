@@ -8,8 +8,8 @@ alt + Escape
 alt + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
 
-alt + c
-    code
+alt + {_, shift +} c
+    {code, mongodb-compass}
 
 alt + {_, shift + } d
     {rofi -show run -theme dracula -lines 5, xterm -e "cd \"$HOME/dev\"; $SHELL"}
@@ -58,8 +58,8 @@ alt + u
 alt + v
     VirtualBox
 
-alt + w
-    xterm -e weechat
+alt + {_, shift + } w
+    {xterm -e weechat, xterm -e "cd ~/dev/word_cms_backend; $SHELL" &; xterm -e "cd ~/dev/word_cms_frontend; $SHELL" &}
 
 alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
