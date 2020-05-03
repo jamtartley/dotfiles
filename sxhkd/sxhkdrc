@@ -37,8 +37,8 @@ alt + {_,shift + } n
 alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
 
-alt + p
-    rofi_projects
+alt + {_, shift + } p
+    {rofi_projects, postman}
 
 alt + {_, shift + } q
     bspc node -{c,k}
