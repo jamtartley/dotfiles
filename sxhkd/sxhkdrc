@@ -3,7 +3,7 @@ alt + {_, shift + } Return
 
 # make sxhkd reload its configuration files:
 alt + Escape
-    pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd && notify-send "Restarting sxhkd..."
 
 alt + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
@@ -13,6 +13,9 @@ alt + {_, shift +} c
 
 alt + {_, shift + } d
     {rofi -show run -theme dracula -lines 5, xterm -e "cd \"$HOME/dev\"; $SHELL"}
+
+alt + {_, shift + } f
+    bspc node -t {fullscreen,floating}
 
 alt + {_, shift + } g
     {google-chrome-stable --incognito, google-chrome-stable}
@@ -28,8 +31,8 @@ alt + super + {h,j,k,l}
 alt + super + shift + {h,j,k,l}
     bspc node -z {right -50 0,top 0 50,bottom 0 -50,left 50 0}
 
-alt + m
-    xterm -e mutt
+alt + {_, shift + } m
+    {xterm -e mutt, edit_config_file}
 
 alt + {_,shift + } n
     xterm -e {ncmpcpp, newsboat}
@@ -49,8 +52,8 @@ alt + {_, shift + } r
 alt + {_, shift + } s
     {steam, spotify}
 
-alt + {t,shift + t,f,shift + f}
-    bspc node -t {tiled,pseudo_tiled,fullscreen,floating}
+alt + {t,shift + t}
+    {bspc node -t tiled,trello}
 
 alt + u
     unityhub

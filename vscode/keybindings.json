@@ -1,7 +1,9 @@
-// Place your key bindings in this file to override the defaults
 [
-    {
-        "key": "alt+shift+t",
-        "command": "macros.run_tagg"
-    }
+  { "key": "ctrl+g", "command": "workbench.action.toggleZenMode" },
+  {
+    "key": "ctrl+f",
+    "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+  { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility" },
+  { "key": "ctrl+t", "command": "workbench.action.terminal.toggleTerminal" }
 ]

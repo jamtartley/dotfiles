@@ -108,7 +108,7 @@ scroll-down = $HOME/.config/polybar/scripts/pulseaudio-control.sh --down
 [module/date]
 type = internal/date
 interval = 1.0
-date = %m/%d%
+date = %d/%m
 time = %H:%M:%S
 label = %date% %time%
 label-underline = ${colors.yellow}

@@ -308,6 +308,7 @@ lib32-readline
 lib32-sqlite
 lib32-systemd
 lib32-util-linux
+lib32-vulkan-icd-loader
 lib32-wayland
 lib32-xz
 lib32-zlib
@@ -440,6 +441,7 @@ libtommath
 libtool
 libunistring
 libunwind
+liburing
 libusb
 libutempter
 libutil-linux
@@ -520,6 +522,7 @@ mkinitcpio
 mkinitcpio-busybox
 mobile-broadband-provider-info
 mono
+mono-msbuild
 mopidy
 mpc
 mpfr

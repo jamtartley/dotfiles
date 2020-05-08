@@ -14,6 +14,8 @@ ln -sf $dir/fonts/* $FONTS
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="$HOME/.icons" sh
 
 sudo mkdir -p /usr/share/rofi/themes
+mkdir $HOME/.config/rofi
+ln -sf $dir/dracula.rasi $HOME/.config/rofi
 sudo ln -sf $dir/dracula.rasi /usr/share/rofi/themes
 
 wallpaper_dir="$HOME/Pictures/Wallpapers"

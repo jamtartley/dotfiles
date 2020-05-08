@@ -8,7 +8,6 @@ libspotify
 mongodb-bin
 mongodb-compass
 mongodb-tools-bin
-msbuild-stable
 neovim-symlinks
 nerd-fonts-terminus
 obinskit
@@ -21,6 +20,7 @@ spotify
 st
 steam-fonts
 tabbed-vain
+trello
 ttf-anka-coder
 ttf-anka-coder-condensed
 ttf-meslo
