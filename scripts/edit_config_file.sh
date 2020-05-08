@@ -3,4 +3,4 @@
 DIR="$HOME/dev/.dotfiles"
 FILE="$(find "$DIR" -type f | rofi -theme dracula -matching fuzzy -lines 10 -dmenu -i -p "Select config file")"
 
-[ -n "$FILE" ] && xterm -e "vim $FILE" &
+[ -n "$FILE" ] && xterm -e "cd $DIR && vim $FILE" &

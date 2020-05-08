@@ -1,44 +1,67 @@
 {
-  "window.zoomLevel": 4,
-  "window.titleBarStyle": "custom",
+  "[csharp]": {
+    "editor.tabSize": 4
+  },
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "breadcrumbs.enabled": false,
+
+  "csharp.referencesCodeLens.enabled": false,
+
+  "csharpfixformat.sort.usings.enabled": false,
+  "csharpfixformat.sort.usings.splitGroups": true,
+  "csharpfixformat.style.braces.onSameLine": false,
+  "csharpfixformat.style.newline.maxAmount": 1,
+  "csharpfixformat.style.operators.onSameLine": false,
+
   "css.remoteStyleSheets": [
     "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
   ],
-  "emmet.includeLanguages": {
-    "jsx-sublime-babel-tags": "javascriptreact"
-  },
-  "workbench.colorTheme": "Dracula",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "'Inconsolata', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
+  "editor.insertSpaces": true,
+  "editor.lineNumbers": "on",
+  "editor.matchBrackets": false,
+  "editor.minimap.enabled": false,
+  "editor.overviewRulerBorder": false,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 0,
-  "editor.matchBrackets": false,
-  "editor.detectIndentation": false,
-  "editor.minimap.enabled": false,
-  "editor.overviewRulerBorder": false,
-  "editor.lineNumbers": "on",
-  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+
   "explorer.autoReveal": true,
 
-  "eslint.alwaysShowStatus": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    { "language": "typescript", "autoFix": true },
-    { "language": "typescriptreact", "autoFix": true }
-  ],
+  "emmet.includeLanguages": {
+    "jsx-sublime-babel-tags": "javascriptreact"
+  },
 
-  "breadcrumbs.enabled": false,
+  "files.trimFinalNewLines": true,
+
   "keyboard.dispatch": "keyCode",
-  "csharp.referencesCodeLens.enabled": false,
+
+  "vim.easymotion": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.leader": "v",
   "vim.useCtrlKeys": false,
-  "vim.leader": ",",
+  "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.findInFiles"]
+    },
     {
       "before": ["<leader>", "v"],
       "commands": ["workbench.action.splitEditor"]
@@ -54,25 +77,23 @@
     {
       "before": ["<leader>", "l"],
       "commands": ["workbench.action.focusNextGroup"]
+    },
+    {
+      "before": ["Q"],
+      "commands": ["workbench.action.closeActiveEditor"]
     }
   ],
-  "window.menuBarVisibility": "default",
-  "workbench.editor.limit.enabled": true,
-  "workbench.editor.limit.value": 1,
-  "workbench.editor.limit.perEditorGroup": true,
-  "workbench.statusBar.visible": true,
-  "workbench.activityBar.visible": false,
-  "workbench.editor.showTabs": false,
-  "[csharp]": {
-    "editor.tabSize": 4
-  },
-  "editor.fontFamily": "'Inconsolata', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
 
-  "csharpfixformat.sort.usings.enabled": false,
-  "csharpfixformat.sort.usings.splitGroups": true,
-  "csharpfixformat.style.braces.onSameLine": false,
-  "csharpfixformat.style.newline.maxAmount": 1,
-  "csharpfixformat.style.operators.onSameLine": false,
-  "typescriptHero.imports.organizeOnSave": true,
-  "zenMode.centerLayout": false
+  "window.menuBarVisibility": "default",
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 4,
+
+  "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Dracula",
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 1,
+  "workbench.editor.showTabs": false,
+  "workbench.statusBar.visible": true,
+  "workbench.tree.indent": 16
 }
