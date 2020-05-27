@@ -15,25 +15,19 @@
 
   "csharp.referencesCodeLens.enabled": false,
 
-  "csharpfixformat.sort.usings.enabled": false,
-  "csharpfixformat.sort.usings.splitGroups": true,
-  "csharpfixformat.style.braces.onSameLine": false,
-  "csharpfixformat.style.newline.maxAmount": 1,
-  "csharpfixformat.style.operators.onSameLine": false,
-
   "css.remoteStyleSheets": [
     "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
   ],
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
-  "editor.fontFamily": "'Inconsolata', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontFamily": "'Monaco', 'Inconsolata', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
   "editor.insertSpaces": true,
   "editor.lineNumbers": "on",
-  "editor.matchBrackets": false,
+  "editor.matchBrackets": "always",
   "editor.minimap.enabled": false,
   "editor.overviewRulerBorder": false,
   "editor.scrollbar.horizontal": "hidden",
@@ -47,17 +41,21 @@
     "jsx-sublime-babel-tags": "javascriptreact"
   },
 
-  "files.trimFinalNewLines": true,
-
   "keyboard.dispatch": "keyCode",
+
+  "omnisharp.useEditorFormattingSettings": false,
 
   "vim.easymotion": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
   "vim.leader": "v",
-  "vim.useCtrlKeys": false,
+  "vim.useCtrlKeys": true,
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "<cr>"],
+      "commands": [":nohlsearch"]
+    },
     {
       "before": ["<leader>", "f"],
       "commands": ["workbench.action.findInFiles"]
@@ -72,11 +70,19 @@
     },
     {
       "before": ["<leader>", "h"],
-      "commands": ["workbench.action.focusPreviousGroup"]
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
     },
     {
       "before": ["<leader>", "l"],
-      "commands": ["workbench.action.focusNextGroup"]
+      "commands": ["workbench.action.focusRightGroup"]
     },
     {
       "before": ["Q"],
@@ -84,16 +90,19 @@
     }
   ],
 
-  "window.menuBarVisibility": "default",
-  "window.titleBarStyle": "custom",
-  "window.zoomLevel": 4,
+  "window.menuBarVisibility": "toggle",
+  "window.restoreWindows": "none",
+  "window.zoomLevel": 2,
 
-  "workbench.activityBar.visible": true,
+  "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Dracula",
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 1,
   "workbench.editor.showTabs": false,
   "workbench.statusBar.visible": true,
-  "workbench.tree.indent": 16
+  "workbench.tree.indent": 16,
+
+  "zenMode.hideLineNumbers": false,
+  "zenMode.restore": true
 }

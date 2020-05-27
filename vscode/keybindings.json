@@ -1,9 +1,24 @@
 [
   {
+    "key": "ctrl+shift+c",
+    "command": "workbench.action.toggleCenteredLayout"
+  },
+  {
     "key": "ctrl+f",
-    "command": "workbench.files.action.showActiveFileInExplorer"
+    "command": "workbench.files.action.showActiveFileInExplorer",
+    "when": "!sideBarFocus"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "sideBarFocus"
   },
   { "key": "ctrl+g", "command": "workbench.action.toggleZenMode" },
   { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility" },
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
   { "key": "ctrl+t", "command": "workbench.action.terminal.toggleTerminal" }
+  { "key": "ctrl+shift+t", "command": "workbench.action.showAllSymbols" }
 ]

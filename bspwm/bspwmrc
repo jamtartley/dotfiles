@@ -10,6 +10,7 @@ killall -9 dunst && dunst &
 blueman-tray &
 bspc monitor -d I II III IV V VI VII VIII IX X
 feh --randomize --bg-fill $HOME/Pictures/Wallpapers/* &
+keepassxc &
 
 bspc config border_width 6
 bspc config window_gap 20
@@ -26,3 +27,6 @@ bspc config focus_follows_pointer true
 bspc config click_to_focus true
 
 bspc rule -a Unity state=tiled follow=on focus=on
+bspc rule -a Riot desktop=^9 follow=on
+bspc rule -a KeePassXC desktop=^10
+bspc rule -a Navigator follow=on

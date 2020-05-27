@@ -246,6 +246,7 @@ nnoremap <leader>o :on<CR>
 nnoremap <leader>rz :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>s :%s/\s\+$//e<CR>
 nnoremap <leader>sc :!clear;shellcheck %<CR>
+nnoremap <leader>sr :!clear;chmod +x %;./%<CR>
 nnoremap <leader>t :terminal clear;tagg<CR>
 
 vnoremap < <gv
