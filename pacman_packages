@@ -161,11 +161,15 @@ gzip
 harfbuzz
 harfbuzz-icu
 haskell-aeson
+haskell-assoc
 haskell-attoparsec
 haskell-base-compat
 haskell-base-compat-batteries
 haskell-base-orphans
+haskell-bifunctors
+haskell-comonad
 haskell-diff
+haskell-distributive
 haskell-dlist
 haskell-erf
 haskell-hashable
@@ -180,6 +184,7 @@ haskell-splitmix
 haskell-tagged
 haskell-th-abstraction
 haskell-time-compat
+haskell-transformers-compat
 haskell-unordered-containers
 haskell-uuid-types
 haskell-vector
@@ -524,6 +529,7 @@ mobile-broadband-provider-info
 mono
 mono-msbuild
 mopidy
+moreutils
 mpc
 mpfr
 mpg123
@@ -577,6 +583,7 @@ pciutils
 pcre
 pcre2
 perl
+perl-clone
 perl-encode-locale
 perl-error
 perl-file-listing
@@ -588,16 +595,18 @@ perl-http-date
 perl-http-message
 perl-http-negotiate
 perl-io-html
+perl-io-tty
+perl-ipc-run
 perl-libwww
 perl-lwp-mediatypes
 perl-mailtools
 perl-net-http
+perl-time-duration
 perl-timedate
 perl-try-tiny
 perl-uri
 perl-www-robotrules
 perl-xml-parser
-picom
 pinentry
 pixman
 pkgconf
@@ -831,6 +840,7 @@ vid.stab
 virglrenderer
 virtualbox
 virtualbox-host-dkms
+vmaf
 vte-common
 vte3
 vulkan-icd-loader
