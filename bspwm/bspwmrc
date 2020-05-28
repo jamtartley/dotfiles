@@ -27,6 +27,6 @@ bspc config focus_follows_pointer true
 bspc config click_to_focus true
 
 bspc rule -a Unity state=tiled follow=on focus=on
-bspc rule -a Riot desktop=^9 follow=on
+bspc rule -a "Riot Nightly" desktop=^9 follow=on
 bspc rule -a KeePassXC desktop=^10
 bspc rule -a Navigator follow=on

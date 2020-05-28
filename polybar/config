@@ -105,6 +105,17 @@ scroll-down = $HOME/.config/polybar/scripts/pulseaudio-control.sh --down
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+[module/battery]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/battery.sh
+interval = 1.0
+
+label = %output%
+label-underline = ${colors.purple}
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [module/date]
 type = internal/date
 interval = 1.0

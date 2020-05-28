@@ -37,8 +37,8 @@ sudo pip install hidapi rivalcfg
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
 
-sudo pacman -S --noconfirm --needed < pacman_packages
-yay -S --noconfirm --needed < yay_packages
+sudo pacman -S --noconfirm --needed - < pacman_packages
+yay -S --noconfirm --needed - < yay_packages
 
 ln -sf $(pwd)/post-commit $(pwd)/.git/hooks
 

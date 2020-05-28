@@ -86,4 +86,4 @@ for file in $DOTFILES/*/*.zsh; do
     source "$file"
 done
 
-source ~/.zsh_aliases
+[[ -x ~/.zsh_aliases ]] && source ~/.zsh_aliases

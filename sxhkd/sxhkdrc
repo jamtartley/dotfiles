@@ -62,7 +62,7 @@ alt + v
     VirtualBox
 
 alt + {_, shift + } w
-    {weechat, riot-desktop}
+    {xterm -e weechat, riot-desktop-nightly}
 
 alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
