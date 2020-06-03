@@ -183,6 +183,7 @@ haskell-scientific
 haskell-splitmix
 haskell-tagged
 haskell-th-abstraction
+haskell-these
 haskell-time-compat
 haskell-transformers-compat
 haskell-unordered-containers
@@ -277,6 +278,7 @@ lib32-libpng
 lib32-libtasn1
 lib32-libthai
 lib32-libtiff
+lib32-libunwind
 lib32-libx11
 lib32-libxau
 lib32-libxcb
@@ -799,6 +801,7 @@ speex
 speexdsp
 spice
 spirv-tools
+sqlcipher
 sqlite
 srt
 startup-notification
@@ -852,7 +855,6 @@ webrtc-audio-processing
 weechat
 wget
 which
-wireless_tools
 woff2
 wpa_supplicant
 wpebackend-fdo
@@ -903,7 +905,6 @@ xterm
 xvidcore
 xz
 yajl
-yarn
 yelp-tools
 yelp-xsl
 youtube-dl

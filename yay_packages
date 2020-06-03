@@ -2,6 +2,7 @@ cozette-otb
 gconf
 gohufont
 google-chrome
+gst-python2
 libcurl-openssl-1.0
 libspotify
 mongodb-bin
@@ -12,7 +13,8 @@ nerd-fonts-terminus
 obinskit
 polybar
 postman
-riot-desktop-nightly-bin
+riot-desktop-git
+riot-web-git
 spicetify-cli
 spicetify-themes-git
 spotify
