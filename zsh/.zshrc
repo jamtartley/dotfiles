@@ -17,6 +17,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export ZSH=$HOME/.oh-my-zsh
 
 export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 DISABLE_AUTO_UPDATE="false"
 ZSH_THEME="bureau"

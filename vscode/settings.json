@@ -92,7 +92,7 @@
 
   "window.menuBarVisibility": "toggle",
   "window.restoreWindows": "none",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 2,
 
   "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Dracula",
@@ -104,5 +104,6 @@
   "workbench.tree.indent": 16,
 
   "zenMode.hideLineNumbers": false,
-  "zenMode.restore": true
+  "zenMode.restore": true,
+  "workbench.startupEditor": "welcomePage"
 }

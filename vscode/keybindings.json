@@ -14,11 +14,36 @@
     "when": "sideBarFocus"
   },
   { "key": "ctrl+g", "command": "workbench.action.toggleZenMode" },
-  { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility" },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
   {
     "key": "ctrl+shift+n",
     "command": "workbench.action.toggleActivityBarVisibility"
   },
-  { "key": "ctrl+t", "command": "workbench.action.terminal.toggleTerminal" }
-  { "key": "ctrl+shift+t", "command": "workbench.action.showAllSymbols" }
+  { "key": "ctrl+t", "command": "workbench.action.terminal.toggleTerminal" },
+  { "key": "ctrl+shift+t", "command": "workbench.action.showAllSymbols" },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  }
 ]
