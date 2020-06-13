@@ -15,12 +15,11 @@ set_git_user_opt() {
 
 set_git_user_opt "user.name" "git author"
 set_git_user_opt "user.email" "git email"
-
-[ -n "$(git config --global credential.helper)" ] && git config --global credential.helper 'cache --timeout=999999'
+[ -n "$(git config --global credential.helper)" ] && git config --global credential.helper store
 
 sudo groupadd -f pulse
 sudo groupadd -f pulse-access
-sudo usermod -aG pulse,pulse-access sam
+sudo usermod -aG pulse,pulse-access $USER
 sudo pacman -S --noconfirm --needed python python2 python-pip python2-pip python-dbus
 
 pushd $HOME
@@ -48,4 +47,11 @@ for f do
     sh -c $f
 done' sh {} +
 
-chsh -s $(which zsh)
+sudo systemctl --now enable docker.service
+sudo usermod -aG wheel,docker $USER
+
+sudo systemctl --now enable bluetooth.service
+
+pushd $HOME
+dotnet tool install -g dotnet-format
+popd

@@ -26,7 +26,7 @@
   "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
   "editor.insertSpaces": true,
-  "editor.lineNumbers": "on",
+  "editor.lineNumbers": "off",
   "editor.matchBrackets": "always",
   "editor.minimap.enabled": false,
   "editor.overviewRulerBorder": false,
@@ -44,6 +44,9 @@
   "keyboard.dispatch": "keyCode",
 
   "omnisharp.useEditorFormattingSettings": false,
+
+  "projectManager.git.baseFolders": ["/home/sam/dev/word-api"],
+  "projectManager.git.maxDepthRecursion": 4,
 
   "vim.easymotion": true,
   "vim.hlsearch": true,
@@ -95,7 +98,7 @@
   "window.zoomLevel": 2,
 
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Kary Pro Colors － Light",
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 1,
@@ -105,5 +108,7 @@
 
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": true,
-  "workbench.startupEditor": "welcomePage"
+  "workbench.startupEditor": "welcomePage",
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.statusBar.enabled": false
 }

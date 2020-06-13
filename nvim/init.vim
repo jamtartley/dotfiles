@@ -9,7 +9,6 @@ Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
@@ -213,14 +212,10 @@ augroup initvim
     au BufWritePost init.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
-" Goyo
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-nnoremap <C-g> :Goyo<CR>
-
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 nnoremap <C-a> ggVG<CR>
+nnoremap <C-g> :Goyo<CR>
 nnoremap <C-p> :Files<Cr>
 
 nnoremap n nzz

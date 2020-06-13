@@ -11,6 +11,8 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 '
 export GITHUB=https://github.com/jamtartley
 export KEYTIMEOUT=25
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 export TERM=xterm-256color
 export VISUAL=nvim
 export XDG_CONFIG_HOME=$HOME/.config
@@ -18,6 +20,8 @@ export ZSH=$HOME/.oh-my-zsh
 
 export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.scripts:$PATH
+export PATH=$HOME/.dotnet/tools:$PATH
 
 DISABLE_AUTO_UPDATE="false"
 ZSH_THEME="bureau"
