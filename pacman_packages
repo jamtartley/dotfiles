@@ -87,7 +87,6 @@ efivar
 egl-wayland
 eglexternalplatform
 electron
-electron4
 elfutils
 enchant
 exo
@@ -215,8 +214,11 @@ itstool
 jack
 jansson
 jasper
+java-runtime-common
 jemalloc
 jq
+jre-openjdk
+jre-openjdk-headless
 js60
 json-c
 json-glib
@@ -270,6 +272,7 @@ lib32-libgcrypt
 lib32-libglvnd
 lib32-libgpg-error
 lib32-libidn
+lib32-libidn2
 lib32-libindicator-gtk2
 lib32-libjpeg-turbo
 lib32-libldap
@@ -278,6 +281,7 @@ lib32-libpng
 lib32-libtasn1
 lib32-libthai
 lib32-libtiff
+lib32-libunistring
 lib32-libunwind
 lib32-libx11
 lib32-libxau
@@ -394,6 +398,7 @@ libmpc
 libmpdclient
 libmpeg2
 libndp
+libnet
 libnetfilter_conntrack
 libnewt
 libnfnetlink
@@ -570,7 +575,6 @@ opera-ffmpeg-codecs
 opus
 orc
 os-prober
-otf-fira-code
 p11-kit
 p7zip
 pacman
@@ -638,6 +642,7 @@ python-cached-property
 python-cairo
 python-cffi
 python-chardet
+python-click
 python-colorama
 python-configobj
 python-contextlib2
@@ -652,6 +657,7 @@ python-docker-pycreds
 python-dockerpty
 python-docopt
 python-docutils
+python-dotenv
 python-gobject
 python-html5lib
 python-idna
@@ -781,6 +787,7 @@ rtkit
 rubberband
 run-parts
 runc
+rust
 sbc
 scrot
 sdl
@@ -905,6 +912,7 @@ xterm
 xvidcore
 xz
 yajl
+yarn
 yelp-tools
 yelp-xsl
 youtube-dl

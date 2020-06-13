@@ -6,6 +6,8 @@ ecmel.vscode-html-css
 esbenp.prettier-vscode
 fatihacet.gitlab-workflow
 geddski.macros
+jdinhlife.gruvbox
+karyfoundation.theme-karyfoundation-themes
 kleber-swf.unity-code-snippets
 kumar-harsh.graphql-for-vscode
 ms-azuretools.vscode-docker
@@ -16,6 +18,7 @@ naumovs.color-highlight
 RoscoP.ActiveFileInStatusBar
 runningcoder.js-snippets
 steoates.autoimport
+teabyii.ayu
 Unity.unity-debug
 vscodevim.vim
 xabikos.JavaScriptSnippets

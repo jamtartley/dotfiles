@@ -1,4 +1,6 @@
+bfg
 cozette-otb
+electron4
 gconf
 gohufont
 google-chrome
@@ -10,6 +12,7 @@ mongodb-tools-bin
 neovim-symlinks
 nerd-fonts-terminus
 obinskit
+otf-fira-code
 polybar
 riot-desktop-git
 riot-web-git
@@ -19,7 +22,6 @@ spotify
 st
 steam-fonts
 tabbed-vain
-trello
 ttf-anka-coder
 ttf-anka-coder-condensed
 ttf-meslo
