@@ -26,7 +26,7 @@
   "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
   "editor.insertSpaces": true,
-  "editor.lineNumbers": "off",
+  "editor.lineNumbers": "on",
   "editor.matchBrackets": "always",
   "editor.minimap.enabled": false,
   "editor.overviewRulerBorder": false,
@@ -98,17 +98,19 @@
   "window.zoomLevel": 2,
 
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Kary Pro Colors － Light",
+  "workbench.colorTheme": "Dracula",
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 1,
   "workbench.editor.showTabs": false,
+  "workbench.sideBar.location": "right",
   "workbench.statusBar.visible": true,
   "workbench.tree.indent": 16,
 
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": true,
   "workbench.startupEditor": "welcomePage",
+  "gitlens.codeLens.scopes": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.statusBar.enabled": false
 }

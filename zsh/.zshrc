@@ -3,13 +3,8 @@ export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!{node_modules,.git}"'
-export FZF_DEFAULT_OPTS='--height 96%'
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color=dark
---color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
---color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
-'
 export GITHUB=https://github.com/jamtartley
+export JAVA_HOME=/usr/lib/jvm/default
 export KEYTIMEOUT=25
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
@@ -62,27 +57,6 @@ zplug load
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
-alias c='clear'
-alias l="ls -alhG"
-alias mkd="mkdir -pv"
-alias rz="source $HOME/.zshrc"
-
-if type nvim > /dev/null 2>&1;
-then
-    alias v='nvim'
-    alias vim="nvim"
-fi
-
-alias cf='cat $(fzf)'
-alias vf='vim $(fzf)'
-
-alias g='git status'
-alias gs='git status -s'
-alias gl='git log'
-
-alias dev="cd $DEV"
-alias dots="cd $DOTFILES"
-
 tldr() {
   curl "https://cheat.sh/$1"
 }
@@ -92,3 +66,7 @@ for file in $DOTFILES/*/*.zsh; do
 done
 
 [[ -x ~/.zsh_aliases ]] && source ~/.zsh_aliases
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

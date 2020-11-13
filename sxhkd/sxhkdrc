@@ -8,6 +8,12 @@ alt + Escape
 alt + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
 
+alt + {Left, Right}
+    bspc desktop -f {prev, next}
+
+alt + b
+    blueman-manager
+
 alt + {_, shift +} c
     {code, mongodb-compass}
 
@@ -41,7 +47,7 @@ alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
 
 alt + {_, shift + } p
-    {rofi_projects, postman}
+    {rofi_projects code, rofi_projects vim}
 
 alt + {_, shift + } q
     bspc node -{c,k}
@@ -67,8 +73,8 @@ alt + {_, shift + } w
 alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
 
-alt + y
-    clipboard_to_browser
+alt + {_, shift + } y
+    {clipboard_to_browser, firefox --private-window "youtube.com"}
 
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
