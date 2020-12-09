@@ -4,12 +4,14 @@ android-sdk-build-tools
 android-sdk-platform-tools
 bfg
 chromedriver
+dust
 electron4
 electron7
 gconf
 genymotion
 google-chrome
 insync
+js60
 libcurl-openssl-1.0
 libspotify
 mattermost-desktop
@@ -32,6 +34,7 @@ spicetify-cli
 spicetify-themes-git
 spotify
 st
+starship
 steam-fonts
 tabbed-vain
 ttf-anka-coder
