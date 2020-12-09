@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
 alias c='clear'
-alias l="ls -alhG"
 alias mkd="mkdir -pv"
 alias rz="source $HOME/.zshrc"
+
+alias l='exa -al --color=always --group-directories-first'
+alias lt='exa -aT --color=always --group-directories-first'
+alias l.='exa -a | grep -E "^\."'
 
 if type nvim > /dev/null 2>&1;
 then
@@ -25,8 +28,8 @@ alias zshrc="vim $DOTFILES/zsh/.zshrc"
 
 alias open="xdg-open"
 
-alias ytmp3="youtube-dl --extract-audio --audio-format mp3 "
-alias ytmp4="youtube-dl "
+alias ytmpj="youtube-dl --extract-audio --audio-format mp3 "
+alias yt="youtube-dl -f bestvideo+bestaudio "
 
 alias psmem="ps auxf | sort -nr -k 4 | head -5"
 alias pscpu="ps auxf | sort -nr -k 3 | head -5"

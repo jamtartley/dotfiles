@@ -40,8 +40,8 @@ padding-left = 0
 padding-right = 4
 
 wm-name = bspwm
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+scroll-down = bspwm-desknext
+scroll-up = bspwm-deskprev
 
 tray-position = left
 tray-padding = 4
