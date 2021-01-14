@@ -12,7 +12,6 @@ alsa-ucm-conf
 alsa-utils
 android-file-transfer
 android-udev
-antlr4-runtime
 aom
 archlinux-keyring
 argon2
@@ -92,6 +91,7 @@ dotnet-runtime
 dotnet-sdk
 dotnet-targeting-pack
 double-conversion
+dtc
 dunst
 e2fsprogs
 ebook-tools
@@ -130,6 +130,7 @@ gc
 gcc
 gcc-libs
 gcr
+gd
 gdbm
 gdk-pixbuf2
 geoclue
@@ -140,6 +141,7 @@ giblib
 giflib
 git
 git-lfs
+gitlab-runner
 glib-networking
 glib2
 glib2-docs
@@ -178,6 +180,7 @@ gtk2
 gtk3
 gtkmm3
 guile
+gumbo-parser
 gzip
 harfbuzz
 harfbuzz-icu
@@ -195,6 +198,7 @@ haskell-distributive
 haskell-dlist
 haskell-erf
 haskell-hashable
+haskell-indexed-traversable
 haskell-integer-logarithms
 haskell-primitive
 haskell-quickcheck
@@ -241,6 +245,7 @@ jansson
 jasper
 java-environment-common
 java-runtime-common
+jbig2dec
 jdk8-openjdk
 jemalloc
 jq
@@ -443,11 +448,15 @@ libevent
 libexif
 libfbclient
 libffi
+libfm
+libfm-extra
+libfm-gtk2
 libfontenc
 libgcrypt
 libgdiplus
 libglvnd
 libgpg-error
+libgtop
 libgudev
 libgusb
 libibus
@@ -461,7 +470,6 @@ libimobiledevice
 libindicator-gtk2
 libindicator-gtk3
 libinput
-libiodbc
 libjpeg-turbo
 libkeybinder3
 libksba
@@ -469,7 +477,6 @@ libkscreen
 libldap
 liblouis
 liblqr
-libluv
 liblxqt
 libmfx
 libmicrohttpd
@@ -520,6 +527,7 @@ libsecret
 libshout
 libsidplay
 libsigc++
+libsigsegv
 libslirp
 libsm
 libsndfile
@@ -530,9 +538,9 @@ libspeechd
 libssh
 libssh2
 libstemmer
+libsynctex
 libtasn1
 libteam
-libtermkey
 libthai
 libtheora
 libtiff
@@ -552,7 +560,6 @@ libvisual
 libvoikko
 libvorbis
 libvpx
-libvterm
 libwacom
 libwebp
 libwpe
@@ -604,10 +611,10 @@ lmdb
 lsb-release
 lsof
 lua52
-luajit
 luit
 lvm2
 lxappearance
+lxmenu-data
 lxqt-config
 lxqt-themes
 lz4
@@ -624,6 +631,7 @@ mariadb-libs
 md4c
 mdadm
 media-player-info
+menu-cache
 mesa
 minizip
 mkinitcpio
@@ -639,16 +647,13 @@ mpc
 mpfr
 mpg123
 mpv
-msgpack-c
 mtdev
 mujs
-mysql-python
-mysql-workbench
+mupdf
 ncmpcpp
 ncurses
 ndctl
 neofetch
-neovim
 net-tools
 netstandard-targeting-pack
 nettle
@@ -681,9 +686,11 @@ opera-ffmpeg-codecs
 opus
 orc
 os-prober
+otf-font-awesome
 p11-kit
 p7zip
 pacman
+pacman-contrib
 pacman-mirrorlist
 pam
 pambase
@@ -693,6 +700,7 @@ parted
 patch
 pavucontrol
 pciutils
+pcmanfm
 pcre
 pcre2
 perl
@@ -732,8 +740,8 @@ poppler-qt5
 popt
 postgresql
 postgresql-libs
+potrace
 procps-ng
-proj
 protobuf
 psmisc
 pulseaudio
@@ -803,7 +811,7 @@ python-pyparsing
 python-pypeg2
 python-pyqt5
 python-pyqt5-sip
-python-pyqtwebengine
+python-pyqt5-webengine
 python-pyrsistent
 python-pytoml
 python-pytz
@@ -862,12 +870,10 @@ python2-ordered-set
 python2-packaging
 python2-pathlib2
 python2-pep517
-python2-pexpect
 python2-pip
 python2-ply
 python2-progress
 python2-psutil
-python2-ptyprocess
 python2-pycparser
 python2-pyopenssl
 python2-pyparsing
@@ -904,7 +910,6 @@ qt5-webengine
 qt5-webkit
 qt5-x11extras
 quazip
-rapidjson
 rav1e
 re2
 readline
@@ -960,10 +965,12 @@ steam
 stfl
 sudo
 sxhkd
+sxiv
 sysfsutils
 systemd
 systemd-libs
 systemd-sysvcompat
+t1lib
 taglib
 talloc
 tar
@@ -972,13 +979,15 @@ tdb
 terminator
 tevent
 texinfo
+texlive-bin
+texlive-core
+texlive-fontsextra
 thin-provisioning-tools
-thunar
-tinyxml
 tracker3
 transmission-gtk
 tslib
 ttf-dejavu
+ttf-font-awesome
 ttf-inconsolata
 ttf-liberation
 ttf-roboto
@@ -986,7 +995,6 @@ twolame
 tzdata
 uchardet
 udisks2
-unibilium
 unixodbc
 unzip
 upower
@@ -1004,7 +1012,6 @@ virtualbox
 virtualbox-host-dkms
 vmaf
 volume_key
-vsqlite++
 vte-common
 vte3
 vulkan-icd-loader
@@ -1017,6 +1024,7 @@ weechat
 wget
 which
 wireguard-tools
+wmname
 woff2
 wpa_supplicant
 wpebackend-fdo
@@ -1082,3 +1090,4 @@ zita-resampler
 zlib
 zsh
 zstd
+zziplib

@@ -11,8 +11,8 @@ alt + {_,shift + }{1-9,0}
 alt + {Left, Right}
     bspc desktop -f {prev, next}
 
-alt + b
-    blueman-manager
+alt + {_, shift + } b
+    {blueman-manager, beekeeper-studio}
 
 alt + {_, shift +} c
     {code, mongodb-compass}

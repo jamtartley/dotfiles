@@ -2,11 +2,14 @@ acestream-engine
 android-sdk
 android-sdk-build-tools
 android-sdk-platform-tools
+beekeeper-studio-bin
 bfg
 chromedriver
+downgrade
 dust
 electron4
 electron7
+electron8-bin
 gconf
 genymotion
 google-chrome
@@ -19,6 +22,7 @@ mongodb-bin
 mongodb-compass
 mongodb-tools-bin
 mpv-acestream
+neovim-nightly-bin
 neovim-symlinks
 nerd-fonts-terminus
 obinskit
@@ -30,11 +34,11 @@ python2-pytoml
 python2-xlib
 riot-desktop-git
 riot-web-git
+signal-desktop-beta-bin
 spicetify-cli
 spicetify-themes-git
 spotify
 st
-starship
 steam-fonts
 tabbed-vain
 ttf-anka-coder

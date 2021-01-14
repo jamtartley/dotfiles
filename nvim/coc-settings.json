@@ -1,8 +1,14 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["javascript","javascriptreact","json","cs"],
-    "coc.preferences.useQuickfixForLocations": true,
-    "emmet.includeLanguages": {"javascript": "javascriptreact"},
-    "eslint.filetypes": ["javascript","javascriptreact"],
-    "solargraph.useBundler": true,
-    "suggest.autoTrigger": "always"
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "json",
+    "cs"
+  ],
+  "coc.preferences.useQuickfixForLocations": true,
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "eslint.filetypes": ["javascript", "javascriptreact"],
+  "solargraph.useBundler": true,
+  "suggest.autoTrigger": "always",
+  "omnisharp.verison": "v1.37.3"
 }
