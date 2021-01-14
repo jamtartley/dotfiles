@@ -31,7 +31,6 @@ popd
 popd
 
 pip3 install --user taggregator
-sudo pip install hidapi rivalcfg
 
 ln -sf $(pwd)/.ignore $HOME
 ln -sf $(pwd)/.zprofile $HOME
