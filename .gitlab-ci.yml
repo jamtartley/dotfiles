@@ -9,5 +9,6 @@ build:
     - pacman -S git --noconfirm
     - git config --global user.name "Bob"
     - git config --global user.email "bob@bob.com"
+    - ./replace_sudo.sh
   script:
     - ./setup.sh
