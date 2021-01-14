@@ -39,7 +39,7 @@ ln -sf $(pwd)/.zprofile $HOME
 sudo pacman -S --noconfirm --needed - < pacman_packages
 yay -S --noconfirm --needed - < yay_packages
 
-ln -sf $(pwd)/post-commit $(pwd)/.git/hooks
+ln -sf $(pwd)/hooks/* $(pwd)/.git/hooks/
 
 find . -type f -name 'install.sh' -exec sh -c '
 for f do
