@@ -4,19 +4,14 @@ dsznajder.es7-react-js-snippets
 eamodio.gitlens
 ecmel.vscode-html-css
 esbenp.prettier-vscode
-geddski.macros
-GitLab.gitlab-workflow
-jdinhlife.gruvbox
-karyfoundation.theme-karyfoundation-themes
+James-Yu.latex-workshop
 kumar-harsh.graphql-for-vscode
-mrorz.language-gettext
 ms-azuretools.vscode-docker
 ms-dotnettools.csharp
-ms-python.python
-ms-toolsai.jupyter
 ms-vscode-remote.remote-containers
 ms-vscode.cpptools
 naumovs.color-highlight
+p1c2u.docker-compose
 RoscoP.ActiveFileInStatusBar
 runningcoder.js-snippets
 steoates.autoimport
@@ -24,3 +19,4 @@ teabyii.ayu
 Unity.unity-debug
 vscodevim.vim
 xabikos.JavaScriptSnippets
+yzhang.markdown-all-in-one

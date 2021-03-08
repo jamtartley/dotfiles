@@ -1,4 +1,3 @@
-acestream-engine
 android-sdk
 android-sdk-build-tools
 android-sdk-platform-tools
@@ -8,7 +7,7 @@ chromedriver
 downgrade
 dust
 electron4
-electron7
+electron7-bin
 electron8-bin
 gconf
 genymotion
@@ -17,21 +16,15 @@ insync
 js60
 libcurl-openssl-1.0
 libspotify
-mattermost-desktop
-mongodb-bin
-mongodb-compass
 mongodb-tools-bin
-mpv-acestream
+mullvad-vpn
 neovim-nightly-bin
 neovim-symlinks
 nerd-fonts-terminus
-obinskit
+obs-linuxbrowser-bin
 otf-fira-code
 polybar
-postman
-python2-apsw
 python2-pytoml
-python2-xlib
 riot-desktop-git
 riot-web-git
 signal-desktop-beta-bin
@@ -41,6 +34,8 @@ spotify
 st
 steam-fonts
 tabbed-vain
+texlive-moderncv-git
+trello
 ttf-anka-coder
 ttf-anka-coder-condensed
 ttf-meslo
@@ -50,7 +45,6 @@ ttf-proggy-vector
 ttf-tahoma
 unityhub
 visual-studio-code-bin
-webstorm
 xorg-font-utils
 xorg-fonts-alias
 yay
