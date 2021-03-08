@@ -38,7 +38,6 @@ fi
 
 # zplug
 source $HOME/.zplug/init.zsh
-zplug "plugins/git",   from:oh-my-zsh
 zplug "softmoth/zsh-vim-mode"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zdharma/fast-syntax-highlighting", defer:2
@@ -102,7 +101,3 @@ for file in $DOTFILES/*/*.zsh; do
 done
 
 [[ -x ~/.zsh_aliases ]] && source ~/.zsh_aliases
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
