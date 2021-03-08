@@ -21,7 +21,8 @@
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
-  "editor.fontFamily": "'Monaco', 'Inconsolata', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontFamily": "'Inconsolata', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontSize": 16,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
@@ -33,6 +34,7 @@
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.suggestSelection": "first",
   "editor.tabSize": 2,
 
   "explorer.autoReveal": true,
@@ -95,22 +97,23 @@
 
   "window.menuBarVisibility": "toggle",
   "window.restoreWindows": "none",
-  "window.zoomLevel": 2,
-
-  "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Dracula",
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 1,
   "workbench.editor.showTabs": false,
+  "workbench.panel.defaultLocation": "right",
   "workbench.sideBar.location": "right",
-  "workbench.statusBar.visible": true,
+  "workbench.statusBar.visible": false,
   "workbench.tree.indent": 16,
 
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": true,
-  "workbench.startupEditor": "welcomePage",
+
   "gitlens.codeLens.scopes": false,
   "gitlens.hovers.currentLine.over": "line",
-  "gitlens.statusBar.enabled": false
+  "gitlens.statusBar.enabled": false,
+
+  "latex-workshop.view.pdf.viewer": "tab",
+  "workbench.activityBar.visible": false
 }

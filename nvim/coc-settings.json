@@ -10,5 +10,5 @@
   "eslint.filetypes": ["javascript", "javascriptreact"],
   "solargraph.useBundler": true,
   "suggest.autoTrigger": "always",
-  "omnisharp.verison": "v1.37.3"
+  "omnisharp.version": "v1.37.3"
 }

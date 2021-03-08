@@ -40,7 +40,7 @@
 /* Clobal Properties */
 * {
     /* Settings */
-    highlight: bold #f1fa8c;
+    highlight: bolditalic #f4f99d;
     scrollbar: false;
 
     /* Dracula Colors */
@@ -64,9 +64,9 @@
     /* Color Definitions */
     background:                  @color-dK;
     foreground:                  @color-bW;
-    accent:                      @color-dB;
-    selected:                    @color-dB;
-    complement:                  @color-dY;
+    accent:                      @color-dC;
+    selected:                    @color-dC;
+    complement:                  @color-dC;
     alternate:                   #373844;
     borders:                     #000000;
 
@@ -83,7 +83,7 @@
     alternate-normal-background: @alternate;
     alternate-normal-foreground: @foreground;
     selected-normal-background:  @selected;
-    selected-normal-foreground:  @foreground;
+    selected-normal-foreground:  @background;
 
     /* Active */
     active-background:           @color-bK;
@@ -106,9 +106,10 @@
 /* Element Themes */
 window {
     margin:                      0px;
-    border:                      1px;
+    border:                      8px;
     padding:                     0px;
     background-color:            @background;
+    border-color:                @complement;
 }
 
 mainbox {
@@ -125,7 +126,7 @@ message {
 
 textbox {
     margin:                      2px;
-    border:                      1px;
+    border:                      4px;
     padding:                     8px;
     background-color:            @background;
     border-color:                @complement;
@@ -135,8 +136,8 @@ textbox {
 
 listview {
     margin:                      0px;
-    border:                      1px 0 0 0;
-    padding:                     4px 0 0 0;
+    border:                      4px 0 0 0;
+    padding:                     0px 0 0 0;
     spacing:                     0px;
     border-color:                @separator-color;
     scrollbar:                   @scrollbar;
@@ -215,7 +216,7 @@ inputbar {
 }
 
 prompt, entry {
-    font:                        "Monaco 30";
+    font:                        "Inconsolata 30";
     padding:                     40px 0;
     text-color:                  @foreground;
 }

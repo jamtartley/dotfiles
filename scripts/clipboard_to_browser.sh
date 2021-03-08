@@ -1,3 +1,3 @@
 #/usr/bin/env sh
 
-firefox --private-window $(xclip -o -sel clip)
+google-chrome-stable --incognito --new-window $(xclip -o -sel clip)

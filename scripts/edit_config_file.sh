@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-DIR="$HOME/dev/.dotfiles"
-FILE="$(find "$DIR" -type f | rofi -theme dracula -matching fuzzy -lines 10 -dmenu -i -p "Select config file")"
+DIR="$HOME/dev/dotfiles"
+FILE="$(find "$DIR" -type f | rofi -matching fuzzy -dmenu -i -p "Select config file")"
 
-[ -n "$FILE" ] && xterm -e "cd $DIR && vim $FILE" &
+[ -n "$FILE" ] && alacritty --hold -e $SHELL -c "cd $DIR && vim $FILE" &

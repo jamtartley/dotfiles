@@ -45,5 +45,7 @@
     "key": "ctrl+shift+tab",
     "command": "workbench.action.terminal.focusPrevious",
     "when": "terminalFocus"
-  }
+  },
+  { "key": "ctrl+shift+=", "command": "workbench.action.increaseViewSize" },
+  { "key": "ctrl+shift+-", "command": "workbench.action.decreaseViewSize" }
 ]

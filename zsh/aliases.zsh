@@ -21,6 +21,7 @@ alias g='git status'
 alias gs='git status -s'
 alias gl='git log'
 alias gtag='git show-ref --abbrev=7 --tags'
+alias gmsg='git log --format=%B -n 1 '
 
 alias dev="cd $DEV"
 alias dots="cd $DOTFILES"

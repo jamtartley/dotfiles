@@ -44,7 +44,6 @@ scroll-down = bspwm-desknext
 scroll-up = bspwm-deskprev
 
 tray-position = left
-tray-padding = 4
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -63,6 +62,7 @@ label-occupied-foreground = ${colors.pink}
 label-occupied-padding = 1
 
 label-urgent = %name%
+label-urgent-foreground = ${colors.blue}
 
 label-empty = %name%
 label-empty-foreground = ${colors.foreground}

@@ -15,8 +15,9 @@ wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-
 
 sudo mkdir -p /usr/share/rofi/themes
 mkdir $HOME/.config/rofi
+ln -sf $dir/config.rasi $HOME/.config/rofi
 ln -sf $dir/dracula.rasi $HOME/.config/rofi
-sudo ln -sf $dir/dracula.rasi /usr/share/rofi/themes
+sudo ln -sf $dir/config.rasi /usr/share/rofi/themes
 
 wallpaper_dir="$HOME/Pictures/Wallpapers"
 mkdir -p $wallpaper_dir

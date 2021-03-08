@@ -1,5 +1,5 @@
-alt + {_, shift + } Return
-    {xterm, tabbed -c xterm -into &}
+alt + Return
+    {alacritty}
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -15,16 +15,16 @@ alt + {_, shift + } b
     {blueman-manager, beekeeper-studio}
 
 alt + {_, shift +} c
-    {code, mongodb-compass}
+    {code}
 
-alt + {_, shift + } d
-    {rofi -show run -theme dracula -lines 5, xterm -e "cd \"$HOME/dev\"; $SHELL"}
+alt + {_, shift +, ctrl + } d
+    {rofi -show run, alacritty --hold -e $SHELL -c "cd $HOME/dev;$SHELL", definition}
 
 alt + {_, shift + } f
     bspc node -t {fullscreen,floating}
 
 alt + {_, shift +, ctrl + } g
-    {firefox --private-window, firefox, google-chrome-stable --incognito}
+    {google-chrome-stable --incognito --new-window, google-chrome-stable --new-window, firefox --private-window}
 
 alt + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
@@ -41,7 +41,7 @@ alt + m
     edit_config_file
 
 alt + {_,shift + } n
-    xterm -e {ncmpcpp, newsboat}
+    alacritty --hold -e {ncmpcpp, newsboat}
 
 alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
@@ -68,13 +68,13 @@ alt + v
     VirtualBox
 
 alt + {_, shift + } w
-    {xterm -e weechat, riot-desktop-nightly}
+    {alacritty --hold -e weechat, riot-desktop-nightly}
 
 alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
 
-alt + {_, shift + } y
-    {clipboard_to_browser, firefox --private-window "youtube.com"}
+alt + {_, shift +, ctrl +} y
+    {google_search, youtube_search, clipboard_to_browser}
 
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle

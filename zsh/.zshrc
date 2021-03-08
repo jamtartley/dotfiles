@@ -1,4 +1,4 @@
-export BROWSER=firefox
+export BROWSER=google-chrome-stable
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
@@ -19,7 +19,7 @@ export PATH=$HOME/.scripts:$PATH
 export PATH=$HOME/.dotnet/tools:$PATH
 
 DISABLE_AUTO_UPDATE="false"
-ZSH_THEME="bureau"
+ZSH_THEME="cloud"
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
