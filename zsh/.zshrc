@@ -101,3 +101,5 @@ for file in $DOTFILES/*/*.zsh; do
 done
 
 [[ -x ~/.zsh_aliases ]] && source ~/.zsh_aliases
+
+source /usr/share/nvm/init-nvm.sh
