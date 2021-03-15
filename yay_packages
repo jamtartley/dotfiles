@@ -4,6 +4,7 @@ android-sdk-platform-tools
 beekeeper-studio-bin
 bfg
 chromedriver
+chromium-widevine
 downgrade
 dust
 electron4
@@ -21,10 +22,14 @@ mullvad-vpn
 neovim-nightly-bin
 neovim-symlinks
 nerd-fonts-terminus
+nvm
 obs-linuxbrowser-bin
 otf-fira-code
 polybar
+python2-futures
 python2-pytoml
+python2-tornado
+qtwebflix-git
 riot-desktop-git
 riot-web-git
 signal-desktop-beta-bin
