@@ -41,7 +41,7 @@ alt + m
     edit_config_file
 
 alt + {_,shift + } n
-    alacritty --hold -e {ncmpcpp, newsboat}
+    alacritty --hold -e {qtwebflix, newsboat}
 
 alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
@@ -58,8 +58,8 @@ alt + {_, shift + } r
 alt + {_, shift + } s
     {steam, spotify}
 
-alt + {t,shift + t}
-    {bspc node -t tiled,trello}
+alt + {_, shift +, ctrl + } t
+    {bspc node -t tiled,trello,spanish_translate}
 
 alt + u
     unityhub
