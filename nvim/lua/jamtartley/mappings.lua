@@ -1,0 +1,20 @@
+vim.api.nvim_set_keymap("", "<C-f>", ":NERDTreeFind<CR>", {noremap = false})
+vim.api.nvim_set_keymap("", "<C-n>", ":NERDTreeToggle<CR>", {noremap = false})
+vim.api.nvim_set_keymap("", "<C-p>", ":Files<CR>", {noremap = false})
+
+vim.api.nvim_set_keymap("n", "n", "nzz", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "N", "nzz", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "Q", ":q<CR>", {noremap = true, silent = false})
+vim.api.nvim_set_keymap("n", "<CR>", ":noh<CR><CR>", {noremap = true, silent = false})
+
+vim.api.nvim_set_keymap("n", "vh", "<C-w>h", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "vj", "<C-w>j", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "vk", "<C-w>k", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "vl", "<C-w>l", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "vr", "<C-w>r", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "vs", "<C-w>s", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "vv", "<C-w>v", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "v=", "<C-w>=", {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap("v", ">", ">gv", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("v", "/", "/\v", {noremap = true, silent = true})
