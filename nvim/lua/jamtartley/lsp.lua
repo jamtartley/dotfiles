@@ -1,11 +1,27 @@
 local lspconfig = require("lspconfig")
+local null_ls = require("null-ls")
+local lsp_installer = require("nvim-lsp-installer")
 
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+
+    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+    -- before passing it onwards to lspconfig.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+end)
 local buf_map = function(bufnr, mode, lhs, rhs, opts)
     vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
         silent = true,
     })
 end
-
 local on_attach = function(client, bufnr)
     vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
     vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
@@ -15,13 +31,12 @@ local on_attach = function(client, bufnr)
     vim.cmd("command! LspRefs lua vim.lsp.buf.references()")
     vim.cmd("command! LspTypeDef lua vim.lsp.buf.type_definition()")
     vim.cmd("command! LspImplementation lua vim.lsp.buf.implementation()")
-    vim.cmd("command! LspDiagPrev lua vim.lsp.diagnostic.goto_prev()")
-    vim.cmd("command! LspDiagNext lua vim.lsp.diagnostic.goto_next()")
-    vim.cmd("command! LspDiagLine lua vim.lsp.diagnostic.show_line_diagnostics()")
+    vim.cmd("command! LspDiagPrev lua vim.diagnostic.goto_prev()")
+    vim.cmd("command! LspDiagNext lua vim.diagnostic.goto_next()")
+    vim.cmd("command! LspDiagLine lua vim.diagnostic.open_float()")
     vim.cmd("command! LspSignatureHelp lua vim.lsp.buf.signature_help()")
     buf_map(bufnr, "n", "gd", ":LspDef<CR>")
     buf_map(bufnr, "n", "gr", ":LspRefs<CR>")
-    buf_map(bufnr, "n", "<F2>", ":LspRename<CR>")
     buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
     buf_map(bufnr, "n", "K", ":LspHover<CR>")
     buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>")
@@ -33,19 +48,12 @@ local on_attach = function(client, bufnr)
         vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
     end
 end
-
 lspconfig.tsserver.setup({
     on_attach = function(client, bufnr)
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
         local ts_utils = require("nvim-lsp-ts-utils")
-        ts_utils.setup({
-            eslint_bin = "eslint_d",
-            eslint_enable_diagnostics = true,
-            eslint_enable_code_actions = true,
-            enable_formatting = true,
-            formatter = "prettier",
-        })
+        ts_utils.setup({})
         ts_utils.setup_client(client)
         buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
         buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
@@ -53,6 +61,11 @@ lspconfig.tsserver.setup({
         on_attach(client, bufnr)
     end,
 })
-
-require("null-ls").config({})
-lspconfig["null-ls"].setup({ on_attach = on_attach })
+null_ls.setup({
+    sources = {
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.code_actions.eslint,
+        null_ls.builtins.formatting.prettier,
+    },
+    on_attach = on_attach,
+})

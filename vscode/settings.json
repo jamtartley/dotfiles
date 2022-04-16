@@ -53,106 +53,65 @@
   ],
   "explorer.autoReveal": true,
   "gitlens.codeLens.scopes": false,
-  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.hovers.enabled": false,
   "gitlens.statusBar.enabled": false,
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "keyboard.dispatch": "keyCode",
   "latex-workshop.view.pdf.viewer": "tab",
   "omnisharp.useEditorFormattingSettings": false,
-  "projectManager.git.baseFolders": [
-    "/home/sam/dev/word-api"
-  ],
-  "projectManager.git.maxDepthRecursion": 4,
   "python.linting.pycodestyleEnabled": true,
   "python.linting.pylintEnabled": true,
   "tabnine.experimentalAutoImports": true,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "tsautoreturntype.inferArrowFunctionReturnType": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "vim.easymotion": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
   "vim.leader": "v",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<leader>",
-        "<cr>"
-      ],
-      "commands": [
-        ":nohlsearch"
-      ]
+      "before": ["<leader>", "<cr>"],
+      "commands": [":nohlsearch"]
     },
     {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "commands": [
-        "workbench.action.findInFiles"
-      ]
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.findInFiles"]
     },
     {
-      "before": [
-        "<leader>",
-        "v"
-      ],
-      "commands": [
-        "workbench.action.splitEditor"
-      ]
+      "before": ["<leader>", "v"],
+      "commands": ["workbench.action.splitEditor"]
     },
     {
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        "workbench.action.splitEditorOrthogonal"
-      ]
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.splitEditorOrthogonal"]
     },
     {
-      "before": [
-        "<leader>",
-        "h"
-      ],
-      "commands": [
-        "workbench.action.focusLeftGroup"
-      ]
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
     },
     {
-      "before": [
-        "<leader>",
-        "j"
-      ],
-      "commands": [
-        "workbench.action.focusBelowGroup"
-      ]
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
     },
     {
-      "before": [
-        "<leader>",
-        "k"
-      ],
-      "commands": [
-        "workbench.action.focusAboveGroup"
-      ]
+      "before": ["<leader>", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
     },
     {
-      "before": [
-        "<leader>",
-        "l"
-      ],
-      "commands": [
-        "workbench.action.focusRightGroup"
-      ]
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
     },
     {
-      "before": [
-        "Q"
-      ],
-      "commands": [
-        "workbench.action.closeActiveEditor"
-      ]
+      "before": ["Q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
     }
   ],
   "vim.useCtrlKeys": true,

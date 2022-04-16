@@ -14,14 +14,19 @@ vim.cmd([[
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
-  use {'/usr/local/opt/fzf'}
   use {'airblade/vim-gitgutter'}
   use {'dracula/vim', as = 'dracula'}
   use {'jose-elias-alvarez/null-ls.nvim'}
   use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
-  use {'junegunn/fzf.vim'}
-  use {'neovim/nvim-lspconfig'}
-  use {'nvim-lua/plenary.nvim'}
+	use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+use {
+    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer',
+}
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use {'scrooloose/nerdtree'}
   use {'scrooloose/nerdcommenter'}
   use {'tpope/vim-fugitive'}
