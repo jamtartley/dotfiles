@@ -32,7 +32,10 @@ mongodb-compass
 mongodb-tools-bin
 mongosh-bin
 mullvad-vpn
+neovim-lspconfig
 neovim-nightly-bin
+neovim-null-ls-git
+neovim-plenary-git
 neovim-symlinks
 nerd-fonts-terminus
 nvm
