@@ -2,7 +2,8 @@ export BROWSER=google-chrome-stable
 export DEV=$HOME/dev
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
-export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!{node_modules,.git}"'
+export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow -g '!{.git,node_modules}/*' 2> /dev/null"
+export GEM_HOME=$HOME/.gem
 export GITHUB=https://github.com/jamtartley
 export JAVA_HOME=/usr/lib/jvm/default
 export KEYTIMEOUT=25
@@ -12,11 +13,13 @@ export TERM=xterm-256color
 export VISUAL=nvim
 export XDG_CONFIG_HOME=$HOME/.config
 export ZSH=$HOME/.oh-my-zsh
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.scripts:$PATH
 export PATH=$HOME/.dotnet/tools:$PATH
+export PATH=$GEM_HOME/bin:$PATH
 
 DISABLE_AUTO_UPDATE="false"
 ZSH_THEME="cloud"
@@ -52,6 +55,8 @@ if ! zplug check; then
 fi
 
 zplug load
+
+plugins=(docker docker-compose)
 
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
@@ -99,6 +104,8 @@ function git() {
 for file in $DOTFILES/*/*.zsh; do
     source "$file"
 done
+
+source /usr/share/fzf/key-bindings.zsh
 
 [[ -x ~/.zsh_aliases ]] && source ~/.zsh_aliases
 

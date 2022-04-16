@@ -17,11 +17,17 @@ fi
 alias cf='cat $(fzf)'
 alias vf='vim $(fzf)'
 
-alias g='git status'
-alias gs='git status -s'
+alias g='git'
+alias ga='git add'
+alias gb='git branch -a'
+alias gc='git commit'
+alias gd='git diff'
+alias gs='git status'
 alias gl='git log'
 alias gtag='git show-ref --abbrev=7 --tags'
 alias gmsg='git log --format=%B -n 1 '
+
+alias k='kubectl'
 
 alias dev="cd $DEV"
 alias dots="cd $DOTFILES"
@@ -36,3 +42,6 @@ alias psmem="ps auxf | sort -nr -k 4 | head -5"
 alias pscpu="ps auxf | sort -nr -k 3 | head -5"
 
 alias xmerge="xrdb -merge ~/.Xresources"
+
+alias tf="terraform"
+alias tg="terragrunt"

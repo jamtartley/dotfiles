@@ -1,7 +1,6 @@
 configuration {
   modi: "window,drun,ssh,combi";
-  theme: "dracula";
   width: 25;
   lines: 10;
   font: "Inconsolata 16";
-}
+} @theme "dracula"
