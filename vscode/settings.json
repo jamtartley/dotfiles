@@ -30,7 +30,7 @@
   "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
   "editor.insertSpaces": false,
-  "editor.lineNumbers": "on",
+  "editor.lineNumbers": "relative",
   "editor.matchBrackets": "always",
   "editor.minimap.enabled": false,
   "editor.overviewRulerBorder": false,

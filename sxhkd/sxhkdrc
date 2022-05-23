@@ -47,7 +47,7 @@ alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
 
 alt + {_, shift + } p
-    {rofi_projects code, rofi_projects vim}
+    {rofi_projects vim, rofi_projects code}
 
 alt + {_, shift + } q
     bspc node -{c,k}

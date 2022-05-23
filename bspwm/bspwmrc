@@ -31,8 +31,6 @@ blueman-tray &
 bspc monitor -d I II III IV V VI VII VIII IX X
 feh --randomize --bg-fill $HOME/Pictures/Wallpapers/* &
 keepassxc &
-signal-desktop &
 spotify &
-bspc desktop --focus ^9 && alacritty --hold -e weechat
 
 wmname LG3D

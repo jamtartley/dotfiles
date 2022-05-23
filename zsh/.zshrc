@@ -56,8 +56,6 @@ fi
 
 zplug load
 
-plugins=(docker docker-compose)
-
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
@@ -108,7 +106,5 @@ done
 source /usr/share/fzf/key-bindings.zsh
 
 [[ -x ~/.zsh_aliases ]] && source ~/.zsh_aliases
-
-source /usr/share/nvm/init-nvm.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
