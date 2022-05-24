@@ -16,6 +16,7 @@ keymap("n", "vk", "<C-w>k", opts)
 keymap("n", "vl", "<C-w>l", opts)
 keymap("n", "vs", "<C-w>s", opts)
 keymap("n", "vv", "<C-w>v", opts)
+keymap("n", "v=", "<C-w>=", opts)
 
 -- Move text up and down
 keymap("n", "<C-j>", "<Esc>:m .+1<CR>==gi", opts)

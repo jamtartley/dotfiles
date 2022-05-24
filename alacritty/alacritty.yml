@@ -61,7 +61,7 @@ font:
     family: Inconsolata
   bold_italic:
     family: Inconsolata
-  size: 18
+  size: 16
 
 window:
   padding:
