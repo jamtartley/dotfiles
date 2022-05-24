@@ -1,3 +1,4 @@
+require "jamtartley.shade"
 require "jamtartley.options"
 require "jamtartley.keymaps"
 require "jamtartley.plugins"
@@ -13,6 +14,3 @@ require "jamtartley.nvim-tree"
 require "jamtartley.lualine"
 require "jamtartley.toggleterm"
 require "jamtartley.autocommands"
-
-require('plenary.reload').reload_module('jamtartley', true)
-
