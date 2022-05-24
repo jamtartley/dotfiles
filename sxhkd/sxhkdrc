@@ -40,8 +40,8 @@ alt + super + shift + {h,j,k,l}
 alt + m
     {edit_config_file}
 
-alt + {_,shift + } n
-    alacritty --hold -e {qtwebflix, newsboat}
+alt + n
+    alacritty --hold -e {qtwebflix}
 
 alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}

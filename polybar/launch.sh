@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 killall -q polybar
 
 # Wait until the processes have been shut down
@@ -9,7 +11,7 @@ if type "xrandr" > /dev/null;
 then
     for mon in $(xrandr --query | grep " connected" | cut -d " " -f1);
     do
-        MONITOR=$mon polybar --reload main -c $HOME/.config/polybar/config &
+        MONITOR=$mon polybar --reload main -c "$HOME/.config/polybar/config" &
     done
 fi
 

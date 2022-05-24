@@ -49,6 +49,10 @@ keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>f", ":Telescope live_grep<cr>", opts)
 
 -- Gitsigns
+keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
 keymap("n", "<leader>gn", ":Gitsigns next_hunk<cr>", opts)
 keymap("n", "<leader>gp", ":Gitsigns prev_hunk<cr>", opts)
 keymap("n", "<leader>gs", ":Gitsigns preview_hunk<cr>", opts)
+
+-- Config
+keymap("n", "<leader>rc", ":source $HOME/.config/nvim/init.lua<cr>", opts)

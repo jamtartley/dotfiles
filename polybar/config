@@ -28,7 +28,6 @@ font-0 = TerminessTTF Nerd Font Mono:size=18
 font-1 = TerminessTTF Nerd Font Mono:size=40
 font-2 = DejaVuSansMono:size=20
 
-modules-left = corona
 modules-center = bspwm
 modules-right = pulseaudio-control date
 
@@ -67,21 +66,6 @@ label-urgent-foreground = ${colors.blue}
 label-empty = %name%
 label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[module/corona]
-type = custom/script
-exec = corona --watch
-tail = true
-
-label=%output%
-label-padding = 1
-
-format-underline = ${colors.red}
-format-padding = 1
-
-click-left = corona --toggle
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
