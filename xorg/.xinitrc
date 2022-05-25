@@ -4,6 +4,7 @@ export PATH=$HOME/.scripts:$HOME/.local/bin:/usr/local/lib:/.local/lib/python3.7
 
 xrdb -load ~/.Xresources
 setxkbmap -option caps:escape
+xset r rate 175 60
 
 for i in $(xinput list --id-only);
 do

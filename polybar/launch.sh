@@ -9,10 +9,10 @@ polybar main &
 
 if type "xrandr" > /dev/null;
 then
-    for mon in $(xrandr --query | grep " connected" | cut -d " " -f1);
-    do
-        MONITOR=$mon polybar --reload main -c "$HOME/.config/polybar/config" &
-    done
+	for mon in $(xrandr --query | grep " connected" | cut -d " " -f1);
+	do
+		MONITOR=$mon polybar --reload main -c "$HOME/.config/polybar/config.ini" &
+	done
 fi
 
 echo "Polybar launched..."
