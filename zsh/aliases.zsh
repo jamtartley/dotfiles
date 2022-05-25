@@ -45,3 +45,5 @@ alias xmerge="xrdb -merge ~/.Xresources"
 
 alias tf="terraform"
 alias tg="terragrunt"
+
+alias dots="cd "$DOTFILES""
