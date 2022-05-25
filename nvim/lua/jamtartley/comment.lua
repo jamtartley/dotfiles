@@ -4,9 +4,6 @@ if not status_ok then
 end
 
 comment.setup {
-	toggler = {
-		line = "<leader>c"
-	},
   pre_hook = function(ctx)
     local U = require "Comment.utils"
 

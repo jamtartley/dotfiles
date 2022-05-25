@@ -11,18 +11,23 @@ lsp_installer.on_server_ready(function(server)
 		capabilities = require("jamtartley.lsp.handlers").capabilities,
 	}
 
-	 if server.name == "jsonls" then
-	 	local jsonls_opts = require("jamtartley.lsp.settings.jsonls")
-	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-	 end
+	if server.name == "jsonls" then
+		local jsonls_opts = require("jamtartley.lsp.settings.jsonls")
+		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+	end
 
-	 if server.name == "sumneko_lua" then
-	 	local sumneko_opts = require("jamtartley.lsp.settings.sumneko_lua")
-	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	 end
+	if server.name == "sumneko_lua" then
+		local sumneko_opts = require("jamtartley.lsp.settings.sumneko_lua")
+		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	end
 
-	-- This setup() function is exactly the same as lspconfig's setup function.
-	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-	server:setup(opts)
-end)
+	if server.name == "emmet_ls" then
+		local emmet_opts = require("jamtartley.lsp.settings.emmet_ls")
+		opts = vim.tbl_deep_extend("force", emmet_opts, opts)
+	end
+
+		-- This setup() function is exactly the same as lspconfig's setup function.
+		-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+		server:setup(opts)
+	end)
 
