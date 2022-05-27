@@ -3,16 +3,15 @@
 dir="$(dirname -- "$(readlink -f -- "$0")")"
 
 mkdir -p "$HOME/.themes"
-wget https://github.com/EliverLara/Ant-Dracula/releases/download/v1.3.0/Ant-Dracula.tar -P "$HOME/.themes"
-tar -xvf "$HOME/.themes/Ant-Dracula.tar" -C "$HOME/.themes/"
-rm "$HOME/.themes/Ant-Dracula.tar"
+wget https://github.com/dracula/gtk/releases/download/v3.0/Dracula.tar.xz -P "$HOME/.themes"
+tar -xvf "$HOME/.themes/Dracula.tar.xz" -C "$HOME/.themes/"
+rm "$HOME/.themes/Dracula.tar.xz"
 
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="$HOME/.icons" sh
 
 sudo mkdir -p /usr/share/rofi/themes
 mkdir "$HOME/.config/rofi"
 ln -sf "$dir/config.rasi" "$HOME/.config/rofi"
-ln -sf "$dir/dracula.rasi" "$HOME/.config/rofi"
 sudo ln -sf "$dir/config.rasi" /usr/share/rofi/themes
 
 wallpaper_dir="$HOME/Pictures/Wallpapers"
