@@ -45,6 +45,7 @@ bridge-utils
 brltty
 brotli
 bspwm
+btrfs-progs
 bubblewrap
 bzip2
 c-ares
@@ -82,12 +83,14 @@ diff-so-fancy
 diffutils
 discord
 dkms
+dmraid
 dnsmasq
 dnssec-anchors
 docbook-xml
 docbook-xsl
 docker
 docker-compose
+dosfstools
 dotnet-host
 dotnet-runtime
 dotnet-sdk
@@ -166,8 +169,10 @@ gnutls
 go
 gobject-introspection
 gobject-introspection-runtime
+gparted
 gpgme
 gpm
+gptfdisk
 graphene
 graphicsmagick
 graphite
@@ -392,12 +397,15 @@ libarchive
 libass
 libassuan
 libasyncns
+libatasmart
 libavc1394
 libavif
 libb64
+libblockdev
 libbluray
 libbpf
 libbsd
+libbytesize
 libcaca
 libcacard
 libcanberra
@@ -629,6 +637,7 @@ lsof
 lua52
 luajit
 luit
+lvm2
 lxappearance
 lxmenu-data
 lxqt-config
@@ -644,6 +653,7 @@ mallard-ducktype
 man-db
 man-pages
 md4c
+mdadm
 menu-cache
 mesa
 miniupnpc
@@ -662,6 +672,7 @@ mpfr
 mpg123
 mpv
 mtdev
+mtools
 mujs
 multipath-tools
 mupdf
@@ -716,6 +727,7 @@ pam
 pambase
 pango
 pangomm
+parted
 patch
 pavucontrol
 pciutils
@@ -971,6 +983,7 @@ seabios
 seahorse
 sed
 semver
+setconf
 shaderc
 shadow
 shared-mime-info
@@ -998,6 +1011,7 @@ svt-av1
 sxhkd
 sxiv
 sysfsutils
+syslinux
 systemd
 systemd-libs
 systemd-sysvcompat
@@ -1010,6 +1024,7 @@ terminator
 terragrunt
 tevent
 texinfo
+thin-provisioning-tools
 tigervnc
 tmux
 tpm2-tss
@@ -1025,6 +1040,7 @@ ttf-roboto
 twolame
 tzdata
 uchardet
+udisks2
 unixodbc
 unzip
 usbredir
@@ -1040,6 +1056,7 @@ virtualbox
 virtualbox-host-dkms
 vlc
 vmaf
+volume_key
 vte-common
 vte3
 vulkan-icd-loader
