@@ -7,9 +7,22 @@ local options = {
   cursorline = true,
   expandtab = false,
   fileencoding = "utf-8",
+	fillchars      = {
+		diff = '∙',
+		eob = ' ',
+		fold = '·',
+		vert = '┃',
+	},
+	foldenable = true,
+	foldlevelstart = 1,
+	foldmethod = "indent",
   hlsearch = true,
   ignorecase = true,
 	list = true,
+	listchars = {
+		space = '•',
+		tab = '➜ ' 
+	},
   mouse = "a",
   number = true,
   numberwidth = 1,
@@ -35,7 +48,6 @@ local options = {
   writebackup = false,
 }
 
-vim.opt.listchars = { space = '•', tab = '➜ ' }
 vim.opt.shortmess:append "c"
 
 for k, v in pairs(options) do

@@ -30,6 +30,7 @@ keymap("n", "N", "Nzz", opts)
 -- Misc
 keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
+keymap("n", "<Tab>", "za", opts)
 
 -- Visual --
 -- Stay in indent mode
