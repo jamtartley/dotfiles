@@ -7,6 +7,6 @@ pacman -Qmq > yay_packages
 echo "Updating installed vscode extension list"
 code --list-extensions > vscode/extensions
 
-git commit -am "Update lists of packages/extensions installed" --no-verify > /dev/null
+git commit -am "chore: update lists of packages/extensions installed" --no-verify > /dev/null
 
 echo "Done!"
