@@ -28,7 +28,7 @@ lualine.setup({
 		lualine_b = { branch, "diff" },
 		lualine_c = {},
 		lualine_x = {},
-		lualine_y = {},
+		lualine_y = { "lsp_progress" },
 		lualine_z = { "mode" },
 	},
 	inactive_sections = {
