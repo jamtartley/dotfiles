@@ -46,8 +46,8 @@ alt + n
 alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
 
-alt + {_, shift + } p
-    {rofi_projects nvim, rofi_projects code}
+alt + p
+    tmuxinator_projects
 
 alt + {_, shift + } q
     bspc node -{c,k}
