@@ -103,8 +103,4 @@ for file in $DOTFILES/*/*.zsh; do
     source "$file"
 done
 
-source /usr/share/fzf/key-bindings.zsh
-
 [[ -x ~/.zsh_aliases ]] && source ~/.zsh_aliases
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
