@@ -91,6 +91,8 @@ redis-desktop-manager
 riot-desktop-git
 riot-web-git
 rttr
+ruby-erubis
+ruby-xdg
 spotify
 st
 steam-fonts
@@ -98,6 +100,7 @@ tabbed-vain
 tfenv
 tflint
 tfsec
+tmuxinator
 ttf-anka-coder
 ttf-anka-coder-condensed
 ttf-meslo

@@ -969,7 +969,11 @@ rtkit
 rubberband
 ruby
 ruby-irb
+ruby-psych
+ruby-rdoc
 ruby-reline
+ruby-stringio
+ruby-thor
 rubygems
 run-parts
 runc
