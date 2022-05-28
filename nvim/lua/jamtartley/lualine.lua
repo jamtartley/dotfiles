@@ -9,6 +9,11 @@ local branch = {
 	icon = "",
 }
 
+local filename = {
+	"filename",
+	path = 1 -- relative
+}
+
 lualine.setup({
 	options = {
 		icons_enabled = false,
@@ -19,7 +24,7 @@ lualine.setup({
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = { "filename" },
+		lualine_a = { filename },
 		lualine_b = { branch, "diff" },
 		lualine_c = {},
 		lualine_x = {},

@@ -9,7 +9,6 @@ export JAVA_HOME=/usr/lib/jvm/default
 export KEYTIMEOUT=25
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
-export TERM=xterm-256color
 export VISUAL=nvim
 export XDG_CONFIG_HOME=$HOME/.config
 export ZSH=$HOME/.oh-my-zsh
@@ -33,11 +32,6 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 
 source $ZSH/oh-my-zsh.sh
-
-if [ "$ISLINUX" '==' 'true' ]; then
-    { infocmp -1 xterm-256color ; echo "\tsitm=\\E[3m,\n\tritm=\\E[23m,"; } | \
-        tic -x -
-fi
 
 # zplug
 source $HOME/.zplug/init.zsh

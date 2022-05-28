@@ -27,6 +27,12 @@ alias gl='git log'
 alias gtag='git show-ref --abbrev=7 --tags'
 alias gmsg='git log --format=%B -n 1 '
 
+alias tmux='tmux -2'
+alias tx='tmuxinator'
+alias txe='tmuxinator edit'
+alias txn='tmuxinator new'
+alias txs='tmuxinator start'
+
 alias k='kubectl'
 
 alias dev="cd $DEV"

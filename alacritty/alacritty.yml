@@ -52,6 +52,9 @@ colors:
     cyan: "0x59dffc"
     white: "0xe6e6d1"
 
+env:
+  TERM: xterm-256color
+
 font:
   normal:
     family: Inconsolata
