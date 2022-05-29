@@ -1,0 +1,11 @@
+name: jamtartley
+root: ~/dev/jamtartley-com
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - nvim
+        - npm start
+        - npm run test
+        - git log
