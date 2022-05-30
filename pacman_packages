@@ -444,11 +444,13 @@ libevdev
 libevent
 libexif
 libfbclient
+libfdk-aac
 libffi
 libfm
 libfm-extra
 libfm-gtk2
 libfontenc
+libfreeaptx
 libgcrypt
 libgdiplus
 libgit2
@@ -477,6 +479,7 @@ libjpeg-turbo
 libkeybinder3
 libksba
 libkscreen
+libldac
 libldap
 liblouis
 liblqr
@@ -623,6 +626,7 @@ libxxf86vm
 libyaml
 libyuv
 licenses
+lilv
 linux
 linux-api-headers
 linux-firmware
@@ -634,9 +638,11 @@ lm_sensors
 lmdb
 lsb-release
 lsof
+lua
 lua52
 luajit
 luit
+lv2
 lvm2
 lxappearance
 lxmenu-data
@@ -761,6 +767,8 @@ perl-uri
 perl-www-robotrules
 perl-xml-parser
 pinentry
+pipewire
+pipewire-pulse
 pixman
 pkcs11-helper
 pkgconf
@@ -777,9 +785,7 @@ potrace
 procps-ng
 protobuf
 psmisc
-pulseaudio
 pulseaudio-alsa
-pulseaudio-bluetooth
 python
 python-anytree
 python-appdirs
@@ -987,6 +993,7 @@ seabios
 seahorse
 sed
 semver
+serd
 setconf
 shaderc
 shadow
@@ -998,6 +1005,7 @@ slang
 smbclient
 snappy
 sndio
+sord
 sound-theme-freedesktop
 sox
 speex
@@ -1007,6 +1015,7 @@ spirv-tools
 sqlcipher
 sqlite
 squashfs-tools
+sratom
 srt
 startup-notification
 stfl
@@ -1073,6 +1082,7 @@ weechat
 wget
 which
 wireguard-tools
+wireplumber
 wmname
 woff2
 wolfssl
