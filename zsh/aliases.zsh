@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 alias c='clear'
 alias mkd="mkdir -pv"
@@ -10,8 +10,8 @@ alias l.='exa -a | grep -E "^\."'
 
 if type nvim > /dev/null 2>&1;
 then
-    alias v='nvim'
-    alias vim="nvim"
+	alias v='nvim'
+	alias vim="nvim"
 fi
 
 alias cf='cat $(fzf)'
