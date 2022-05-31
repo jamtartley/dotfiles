@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 echo "Updating installed pacman package list..."
-pacman -Qnq > pacman_packages
+pacman -Qentq > pacman_packages
 echo "Updating installed AUR package list..."
-pacman -Qmq > yay_packages
+pacman -Qemtq > yay_packages
 echo "Updating installed vscode extension list"
 code --list-extensions > vscode/extensions
 
