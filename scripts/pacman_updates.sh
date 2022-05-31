@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
-UPDATES="$(checkupdates)"
-UPDATE_COUNT=$(echo "$UPDATES" | wc -l)
+UPDATES="$(checkupdates 2>/dev/null | sed -r '/^\s*$/d')"
+UPDATE_COUNT=$(echo -n "$UPDATES" | wc -l)
 
 if [ "$UPDATE_COUNT" -gt 0 ]; then
     echo " $UPDATE_COUNT"
