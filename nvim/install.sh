@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 pip install --user --upgrade pylint pynvim
 
