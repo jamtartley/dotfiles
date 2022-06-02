@@ -1,10 +1,9 @@
 #!/usr/bin/env zsh
 
 source $HOME/.zplug/init.zsh
-zplug "softmoth/zsh-vim-mode"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zdharma/fast-syntax-highlighting", defer:2
-zplug "$HOME/.zsh", from:local
+zplug "dracula/zsh", as:theme
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then

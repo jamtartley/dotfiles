@@ -6,7 +6,6 @@ export DISABLE_AUTO_UPDATE="false"
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow -g '!{.git,node_modules}/*' 2> /dev/null"
-export GEM_HOME=$HOME/.gem
 export GITHUB=https://github.com/jamtartley
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000000

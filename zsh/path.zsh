@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 function prepend() {
-	local LOCATION=$2
+	local LOCATION=$1
 	PATH=${PATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
 	PATH=${PATH/#"$LOCATION:"/} # Delete from start.
 	PATH=${PATH/%":$LOCATION"/} # Delete from end.
@@ -9,15 +9,13 @@ function prepend() {
 }
 
 function append() {
-	local LOCATION=$2
+	local LOCATION=$1
 	PATH=${PATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
 	PATH=${PATH/#"$LOCATION:"/} # Delete from start.
 	PATH=${PATH/%":$LOCATION"/} # Delete from end.
 	PATH="${PATH:+$PATH:}$LOCATION" # Actually append (or if PATH is empty, just set).
 }
 
-prepend $HOME/.gem/ruby/2.7.0/bin:$PATH
-prepend $HOME/bin:$PATH
-prepend $HOME/.scripts:$PATH
-prepend $HOME/.dotnet/tools:$PATH
-prepend $GEM_HOME/bin:$PATH
+append $HOME/bin:$PATH
+append $HOME/.scripts:$PATH
+append $HOME/.dotnet/tools:$PATH
