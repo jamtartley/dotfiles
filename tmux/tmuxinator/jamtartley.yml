@@ -6,6 +6,9 @@ windows:
       layout: main-vertical
       panes:
         - nvim
-        - npm start
         - npm run test
-        - git log
+  - other:
+      layout: main-vertical
+      panes:
+        - npm start
+        - git status
