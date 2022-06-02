@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
+	pattern = {"*.html","*.css","*.js","*.jsx","*.ts","*.tsx"},
 	command = "Prettier"
 })
 
