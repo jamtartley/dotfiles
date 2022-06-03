@@ -452,7 +452,6 @@ mpg123
 mpv
 mtdev
 mujs
-mupdf
 musl
 mutt
 ncmpcpp
@@ -652,6 +651,9 @@ terminator
 terragrunt
 tevent
 texinfo
+texlive-core
+texlive-fontsextra
+texlive-latexextra
 tigervnc
 tmux
 traceroute
@@ -709,6 +711,7 @@ xcb-util-xrm
 xclip
 xdg-dbus-proxy
 xdg-utils
+xdotool
 xf86-input-libinput
 xf86-video-intel
 xfconf
@@ -745,6 +748,8 @@ youtube-dl
 yubico-c
 yubico-c-client
 yubikey-personalization
+zathura
+zathura-pdf-mupdf
 zenity
 zip
 zita-alsa-pcmi
