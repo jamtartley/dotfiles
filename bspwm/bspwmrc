@@ -18,6 +18,7 @@ bspc rule -a Mattermost desktop=^8
 bspc rule -a Spotify desktop=^9
 bspc rule -a Signal desktop=^9
 bspc rule -a KeePassXC desktop=^10
+bspc rule -a Zathura state=tiled
 
 #===========================================
 sxhkd &
