@@ -6,6 +6,9 @@ end
 null_ls.setup({
 	debug = false,
 	sources = {
+		null_ls.builtins.formatting.prettierd.with({
+			only_local = "node_modules/.bin",
+		}),
 		null_ls.builtins.code_actions.eslint_d.with({
 			only_local = "node_modules/.bin",
 		}),

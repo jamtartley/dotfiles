@@ -48,7 +48,7 @@ keymap("n", "<C-f>", ":NvimTreeFindFileToggle<cr>", opts)
 keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
 
 -- Telescope
-keymap("n", "<C-p>", ":Telescope git_files<cr>", opts)
+keymap("n", "<C-p>", ":Telescope git_files theme=dropdown previewer=false<cr>", opts)
 keymap("n", "<leader>f", ":Telescope live_grep<cr>", opts)
 
 -- Gitsigns
