@@ -1,8 +1,3 @@
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = {"*.html","*.css","*.js","*.jsx","*.ts","*.tsx"},
-	command = "Prettier"
-})
-
 vim.api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
 	callback = function()

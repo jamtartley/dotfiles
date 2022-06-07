@@ -53,7 +53,6 @@ return packer.startup(function(use)
 	use "tpope/vim-surround"
 	use "sunjon/shade.nvim"
 	use "Mofiqul/dracula.nvim"
-	use "MunifTanjim/prettier.nvim"
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp" -- The completion plugin

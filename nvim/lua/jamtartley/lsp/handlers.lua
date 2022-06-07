@@ -37,7 +37,7 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+	vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
 M.on_attach = function(client, bufnr)
