@@ -25,7 +25,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
   "editor.fontFamily": "'Inconsolata', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "editor.fontSize": 16,
+  "editor.fontSize": 18,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
@@ -118,7 +118,6 @@
   "vim.useSystemClipboard": true,
   "window.menuBarVisibility": "toggle",
   "window.restoreWindows": "none",
-  "window.zoomLevel": 2,
   "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Dracula",
   "workbench.editor.limit.enabled": true,
@@ -130,5 +129,6 @@
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 16,
   "zenMode.hideLineNumbers": false,
-  "zenMode.restore": true
+  "zenMode.restore": true,
+  "window.zoomLevel": -1
 }

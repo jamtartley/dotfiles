@@ -1,5 +1,5 @@
 alt + Return
-    { alacritty -e tmux }
+    { alacritty }
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -46,8 +46,8 @@ alt + n
 alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
 
-alt + {_, shift + } p
-    {projects, tmuxinator_projects}
+alt + p
+    {projects}
 
 alt + {_, shift + } q
     bspc node -{c,k}

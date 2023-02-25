@@ -29,6 +29,8 @@ alias gl='git log'
 alias gtag='git show-ref --abbrev=7 --tags'
 alias gmsg='git log --format=%B -n 1 '
 
+alias p='pnpm'
+
 alias tmux='tmux -2'
 alias tx='tmuxinator'
 alias txe='tmuxinator edit'

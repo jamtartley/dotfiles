@@ -20,7 +20,7 @@ local options = {
 		fold = ' ',
 		vert = '┃',
 	},
-	foldlevelstart = 0,
+	foldlevelstart = 99,
 	foldmethod = "indent",
 	foldtext = 'v:lua.foldtext()',
 	hlsearch = true,
