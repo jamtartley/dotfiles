@@ -1,10 +1,3 @@
-function _G.foldtext()
-	local lines = vim.v.foldend - vim.v.foldstart + 1
-	local first = vim.fn.getline(vim.v.foldstart)
-
-	return "··[" .. lines .. "ℓ]··" .. first
-end
-
 local options = {
 	backup = false,
 	clipboard = "unnamedplus",
@@ -22,7 +15,6 @@ local options = {
 	},
 	foldlevelstart = 99,
 	foldmethod = "indent",
-	foldtext = 'v:lua.foldtext()',
 	hlsearch = true,
 	ignorecase = true,
 	list = true,

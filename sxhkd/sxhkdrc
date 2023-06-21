@@ -40,14 +40,11 @@ alt + super + shift + {h,j,k,l}
 alt + m
     {edit_config_file}
 
-alt + n
-    alacritty --hold -e {qtwebflix}
-
 alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
 
-alt + p
-    {projects}
+alt + {_, shift + } p
+    projects {nvim, code}
 
 alt + {_, shift + } q
     bspc node -{c,k}
@@ -58,17 +55,11 @@ alt + {_, shift + } r
 alt + {_, shift + } s
     {steam, spotify}
 
-alt + {_, shift +, ctrl + } t
-    {bspc node -t tiled,trello,spanish_translate}
+alt + {_, shift + } t
+    {bspc node -t tiled,spanish_translate}
 
-alt + u
-    unityhub
-
-alt + v
-    VirtualBox
-
-alt + {_, shift + } w
-    {alacritty --hold -e weechat, riot-desktop-nightly}
+alt + w
+    alacritty --hold -e weechat
 
 alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh

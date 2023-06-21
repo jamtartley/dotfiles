@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-export PATH=$HOME/.scripts:$HOME/.local/bin:/usr/local/lib:/.local/lib/python3.7/site-packages:$PATH
+# needs to be set here for scripts to work in sxhkd config without specifying full path
+export PATH=/home/sam/.scripts:$PATH
 
 xrdb -load ~/.Xresources
 setxkbmap -option caps:escape

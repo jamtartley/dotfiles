@@ -1,0 +1,26 @@
+local status_ok, lsp = pcall(require, "lsp-zero")
+if not status_ok then
+  return
+end
+
+lsp.preset('recommended')
+
+lsp.ensure_installed({
+	'lua_ls',
+	'omnisharp',
+	'rust_analyzer',
+	'tsserver',
+})
+
+lsp.on_attach(function()
+	local opts = { noremap = true, silent = true }
+
+	vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>", opts)
+	vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", opts)
+	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+	vim.keymap.set("n", "<leader>.", function() vim.lsp.buf.code_action() end, opts)
+	vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
+	vim.keymap.set("n", "<leader>df", function() vim.diagnostic.open_float() end, opts)
+end)
+
+lsp.setup()

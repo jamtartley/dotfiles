@@ -6,3 +6,4 @@ source $HOME/.zsh/functions.zsh
 source $HOME/.zsh/opts.zsh
 source $HOME/.zsh/zplug.zsh
 source $HOME/.zsh/binds.zsh
+source $HOME/.zsh/nvm.zsh

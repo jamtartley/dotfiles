@@ -67,7 +67,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.hlsearch": true,
   "vim.incsearch": true,
-  "vim.leader": "v",
+  "vim.leader": " ",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "<cr>"],
@@ -78,27 +78,27 @@
       "commands": ["workbench.action.findInFiles"]
     },
     {
-      "before": ["<leader>", "v"],
+      "before": ["<leader>", "wv"],
       "commands": ["workbench.action.splitEditor"]
     },
     {
-      "before": ["<leader>", "s"],
+      "before": ["<leader>", "ws"],
       "commands": ["workbench.action.splitEditorOrthogonal"]
     },
     {
-      "before": ["<leader>", "h"],
+      "before": ["<leader>", "wh"],
       "commands": ["workbench.action.focusLeftGroup"]
     },
     {
-      "before": ["<leader>", "j"],
+      "before": ["<leader>", "wj"],
       "commands": ["workbench.action.focusBelowGroup"]
     },
     {
-      "before": ["<leader>", "k"],
+      "before": ["<leader>", "wk"],
       "commands": ["workbench.action.focusAboveGroup"]
     },
     {
-      "before": ["<leader>", "l"],
+      "before": ["<leader>", "wl"],
       "commands": ["workbench.action.focusRightGroup"]
     },
     {
@@ -130,5 +130,6 @@
   "workbench.tree.indent": 16,
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": true,
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "extensions.ignoreRecommendations": true
 }

@@ -4,19 +4,16 @@ if not status_ok then
 end
 
 configs.setup {
-  ensure_installed = "all",
+  ensure_installed = { "help", "javascript", "typescript", "rust", "lua", "python" },
   sync_install = false,
-  ignore_install = { "" },
   autopairs = {
     enable = true,
   },
   highlight = {
     enable = true,
-    disable = {},
   },
   indent = {
-    enable = false,
-    disable = {},
+    enable = true,
   },
   context_commentstring = {
     enable = true,

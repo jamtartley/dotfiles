@@ -18,5 +18,6 @@ function append() {
 
 append $HOME/bin:$PATH
 append $HOME/.scripts:$PATH
+append $HOME/.local/bin:$PATH
 append $HOME/.dotnet/tools:$PATH
 append $HOME/.npm-global/bin:$PATH

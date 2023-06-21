@@ -26,6 +26,7 @@ alias gd='git diff'
 alias gs='git status'
 alias gsh='git show'
 alias gl='git log'
+alias gr='git root'
 alias gtag='git show-ref --abbrev=7 --tags'
 alias gmsg='git log --format=%B -n 1 '
 
