@@ -15,7 +15,10 @@ me-dutour-mathieu.vscode-github-actions
 ms-azuretools.vscode-docker
 Nixon.env-cmd-file-syntax
 redhat.vscode-yaml
+rust-lang.rust-analyzer
 steoates.autoimport
 tlent.jest-snapshot-language-support
+vadimcn.vscode-lldb
+VisualStudioExptTeam.intellicode-api-usage-examples
 VisualStudioExptTeam.vscodeintellicode
 vscodevim.vim
