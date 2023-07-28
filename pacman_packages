@@ -57,6 +57,7 @@ dnssec-anchors
 docbook-xml
 docbook-xsl
 docker
+docker-buildx
 docker-compose
 dosfstools
 double-conversion
@@ -263,6 +264,7 @@ libsndfile
 libsoup
 libsoxr
 libssh
+libsvgtiny
 libthai
 libtheora
 libtiff
@@ -374,6 +376,7 @@ p7zip
 pacman-contrib
 pango
 pangomm
+parallel
 parted
 pavucontrol
 pcmanfm
@@ -406,6 +409,8 @@ polkit-qt5
 polybar
 poppler
 postgresql-libs
+pulumi
+python
 python-anytree
 python-asn1crypto
 python-attrs
@@ -482,6 +487,7 @@ qt5-webengine
 qt5-x11extras
 quazip-qt5
 re2
+redis
 redshift
 reflector
 rest
