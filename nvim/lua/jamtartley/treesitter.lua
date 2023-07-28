@@ -1,22 +1,22 @@
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
-  return
+	return
 end
 
 configs.setup {
-  ensure_installed = { "help", "javascript", "typescript", "rust", "lua", "python" },
-  sync_install = false,
-  autopairs = {
-    enable = true,
-  },
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  }
+	ensure_installed = { "help", "javascript", "typescript", "go", "rust", "lua", "python" },
+	sync_install = false,
+	autopairs = {
+		enable = true,
+	},
+	highlight = {
+		enable = true,
+	},
+	indent = {
+		enable = true,
+	},
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	}
 }

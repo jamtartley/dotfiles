@@ -1,11 +1,12 @@
 local status_ok, lsp = pcall(require, "lsp-zero")
 if not status_ok then
-  return
+	return
 end
 
-lsp.preset('recommended')
+lsp.preset({})
 
 lsp.ensure_installed({
+	'gopls',
 	'lua_ls',
 	'omnisharp',
 	'rust_analyzer',

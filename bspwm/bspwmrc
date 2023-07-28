@@ -24,6 +24,7 @@ bspc rule -a Zathura state=tiled
 sxhkd &
 nm-applet &
 blueman-applet &
+blueman-manager &
 wg-systray &
 "$HOME"/.config/polybar/launch.sh &
 picom -f -I 0.1 -O 0.07 &

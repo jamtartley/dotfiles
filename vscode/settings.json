@@ -66,9 +66,30 @@
   "tsautoreturntype.inferArrowFunctionReturnType": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.hlsearch": true,
+  "vim.foldfix": true,
   "vim.incsearch": true,
   "vim.leader": " ",
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Tab>"],
+      "commands": ["editor.toggleFold"]
+    },
+    {
+      "before": ["<leader>", "<Tab>"],
+      "commands": ["editor.unfoldRecursively"]
+    },
+    {
+      "before": ["<leader>", "<leader>", "<Tab>"],
+      "commands": ["editor.foldAll"]
+    },
+    {
+      "before": ["<leader>", "<leader>", "<leader>", "<Tab>"],
+      "commands": ["editor.unfoldAll"]
+    },
+    {
+      "before": ["<leader>", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
     {
       "before": ["<leader>", "<cr>"],
       "commands": [":nohlsearch"]
@@ -78,27 +99,27 @@
       "commands": ["workbench.action.findInFiles"]
     },
     {
-      "before": ["<leader>", "wv"],
+      "before": ["<leader>", "w", "v"],
       "commands": ["workbench.action.splitEditor"]
     },
     {
-      "before": ["<leader>", "ws"],
+      "before": ["<leader>", "w", "s"],
       "commands": ["workbench.action.splitEditorOrthogonal"]
     },
     {
-      "before": ["<leader>", "wh"],
+      "before": ["<leader>", "w", "h"],
       "commands": ["workbench.action.focusLeftGroup"]
     },
     {
-      "before": ["<leader>", "wj"],
+      "before": ["<leader>", "w", "j"],
       "commands": ["workbench.action.focusBelowGroup"]
     },
     {
-      "before": ["<leader>", "wk"],
+      "before": ["<leader>", "w", "k"],
       "commands": ["workbench.action.focusAboveGroup"]
     },
     {
-      "before": ["<leader>", "wl"],
+      "before": ["<leader>", "w", "l"],
       "commands": ["workbench.action.focusRightGroup"]
     },
     {
@@ -130,6 +151,5 @@
   "workbench.tree.indent": 16,
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": true,
-  "window.zoomLevel": -1,
   "extensions.ignoreRecommendations": true
 }

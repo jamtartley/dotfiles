@@ -1,4 +1,4 @@
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = false }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -35,7 +35,6 @@ keymap("n", "<C-k>", "<C-u>zz", opts)
 keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
-keymap("n", "<Tab>", "za", opts)
 
 -- Indentation
 keymap("n", "<", "V<", opts)
@@ -61,3 +60,7 @@ keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
 keymap("n", "<leader>gn", ":Gitsigns next_hunk<cr>", opts)
 keymap("n", "<leader>gp", ":Gitsigns prev_hunk<cr>", opts)
 keymap("n", "<leader>gs", ":Gitsigns preview_hunk<cr>", opts)
+
+-- Folding
+keymap("n", "<Tab>", "<cmd>lua require('jamtartley.folding').toggle_current_fold()<cr>", opts)
+keymap("n", "<leader><Tab>", "<cmd>lua require('jamtartley.folding').toggle_all_folds()<cr>", opts)

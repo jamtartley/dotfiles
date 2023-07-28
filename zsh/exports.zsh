@@ -3,6 +3,7 @@
 export BROWSER=google-chrome-stable
 export DEV=$HOME/dev
 export DISABLE_AUTO_UPDATE="false"
+export DOCKER_BUILDKIT=1
 export DOTFILES=$DEV/.dotfiles
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow -g '!{.git,node_modules}/*' 2> /dev/null"
