@@ -59,6 +59,7 @@ keymap("n", "<leader>f", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
 keymap("n", "<leader>gn", ":Gitsigns next_hunk<cr>", opts)
 keymap("n", "<leader>gp", ":Gitsigns prev_hunk<cr>", opts)
+keymap("n", "<leader>gr", ":Gitsigns reset_hunk<cr>", opts)
 keymap("n", "<leader>gs", ":Gitsigns preview_hunk<cr>", opts)
 
 -- Folding
