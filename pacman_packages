@@ -171,6 +171,8 @@ iso-codes
 itstool
 jack2
 jasper
+jdk11-openjdk
+jdk17-openjdk
 jdk8-openjdk
 jemalloc
 jq
@@ -501,7 +503,7 @@ ruby
 ruby-irb
 run-parts
 runc
-rust-analyzer
+rustup
 sbc
 scrot
 sdl12-compat
@@ -532,6 +534,7 @@ taglib
 talloc
 tcl
 tdb
+terminator
 terragrunt
 tevent
 texlive-basic
