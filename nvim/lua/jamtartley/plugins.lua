@@ -71,7 +71,7 @@ return packer.startup(function(use)
 		requires = {
 			-- LSP Support
 			{ 'neovim/nvim-lspconfig' }, -- Required
-			{                       -- Optional
+			{                         -- Optional
 				'williamboman/mason.nvim',
 				run = function()
 					pcall(vim.cmd, 'MasonUpdate')
@@ -91,6 +91,7 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	}
 	use "JoosepAlviste/nvim-ts-context-commentstring"
+	use "windwp/nvim-ts-autotag"
 
 	-- Git
 	use "lewis6991/gitsigns.nvim"

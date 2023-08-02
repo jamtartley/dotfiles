@@ -21,6 +21,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "editor.inlayHints.fontSize": 12,
+  "editor.inlayHints.padding": true,
   "editor.cursorStyle": "line",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
@@ -151,5 +153,6 @@
   "workbench.tree.indent": 16,
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": true,
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "window.zoomLevel": -1
 }

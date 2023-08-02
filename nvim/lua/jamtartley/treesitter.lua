@@ -4,6 +4,9 @@ if not status_ok then
 end
 
 configs.setup {
+	autotag = {
+		enable = true
+	},
 	ensure_installed = { "help", "javascript", "typescript", "go", "rust", "lua", "python" },
 	sync_install = false,
 	autopairs = {
