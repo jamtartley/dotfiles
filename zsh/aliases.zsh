@@ -19,6 +19,7 @@ alias vf='vim $(fzf)'
 
 alias g='git'
 alias ga='git add'
+alias gagc='git add . && git commit -m'
 alias gb='git branch -a'
 alias gc='git commit'
 alias gco='git checkout'

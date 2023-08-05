@@ -1,11 +1,12 @@
-/*Dracula theme based on the Purple official rofi theme*/
+@theme "/dev/null"
 
 * {
-    font: "Inconsolata 14";
+    font: "Inconsolata Nerd Font 12";
     foreground: #f8f8f2;
     background-color: #282a36;
     active-background: #6272a4;
     urgent-background: #ff5555;
+    urgent-foreground: #282a36;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
@@ -13,36 +14,44 @@
     bordercolor: @active-background;
 }
 
+configuration {
+    show-icons:      true;
+    display-drun:    "";
+    disable-history: true;
+		modi: "window,run,drun,emoji";
+		icon-theme: "Papirus";
+}
+
 #window {
     background-color: @background-color;
-    border:           1;
-    border-radius: 6;
-    border-color: @bordercolor;
-    padding:          5;
+    border:           3;
+    border-radius:    6;
+    border-color:     @bordercolor;
+    padding:          15;
 }
 #mainbox {
     border:  0;
     padding: 0;
 }
 #message {
-    border:       1px dash 0px 0px ;
+    border:       0px;
     border-color: @separatorcolor;
-    padding:      1px ;
+    padding:      1px;
 }
 #textbox {
     text-color: @foreground;
 }
 #listview {
     fixed-height: 0;
-    border:       2px solid 0px 0px;
+    border:       0px;
     border-color: @bordercolor;
     spacing:      2px ;
     scrollbar:    false;
-    padding:      4px 0;
+    padding:      2px 0px 0px ;
 }
 #element {
     border:  0;
-    padding: 8px;
+    padding: 3px ;
 }
 #element.normal.normal {
     background-color: @background-color;
@@ -95,22 +104,20 @@
     text-color:       @foreground;
 }
 #inputbar {
+    spacing:    0;
     text-color: @foreground;
+    padding:    1px ;
 }
 #case-indicator {
     spacing:    0;
     text-color: @foreground;
 }
 #entry {
-    font: "Inconsolata 18";
     spacing:    0;
-		padding: 24px 0;
     text-color: @foreground;
 }
 #prompt {
-    font: "Inconsolata Bold 22";
     spacing:    0;
-		padding: 20px;
     text-color: @foreground;
 }
 #inputbar {
@@ -118,7 +125,8 @@
 }
 #textbox-prompt-colon {
     expand:     false;
-		str: "";
+    str:        ">";
+    margin:     0px 0.3em 0em 0em ;
     text-color: @foreground;
 }
 element-text, element-icon {

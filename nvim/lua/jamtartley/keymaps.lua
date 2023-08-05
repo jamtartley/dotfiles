@@ -35,6 +35,7 @@ keymap("n", "<C-k>", "<C-u>zz", opts)
 keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
+keymap("n", "<leader>s", ":%s/<C-r><C-w>/", opts)
 
 -- Indentation
 keymap("n", "<", "V<", opts)

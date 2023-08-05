@@ -14,8 +14,11 @@ alt + {Left, Right}
 alt + {_, shift + } b
     {blueman-manager, beekeeper-studio}
 
-alt + {_, shift + } d
-    {rofi -show run, definition}
+alt + d
+    rofi -show drun
+
+alt + e
+    rofi -show emoji
 
 alt + {_, shift + } f
     bspc node -t {fullscreen,floating}
