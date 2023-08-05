@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+echo "Updating installed pacman package list..."
+pacman -Qqen > pacman_packages
+echo "Updating installed AUR package list..."
+pacman -Qqem > yay_packages
+
+git add pacman_packages
+git add yay_packages
