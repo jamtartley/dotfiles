@@ -407,6 +407,7 @@ pipewire
 pipewire-pulse
 pixman
 playerctl
+pnpm
 polkit-qt5
 polybar
 poppler
