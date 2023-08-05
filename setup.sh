@@ -24,7 +24,7 @@ function install_yay() {
 }
 
 function install_packages() {
-#	sudo pacman -S --noconfirm --needed - < pacman_packages
+	sudo pacman -S --noconfirm --needed - < pacman_packages
 	yay -S --noconfirm --needed - < yay_packages
 }
 
@@ -50,12 +50,13 @@ function run_module_installers() {
 
 # =======================================================
 
-# set_git_user_opt "user.name" "git author"
-# set_git_user_opt "user.email" "git email"
-# [ -n "$(git config --global credential.helper)" ] && git config --global credential.helper store
-# 
-# install_yay
-# install_packages
- start_services
- setup_groups
- run_module_installers
+set_git_user_opt "user.name" "git author"
+set_git_user_opt "user.email" "git email"
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+[ -n "$(git config --global credential.helper)" ] && git config --global credential.helper store
+
+install_yay
+install_packages
+start_services
+setup_groups
+run_module_installers

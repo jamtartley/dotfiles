@@ -46,8 +46,8 @@ alt + {_, shift + } q
 alt + {_, shift + } r
     redshift {-c $HOME/.config/redshift/redshift.conf, redshift -x && pkill redshift}
 
-alt + {_, shift + } s
-    {steam, spotify}
+alt + s
+    spotify
 
 alt + {_, shift + } t
     {bspc node -t tiled,spanish_translate}

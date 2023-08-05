@@ -61,6 +61,7 @@ docker-buildx
 docker-compose
 dosfstools
 double-conversion
+dunst
 efibootmgr
 egl-wayland
 eglexternalplatform
@@ -511,7 +512,6 @@ semver
 shaderc
 shared-mime-info
 shellcheck
-signal-desktop
 smbclient
 snappy
 sndio

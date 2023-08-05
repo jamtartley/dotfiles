@@ -14,13 +14,6 @@ mkdir "$HOME/.config/rofi"
 ln -sf "$dir/config.rasi" "$HOME/.config/rofi"
 sudo ln -sf "$dir/config.rasi" /usr/share/rofi/themes
 
-wallpaper_dir="$HOME/Pictures/Wallpapers"
-mkdir -p "$wallpaper_dir"
-ln -sf $"dir/wallpapers" "$wallpaper_dir"
-
 cp "$dir/.gtkrc-2.0" "$HOME"
 ln -sf "$dir/.gtkrc-2.0" "$HOME"
 ln -sf "$dir/.gtkrc-2.0.mine" "$HOME"
-
-sudo chmod 777 /opt/spotify -R
-spicetify backup apply enable-devtool
