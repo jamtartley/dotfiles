@@ -341,14 +341,11 @@ minizip
 mlocate
 mopidy
 moreutils
-mpc
 mpg123
 mtdev
 mtools
 mujs
 musl
-ncmpcpp
-neofetch
 network-manager-applet
 networkmanager
 networkmanager-openvpn
@@ -535,7 +532,6 @@ taglib
 talloc
 tcl
 tdb
-terminator
 terragrunt
 tevent
 texlive-basic

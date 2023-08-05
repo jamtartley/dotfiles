@@ -7,3 +7,6 @@ source $HOME/.zsh/opts.zsh
 source $HOME/.zsh/zplug.zsh
 source $HOME/.zsh/binds.zsh
 source $HOME/.zsh/nvm.zsh
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh

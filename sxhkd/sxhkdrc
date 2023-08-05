@@ -1,5 +1,5 @@
-alt + {_, shift + } Return
-    { alacritty, terminator }
+alt + Return
+    alacritty
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -14,11 +14,8 @@ alt + {Left, Right}
 alt + {_, shift + } b
     {blueman-manager, beekeeper-studio}
 
-alt + {_, shift +} c
-    {code}
-
-alt + {_, shift +, ctrl + } d
-    {rofi -show run, projects, definition}
+alt + {_, shift + } d
+    {rofi -show run, definition}
 
 alt + {_, shift + } f
     bspc node -t {fullscreen,floating}
@@ -40,8 +37,8 @@ alt + super + shift + {h,j,k,l}
 alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
 
-alt + {_, shift + } p
-    projects {nvim, code}
+alt + p
+    projects
 
 alt + {_, shift + } q
     bspc node -{c,k}
