@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-bspc config border_width 2
-bspc config window_gap 8
+bspc config border_width 1
+bspc config window_gap 4
 
 bspc config normal_border_color "#44475a"
 bspc config active_border_color "#6272a4"

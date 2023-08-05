@@ -10,6 +10,6 @@ else
 fi
 
 case $1 in
-	--show) notify-send -t 5000 -a "Updates available through pacman" "$UPDATES"
+	--show) notify-send -t 5000 "Updates available through pacman" "$UPDATES"
 	;;
 esac

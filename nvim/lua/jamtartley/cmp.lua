@@ -8,15 +8,12 @@ if not snip_status_ok then
 	return
 end
 
-local kind_status_ok, lspkind = pcall(require, "lspkind")
-if not kind_status_ok then
+local lsp_status_ok, lsp = pcall(require, "lsp-zero")
+if not lsp_status_ok then
 	return
 end
 
-local check_backspace = function()
-	local col = vim.fn.col "." - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
+local cmp_action = lsp.cmp_action()
 
 cmp.setup {
 	confirm_opts = {
@@ -29,36 +26,10 @@ cmp.setup {
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-l>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<CR>"] = cmp.mapping.confirm { select = true },
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif check_backspace() then
-				fallback()
-			else
-				fallback()
-			end
-		end, {
-			"i",
-			"s",
-		}),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, {
-			"i",
-			"s",
-		}),
+		["<Tab>"] = cmp_action.luasnip_supertab(),
+		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
 	},
 	snippet = {
 		expand = function(args)
@@ -70,7 +41,7 @@ cmp.setup {
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "luasnip" },
-		{ name = "buffer",  keyword_length = 5 },
+		{ name = "buffer" },
 	},
 	view = {
 		entries = "custom"

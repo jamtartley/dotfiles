@@ -9,7 +9,7 @@ telescope.setup {
 	defaults = {
 		prompt_prefix = "  ",
 		selection_caret = "  ",
-		path_display = { "truncate" },
+		path_display = { "smart" },
 		mappings = {
 			i = {
 				["<C-h>"] = actions.cycle_history_prev,
@@ -39,8 +39,17 @@ telescope.setup {
 			show_untracked = true,
 			theme = "dropdown",
 		},
-		live_grep = {
-			theme = "dropdown"
+		lsp_definitions = {
+			show_line = false,
+			theme = "dropdown",
+			trim_text = true
+		},
+		lsp_references = {
+			include_current_line = true,
+			include_declaration = false,
+			show_line = false,
+			theme = "dropdown",
+			trim_text = true
 		}
 	},
 	extensions = {
