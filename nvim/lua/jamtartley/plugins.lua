@@ -53,6 +53,7 @@ return packer.startup(function(use)
 	use "Mofiqul/dracula.nvim"
 	use "anuvyklack/pretty-fold.nvim"
 	use "onsails/lspkind.nvim"
+	use "NeogitOrg/neogit"
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp"   -- The completion plugin
