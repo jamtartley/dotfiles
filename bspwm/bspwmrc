@@ -24,6 +24,7 @@ nm-applet &
 blueman-applet &
 blueman-manager &
 wg-systray &
+killall -9 picom && picom -b
 "$HOME"/.config/polybar/launch.sh &
 pidof redshift || redshift -c "$HOME/.config/redshift/redshift.conf" &
 killall -9 dunst && dunst &
