@@ -27,12 +27,25 @@ telescope.setup {
       },
     },
   },
-  pickers = { },
+  pickers = {
+    find_files = {
+      previewer = false,
+      theme = "dropdown",
+    },
+    git_files = {
+      previewer = false,
+      show_untracked = true,
+      theme = "dropdown",
+    },
+    live_grep = {
+      theme = "dropdown"
+    }
+  },
   extensions = {
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown {}
-		}
-	},
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {}
+    }
+  },
 }
 
 telescope.load_extension("ui-select")

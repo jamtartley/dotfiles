@@ -19,10 +19,12 @@ local check_backspace = function()
 end
 
 cmp.setup {
-	snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip` users.
-		end,
+	confirm_opts = {
+		behavior = cmp.ConfirmBehavior.Replace,
+		select = false,
+	},
+	experimental = {
+		ghost_text = true,
 	},
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -58,19 +60,17 @@ cmp.setup {
 			"s",
 		}),
 	},
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body) -- For `luasnip` users.
+		end,
+	},
 	sources = {
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "luasnip" },
 		{ name = "buffer",  keyword_length = 5 },
-	},
-	confirm_opts = {
-		behavior = cmp.ConfirmBehavior.Replace,
-		select = false,
-	},
-	experimental = {
-		ghost_text = true,
 	},
 	view = {
 		entries = "custom"
