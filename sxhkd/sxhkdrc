@@ -1,71 +1,65 @@
-super + {_, shift + } Return
+alt + {_, shift + } Return
     { alacritty, terminator }
 
 # make sxhkd reload its configuration files:
-super + Escape
+alt + Escape
     pkill -USR1 -x sxhkd && notify-send "Restarting sxhkd..."
 
-super + {_,shift + }{1-9,0}
+alt + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
 
-super + {Left, Right}
+alt + {Left, Right}
     bspc desktop -f {prev, next}
 
-super + {_, shift + } b
+alt + {_, shift + } b
     {blueman-manager, beekeeper-studio}
 
-super + {_, shift +} c
+alt + {_, shift +} c
     {code}
 
-super + {_, shift +, ctrl + } d
+alt + {_, shift +, ctrl + } d
     {rofi -show run, projects, definition}
 
-super + {_, shift + } f
+alt + {_, shift + } f
     bspc node -t {fullscreen,floating}
 
-super + {_, shift +, ctrl + } g
-    {google-chrome-stable --incognito --new-window, google-chrome-stable --new-window, firefox --private-window}
+alt + {_, shift + } g
+    {google-chrome-stable --incognito --new-window, google-chrome-stable --new-window}
 
-super + {_,shift + }{h,j,k,l}
+alt + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
 # expand a window by moving one of its side outward
-super + super + {h,j,k,l}
+alt + super + {h,j,k,l}
     bspc node -z {left -100 0,bottom 0 100,top 0 -100,right 100 0}
 
 # contract a window by moving one of its side inward
-super + super + shift + {h,j,k,l}
+alt + super + shift + {h,j,k,l}
     bspc node -z {right -100 0,top 0 100,bottom 0 -100,left 100 0}
 
-super + m
-    {edit_config_file}
-
-super + {_, shift + } o
+alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
 
-super + {_, shift + } p
+alt + {_, shift + } p
     projects {nvim, code}
 
-super + {_, shift + } q
+alt + {_, shift + } q
     bspc node -{c,k}
 
-super + {_, shift + } r
+alt + {_, shift + } r
     redshift {-c $HOME/.config/redshift/redshift.conf, redshift -x && pkill redshift}
 
-super + {_, shift + } s
+alt + {_, shift + } s
     {steam, spotify}
 
-super + {_, shift + } t
+alt + {_, shift + } t
     {bspc node -t tiled,spanish_translate}
 
-super + w
-    alacritty --hold -e weechat
-
-super + shift + x
+alt + shift + x
     $HOME/.config/bspwm/scripts/lock/lock.sh
 
-super + {_, shift +, ctrl +} y
-    {google_search, youtube_search, clipboard_to_browser}
+alt + {_, shift + } y
+    {google_search, youtube_search}
 
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -76,10 +70,10 @@ XF86AudioLowerVolume
 XF86AudioRaiseVolume
     pactl set-sink-volume @DEFAULT_SINK@ +5%
 
-super + minus
+alt + minus
     pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-super + equal
+alt + equal
     pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 XF86AudioPrev
