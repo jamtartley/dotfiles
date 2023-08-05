@@ -6,10 +6,12 @@ end
 lsp.preset({})
 
 lsp.ensure_installed({
+	"emmet_ls",
 	'gopls',
 	'lua_ls',
 	'omnisharp',
 	'rust_analyzer',
+	'terraformls',
 	'tsserver',
 })
 
@@ -22,6 +24,8 @@ lsp.on_attach(function()
 	vim.keymap.set("n", "<leader>.", function() vim.lsp.buf.code_action() end, opts)
 	vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("n", "<leader>df", function() vim.diagnostic.open_float() end, opts)
+
+	lsp.buffer_autoformat()
 end)
 
 lsp.setup()

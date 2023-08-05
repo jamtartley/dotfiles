@@ -57,13 +57,13 @@ env:
 
 font:
   normal:
-    family: Inconsolata
+    family: Inconsolata Nerd Font
   bold:
-    family: Inconsolata
+    family: Inconsolata Nerd Font
   italic:
-    family: Inconsolata
+    family: Inconsolata Nerd Font
   bold_italic:
-    family: Inconsolata
+    family: Inconsolata Nerd Font
   size: 12
 
 window:

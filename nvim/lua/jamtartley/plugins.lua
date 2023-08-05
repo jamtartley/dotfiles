@@ -52,34 +52,41 @@ return packer.startup(function(use)
 	use "tpope/vim-surround"
 	use "Mofiqul/dracula.nvim"
 	use "anuvyklack/pretty-fold.nvim"
+	use "onsails/lspkind.nvim"
 
 	-- cmp plugins
-	use "hrsh7th/nvim-cmp"        -- The completion plugin
-	use "hrsh7th/cmp-path"        -- path completions
-	use "hrsh7th/cmp-cmdline"     -- cmdline completions
-	use "saadparwaiz1/cmp_luasnip" -- snippet completions
+	use "hrsh7th/nvim-cmp"   -- The completion plugin
+	use "hrsh7th/cmp-path"   -- path completions
+	use "hrsh7th/cmp-cmdline" -- cmdline completions
 	use "hrsh7th/cmp-nvim-lsp"
+	use "hrsh7th/cmp-nvim-lua"
+	use "saadparwaiz1/cmp_luasnip" -- snippet completions
 
 	-- snippets
-	use "L3MON4D3/LuaSnip"            --snippet engine
-	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+	use {
+		"L3MON4D3/LuaSnip",
+		requires = {
+			{ "rafamadriz/friendly-snippets" }
+		}
+	}
 
 	-- LSP
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
 		requires = {
-			-- LSP Support
-			{ 'neovim/nvim-lspconfig' }, -- Required
-			{                         -- Optional
+			{ 'neovim/nvim-lspconfig' },
+			{
 				'williamboman/mason.nvim',
 				run = function()
 					pcall(vim.cmd, 'MasonUpdate')
 				end,
 			},
-			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
+			{ 'williamboman/mason-lspconfig.nvim' },
 		}
 	}
+	use "jose-elias-alvarez/null-ls.nvim"
+	use "MunifTanjim/prettier.nvim"
 
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"

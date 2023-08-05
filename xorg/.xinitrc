@@ -6,6 +6,7 @@ export PATH=/home/sam/.scripts:$PATH
 xrdb -load ~/.Xresources
 setxkbmap -option caps:escape
 xset r rate 175 60
+xrandr --output DP-0 --mode 1920x1080 --rate 239.96
 
 for i in $(xinput list --id-only);
 do

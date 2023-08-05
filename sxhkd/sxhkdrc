@@ -1,5 +1,5 @@
-alt + Return
-    { alacritty }
+alt + {_, shift + } Return
+    { alacritty, terminator }
 
 # make sxhkd reload its configuration files:
 alt + Escape
