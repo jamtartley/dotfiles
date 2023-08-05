@@ -54,6 +54,7 @@ return packer.startup(function(use)
 	use "anuvyklack/pretty-fold.nvim"
 	use "onsails/lspkind.nvim"
 	use "NeogitOrg/neogit"
+	use "sindrets/diffview.nvim"
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp"   -- The completion plugin

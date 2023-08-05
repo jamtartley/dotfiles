@@ -19,10 +19,6 @@ keymap("n", "<leader>ws", "<C-w>s", opts)
 keymap("n", "<leader>wv", "<C-w>v", opts)
 keymap("n", "<leader>w=", "<C-w>=", opts)
 
--- Move text up and down
-keymap("n", "<C-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<C-k>", "<Esc>:m .-2<CR>==gi", opts)
-
 -- Centralise found item
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
@@ -36,6 +32,7 @@ keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/", opts)
+keymap("n", "<C-_>", "gcc", opts)
 
 -- Indentation
 keymap("n", "<", "V<", opts)
@@ -58,6 +55,8 @@ keymap("n", "<leader>f", ":Telescope live_grep<cr>", opts)
 
 -- Gitsigns
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
+keymap("n", "<leader>gd", ":DiffviewOpen<cr>", opts)
+keymap("n", "<leader>gf", ":DiffviewFileHistory<cr>", opts)
 keymap("n", "<leader>gg", ":Neogit kind=vsplit<cr>", opts)
 keymap("n", "<leader>gn", ":Gitsigns next_hunk<cr>", opts)
 keymap("n", "<leader>gp", ":Gitsigns prev_hunk<cr>", opts)
