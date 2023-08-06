@@ -1,3 +1,11 @@
 default_roles:
   - system
+  - alacritty
+  - dunst
   - picom
+  - polybar
+  - redshift
+  - sxhkd
+  - tmux
+  - xorg
+  - zsh

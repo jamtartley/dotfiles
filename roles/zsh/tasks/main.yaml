@@ -1,0 +1,47 @@
+---
+- name: Install zsh
+  ansible.builtin.package:
+    name:
+      - nvm
+      - zsh
+    state: latest
+  become: yes
+
+- name: Install from AUR
+  kewlfft.aur.aur:
+    name:
+      - zplug
+    use: yay
+    state: latest
+
+- name: Set default shell
+  user:
+    name: "{{ ansible_env['USER'] }}"
+    shell: /usr/bin/zsh
+  become: yes
+
+- name: Ensure .zsh folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.zsh"
+    state: directory
+
+- name: Copy .zshrc
+  ansible.builtin.copy:
+    src: ".zshrc"
+    dest: "{{ ansible_user_dir }}/"
+
+- name: Copy config files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/.zsh/"
+  loop:
+    - aliases.zsh
+    - binds.zsh
+    - exports.zsh
+    - functions.zsh
+    - nvm.zsh
+    - opts.zsh
+    - path.zsh
+    - zplug.zsh
+    
