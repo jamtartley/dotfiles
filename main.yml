@@ -1,0 +1,7 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: say_hello
+      ansible.builtin.shell: echo "Hello, world!"
+      tags:
+        - always
