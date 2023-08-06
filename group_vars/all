@@ -8,6 +8,7 @@ default_roles:
   - picom
   - polybar
   - redshift
+  - scripts
   - sxhkd
   - tmux
   - xorg
