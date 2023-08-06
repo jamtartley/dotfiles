@@ -4,6 +4,7 @@ default_roles:
   - bspwm
   - docker
   - dunst
+  - nvim
   - picom
   - polybar
   - redshift
