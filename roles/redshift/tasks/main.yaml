@@ -2,17 +2,17 @@
 - name: Install
   ansible.builtin.package:
     name:
-      - sxhkd
+      - redshift
     state: latest
   become: yes
 
 - name: Config folder
   ansible.builtin.file:
     mode: "0755"
-    path: "{{ ansible_user_dir }}/.config/sxhkd"
+    path: "{{ ansible_user_dir }}/.config/redshift"
     state: directory
 
-- name: Copy sxhkdrc
+- name: Copy redshift.conf
   ansible.builtin.copy:
-    src: "sxhkdrc"
-    dest: "{{ ansible_user_dir }}/.config/sxhkd/"
+    src: "redshift.conf"
+    dest: "{{ ansible_user_dir }}/.config/redshift/"
