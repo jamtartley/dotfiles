@@ -1,6 +1,7 @@
 default_roles:
   - system
   - alacritty
+  - appearance
   - bspwm
   - docker
   - dunst
@@ -8,6 +9,7 @@ default_roles:
   - picom
   - polybar
   - redshift
+  - rofi
   - scripts
   - sxhkd
   - tmux
