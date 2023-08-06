@@ -1,24 +1,5 @@
 ---
-- name: Themes folder
-  ansible.builtin.file:
-    mode: "0755"
-    path: "{{ ansible_user_dir }}/.themes"
-    state: directory
-
-- name: Extract Dracula.tar
-  ansible.builtin.unarchive:
-    src: https://github.com/dracula/gtk/releases/download/v3.0/Dracula.tar.xz
-    dest: "{{ ansible_user_dir }}/.themes"
-    remote_src: yes
-
-- name: Download and Install Papirus Icon Theme
-  shell: wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="{{ ansible_user_dir }}/.icons" sh
-
-- name: Copy GTK files
+- name: Copy .gtkrc
   ansible.builtin.copy:
-    src: "{{ item }}"
+    src: .gtkrc-2.0
     dest: "{{ ansible_user_dir }}/"
-  loop:
-    - .gtkrc-2.0
-    - .gtkrc-2.0.mine
-
