@@ -1,0 +1,58 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - git
+      - sudo
+    state: latest
+  become: yes
+
+- name: Ensure 'docker' group
+  group:
+    name: docker
+    state: present
+
+- name: Ensure 'wheel' group
+  group:
+    name: wheel
+    state: present
+
+- name: Create sudoers.d folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "/etc/sudoers.d"
+    state: directory
+  become: yes
+
+- name: Copy 10-installer
+  ansible.builtin.copy:
+    src: "10-installer"
+    dest: "/etc/sudoers.d/"
+  become: yes
+
+- name: Clone yay
+  git:
+    repo: https://aur.archlinux.org/yay-bin.git
+    dest: "{{ ansible_user_dir }}/yay"
+    update: true
+
+- name: Build and install yay
+  command:
+    chdir: "{{ ansible_user_dir }}/yay"
+    cmd: "makepkg -sfi --noconfirm"
+    creates: /usr/bin/yay
+
+- name: Create the `aur_builder` user
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: yes
+    group: wheel
+  become: yes
+
+- name: Allow the `aur_builder` user to run `sudo pacman` without a password
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    validate: 'visudo -cf %s'
+  become: yes
