@@ -1,0 +1,18 @@
+---
+- name: Install
+  kewlfft.aur.aur:
+    name:
+      - picom-git
+    use: yay
+    state: latest
+
+- name: Config folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.config/picom"
+    state: directory
+
+- name: Copy picom.conf
+  ansible.builtin.copy:
+    src: "picom.conf"
+    dest: "{{ ansible_user_dir }}/.config/picom/"
