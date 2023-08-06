@@ -1,0 +1,18 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - dunst
+    state: latest
+  become: yes
+
+- name: Config folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.config/dunst"
+    state: directory
+
+- name: Copy dunstrc
+  ansible.builtin.copy:
+    src: "dunstrc"
+    dest: "{{ ansible_user_dir }}/.config/dunst/"
