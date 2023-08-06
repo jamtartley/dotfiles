@@ -1,12 +1,4 @@
 ---
-- name: Install
-  ansible.builtin.package:
-    name:
-      - git
-      - sudo
-    state: latest
-  become: yes
-
 - name: Ensure 'docker' group
   group:
     name: docker

@@ -1,11 +1,4 @@
 ---
-- name: Install
-  ansible.builtin.package:
-    name:
-      - xorg-server
-    state: latest
-  become: yes
-
 - name: Copy .xinitrc
   ansible.builtin.copy:
     src: ".xinitrc"

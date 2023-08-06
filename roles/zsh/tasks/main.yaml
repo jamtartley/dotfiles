@@ -1,12 +1,4 @@
 ---
-- name: Install zsh
-  ansible.builtin.package:
-    name:
-      - nvm
-      - zsh
-    state: latest
-  become: yes
-
 - name: Install from AUR
   kewlfft.aur.aur:
     name:

@@ -1,0 +1,19 @@
+---
+- name: Update package cache
+  ansible.builtin.pacman:
+    update_cache: yes
+  become: yes
+
+- name: Install pacman packages from the list
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ lookup('file', 'pacman_packages').split('\n') }}"
+  become: yes
+
+- name: Install yay packages from the list
+  kewlfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: yay
+  loop: "{{ lookup('file', 'yay_packages').split('\n') }}"

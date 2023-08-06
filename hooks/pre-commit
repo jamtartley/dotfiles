@@ -1,9 +1,12 @@
 #!/usr/bin/env sh
 
-echo "Updating installed pacman package list..."
-pacman -Qqen > pacman_packages
-echo "Updating installed AUR package list..."
-pacman -Qqem > yay_packages
+PACMAN_PACKAGES=roles/packages/files/pacman_packages
+YAY_PACKAGES=roles/packages/files/yay_packages
 
-git add pacman_packages
-git add yay_packages
+echo "Updating installed pacman package list..."
+pacman -Qqent > "$PACMAN_PACKAGES"
+echo "Updating installed AUR package list..."
+pacman -Qqemt > "$YAY_PACKAGES"
+
+git add $PACMAN_PACKAGES
+git add $YAY_PACKAGES

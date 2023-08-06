@@ -1,11 +1,4 @@
 ---
-- name: Install
-  kewlfft.aur.aur:
-    name:
-      - neovim-nightly-bin
-    use: yay
-    state: latest
-
 - name: Config folder
   ansible.builtin.file:
     mode: "0755"
