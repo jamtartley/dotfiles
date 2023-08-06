@@ -18,22 +18,15 @@
     path: "{{ ansible_user_dir }}/.zsh"
     state: directory
 
-- name: Copy .zshrc
+- name: Copy .zshrc + .zprofile
   ansible.builtin.copy:
-    src: ".zshrc"
+    src: "{{ item }}"
     dest: "{{ ansible_user_dir }}/"
+  loop:
+    - .zprofile
+    - .zshrc
 
 - name: Copy config files
   ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: "{{ ansible_user_dir }}/.zsh/"
-  loop:
-    - aliases.zsh
-    - binds.zsh
-    - exports.zsh
-    - functions.zsh
-    - nvm.zsh
-    - opts.zsh
-    - path.zsh
-    - zplug.zsh
-    
+    src: ".zsh/"
+    dest: "{{ ansible_user_dir }}/.zsh"
