@@ -5,6 +5,18 @@ set -e
 SSH_DIR="$HOME/.ssh"
 SSH_PRIVATE_KEY_NAME="id_ansible"
 
+function set_git_user_opt() {
+	key="$1"
+	prompt="$2"
+
+	if ! [[ $(git config --global "$key") ]];
+	then
+		read -p "$prompt: " val
+		git config --global "$key" "$val"
+	fi
+}
+
+
 if ! [ -x "$(command -v ansible)" ]; then
 	if [[ -f /etc/sudoers ]]; then
 		sudo pacman -S ansible --noconfirm
@@ -25,4 +37,6 @@ if [[ -f requirements.yml ]]; then
 	ansible-galaxy install -r requirements.yml
 fi
 
+set_git_user_opt "user.name" "git author"
+set_git_user_opt "user.email" "git email"
 ansible-playbook --diff main.yml

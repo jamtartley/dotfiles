@@ -8,6 +8,7 @@ default_roles:
   - bspwm
   - docker
   - dunst
+  - git
   - nvim
   - picom
   - polybar
