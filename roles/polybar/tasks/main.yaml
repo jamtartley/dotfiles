@@ -1,0 +1,23 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - polybar
+    state: latest
+  become: yes
+
+- name: Config folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.config/polybar"
+    state: directory
+
+- name: Copy launch.sh
+  ansible.builtin.copy:
+    src: "launch.sh"
+    dest: "{{ ansible_user_dir }}/.config/polybar/"
+
+- name: Copy config.ini
+  ansible.builtin.copy:
+    src: "config.ini"
+    dest: "{{ ansible_user_dir }}/.config/polybar/"
