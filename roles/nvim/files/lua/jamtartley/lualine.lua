@@ -17,7 +17,7 @@ local filename = {
 lualine.setup({
 	options = {
 		icons_enabled = false,
-		theme = "dracula",
+		theme = "dracula-nvim",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
