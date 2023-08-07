@@ -2,6 +2,7 @@
 
 set -e
 
+DOTFILES_DIR="$HOME/dev/dotfiles"
 SSH_DIR="$HOME/.ssh"
 SSH_PRIVATE_KEY_NAME="id_ansible"
 
@@ -18,11 +19,7 @@ function set_git_user_opt() {
 
 
 if ! [ -x "$(command -v ansible)" ]; then
-	if [[ -f /etc/sudoers ]]; then
-		sudo pacman -S ansible --noconfirm
-	else
-		pacman -S ansible --noconfirm
-	fi
+	sudo pacman -S ansible --noconfirm
 fi
 
 if ! [[ -f "$SSH_DIR/$SSH_PRIVATE_KEY_NAME" ]]; then
@@ -39,4 +36,4 @@ fi
 
 set_git_user_opt "user.name" "git author"
 set_git_user_opt "user.email" "git email"
-ansible-playbook --diff main.yml
+ansible-playbook --diff "$DOTFILES_DIR/main.yml"

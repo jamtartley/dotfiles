@@ -32,7 +32,29 @@ telescope.setup {
 		selection_caret = "  ",
 		wrap_results = true,
 	},
-	pickers = {},
+	pickers = {
+		find_files = {
+			hidden = true,
+			previewer = false,
+			theme = "dropdown"
+		},
+		git_files = {
+			hidden = true,
+			previewer = false,
+			show_untracked = true,
+			theme = "dropdown"
+		},
+		lsp_definitions = {
+			show_line = false,
+			trim_text = true
+		},
+		lsp_references = {
+			include_current_line = true,
+			include_declaration = false,
+			show_line = false,
+			trim_text = true
+		}
+	},
 	extensions = {
 		file_browser = { layout_strategy = "horizontal", sorting_strategy = "ascending" },
 		heading = { treesitter = true },
