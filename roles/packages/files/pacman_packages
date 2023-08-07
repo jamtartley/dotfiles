@@ -24,7 +24,6 @@ dkms
 docker
 docker-compose
 dunst
-electron
 exa
 fd
 fzf

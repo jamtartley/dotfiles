@@ -15,11 +15,11 @@
 }
 
 configuration {
-    show-icons:      true;
-    display-drun:    "";
-    disable-history: true;
+		icon-theme: "Dracula";
 		modi: "window,run,drun,emoji";
-		icon-theme: "Papirus";
+    disable-history: true;
+    display-drun:    "";
+    show-icons:      true;
 }
 
 #window {
@@ -42,12 +42,13 @@ configuration {
     text-color: @foreground;
 }
 #listview {
-    fixed-height: 0;
-    border:       0px;
+		lines: env(LINES, 8);
     border-color: @bordercolor;
-    spacing:      2px ;
-    scrollbar:    false;
+    border:       0px;
+    fixed-height: 0;
     padding:      2px 0px 0px ;
+    scrollbar:    false;
+    spacing:      2px ;
 }
 #element {
     border:  0;
