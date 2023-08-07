@@ -2,13 +2,13 @@ default_roles:
   - system
   - pacman
   - packages
-  - alacritty
   - appearance
   - bluetooth
   - bspwm
   - docker
   - dunst
   - git
+  - kitty
   - nvim
   - picom
   - polybar

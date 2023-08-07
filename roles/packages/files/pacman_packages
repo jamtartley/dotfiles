@@ -51,6 +51,7 @@ inetutils
 inotify-tools
 jasper
 jq
+kitty
 kubectl
 libappindicator-gtk2
 libcddb
@@ -122,6 +123,7 @@ texlive-fontsextra
 traceroute
 transmission-gtk
 ttf-inconsolata-nerd
+ttf-iosevka-nerd
 uchardet
 udisks2
 unzip

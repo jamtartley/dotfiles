@@ -1,5 +1,10 @@
 #!/usr/bin/env zsh
 
+function f() {
+    sels=( "${(@f)$(fd "${fd_default[@]}" "${@:2}"| fzf)}" )
+    test -n "$sels" && print -z -- "$1 ${sels[@]:q:q}"
+}
+
 function tldr() {
   curl "https://cheat.sh/$1"
 }

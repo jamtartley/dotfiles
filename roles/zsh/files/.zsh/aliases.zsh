@@ -9,7 +9,6 @@ fi
 alias c='clear'
 alias cf='cat $(fzf)'
 alias dc='cd'
-alias f='fzf | tr -d "\n" | xclip -sel clip'
 alias g='git'
 alias ga='git add'
 alias gac='git add . && git commit -m'
