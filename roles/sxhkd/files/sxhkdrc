@@ -47,7 +47,7 @@ alt + {_, shift + } q
     bspc node -{c,k}
 
 alt + {_, shift + } r
-    redshift {-c $HOME/.config/redshift/redshift.conf, redshift -x && pkill redshift}
+    {pgrep -x redshift || redshift, redshift -x && pkill redshift}
 
 alt + s
     spotify

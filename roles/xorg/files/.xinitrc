@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # needs to be set here for scripts to work in sxhkd config without specifying full path
-export PATH=/home/sam/.scripts:$PATH
+export PATH=/home/sam/.local/bin:$PATH
 
 setxkbmap -option caps:escape
 xset r rate 175 60

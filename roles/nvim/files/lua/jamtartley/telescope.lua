@@ -7,9 +7,10 @@ local actions = require "telescope.actions"
 
 telescope.setup {
 	defaults = {
-		prompt_prefix = "  ",
-		selection_caret = "  ",
-		path_display = { "smart" },
+		cache_picker = { num_pickers = 10 },
+		dynamic_preview_title = true,
+		layout_config = { vertical = { width = 0.9, height = 0.9, preview_height = 0.6, preview_cutoff = 0 } },
+		layout_strategy = "vertical",
 		mappings = {
 			i = {
 				["<C-h>"] = actions.cycle_history_prev,
@@ -26,36 +27,16 @@ telescope.setup {
 				["<CR>"] = actions.select_default,
 			},
 		},
+		path_display = { "smart", shorten = { len = 3 } },
+		prompt_prefix = "  ",
+		selection_caret = "  ",
+		wrap_results = true,
 	},
-	pickers = {
-		find_files = {
-			hidden = true,
-			previewer = false,
-			theme = "dropdown",
-		},
-		git_files = {
-			hidden = true,
-			previewer = false,
-			show_untracked = true,
-			theme = "dropdown",
-		},
-		lsp_definitions = {
-			show_line = false,
-			theme = "dropdown",
-			trim_text = true
-		},
-		lsp_references = {
-			include_current_line = true,
-			include_declaration = false,
-			show_line = false,
-			theme = "dropdown",
-			trim_text = true
-		}
-	},
+	pickers = {},
 	extensions = {
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown {}
-		}
+		file_browser = { layout_strategy = "horizontal", sorting_strategy = "ascending" },
+		heading = { treesitter = true },
+		["ui-select"] = { require("telescope.themes").get_dropdown({}) }
 	},
 }
 
