@@ -16,6 +16,5 @@ default_roles:
   - rofi
   - scripts
   - sxhkd
-  - tmux
   - xorg
   - zsh

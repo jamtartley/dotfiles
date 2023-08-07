@@ -1,8 +1,7 @@
 export NVM_DIR=~/.nvm
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
-autoload -U add-zsh-hook
-load-nvmrc() {
+function load-nvmrc() {
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
 
@@ -19,5 +18,7 @@ load-nvmrc() {
     nvm use default
   fi
 }
+
+autoload -U add-zsh-hook
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
