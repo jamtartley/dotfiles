@@ -1,11 +1,4 @@
 ---
-- name: Install from AUR
-  kewlfft.aur.aur:
-    name:
-      - zplug
-    use: yay
-    state: latest
-
 - name: Set default shell
   user:
     name: "{{ ansible_env['USER'] }}"

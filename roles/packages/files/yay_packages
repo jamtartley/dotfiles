@@ -5,7 +5,9 @@ authy
 aws-nuke-bin
 beekeeper-studio-bin
 chromedriver
+dracula-cursors-git
 dracula-gtk-theme
+dracula-icons-git
 firebase-tools
 google-cloud-cli
 libsidplay
@@ -13,7 +15,6 @@ mullvad-vpn
 nvm
 picom-git
 pulseaudio-control
-rtl8821cu-morrownr-dkms-git
 simplescreenrecorder
 spotify
 xorg-font-utils
