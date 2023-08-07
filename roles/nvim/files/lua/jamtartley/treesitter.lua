@@ -7,7 +7,7 @@ configs.setup {
 	autotag = {
 		enable = true
 	},
-	ensure_installed = { "help", "javascript", "typescript", "go", "rust", "lua", "python" },
+	ensure_installed = { "javascript", "typescript", "go", "rust", "lua", "python" },
 	sync_install = false,
 	autopairs = {
 		enable = true,

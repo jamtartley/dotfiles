@@ -2,7 +2,6 @@ default_roles:
   - system
   - pacman
   - packages
-
   - alacritty
   - appearance
   - bluetooth

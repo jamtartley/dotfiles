@@ -6,10 +6,15 @@ end
 lsp.preset({})
 
 lsp.ensure_installed({
+	"ansiblels",
+	"bashls",
+	"cmake",
+	"dockerls",
 	"emmet_ls",
 	'gopls',
 	'lua_ls',
 	'omnisharp',
+	'prismals',
 	'rust_analyzer',
 	'terraformls',
 	'tsserver',

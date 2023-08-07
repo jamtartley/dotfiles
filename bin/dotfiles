@@ -5,6 +5,7 @@ set -e
 DOTFILES_DIR="$HOME/dev/dotfiles"
 SSH_DIR="$HOME/.ssh"
 SSH_PRIVATE_KEY_NAME="id_ansible"
+ROLE_NAME=$1
 
 function set_git_user_opt() {
 	key="$1"
@@ -16,7 +17,6 @@ function set_git_user_opt() {
 		git config --global "$key" "$val"
 	fi
 }
-
 
 if ! [ -x "$(command -v ansible)" ]; then
 	sudo pacman -S ansible --noconfirm
@@ -34,6 +34,12 @@ if [[ -f requirements.yml ]]; then
 	ansible-galaxy install -r requirements.yml
 fi
 
+if [[ -z "$ROLE_NAME" ]]; then
+	EXTRA_VARS=""
+else
+	EXTRA_VARS="--extra-vars "role_name=$ROLE_NAME""
+fi
+
 set_git_user_opt "user.name" "git author"
 set_git_user_opt "user.email" "git email"
-ansible-playbook --diff "$DOTFILES_DIR/main.yml"
+ansible-playbook $EXTRA_VARS --diff "$DOTFILES_DIR/main.yml"
