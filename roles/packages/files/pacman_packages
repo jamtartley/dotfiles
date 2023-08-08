@@ -23,6 +23,7 @@ dkms
 docker
 docker-compose
 dunst
+eslint_d
 exa
 fd
 fzf

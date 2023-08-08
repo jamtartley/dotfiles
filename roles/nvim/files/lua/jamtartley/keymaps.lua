@@ -33,6 +33,7 @@ keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 keymap("n", "<C-_>", "gcc", opts)
+keymap("n", "<leader>q", ":lua require('jamtartley.quickfix').toggle_quickfix()<cr>", opts)
 
 -- Indentation
 keymap("n", "<", "V<", opts)
@@ -46,13 +47,12 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "p", "\"_dP", opts)
 
 -- Nvimtree
-keymap("n", "<C-f>", ":NvimTreeFindFileToggle<cr>", opts)
-keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<C-n>", ":NvimTreeFindFileToggle<cr>", opts)
 
 -- Telescope
 keymap("n", "<C-p>", ":Telescope git_files<cr>", opts)
 keymap("n", "<leader><C-p>", ":Telescope find_files<cr>", opts)
-keymap("n", "<leader>f", ":Telescope live_grep<cr>", opts)
+keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
 
 -- Gitsigns
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
