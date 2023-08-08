@@ -15,7 +15,7 @@ end
 
 local cmp_action = lsp.cmp_action()
 
-cmp.setup {
+cmp.setup({
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
@@ -26,8 +26,8 @@ cmp.setup {
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<C-l>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		["<CR>"] = cmp.mapping.confirm { select = true },
+		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<Tab>"] = cmp_action.luasnip_supertab(),
 		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
 	},
@@ -44,10 +44,10 @@ cmp.setup {
 		{ name = "buffer" },
 	},
 	view = {
-		entries = "custom"
+		entries = "custom",
 	},
 	window = {
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
-	}
-}
+	},
+})
