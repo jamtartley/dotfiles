@@ -1,6 +1,5 @@
 local fn = vim.fn
 
--- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
@@ -15,7 +14,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd([[packadd packer.nvim]])
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -23,13 +21,11 @@ vim.cmd([[
   augroup end
 ]])
 
--- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
 	return
 end
 
--- Have packer use a popup window
 packer.init({
 	display = {
 		open_fn = function()
@@ -38,30 +34,26 @@ packer.init({
 	},
 })
 
--- Install your plugins here
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
-	use("nvim-lua/popup.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("windwp/nvim-autopairs")
-	use("numToStr/Comment.nvim")
-	use("kyazdani42/nvim-web-devicons")
-	use("kyazdani42/nvim-tree.lua")
-	use("moll/vim-bbye")
-	use("nvim-lualine/lualine.nvim")
-	use("tpope/vim-surround")
+
 	use("Mofiqul/dracula.nvim")
 	use("anuvyklack/pretty-fold.nvim")
-	use("onsails/lspkind.nvim")
-	use("NeogitOrg/neogit")
-	use("sindrets/diffview.nvim")
+	use("kyazdani42/nvim-tree.lua")
+	use("kyazdani42/nvim-web-devicons")
+	use("numToStr/Comment.nvim")
+	use("nvim-lua/plenary.nvim")
+	use("nvim-lua/popup.nvim")
+	use("nvim-lualine/lualine.nvim")
+	use("tpope/vim-surround")
+	use("windwp/nvim-autopairs")
 
 	-- cmp plugins
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/nvim-cmp")
 	use("saadparwaiz1/cmp_luasnip")
 
 	-- snippets
@@ -73,6 +65,8 @@ return packer.startup(function(use)
 	})
 
 	-- LSP
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("MunifTanjim/prettier.nvim")
 	use({
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
@@ -87,24 +81,24 @@ return packer.startup(function(use)
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
 	})
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("MunifTanjim/prettier.nvim")
 
 	-- Telescope
-	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-ui-select.nvim")
+	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- Treesitter
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("windwp/nvim-ts-autotag")
 
 	-- Git
+	use("NeogitOrg/neogit")
 	use("lewis6991/gitsigns.nvim")
+	use("sindrets/diffview.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

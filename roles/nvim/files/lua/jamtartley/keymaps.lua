@@ -1,6 +1,4 @@
 local opts = { noremap = true, silent = false }
-
--- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
@@ -8,7 +6,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Normal --
 -- Better window navigation
 keymap("n", "<leader>wh", "<C-w>h", opts)
 keymap("n", "<leader>wj", "<C-w>j", opts)
@@ -32,7 +29,6 @@ keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
-keymap("n", "<C-_>", "gcc", opts)
 keymap("n", "<leader>q", ":lua require('jamtartley.quickfix').toggle_quickfix()<cr>", opts)
 
 -- Indentation
@@ -54,7 +50,7 @@ keymap("n", "<C-;>", ":Telescope commands<cr>", opts)
 keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
 
--- Gitsigns
+-- Git plugins
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
 keymap("n", "<leader>gd", ":DiffviewOpen<cr>", opts)
 keymap("n", "<leader>gf", ":DiffviewFileHistory<cr>", opts)

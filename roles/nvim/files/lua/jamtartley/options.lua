@@ -17,6 +17,7 @@ local options = {
 	foldmethod = "indent",
 	hlsearch = true,
 	ignorecase = true,
+	incsearch = true,
 	list = true,
 	listchars = {
 		space = "•",

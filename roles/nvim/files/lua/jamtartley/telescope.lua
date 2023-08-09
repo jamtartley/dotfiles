@@ -27,7 +27,7 @@ telescope.setup({
 				["<CR>"] = actions.select_default,
 			},
 		},
-		path_display = { "smart", shorten = { len = 3 } },
+		path_display = { "smart", shorten = { len = 5 } },
 		prompt_prefix = "  ",
 		selection_caret = "  ",
 		wrap_results = true,
