@@ -1,3 +1,7 @@
 ---
+- name: Set Brewfile location
+  set_fact:
+    brewfile: "{{ playbook_dir }}/roles/packages/files/Brewfile"
+
 - name: Brew bundle
-  ansible.builtin.shell: brew bundle
+  ansible.builtin.shell: brew bundle --file {{ brewfile }}
