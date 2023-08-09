@@ -1,14 +1,18 @@
 ---
-- name: Copy pacman.conf
-  ansible.builtin.copy:
-    src: "pacman.conf"
-    dest: "/etc/"
+- name: Link pacman.conf
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/pacman/files/pacman.conf"
+    dest: "/etc/pacman.conf"
+    state: link
+    force: true
   become: yes
 
-- name: Copy mirrorlist
-  ansible.builtin.copy:
-    src: "mirrorlist"
-    dest: "/etc/pacman.d/"
+- name: Link mirrorlist
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/pacman/files/mirrorlist"
+    dest: "/etc/pacman.d/mirrorlist"
+    state: link
+    force: true
   become: yes
 
 - name: pacman update/upgrade

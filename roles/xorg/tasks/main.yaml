@@ -1,5 +1,7 @@
 ---
-- name: Copy .xinitrc
-  ansible.builtin.copy:
-    src: ".xinitrc"
-    dest: "{{ ansible_user_dir }}/"
+- name: Link .xinitrc
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/xorg/files/.xinitrc"
+    dest: "{{ ansible_user_dir }}/.xinitrc"
+    state: link
+    force: true

@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-[ "$(printf "No\\nYes" | LINES=2 rofi -dmenu -i -p "$1")" = "Yes" ] && $2

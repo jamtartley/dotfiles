@@ -5,13 +5,16 @@
     path: "{{ ansible_user_dir }}/.config/polybar"
     state: directory
 
-- name: Copy launch_polybar
-  ansible.builtin.copy:
-    mode: "0755"
-    src: "launch_polybar"
-    dest: "{{ ansible_user_dir }}/.local/bin/"
+- name: Link launch_polybar
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/polybar/files/launch_polybar"
+    dest: "{{ ansible_user_dir }}/.local/bin/launch_polybar"
+    state: link
+    force: true
 
-- name: Copy config.ini
-  ansible.builtin.copy:
-    src: "config.ini"
-    dest: "{{ ansible_user_dir }}/.config/polybar/"
+- name: Link polybar.ini
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/polybar/files/config.ini"
+    dest: "{{ ansible_user_dir }}/.config/polybar/config.ini"
+    state: link
+    force: true

@@ -1,11 +1,7 @@
 ---
-- name: Config folder
+- name: Link config files
   ansible.builtin.file:
-    mode: "0755"
-    path: "{{ ansible_user_dir }}/.config/redshift"
-    state: directory
-
-- name: Copy redshift.conf
-  ansible.builtin.copy:
-    src: "redshift.conf"
-    dest: "{{ ansible_user_dir }}/.config/redshift/"
+    src: "{{ ansible_env.PWD }}/roles/redshift/files/"
+    dest: "{{ ansible_user_dir }}/.config/redshift"
+    state: link
+    force: true

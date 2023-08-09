@@ -1,12 +1,7 @@
 ---
-- name: Config folder
+- name: Link config files
   ansible.builtin.file:
-    mode: "0755"
-    path: "{{ ansible_user_dir }}/.config/dunst"
-    state: directory
-
-- name: Copy dunstrc
-  ansible.builtin.copy:
-    mode: "0755"
-    src: "dunstrc"
-    dest: "{{ ansible_user_dir }}/.config/dunst/"
+    src: "{{ ansible_env.PWD }}/roles/dunst/files/"
+    dest: "{{ ansible_user_dir }}/.config/dunst"
+    state: link
+    force: true

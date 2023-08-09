@@ -19,6 +19,7 @@ function append() {
 append $HOME/bin:$PATH
 append $HOME/.cargo/bin:$PATH
 append $HOME/.local/bin:$PATH
+append $HOME/.local/bin/scripts:$PATH
 append $HOME/.dotnet/tools:$PATH
 append $HOME/.npm-global/bin:$PATH
 append /opt/android-sdk/platform-tools:$PATH
