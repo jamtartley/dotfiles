@@ -1,0 +1,16 @@
+---
+- name: Ensure .zsh folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.zsh"
+    state: directory
+
+- name: Copy config files
+  ansible.builtin.copy:
+    src: ".zsh/"
+    dest: "{{ ansible_user_dir }}/.zsh"
+
+- name: Copy .zshrc.common
+  ansible.builtin.copy:
+    src: .zshrc.common
+    dest: "{{ ansible_user_dir }}/.zsh/.zshrc.common"

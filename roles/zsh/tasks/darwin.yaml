@@ -1,0 +1,8 @@
+---
+- name: Run fzf install script
+  ansible.builtin.shell: /usr/local/opt/fzf/install
+
+- name: Copy .zshrc.darwin to .zshrc
+  ansible.builtin.copy:
+    src: .zshrc.darwin
+    dest: "{{ ansible_user_dir }}/.zshrc"

@@ -4,11 +4,13 @@
   tasks:
     - name: set roles
       set_fact:
+        is_archlinux: "{{ ansible_facts['os_family'] == 'Archlinux' }}"
+        is_darwin: "{{ ansible_facts['os_family'] == 'Darwin' }}"
         roles: "{{ role_name | default(default_roles) }}"
       tags:
         - always
 
-    - name: Display roles
+    - name: Roles to execute
       debug:
         var: roles
       tags:

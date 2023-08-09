@@ -1,26 +1,13 @@
 ---
-- name: Set default shell
-  user:
-    name: "{{ ansible_env['USER'] }}"
-    shell: /usr/bin/zsh
-  become: yes
+- name: Run common
+  import_tasks: common.yaml
 
-- name: Ensure .zsh folder
-  ansible.builtin.file:
-    mode: "0755"
-    path: "{{ ansible_user_dir }}/.zsh"
-    state: directory
+- name: Run ArchLinux tasks
+  import_tasks: archlinux.yaml
+  when:
+    - is_archlinux
 
-- name: Copy .zshrc + .zprofile
-  ansible.builtin.copy:
-    mode: "0755"
-    src: "{{ item }}"
-    dest: "{{ ansible_user_dir }}/"
-  loop:
-    - .zprofile
-    - .zshrc
-
-- name: Copy config files
-  ansible.builtin.copy:
-    src: ".zsh/"
-    dest: "{{ ansible_user_dir }}/.zsh"
+- name: Run Darwin tasks
+  import_tasks: darwin.yaml
+  when:
+    - is_darwin
