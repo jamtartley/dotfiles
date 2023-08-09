@@ -9,7 +9,7 @@
 
     - name: Set roles
       set_fact:
-        roles: "{{ role_name | default(linux_roles if is_linux else darwin_roles) }}"
+        roles: "{{ roles_to_run.split(',') | default(linux_roles if is_linux else darwin_roles) }}"
       tags:
         - always
 
