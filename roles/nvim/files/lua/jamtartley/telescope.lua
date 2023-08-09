@@ -5,7 +5,7 @@ end
 
 local actions = require("telescope.actions")
 
-telescope.setup {
+telescope.setup({
 	defaults = {
 		cache_picker = { num_pickers = 10 },
 		dynamic_preview_title = true,
@@ -36,30 +36,31 @@ telescope.setup {
 		find_files = {
 			hidden = true,
 			previewer = false,
-			theme = "dropdown"
-		},
-		git_files = {
-			hidden = true,
-			previewer = false,
-			show_untracked = true,
-			theme = "dropdown"
+			theme = "dropdown",
 		},
 		lsp_definitions = {
 			show_line = false,
-			trim_text = true
+			trim_text = true,
 		},
 		lsp_references = {
 			include_current_line = true,
 			include_declaration = false,
 			show_line = false,
-			trim_text = true
-		}
+			trim_text = true,
+		},
 	},
 	extensions = {
 		file_browser = { layout_strategy = "horizontal", sorting_strategy = "ascending" },
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		},
 		heading = { treesitter = true },
-		["ui-select"] = { require("telescope.themes").get_dropdown({}) }
+		["ui-select"] = { require("telescope.themes").get_dropdown({}) },
 	},
-}
+})
 
+telescope.load_extension("fzf")
 telescope.load_extension("ui-select")

@@ -3,9 +3,9 @@ if not status_ok then
 	return
 end
 
-configs.setup {
+configs.setup({
 	autotag = {
-		enable = true
+		enable = true,
 	},
 	ensure_installed = { "javascript", "typescript", "go", "rust", "lua", "python" },
 	sync_install = false,
@@ -21,5 +21,5 @@ configs.setup {
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
-	}
-}
+	},
+})

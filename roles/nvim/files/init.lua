@@ -1,20 +1,20 @@
-require "jamtartley.autocommands"
-require "jamtartley.autopairs"
-require "jamtartley.cmp"
-require "jamtartley.comment"
-require "jamtartley.dracula"
-require "jamtartley.folding"
-require "jamtartley.gitsigns"
-require "jamtartley.keymaps"
-require "jamtartley.lsp"
-require "jamtartley.lualine"
-require "jamtartley.luasnip"
-require "jamtartley.neogit"
-require "jamtartley.null-ls"
-require "jamtartley.nvim-tree"
-require "jamtartley.options"
-require "jamtartley.plugins"
-require "jamtartley.pretty-fold"
-require "jamtartley.quickfix"
-require "jamtartley.telescope"
-require "jamtartley.treesitter"
+require("jamtartley.autocommands")
+require("jamtartley.autopairs")
+require("jamtartley.cmp")
+require("jamtartley.comment")
+require("jamtartley.dracula")
+require("jamtartley.folding")
+require("jamtartley.gitsigns")
+require("jamtartley.keymaps")
+require("jamtartley.lsp")
+require("jamtartley.lualine")
+require("jamtartley.luasnip")
+require("jamtartley.neogit")
+require("jamtartley.null-ls")
+require("jamtartley.nvim-tree")
+require("jamtartley.options")
+require("jamtartley.plugins")
+require("jamtartley.pretty-fold")
+require("jamtartley.quickfix")
+require("jamtartley.telescope")
+require("jamtartley.treesitter")

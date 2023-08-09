@@ -11,7 +11,7 @@ local branch = {
 
 local filename = {
 	"filename",
-	path = 1 -- relative
+	path = 1, -- relative
 }
 
 lualine.setup({

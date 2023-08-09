@@ -5,5 +5,5 @@ end
 
 dracula.setup({
 	italic_comment = true,
-	show_end_of_buffer = true
+	show_end_of_buffer = true,
 })

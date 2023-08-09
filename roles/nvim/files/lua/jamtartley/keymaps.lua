@@ -44,14 +44,13 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "p", "\"_dP", opts)
+keymap("x", "p", '"_dP', opts)
 
 -- Nvimtree
 keymap("n", "<C-n>", ":NvimTreeFindFileToggle<cr>", opts)
 
 -- Telescope
-keymap("n", "<C-p>", ":Telescope git_files<cr>", opts)
-keymap("n", "<leader><C-p>", ":Telescope find_files<cr>", opts)
+keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
 
 -- Gitsigns
