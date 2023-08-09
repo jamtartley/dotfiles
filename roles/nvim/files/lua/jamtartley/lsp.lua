@@ -5,6 +5,16 @@ end
 
 lsp.preset({})
 
+lsp.configure("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
+})
+
 lsp.ensure_installed({
 	"ansiblels",
 	"bashls",
