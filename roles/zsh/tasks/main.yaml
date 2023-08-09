@@ -1,6 +1,18 @@
 ---
-- name: Run common
-  import_tasks: common.yaml
+- name: Ensure .zsh folder
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.zsh"
+    state: directory
+
+- name: Copy config files
+  ansible.builtin.copy:
+    src: ".zsh/"
+    dest: "{{ ansible_user_dir }}/.zsh"
+
+- name: Template .zshrc
+  ansible.builtin.template:
+    src: .zshrc.j2
+    dest: "{{ ansible_user_dir }}/.zshrc"
 
 - name: Run Linux tasks
   import_tasks: linux.yaml

@@ -9,8 +9,3 @@
   ansible.builtin.copy:
     src: .zprofile
     dest: "{{ ansible_user_dir }}/"
-
-- name: Copy .zshrc.linux to .zshrc
-  ansible.builtin.copy:
-    src: .zshrc.linux
-    dest: "{{ ansible_user_dir }}/.zshrc"
