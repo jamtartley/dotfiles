@@ -1,11 +1,13 @@
 ---
-- name: Config folder
-  ansible.builtin.file:
-    mode: "0755"
-    path: "{{ ansible_user_dir }}/.config/kitty"
-    state: directory
+- name: Run common
+  import_tasks: common.yaml
 
-- name: Copy config
-  ansible.builtin.copy:
-    dest: "{{ ansible_user_dir }}/.config/kitty"
-    src: "."
+- name: Run Linux tasks
+  import_tasks: linux.yaml
+  when:
+    - is_linux
+
+- name: Run Darwin tasks
+  import_tasks: darwin.yaml
+  when:
+    - is_darwin

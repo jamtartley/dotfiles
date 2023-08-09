@@ -1,0 +1,5 @@
+---
+- name: Copy config
+  ansible.builtin.copy:
+    src: "kitty.conf.darwin"
+    dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
