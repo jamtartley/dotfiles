@@ -1,13 +1,19 @@
 ---
-- name: Run common
-  import_tasks: common.yaml
+- name: Create config folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.config/kitty"
+    state: directory
 
-- name: Run Linux tasks
-  import_tasks: linux.yaml
-  when:
-    - is_linux
+- name: Template out kitty.conf
+  ansible.builtin.template:
+    src: kitty.conf.j2
+    dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
 
-- name: Run Darwin tasks
-  import_tasks: darwin.yaml
-  when:
-    - is_darwin
+- name: Copy other config files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/.config/kitty"
+  loop:
+    - diff.conf
+    - dracula.conf

@@ -1,5 +1,0 @@
-include kitty.conf.common
-
-font_size           16
-
-map super+shift+space     next_layout
