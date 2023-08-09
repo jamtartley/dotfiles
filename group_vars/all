@@ -20,6 +20,7 @@ linux_roles:
   - zsh
 
 darwin_roles:
+  - packages
   - kitty
   - nvim
   - zsh

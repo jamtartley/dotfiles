@@ -82,7 +82,6 @@ parallel
 pavucontrol
 pnpm
 polybar
-python-anytree
 python-asn1crypto
 python-beaker
 python-cached-property

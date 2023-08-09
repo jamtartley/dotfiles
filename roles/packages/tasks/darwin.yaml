@@ -1,0 +1,3 @@
+---
+- name: Brew bundle
+  ansible.builtin.shell: brew bundle
