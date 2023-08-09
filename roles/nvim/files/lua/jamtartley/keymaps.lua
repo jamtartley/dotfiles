@@ -50,6 +50,7 @@ keymap("x", "p", '"_dP', opts)
 keymap("n", "<C-n>", ":NvimTreeFindFileToggle<cr>", opts)
 
 -- Telescope
+keymap("n", "<C-;>", ":Telescope commands<cr>", opts)
 keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
 

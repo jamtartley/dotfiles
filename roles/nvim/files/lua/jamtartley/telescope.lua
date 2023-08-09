@@ -33,6 +33,9 @@ telescope.setup({
 		wrap_results = true,
 	},
 	pickers = {
+		commands = {
+			theme = "ivy",
+		},
 		find_files = {
 			hidden = true,
 			previewer = false,
