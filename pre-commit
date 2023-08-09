@@ -1,12 +1,26 @@
 #!/usr/bin/env sh
 
-PACMAN_PACKAGES=roles/packages/files/pacman_packages
-YAY_PACKAGES=roles/packages/files/yay_packages
+OS=$(uname)
 
-echo "Updating installed pacman package list..."
-pacman -Qqent > "$PACMAN_PACKAGES"
-echo "Updating installed AUR package list..."
-pacman -Qqemt > "$YAY_PACKAGES"
+if [ "$OS" = "Linux" ]; then
+	PACMAN_PACKAGES=roles/packages/files/pacman_packages
+	YAY_PACKAGES=roles/packages/files/yay_packages
 
-git add $PACMAN_PACKAGES
-git add $YAY_PACKAGES
+	echo "Updating installed pacman package list..."
+	pacman -Qqent > "$PACMAN_PACKAGES"
+	echo "Updating installed AUR package list..."
+	pacman -Qqemt > "$YAY_PACKAGES"
+
+	git add $PACMAN_PACKAGES
+	git add $YAY_PACKAGES
+fi
+
+if [ "$OS" = "Darwin" ]; then
+	BREW_PACKAGES=roles/packages/files/Brewfile
+
+	echo "Updating installed brew packages..."
+	brew bundle dump -f
+	mv Brewfile $BREW_PACKAGES
+
+	git add $BREW_PACKAGES
+fi
