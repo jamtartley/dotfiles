@@ -2,11 +2,14 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: set roles
+    - name: Set family
       set_fact:
-        is_archlinux: "{{ ansible_facts['os_family'] == 'Archlinux' }}"
+        is_linux: "{{ ansible_facts['os_family'] == 'Archlinux' }}"
         is_darwin: "{{ ansible_facts['os_family'] == 'Darwin' }}"
-        roles: "{{ role_name | default(default_roles) }}"
+
+    - name: Set roles
+      set_fact:
+        roles: "{{ role_name | default(linux_roles if is_linux else darwin_roles) }}"
       tags:
         - always
 

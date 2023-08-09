@@ -1,4 +1,4 @@
-default_roles:
+linux_roles:
   - system
   - pacman
   - packages
@@ -17,4 +17,9 @@ default_roles:
   - scripts
   - sxhkd
   - xorg
+  - zsh
+
+darwin_roles:
+  - kitty
+  - nvim
   - zsh

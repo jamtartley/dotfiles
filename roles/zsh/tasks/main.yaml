@@ -2,10 +2,10 @@
 - name: Run common
   import_tasks: common.yaml
 
-- name: Run ArchLinux tasks
-  import_tasks: archlinux.yaml
+- name: Run Linux tasks
+  import_tasks: linux.yaml
   when:
-    - is_archlinux
+    - is_linux
 
 - name: Run Darwin tasks
   import_tasks: darwin.yaml
