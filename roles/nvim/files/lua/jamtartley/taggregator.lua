@@ -23,14 +23,11 @@ end
 local function _get_tagged_lines(tags, tag_marker)
 	local search_terms = _build_search_terms(tags, tag_marker)
 	local root = vim.fn.getcwd()
-	local command = "rg -i --no-heading --line-number --color=never " .. search_terms .. root
+	local command = "rg -i --column --no-heading --line-number --color=never " .. search_terms .. root
 	local _, result = pcall(vim.fn.systemlist, command)
 
 	return result
 end
-
---[[ @BUG ]]
---[[ @HACK this is poor work  ]]
 
 local M = {}
 
@@ -51,7 +48,6 @@ function M.run()
 	}
 
 	local results = _get_tagged_lines(opts.tags, opts.tag_marker)
-	P(results)
 
 	pickers
 		.new({}, {
@@ -60,14 +56,18 @@ function M.run()
 				results = results,
 				entry_maker = function(entry)
 					local split = vim.split(entry, ":")
+					local filename = split[1]
+					local lnum = tonumber(split[2])
+					local col = tonumber(split[3])
+					local line = split[4]
 
 					return {
-						value = entry,
-						display = entry,
-						ordinal = entry,
-						filename = split[1],
-						lnum = tonumber(split[2]),
-						col = 0,
+						value = line,
+						display = filename .. " | " .. line,
+						ordinal = line,
+						filename = filename,
+						lnum = lnum,
+						col = col,
 					}
 				end,
 			}),
