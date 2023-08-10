@@ -14,6 +14,11 @@
     src: .zshrc.j2
     dest: "{{ ansible_user_dir }}/.zshrc"
 
+- name: Copy .zprofile
+  ansible.builtin.copy:
+    src: .zprofile
+    dest: "{{ ansible_user_dir }}/.zprofile"
+
 - name: Run Linux tasks
   import_tasks: linux.yaml
   when:

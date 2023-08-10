@@ -4,8 +4,3 @@
     name: "{{ ansible_env['USER'] }}"
     shell: /usr/bin/zsh
   become: yes
-
-- name: Copy .zprofile
-  ansible.builtin.copy:
-    src: .zprofile
-    dest: "{{ ansible_user_dir }}/"

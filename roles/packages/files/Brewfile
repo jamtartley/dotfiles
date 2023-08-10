@@ -1,8 +1,6 @@
 tap "fsouza/prettierd"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "homebrew/services"
 brew "libyaml"
 brew "ansible"
@@ -28,7 +26,6 @@ brew "luv"
 brew "openssl@1.1"
 brew "mysql@5.7", restart_service: true
 brew "neovim", args: ["HEAD"]
-brew "nvm"
 brew "openjdk"
 brew "pv"
 brew "pyenv"
