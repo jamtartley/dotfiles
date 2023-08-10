@@ -2,36 +2,59 @@ local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")
 local conf = require("telescope.config").values
 
-local M = {}
+local function _build_search_terms(tags, tag_marker)
+	if not tags or #tags == 0 then
+		return ""
+	end
 
-local function _get_lines(tags)
-	tags = tags
-		or {
-			"@BUG",
-			"@CLEANUP",
-			"@FEATURE",
-			"@HACK",
-			"@NOCHECKIN",
-			"@REFACTOR",
-			"@ROBUSTNESS",
-			"@SPEED",
-			"@TODO",
-		}
+	local separator = " -e "
+	local tag_string = ""
 
-	local searches = vim.fn.join(tags, " -e ")
-	local command = "rg -i --no-heading --line-number --color=never -e " .. searches .. vim.fn.getcwd()
+	for i, tag in ipairs(tags) do
+		if i > 1 then
+			tag_string = tag_string .. separator
+		end
+		tag_string = tag_string .. tag_marker .. tag
+	end
+
+	return separator .. tag_string
+end
+
+local function _get_tagged_lines(tags, tag_marker)
+	local search_terms = _build_search_terms(tags, tag_marker)
+	local root = vim.fn.getcwd()
+	local command = "rg -i --no-heading --line-number --color=never " .. search_terms .. root
 	local _, result = pcall(vim.fn.systemlist, command)
 
 	return result
 end
 
-function M.run(opts)
-	opts = opts or {}
+--[[ @BUG ]]
+--[[ @HACK this is poor work  ]]
 
-	local results = _get_lines(opts.tags)
+local M = {}
+
+function M.run()
+	local opts = {
+		tag_marker = "@",
+		tags = {
+			"BUG",
+			"CLEANUP",
+			"FEATURE",
+			"HACK",
+			"NOCHECKIN",
+			"REFACTOR",
+			"ROBUSTNESS",
+			"SPEED",
+			"TODO",
+		},
+	}
+
+	local results = _get_tagged_lines(opts.tags, opts.tag_marker)
+	P(results)
 
 	pickers
-		.new(opts, {
+		.new({}, {
 			prompt_title = "taggregator",
 			finder = finders.new_table({
 				results = results,
