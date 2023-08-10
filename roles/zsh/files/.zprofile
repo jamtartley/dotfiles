@@ -14,13 +14,9 @@ function append() {
 	PATH="${PATH:+$PATH:}$LOCATION" # Actually append (or if PATH is empty, just set).
 }
 
-append $HOME/bin:$PATH
 append $HOME/.cargo/bin:$PATH
 append $HOME/.local/bin:$PATH
-append $HOME/.local/bin/scripts:$PATH
-append $HOME/.dotnet/tools:$PATH
-append $HOME/.npm-global/bin:$PATH
-append /usr/local/Cellar:$PATH
 append /opt/android-sdk/platform-tools:$PATH
+append /usr/local/Cellar:$PATH
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx -- vt1 &> /dev/null

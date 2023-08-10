@@ -18,6 +18,9 @@ telescope.setup({
 				["<C-k>"] = actions.move_selection_previous,
 				["<C-l>"] = actions.cycle_history_next,
 
+				["<C-s>"] = actions.select_horizontal,
+				["<C-v>"] = actions.select_vertical,
+
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
 
@@ -38,8 +41,6 @@ telescope.setup({
 		},
 		find_files = {
 			hidden = true,
-			previewer = false,
-			theme = "dropdown",
 		},
 		lsp_definitions = {
 			show_line = false,
