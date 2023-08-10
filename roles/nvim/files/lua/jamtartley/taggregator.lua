@@ -23,7 +23,7 @@ end
 local function _get_tagged_lines(tags, tag_marker)
 	local search_terms = _build_search_terms(tags, tag_marker)
 	local root = vim.fn.getcwd()
-	local command = "rg -i --column --no-heading --line-number --color=never " .. search_terms .. root
+	local command = "rg --column --no-heading --line-number --color=never " .. search_terms .. " " .. root
 	local _, result = pcall(vim.fn.systemlist, command)
 
 	return result
@@ -44,6 +44,7 @@ function M.run()
 			"ROBUSTNESS",
 			"SPEED",
 			"TODO",
+			"TYPE",
 		},
 	}
 
@@ -63,7 +64,7 @@ function M.run()
 
 					return {
 						value = line,
-						display = filename .. " | " .. line,
+						display = vim.fn.expand(filename) .. ": " .. line,
 						ordinal = line,
 						filename = filename,
 						lnum = lnum,
