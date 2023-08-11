@@ -1,7 +1,6 @@
 alt + Return
     kitty
 
-# make sxhkd reload its configuration files:
 alt + Escape
     pkill -USR1 -x sxhkd && notify-send "Restarting sxhkd..."
 
@@ -39,9 +38,6 @@ alt + super + shift + {h,j,k,l}
 
 alt + {_, shift + } o
     {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
-
-alt + p
-    projects
 
 alt + {_, shift + } q
     bspc node -{c,k}

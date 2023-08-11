@@ -81,6 +81,13 @@ return packer.startup(function(use)
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
 	})
+	use({
+		"linrongbin16/lsp-progress.nvim",
+		requires = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lsp-progress").setup()
+		end,
+	})
 
 	-- Telescope
 	use("nvim-telescope/telescope-ui-select.nvim")

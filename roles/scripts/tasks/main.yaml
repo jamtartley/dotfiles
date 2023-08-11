@@ -1,13 +1,8 @@
 ---
-- name: Config folder
+- name: Link scripts
   ansible.builtin.file:
-    mode: "0755"
-    path: "{{ ansible_user_dir }}/.local/bin"
-    state: directory
-
-- name: Copy scripts
-  ansible.builtin.copy:
-    mode: "0755"
-    src: "."
-    dest: "{{ ansible_user_dir }}/.local/bin/"
+    src: "{{ ansible_env.PWD }}/roles/scripts/files/"
+    dest: "{{ ansible_user_dir }}/.local/bin/scripts"
+    state: link
+    force: true
 

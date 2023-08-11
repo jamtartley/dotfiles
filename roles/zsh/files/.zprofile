@@ -16,6 +16,7 @@ function append() {
 
 append $HOME/.cargo/bin:$PATH
 append $HOME/.local/bin:$PATH
+append $HOME/.local/bin/scripts:$PATH
 append /opt/android-sdk/platform-tools:$PATH
 append /usr/local/Cellar:$PATH
 
