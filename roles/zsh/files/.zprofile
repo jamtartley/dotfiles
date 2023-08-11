@@ -1,23 +1,14 @@
-function prepend() {
-	local LOCATION=$1
-	PATH=${PATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
-	PATH=${PATH/#"$LOCATION:"/} # Delete from start.
-	PATH=${PATH/%":$LOCATION"/} # Delete from end.
-	PATH="$LOCATION${PATH:+:$PATH}" # Actually prepend (or if PATH is empty, just set).
+add_to_path_if_not_exists() {
+  local new_path="$1"
+  [[ ":$path:" != *":$new_path:"* ]] && path+=("$new_path")
 }
 
-function append() {
-	local LOCATION=$1
-	PATH=${PATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
-	PATH=${PATH/#"$LOCATION:"/} # Delete from start.
-	PATH=${PATH/%":$LOCATION"/} # Delete from end.
-	PATH="${PATH:+$PATH:}$LOCATION" # Actually append (or if PATH is empty, just set).
-}
+typeset -U path PATH
 
-append $HOME/.cargo/bin:$PATH
-append $HOME/.local/bin:$PATH
-append $HOME/.local/bin/scripts:$PATH
-append /opt/android-sdk/platform-tools:$PATH
-append /usr/local/Cellar:$PATH
+add_to_path_if_not_exists "$HOME/.cargo/bin"
+add_to_path_if_not_exists "$HOME/.local/bin"
+add_to_path_if_not_exists "$HOME/.local/bin/scripts"
+add_to_path_if_not_exists "/opt/android-sdk/platform-tools"
+add_to_path_if_not_exists "/usr/local/Cellar"
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx -- vt1 &> /dev/null

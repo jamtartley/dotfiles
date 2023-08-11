@@ -1,25 +1,29 @@
 #!/usr/bin/env zsh
 
-function f() {
-	sels=( "${(@f)$(fd "${fd_default[@]}" "${@:2}"| fzf)}" )
-	test -n "$sels" && print -z -- "$1 ${sels[@]:q:q}"
+function d() {
+	local SELECTION
+	SELECTION=$(find "$HOME/dev/dotfiles/roles" -mindepth 1 -maxdepth 1 -type d | sort | awk -F/ '{print $NF}' | fzf)
+
+	if [ $? -eq 0 ]; then
+		echo "$SELECTION" | xargs dotfiles
+	fi
 }
 
 function fd() {
-	local SELECTED_DIR
-	SELECTED_DIR=$(rg --hidden --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq | fzf)
+	local SELECTION
+	SELECTION=$(find * -type d | fzf)
 
-	if [[ -n "$SELECTED_DIR" ]]; then
-		cd "$SELECTED_DIR" || return 1
+	if [ $? -eq 0 ]; then
+		cd "$SELECTION"
 	fi
 }
 
 function fp() {
-	local SELECTED_PROJECT
-	SELECTED_PROJECT=$(find "$HOME/dev" -mindepth 1 -maxdepth 1 -type d | sort | fzf)
+	local SELECTION
+	SELECTION=$(find "$HOME/dev" -mindepth 1 -maxdepth 1 -type d | sort | fzf)
 
-	if [[ -n "$SELECTED_PROJECT" ]]; then
-		cd "$SELECTED_PROJECT"
+	if [ $? -eq 0 ]; then
+		cd "$SELECTION"
 	fi
 }
 

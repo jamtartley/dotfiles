@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
 alias c='clear'
+alias cd-='cd -'
 alias cf='cat $(fzf)'
+alias cp='cp -iv'
 alias dc='cd'
 alias g='git'
 alias ga='git add'
@@ -27,5 +29,4 @@ alias tf="terraform"
 alias tg="terragrunt"
 alias v='nvim'
 alias vf='vim $(fzf)'
-alias vim="nvim"
 alias y="yarn"
