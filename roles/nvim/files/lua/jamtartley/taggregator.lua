@@ -1,6 +1,7 @@
 local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")
 local conf = require("telescope.config").values
+local path = require("plenary.path")
 
 local function _build_search_terms(tags, tag_marker)
 	if not tags or #tags == 0 then
@@ -50,6 +51,11 @@ function M.run()
 
 	local results = _get_tagged_lines(opts.tags, opts.tag_marker)
 
+	if #results == 0 then
+		print("No taggregator results found!")
+		return
+	end
+
 	pickers
 		.new({}, {
 			prompt_title = "taggregator",
@@ -61,10 +67,11 @@ function M.run()
 					local lnum = tonumber(split[2])
 					local col = tonumber(split[3])
 					local line = split[4]
+					local display_filename = path:new(filename):make_relative(vim.fn.getcwd())
 
 					return {
 						value = line,
-						display = vim.fn.expand(filename) .. ": " .. line,
+						display = display_filename .. ": " .. line,
 						ordinal = line,
 						filename = filename,
 						lnum = lnum,
