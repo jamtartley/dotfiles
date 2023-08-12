@@ -14,6 +14,9 @@
     src: .zshrc.j2
     dest: "{{ ansible_user_dir }}/.zshrc"
 
+- name: Compile .zshrc
+  ansible.builtin.shell: zsh -c "zcompile {{ ansible_user_dir }}/.zshrc"
+
 - name: Copy .zprofile
   ansible.builtin.copy:
     src: .zprofile
