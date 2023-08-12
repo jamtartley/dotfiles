@@ -39,12 +39,10 @@ gparted
 grub
 haskell-attoparsec
 haskell-base-compat-batteries
-haskell-dlist
 haskell-quickcheck
 haskell-regex-base
 haskell-these
 haskell-time-compat
-haskell-unordered-containers
 haskell-uuid-types
 haskell-vector
 htop
