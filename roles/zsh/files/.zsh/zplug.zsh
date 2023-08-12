@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 source $HOME/.zplug/init.zsh
-zplug "lukechilds/zsh-nvm"
 zplug "jeffreytse/zsh-vi-mode"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "dracula/zsh", as:theme

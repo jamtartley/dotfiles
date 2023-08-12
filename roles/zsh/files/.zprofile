@@ -1,5 +1,6 @@
-add_to_path_if_not_exists() {
+function add_to_path_if_not_exists() {
   local new_path="$1"
+
   [[ ":$path:" != *":$new_path:"* ]] && path+=("$new_path")
 }
 
