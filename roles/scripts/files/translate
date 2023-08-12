@@ -1,8 +1,11 @@
 #!/usr/bin/env sh
 
-BASE_URL="https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q="
+TARGET_LANGUAGE_CODE=$1
+TARGET_LANGUAGE_NAME=$2
+
+BASE_URL="https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=$TARGET_LANGUAGE_CODE&dt=t&q="
 USER_AGENT='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'
-QUERY=$(LINES=0 rofi -dmenu -p "Spanish translate: " | sed -e "s/\ /+/g")
+QUERY=$(LINES=0 rofi -dmenu -p "Translate to $TARGET_LANGUAGE_NAME: " | sed -e "s/\ /+/g")
 FULL_URL=${BASE_URL}${QUERY}
 RESPONSE=$(curl -sA "${USER_AGENT}" "${FULL_URL}" | jq -r '.[0][0][0]')
 notify-send -u low -t 3000 "$RESPONSE"
