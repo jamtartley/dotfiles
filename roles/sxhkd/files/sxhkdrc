@@ -1,92 +1,68 @@
 alt + Return
-    kitty
+	kitty
 
 alt + Escape
-    pkill -USR1 -x sxhkd && notify-send "Restarting sxhkd..."
+	pkill -USR1 -x sxhkd && notify-send "Restarting sxhkd..."
 
 alt + {_,shift + }{1-9,0}
-    bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 alt + {Left, Right}
-    bspc desktop -f {prev, next}
+	bspc desktop -f {prev, next}
+
+alt + a
+	authy
 
 alt + {_, shift + } b
-    {blueman-manager, beekeeper-studio}
+	{blueman-manager, beekeeper-studio}
 
 alt + d
-    rofi -show drun
+	rofi -show drun
 
 alt + e
-    rofi -show emoji
+	rofi -show emoji
 
 alt + {_, shift + } f
-    bspc node -t {fullscreen,floating}
+	{bspc_toggle_fullscreen_tiled,bspc_toggle_floating_tiled}
 
 alt + {_, shift + } g
-    {google-chrome-stable --incognito --new-window, google-chrome-stable --new-window}
+	{google-chrome-stable --incognito --new-window, google-chrome-stable --new-window}
 
 alt + {_,shift + }{h,j,k,l}
-    bspc node -{f,s} {west,south,north,east}
+	bspc node -{f,s} {west,south,north,east}
 
-# expand a window by moving one of its side outward
 alt + super + {h,j,k,l}
-    bspc node -z {left -100 0,bottom 0 100,top 0 -100,right 100 0}
+    bspc node -z {left -200 0, bottom 0 200, top 0 -200, right 200 0}
 
-# contract a window by moving one of its side inward
 alt + super + shift + {h,j,k,l}
-    bspc node -z {right -100 0,top 0 100,bottom 0 -100,left 100 0}
+    bspc node -z {left 200 0, bottom 0 -200, top 0 200, right -200 0}
 
 alt + {_, shift + } o
-    {confirm "Logout?" "bspc quit",confirm "Shutdown?" "shutdown now"}
+	{confirm "Logout?" "bspc quit", confirm "Shutdown?" "shutdown now"}
 
 alt + {_, shift + } q
-    bspc node -{c,k}
+	bspc node -{c,k}
+
+alt + p
+	rofi_projects
 
 alt + {_, shift + } r
-    {pgrep -x redshift || redshift, redshift -x && pkill redshift}
+	{pgrep -x redshift || redshift, redshift -x && pkill redshift}
 
 alt + s
-    spotify
+	spotify
 
 alt + {_, shift + } t
-    {bspc node -t tiled,spanish_translate}
+	{translate es Spanish, translate it Italian}
 
-alt + shift + x
-    $HOME/.config/bspwm/scripts/lock/lock.sh
+alt + x
+	$HOME/.config/bspwm/scripts/lock/lock.sh
 
 alt + {_, shift + } y
-    {google_search, youtube_search}
-
-XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
-
-XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +5%
+	{google_search, youtube_search}
 
 alt + minus
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 alt + equal
-    pactl set-sink-volume @DEFAULT_SINK@ +5%
-
-XF86AudioPrev
-    mpc previous
-
-XF86AudioNext
-    mpc next
-
-XF86AudioPlay
-    mpc toggle
-
-XF86AudioPause
-    mpc toggle
-
-XF86MonBrightnessUp
-    xbacklight -inc 10
-
-XF86MonBrightnessDown
-    xbacklight -dec 10
-
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
