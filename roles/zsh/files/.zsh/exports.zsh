@@ -18,5 +18,6 @@ export NVM_AUTO_USE=true
 export NVM_LAZYLOAD=true
 export SAVEHIST=10000000
 export VISUAL=nvim
+export VI_MODE_SET_CURSOR=true
 export XDG_CONFIG_HOME=$HOME/.config
 export _JAVA_AWT_WM_NONREPARENTING=1

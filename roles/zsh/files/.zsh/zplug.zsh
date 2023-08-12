@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 source $HOME/.zplug/init.zsh
-zplug "jeffreytse/zsh-vi-mode"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "dracula/zsh", as:theme
 zplug "zsh-users/zsh-syntax-highlighting", defer:2

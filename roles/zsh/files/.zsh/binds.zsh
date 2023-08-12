@@ -1,7 +1,22 @@
 #!/usr/bin/env zsh
 
-bindkey -e
+function zle-keymap-select () {
+	case $KEYMAP in
+		vicmd) echo -ne '\e[1 q';; # block
+		viins|main) echo -ne '\e[5 q';; # beam
+	esac
+}
 
-autoload -z edit-command-line
-zle -N edit-command-line
-bindkey "^X^X" edit-command-line
+function zle-line-init() {
+	zle -K viins
+	echo -ne "\e[5 q"
+}
+
+function preexec() {
+	# Use beam shape cursor for each new prompt.
+	echo -ne '\e[5 q'
+}
+
+zle -N zle-keymap-select
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
