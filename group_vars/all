@@ -10,7 +10,6 @@ linux_roles:
   - git
   - kitty
   - nvim
-  - picom
   - polybar
   - redshift
   - rofi

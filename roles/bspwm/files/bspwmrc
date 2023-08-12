@@ -17,7 +17,6 @@ blueman-manager &
 launch_polybar &
 nm-applet &
 pgrep -x dunst || dunst &
-pgrep -x picom || picom -b
 pgrep -x redshift || redshift &
 pgrep -x sxhkd || sxhkd &
 
