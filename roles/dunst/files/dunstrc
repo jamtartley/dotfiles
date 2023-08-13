@@ -6,7 +6,7 @@
     corner_radius = 0
     ellipsize = middle
     follow = mouse
-    font = Inconsolata Nerd Font 12
+    font = SFMono Nerd Font Mono 12
     force_xinerama = false
     force_xwayland = false
     format = "%s %p\n%b"
