@@ -37,8 +37,8 @@ alt + super + {h,j,k,l}
 alt + super + shift + {h,j,k,l}
     bspc node -z {right -300 0, top 0 300, bottom 0 -300, left 300 0}
 
-alt + {_, shift + } o
-	{confirm "Logout?" "bspc quit", confirm "Shutdown?" "shutdown now"}
+alt + {_, shift +, shift + ctrl + } o
+	{confirm "Logout?" "bspc quit", confirm "Shutdown?" "shutdown now", confirm "Reboot?" "reboot"}
 
 alt + {_, shift + } q
 	bspc node -{c,k}
