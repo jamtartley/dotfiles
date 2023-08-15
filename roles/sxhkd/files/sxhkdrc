@@ -55,6 +55,9 @@ alt + s
 alt + {_, shift + } t
 	{translate es Spanish, translate it Italian}
 
+alt + w
+	rofi -show window
+
 alt + x
 	$HOME/.config/bspwm/scripts/lock/lock.sh
 
