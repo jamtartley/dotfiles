@@ -67,4 +67,9 @@ keymap("n", "<leader>gs", ":Gitsigns preview_hunk<cr>", opts)
 keymap("n", "<Tab>", "<cmd>lua require('jamtartley.folding').toggle_current_fold()<cr>", opts)
 keymap("n", "<leader><Tab>", "<cmd>lua require('jamtartley.folding').toggle_all_folds()<cr>", opts)
 
+-- Harpoon
+keymap("n", "m", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "M", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
+
+-- Insert
 keymap("i", ";cl", "console.log()<left>", opts)

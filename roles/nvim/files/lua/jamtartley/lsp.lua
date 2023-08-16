@@ -60,7 +60,15 @@ lsp.format_on_save({
 		timeout_ms = 10000,
 	},
 	servers = {
-		["null-ls"] = { "javascript", "javascriptreact", "lua", "typescript", "typescriptreact" },
+		["gopls"] = { "go" },
+		["null-ls"] = {
+			"javascript",
+			"javascriptreact",
+			"lua",
+			"typescript",
+			"typescriptreact",
+		},
+		["rust_analyzer"] = { "rust" },
 	},
 })
 
