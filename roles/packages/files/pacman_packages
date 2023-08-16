@@ -102,6 +102,7 @@ python-texttable
 python-tornado
 qemu-desktop
 quazip-qt5
+re2
 redshift
 reflector
 rest
@@ -121,7 +122,7 @@ terragrunt
 texlive-fontsextra
 traceroute
 transmission-gtk
-ttf-terminus-nerd
+ttf-jetbrains-mono-nerd
 uchardet
 udisks2
 unrar

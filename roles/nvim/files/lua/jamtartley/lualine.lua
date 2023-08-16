@@ -5,7 +5,6 @@ end
 
 local branch = {
 	"branch",
-	icons_enabled = true,
 	icon = "",
 }
 
@@ -15,30 +14,22 @@ local filename = {
 }
 
 lualine.setup({
+	extensions = { "quickfix" },
 	options = {
-		icons_enabled = false,
-		theme = "dracula-nvim",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
+		component_separators = { left = "", right = "" },
+		disabled_filetypes = { "NvimTree", "Outline" },
+		icons_enabled = true,
+		section_separators = { left = "", right = "" },
+		theme = "dracula-nvim",
 	},
 	sections = {
-		lualine_a = { filename },
-		lualine_b = { branch, "diff" },
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = { "require('lsp-progress').progress()" },
-		lualine_z = { "mode" },
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
+		lualine_a = { "mode" },
+		lualine_b = { filename },
+		lualine_c = { branch, "diff" },
 		lualine_x = {},
 		lualine_y = {},
-		lualine_z = {},
+		lualine_z = { "require('lsp-progress').progress()" },
 	},
 	tabline = {},
-	extensions = {},
 })

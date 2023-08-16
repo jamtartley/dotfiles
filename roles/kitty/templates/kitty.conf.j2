@@ -7,6 +7,8 @@ inactive_text_alpha        0.1
 active_border_color        #ff92df
 inactive_border_color      #21222c
 
+font_family                JetBrainsMono Nerd Font
+
 confirm_os_window_close    0
 
 enable_audio_bell          no
@@ -22,11 +24,9 @@ map super+tab              next_tab
 map super+shift+tab        previous_tab
 
 {% if is_linux %}
-font_family                Terminess Nerd Font Mono
-font_size                  12
+font_size                  10
 map super+space            next_layout
 {% elif is_darwin %}
-font_family                Terminus (TTF)
-font_size                  16
+font_size                  14
 map super+shift+space      next_layout
 {% endif %}

@@ -37,6 +37,11 @@ telescope.setup({
 	},
 	pickers = {
 		commands = {},
+		live_grep = {
+			additional_args = function()
+				return { "--hidden" }
+			end,
+		},
 		find_files = {
 			hidden = true,
 		},
