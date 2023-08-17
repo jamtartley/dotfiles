@@ -1,11 +1,6 @@
 local opts = { noremap = true, silent = false }
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Better window navigation
 keymap("n", "<leader>wh", "<C-w>h", opts)
 keymap("n", "<leader>wj", "<C-w>j", opts)
@@ -35,13 +30,6 @@ keymap("n", "<leader>t", "<cmd>lua require('jamtartley.taggregator').run()<cr>",
 -- Indentation
 keymap("n", "<", "V<", opts)
 keymap("n", ">", "V>", opts)
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "p", '"_dP', opts)
 
 -- Nvimtree
 keymap("n", "<C-n>", ":NvimTreeFindFileToggle<cr>", opts)
@@ -75,6 +63,3 @@ keymap("n", "<C-2>", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
 keymap("n", "<C-3>", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
 keymap("n", "<C-4>", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
 keymap("n", "<C-5>", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
-
--- Insert
-keymap("i", ";cl", "console.log()<left>", opts)
