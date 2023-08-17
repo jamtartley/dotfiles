@@ -68,8 +68,13 @@ keymap("n", "<Tab>", "<cmd>lua require('jamtartley.folding').toggle_current_fold
 keymap("n", "<leader><Tab>", "<cmd>lua require('jamtartley.folding').toggle_all_folds()<cr>", opts)
 
 -- Harpoon
-keymap("n", "m", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "m", "<cmd>lua require('harpoon.mark').add_file()<cr><cmd>lua print('Harpoon mark added')<cr>", opts)
 keymap("n", "M", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
+keymap("n", "<C-1>", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", opts)
+keymap("n", "<C-2>", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
+keymap("n", "<C-3>", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
+keymap("n", "<C-4>", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
+keymap("n", "<C-5>", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
 
 -- Insert
 keymap("i", ";cl", "console.log()<left>", opts)
