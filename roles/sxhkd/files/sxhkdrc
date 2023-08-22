@@ -59,7 +59,7 @@ alt + w
 	rofi -show window
 
 alt + x
-	$HOME/.config/bspwm/scripts/lock/lock.sh
+	$HOME/.config/bspwm/scripts/lock.sh
 
 alt + {_, shift + } y
 	{google_search, youtube_search}

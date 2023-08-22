@@ -4,6 +4,16 @@ if not status_ok then
 end
 
 nvim_tree.setup({
+	actions = {
+		use_system_clipboard = true,
+		open_file = {
+			quit_on_open = true,
+			resize_window = true,
+			window_picker = {
+				enable = false,
+			},
+		},
+	},
 	disable_netrw = true,
 	filters = {
 		dotfiles = false,

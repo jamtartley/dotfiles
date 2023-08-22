@@ -100,7 +100,6 @@ python-pywal
 python-sphinx
 python-texttable
 python-tornado
-qemu-desktop
 quazip-qt5
 re2
 redshift
