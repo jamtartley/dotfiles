@@ -9,6 +9,7 @@ keymap("n", "<leader>wl", "<C-w>l", opts)
 keymap("n", "<leader>wr", "<C-w>r", opts)
 keymap("n", "<leader>ws", "<C-w>s", opts)
 keymap("n", "<leader>wv", "<C-w>v", opts)
+keymap("n", "<leader>ww", "<C-w>w", opts)
 keymap("n", "<leader>w=", "<C-w>=", opts)
 
 -- Centralise found item

@@ -1,4 +1,3 @@
-alsa-plugins
 alsa-utils
 amd-ucode
 android-file-transfer
@@ -113,6 +112,7 @@ rustup
 scrot
 sndio
 sox
+steam
 stfl
 stylua
 sxiv
@@ -126,13 +126,13 @@ uchardet
 udisks2
 unrar
 unzip
-usbutils
 vamp-plugin-sdk
 vlc
 webkit2gtk
 wget
 wireguard-tools
 wmname
+wqy-zenhei
 xdotool
 xf86-video-intel
 xorg-server-xvfb
