@@ -29,6 +29,7 @@ alias node='volta run node'
 alias npm='volta run npm'
 alias p='pnpm'
 alias pnpm='volta run pnpm'
+alias t="tmux attach || tmux"
 alias tf="terraform"
 alias tg="terragrunt"
 alias v='nvim'
