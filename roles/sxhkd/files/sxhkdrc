@@ -1,5 +1,5 @@
 alt + Return
-	kitty
+	alacritty
 
 alt + Escape
 	pkill -USR1 -x sxhkd && notify-send "Restarting sxhkd..."
@@ -42,9 +42,6 @@ alt + {_, shift +, shift + ctrl + } o
 
 alt + {_, shift + } q
 	bspc node -{c,k}
-
-alt + p
-	rofi_projects
 
 alt + {_, shift + } r
 	{pgrep -x redshift || redshift, redshift -x && pkill redshift}

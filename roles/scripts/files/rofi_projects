@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-PROJECTS=$(find "$HOME/dev" -mindepth 1 -maxdepth 1 -type d | awk -F/ '{print $NF}' | sort)
-PROJECT=$(echo "$PROJECTS" | LINES=8 rofi -matching fuzzy -dmenu -i -p "Select project")
-
-if [ -n "$PROJECT" ]; then
-	kitty --directory "$HOME/dev/$PROJECT"
-fi

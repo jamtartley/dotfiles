@@ -16,7 +16,6 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 bspc rule -a \* rectangle 1600x900+0+0 center=true
 bspc rule -a csgo_linux64 state=fullscreen
 
-bspc rule -a kitty desktop=1 follow=off -o
 bspc rule -a KeePassXC desktop=9 follow=off -o
 bspc rule -a Spotify desktop=10 follow=off -o
 

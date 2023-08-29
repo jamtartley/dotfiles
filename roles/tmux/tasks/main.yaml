@@ -5,3 +5,11 @@
     dest: "{{ ansible_user_dir }}/.config/tmux"
     state: link
     force: true
+
+- name: Clone tpm
+  ansible.builtin.git:
+    repo: 'https://github.com/tmux-plugins/tpm'
+    dest: "{{ ansible_user_dir }}/.tmux/plugins/tpm"
+
+- name: Install tpm plugins
+  ansible.builtin.shell: "{{ ansible_user_dir }}/.tmux/plugins/tpm/bin/install_plugins"

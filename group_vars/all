@@ -2,13 +2,13 @@ linux_roles:
   - system
   - pacman
   - packages
+  - alacritty
   - appearance
   - bluetooth
   - bspwm
   - docker
   - dunst
   - git
-  - kitty
   - nvim
   - polybar
   - redshift
@@ -21,7 +21,7 @@ linux_roles:
 
 darwin_roles:
   - packages
-  - kitty
+  - alacritty
   - nvim
   - tmux
   - zsh
