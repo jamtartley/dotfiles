@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+SELECTED=$(tmux list-sessions -F "#{session_name}" | sed '/^[0-9]/d' | sort | fzf)
+
+if [ -n "$SELECTED" ]; then
+	tmux_sessioniser $SELECTED
+fi
