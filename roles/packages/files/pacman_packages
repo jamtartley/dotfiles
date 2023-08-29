@@ -1,3 +1,4 @@
+alacritty
 alsa-utils
 amd-ucode
 android-file-transfer
@@ -49,7 +50,6 @@ inetutils
 inotify-tools
 jasper
 jq
-kitty
 kubectl
 libappindicator-gtk2
 libcddb
@@ -128,7 +128,6 @@ unrar
 unzip
 vamp-plugin-sdk
 vlc
-webkit2gtk
 wget
 wireguard-tools
 wmname
