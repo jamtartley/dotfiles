@@ -4,7 +4,7 @@
 export PATH=/home/sam/.local/bin:$PATH
 
 setxkbmap -option caps:escape
-xset r rate 175 90
+xset r rate 350 90
 xrandr --output DP-0 --mode 1920x1080 --rate 239.96
 
 for i in $(xinput list --id-only);

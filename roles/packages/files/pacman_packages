@@ -1,7 +1,7 @@
 alacritty
 alsa-utils
 amd-ucode
-android-file-transfer
+android-udev
 ansible
 arandr
 aws-cli
@@ -25,7 +25,7 @@ docker
 docker-compose
 dunst
 eslint_d
-exa
+eza
 fd
 fzf
 geocode-glib
@@ -35,6 +35,7 @@ gitlab-runner
 glew
 gnome-common
 gobject-introspection
+godot
 gparted
 grub
 haskell-attoparsec
@@ -61,6 +62,7 @@ libkeybinder3
 libmng
 libsvgtiny
 libvisual
+lua52
 lxappearance
 lxqt-config
 mailcap
@@ -80,6 +82,7 @@ parallel
 pavucontrol
 pnpm
 polybar
+python-anytree
 python-asn1crypto
 python-beaker
 python-cached-property
@@ -89,7 +92,6 @@ python-dockerpty
 python-docopt
 python-google-api-python-client
 python-importlib-metadata
-python-jsonschema
 python-lockfile
 python-psutil
 python-pykka
@@ -99,6 +101,7 @@ python-pywal
 python-sphinx
 python-texttable
 python-tornado
+qt5ct
 quazip-qt5
 re2
 redshift
@@ -109,6 +112,7 @@ rofi-emoji
 rubberband
 run-parts
 rustup
+screenkey
 scrot
 sndio
 sox
@@ -128,6 +132,7 @@ unrar
 unzip
 vamp-plugin-sdk
 vlc
+webrtc-audio-processing
 wget
 wireguard-tools
 wmname

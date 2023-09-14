@@ -1,6 +1,3 @@
-android-ndk
-android-platform
-android-sdk-build-tools
 authy
 aws-nuke-bin
 beautysh
@@ -16,7 +13,6 @@ mullvad-vpn
 picom-git
 prettierd
 pulseaudio-control
-python-anytree
 simplescreenrecorder
 soundux
 spotify

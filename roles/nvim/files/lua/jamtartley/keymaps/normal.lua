@@ -63,3 +63,7 @@ keymap("n", "<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
 keymap("n", "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
 keymap("n", "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
 keymap("n", "<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
+
+-- Pomodoro
+keymap("n", "<leader>ps", "<cmd>lua require('jamtartley.pomodoro').toggle_timer()<cr>", opts)
+keymap("n", "<leader>pp", "<cmd>lua require('jamtartley.pomodoro').peek()<cr>", opts)

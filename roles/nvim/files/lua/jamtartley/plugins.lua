@@ -48,6 +48,7 @@ return packer.startup(function(use)
 	use("tpope/vim-surround")
 	use("windwp/nvim-autopairs")
 	use("ThePrimeagen/harpoon")
+	use("eandrju/cellular-automaton.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/cmp-cmdline")
