@@ -2,37 +2,12 @@
 
 set -e
 
-DOTFILES_DIR="$HOME/dev/dotfiles"
-SSH_DIR="$HOME/.ssh"
-SSH_PRIVATE_KEY_NAME="id_ansible"
-ROLES_TO_RUN=$1
-
-function set_git_user_opt() {
-	key="$1"
-	prompt="$2"
-
-	if ! [[ $(git config --global "$key") ]];
-	then
-		read -p "$prompt: " val
-		git config --global "$key" "$val"
-	fi
-}
-
 if ! [ -x "$(command -v ansible)" ]; then
-	sudo pacman -S ansible --noconfirm
+	echo "Ansible not found, run bootstrap script first..."
+	exit 1
 fi
 
-if ! [[ -f "$SSH_DIR/$SSH_PRIVATE_KEY_NAME" ]]; then
-	mkdir -p "$SSH_DIR"
-	chmod 700 "$SSH_DIR"
-	ssh-keygen -b 4096 -t rsa -f "$SSH_DIR/$SSH_PRIVATE_KEY_NAME" -N "" -C "$USER@$HOSTNAME"
-	cat "$SSH_DIR/$SSH_PRIVATE_KEY_NAME.pub" >> "$SSH_DIR/authorized_keys"
-	chmod 600 "$SSH_DIR/authorized_keys"
-fi
-
-if [[ -f requirements.yml ]]; then
-	ansible-galaxy install -r requirements.yml
-fi
+ROLES_TO_RUN=$1
 
 if [[ -z "$ROLES_TO_RUN" ]]; then
 	EXTRA_VARS=""
@@ -40,6 +15,4 @@ else
 	EXTRA_VARS="--extra-vars "roles_to_run=$ROLES_TO_RUN""
 fi
 
-set_git_user_opt "user.name" "git author"
-set_git_user_opt "user.email" "git email"
-ansible-playbook $EXTRA_VARS --diff "$DOTFILES_DIR/main.yml"
+ansible-playbook $EXTRA_VARS --diff "$HOME/dev/dotfiles/main.yml"

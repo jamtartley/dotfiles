@@ -1,3 +1,81 @@
 #!/usr/bin/env bash
 
-sudo ln -sf "$PWD/bin/dotfiles" "$HOME/.local/bin/dotfiles"
+set -e
+
+function set_git_user_opt() {
+	key="$1"
+	prompt="$2"
+
+	if ! [[ $(git config --global "$key") ]];
+	then
+		read -p "$prompt: " val
+		git config --global "$key" "$val"
+	fi
+}
+
+function link_dotfiles_bin() {
+	LOCAL_BIN="$HOME/.local/bin"
+	DOTFILES_BIN_PATH="$LOCAL_BIN/dotfiles"
+
+	if [[ ! -f "$DOTFILES_BIN_PATH" ]]; then
+		mkdir -p "$LOCAL_BIN"
+		ln -s "$HOME/dev/dotfiles/bin/dotfiles" "$DOTFILES_BIN_PATH"
+	fi
+}
+
+function install_homebrew() {
+	if ! [ -x "$(command -v brew)" ]; then
+		case "$OSTYPE" in
+			darwin*) NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ;;
+		esac
+	fi
+}
+
+function install_ansible() {
+	if ! [ -x "$(command -v ansible)" ]; then
+		case "$OSTYPE" in
+			linux*) sudo pacman -S ansible --noconfirm ;;
+			darwin*) brew install ansible ;;
+		esac
+	fi
+}
+
+function install_ssh() {
+	if ! [ -x "$(command -v ssh-keygen)" ]; then
+		case "$OSTYPE" in
+			linux*) sudo pacman -S openssh --noconfirm ;;
+		esac
+	fi
+}
+
+function create_ansible_ssh_key() {
+	SSH_DIR="$HOME/.ssh"
+	SSH_PRIVATE_KEY_NAME="id_ansible"
+
+	if ! [[ -f "$SSH_DIR/$SSH_PRIVATE_KEY_NAME" ]]; then
+		mkdir -p "$SSH_DIR"
+		chmod 700 "$SSH_DIR"
+		ssh-keygen -b 4096 -t rsa -f "$SSH_DIR/$SSH_PRIVATE_KEY_NAME" -N "" -C "$USER@$HOSTNAME"
+		cat "$SSH_DIR/$SSH_PRIVATE_KEY_NAME.pub" >> "$SSH_DIR/authorized_keys"
+		chmod 600 "$SSH_DIR/authorized_keys"
+	fi
+}
+
+function install_ansible_requirements() {
+	DOTFILES_DIR="$HOME/dev/dotfiles"
+
+	if [[ -f "$DOTFILES_DIR/requirements.yml" ]]; then
+		ansible-galaxy install -r "$DOTFILES_DIR/requirements.yml"
+	fi
+}
+
+mkdir -p "$HOME/.config"
+
+set_git_user_opt "user.name" "git author"
+set_git_user_opt "user.email" "git email"
+link_dotfiles_bin
+install_homebrew
+install_ssh
+create_ansible_ssh_key
+install_ansible
+install_ansible_requirements
