@@ -25,16 +25,10 @@ alias gw='git worktree'
 alias k='kubectl'
 alias l='exa -al --color=always --group-directories-first'
 alias mkd="mkdir -pv"
-alias node='volta run node'
-alias npm='volta run npm'
 alias p='pnpm'
-alias pnpm='volta run pnpm'
 alias t="tmux attach || tmux"
 alias tf="terraform"
 alias tg="terragrunt"
 alias tks="tmux kill-session"
 alias v='nvim'
 alias vf='vim $(fzf)'
-alias vr='volta run'
-alias y="yarn"
-alias yarn='volta run yarn'
