@@ -4,10 +4,20 @@
     path: "{{ ansible_user_dir }}/.zsh"
     state: directory
 
+- name: Ensure sheldon folder
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/sheldon"
+    state: directory
+
 - name: Copy config files
   ansible.builtin.copy:
     src: ".zsh/"
     dest: "{{ ansible_user_dir }}/.zsh"
+
+- name: Copy sheldon plugins
+  ansible.builtin.copy:
+    src: "sheldon/plugins.toml"
+    dest: "{{ ansible_user_dir }}/.config/sheldon/plugins.toml"
 
 - name: Template .zshrc
   ansible.builtin.template:
