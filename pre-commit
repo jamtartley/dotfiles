@@ -7,9 +7,9 @@ if [ "$OS" = "Linux" ]; then
 	YAY_PACKAGES=roles/packages/files/yay_packages
 
 	echo "Updating installed pacman package list..."
-	pacman -Qqent > "$PACMAN_PACKAGES"
+	pacman -Qqen > "$PACMAN_PACKAGES"
 	echo "Updating installed AUR package list..."
-	pacman -Qqemt > "$YAY_PACKAGES"
+	pacman -Qqem > "$YAY_PACKAGES"
 
 	git add $PACMAN_PACKAGES
 	git add $YAY_PACKAGES
