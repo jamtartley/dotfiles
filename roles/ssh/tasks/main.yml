@@ -1,0 +1,14 @@
+---
+- name: Ensure .ssh directory
+  ansible.builtin.file:
+    mode: "0700"
+    path: "{{ ansible_user_dir }}/.ssh"
+    state: directory
+    recurse: true
+
+- name: Link SSH config
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/ssh/files/ssh_config"
+    dest: "{{ ansible_user_dir }}/.ssh/config"
+    state: link
+    force: true
