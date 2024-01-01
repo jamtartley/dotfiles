@@ -11,6 +11,7 @@
     - pulse-access
     - storage
     - wheel
+  become: yes
 
 - name: Add {{ ansible_user_id }} to groups
   ansible.builtin.user:

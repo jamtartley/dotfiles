@@ -1,4 +1,11 @@
 ---
+- name: Scripts folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.local/bin"
+    state: directory
+    recurse: true
+
 - name: Link scripts
   ansible.builtin.file:
     src: "{{ ansible_env.PWD }}/roles/scripts/files/"

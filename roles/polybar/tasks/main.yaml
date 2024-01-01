@@ -1,4 +1,11 @@
 ---
+- name: Scripts folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.local/bin"
+    state: directory
+    recurse: true
+
 - name: Config folder
   ansible.builtin.file:
     mode: "0755"

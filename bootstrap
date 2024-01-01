@@ -70,6 +70,7 @@ function install_ansible_requirements() {
 }
 
 mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.local/bin"
 
 set_git_user_opt "user.name" "git author"
 set_git_user_opt "user.email" "git email"
