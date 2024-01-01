@@ -1,3 +1,5 @@
+require("jamtartley.plugins")
+
 require("jamtartley.autocommands")
 require("jamtartley.autopairs")
 require("jamtartley.cmp")
@@ -14,7 +16,6 @@ require("jamtartley.neogit")
 require("jamtartley.null-ls")
 require("jamtartley.nvim-tree")
 require("jamtartley.options")
-require("jamtartley.plugins")
 require("jamtartley.pomodoro")
 require("jamtartley.pretty-fold")
 require("jamtartley.quickfix")

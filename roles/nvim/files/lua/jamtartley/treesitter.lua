@@ -7,7 +7,7 @@ configs.setup({
 	autotag = {
 		enable = true,
 	},
-	ensure_installed = { "javascript", "typescript", "go", "rust", "lua", "python" },
+	ensure_installed = { "javascript", "typescript", "go", "rust", "templ", "lua", "python" },
 	sync_install = false,
 	autopairs = {
 		enable = true,
@@ -17,9 +17,5 @@ configs.setup({
 	},
 	indent = {
 		enable = true,
-	},
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
 	},
 })

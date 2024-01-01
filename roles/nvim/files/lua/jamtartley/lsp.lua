@@ -3,9 +3,14 @@ if not status_ok then
 	return
 end
 
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+	return
+end
+
 lsp.preset({})
 
-lsp.configure("lua_ls", {
+lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -15,6 +20,10 @@ lsp.configure("lua_ls", {
 	},
 })
 
+lspconfig.htmx.setup({
+	filetypes = { "templ" },
+})
+
 lsp.ensure_installed({
 	"ansiblels",
 	"bashls",
@@ -22,34 +31,37 @@ lsp.ensure_installed({
 	"dockerls",
 	"emmet_ls",
 	"gopls",
+	"htmx",
 	"lua_ls",
 	"omnisharp",
 	"prismals",
 	"rust_analyzer",
+	"templ",
 	"terraformls",
 	"tsserver",
 })
 
 lsp.on_attach(function()
 	local opts = { noremap = true, silent = true }
+	local setkey = vim.keymap.set
 
-	vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>", opts)
-	vim.keymap.set("n", "<leader>ds", ":Telescope lsp_document_symbols<CR>", opts)
-	vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", opts)
-	vim.keymap.set("n", "K", function()
+	setkey("n", "gd", ":Telescope lsp_definitions<CR>", opts)
+	setkey("n", "<leader>ds", ":Telescope lsp_document_symbols<CR>", opts)
+	setkey("n", "gr", ":Telescope lsp_references<CR>", opts)
+	setkey("n", "K", function()
 		vim.lsp.buf.hover()
 	end, opts)
-	vim.keymap.set("n", "<leader>.", function()
+	setkey("n", "<leader>.", function()
 		vim.lsp.buf.code_action()
 	end, opts)
-	vim.keymap.set("n", "<leader>f", function()
+	setkey("n", "<leader>f", function()
 		vim.lsp.buf.format()
 	end, opts)
-	vim.keymap.set("n", "<leader>rn", function()
+	setkey("n", "<leader>rn", function()
 		vim.lsp.buf.rename()
 	end, opts)
-	vim.keymap.set("n", "<leader>dd", ":Telescope diagnostics<cr>", opts)
-	vim.keymap.set("n", "<leader>df", function()
+	setkey("n", "<leader>dd", ":Telescope diagnostics<cr>", opts)
+	setkey("n", "<leader>df", function()
 		vim.diagnostic.open_float()
 	end, opts)
 end)
@@ -69,6 +81,7 @@ lsp.format_on_save({
 			"typescriptreact",
 		},
 		["rust_analyzer"] = { "rust" },
+		["templ"] = { "templ" },
 	},
 })
 
