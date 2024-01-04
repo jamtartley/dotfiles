@@ -10,3 +10,6 @@ source $HOME/.zsh/nvm.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 {% endif %}
+{% if is_darwin %}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+{% endif %}
