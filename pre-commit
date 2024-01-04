@@ -19,8 +19,7 @@ if [ "$OS" = "Darwin" ]; then
 	BREW_PACKAGES=roles/packages/files/Brewfile
 
 	echo "Updating installed brew packages..."
-	brew bundle dump -f
-	mv Brewfile $BREW_PACKAGES
+	brew bundle dump -f --file $BREW_PACKAGES
 
 	git add $BREW_PACKAGES
 fi
