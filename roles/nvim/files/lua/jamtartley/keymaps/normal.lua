@@ -52,8 +52,8 @@ keymap("n", "<leader>gr", ":Gitsigns reset_hunk<cr>", opts)
 keymap("n", "<leader>gs", ":Gitsigns preview_hunk<cr>", opts)
 
 -- Folding
-keymap("n", "<Tab>", "<cmd>lua require('jamtartley.folding').toggle_current_fold()<cr>", opts)
-keymap("n", "<leader><Tab>", "<cmd>lua require('jamtartley.folding').toggle_all_folds()<cr>", opts)
+keymap("n", "<leader><Tab>", "<cmd>lua require('jamtartley.folding').toggle_current_fold()<cr>", opts)
+keymap("n", "<leader><leader><Tab>", "<cmd>lua require('jamtartley.folding').toggle_all_folds()<cr>", opts)
 
 -- Harpoon
 keymap("n", "m", "<cmd>lua require('harpoon.mark').add_file()<cr><cmd>lua print('Harpoon mark added')<cr>", opts)
