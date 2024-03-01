@@ -25,7 +25,6 @@ keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
-keymap("n", "<leader>q", ":lua require('jamtartley.quickfix').toggle_quickfix()<cr>", opts)
 keymap("n", "<leader>t", "<cmd>lua require('jamtartley.taggregator').run()<cr>", opts)
 
 -- Indentation
@@ -67,3 +66,8 @@ keymap("n", "<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
 -- Pomodoro
 keymap("n", "<leader>ps", "<cmd>lua require('jamtartley.pomodoro').toggle_timer()<cr>", opts)
 keymap("n", "<leader>pp", "<cmd>lua require('jamtartley.pomodoro').peek()<cr>", opts)
+
+-- Quickfix
+keymap("n", "<leader>qq", ":lua require('jamtartley.quickfix').toggle_quickfix()<cr>", opts)
+keymap("n", "<leader>q]", ":cn<CR>", opts)
+keymap("n", "<leader>q[", ":cp<CR>", opts)

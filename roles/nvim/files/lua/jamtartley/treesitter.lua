@@ -7,7 +7,16 @@ configs.setup({
 	autotag = {
 		enable = true,
 	},
-	ensure_installed = { "javascript", "typescript", "go", "rust", "templ", "lua", "python" },
+	ensure_installed = {
+		"go",
+		"javascript",
+		"lua",
+		"prisma",
+		"python",
+		"rust",
+		"templ",
+		"typescript",
+	},
 	sync_install = false,
 	autopairs = {
 		enable = true,

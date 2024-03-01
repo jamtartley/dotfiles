@@ -36,6 +36,9 @@ telescope.setup({
 		wrap_results = true,
 	},
 	pickers = {
+		colorscheme = {
+			enable_preview = true,
+		},
 		commands = {},
 		live_grep = {
 			additional_args = function()

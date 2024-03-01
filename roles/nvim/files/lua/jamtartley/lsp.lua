@@ -45,9 +45,15 @@ lsp.on_attach(function()
 	local opts = { noremap = true, silent = true }
 	local setkey = vim.keymap.set
 
-	setkey("n", "gd", ":Telescope lsp_definitions<CR>", opts)
-	setkey("n", "<leader>ds", ":Telescope lsp_document_symbols<CR>", opts)
-	setkey("n", "gr", ":Telescope lsp_references<CR>", opts)
+	setkey("n", "gd", function()
+		require("telescope.builtin").lsp_definitions()
+	end, opts)
+	setkey("n", "<leader>ds", function()
+		require("telescope.builtin").lsp_document_symbols()
+	end, opts)
+	setkey("n", "gr", function()
+		require("telescope.builtin").lsp_references()
+	end, opts)
 	setkey("n", "K", function()
 		vim.lsp.buf.hover()
 	end, opts)
@@ -60,7 +66,16 @@ lsp.on_attach(function()
 	setkey("n", "<leader>rn", function()
 		vim.lsp.buf.rename()
 	end, opts)
+	setkey("i", "<C-h>", function()
+		vim.lsp.buf.signature_help()
+	end, opts)
 	setkey("n", "<leader>dd", ":Telescope diagnostics<cr>", opts)
+	setkey("n", "<leader>dn", function()
+		vim.diagnostic.goto_next()
+	end, opts)
+	setkey("n", "<leader>dp", function()
+		vim.diagnostic.goto_prev()
+	end, opts)
 	setkey("n", "<leader>df", function()
 		vim.diagnostic.open_float()
 	end, opts)
@@ -80,6 +95,8 @@ lsp.format_on_save({
 			"typescript",
 			"typescriptreact",
 		},
+		["omnisharp"] = { "cs" },
+		["prismals"] = { "prisma" },
 		["rust_analyzer"] = { "rust" },
 		["templ"] = { "templ" },
 	},
