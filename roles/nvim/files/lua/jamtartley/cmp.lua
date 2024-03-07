@@ -26,7 +26,7 @@ cmp.setup({
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<C-l>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
 	snippet = {

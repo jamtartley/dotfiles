@@ -14,6 +14,7 @@ mullvad-vpn
 neovim-nightly-bin
 neovim-symlinks
 nodejs-lts-gallium
+nvm-git
 opera-ffmpeg-codecs
 picom-git
 postman-bin

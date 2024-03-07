@@ -81,25 +81,4 @@ lsp.on_attach(function()
 	end, opts)
 end)
 
-lsp.format_on_save({
-	format_opts = {
-		async = false,
-		timeout_ms = 10000,
-	},
-	servers = {
-		["gopls"] = { "go" },
-		["null-ls"] = {
-			"javascript",
-			"javascriptreact",
-			"lua",
-			"typescript",
-			"typescriptreact",
-		},
-		["omnisharp"] = { "cs" },
-		["prismals"] = { "prisma" },
-		["rust_analyzer"] = { "rust" },
-		["templ"] = { "templ" },
-	},
-})
-
 lsp.setup()

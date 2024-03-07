@@ -24,6 +24,11 @@
     src: .zshrc.j2
     dest: "{{ ansible_user_dir }}/.zshrc"
 
+- name: Template nvm.zsh
+  ansible.builtin.template:
+    src: nvm.zsh.j2
+    dest: "{{ ansible_user_dir }}/.zsh/nvm.zsh"
+
 - name: Compile .zshrc
   ansible.builtin.shell: zsh -c "zcompile {{ ansible_user_dir }}/.zshrc"
 

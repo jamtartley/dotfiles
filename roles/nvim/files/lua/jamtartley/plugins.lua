@@ -87,7 +87,7 @@ return packer.startup(function(use)
 	})
 
 	-- LSP
-	use("jose-elias-alvarez/null-ls.nvim")
+	use("stevearc/conform.nvim")
 	use("MunifTanjim/prettier.nvim")
 	use({
 		"VonHeikemen/lsp-zero.nvim",
