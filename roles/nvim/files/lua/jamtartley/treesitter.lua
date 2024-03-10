@@ -4,17 +4,20 @@ if not status_ok then
 end
 
 configs.setup({
+	auto_install = true,
 	autotag = {
 		enable = true,
 	},
 	ensure_installed = {
 		"go",
+		"html",
 		"javascript",
 		"lua",
 		"prisma",
 		"python",
 		"rust",
 		"templ",
+		"tsx",
 		"typescript",
 	},
 	sync_install = false,

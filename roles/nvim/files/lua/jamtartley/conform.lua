@@ -11,6 +11,7 @@ conform.setup({
 	formatters_by_ft = {
 		cs = { "omnisharp" },
 		go = { "gopls" },
+		hcl = { "hclfmt" },
 		javascript = { { "prettierd", "prettier" } },
 		javascriptreact = { { "prettierd", "prettier" } },
 		lua = { "stylua" },

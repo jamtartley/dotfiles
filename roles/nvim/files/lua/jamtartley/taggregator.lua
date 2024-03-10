@@ -1,7 +1,6 @@
 local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")
 local conf = require("telescope.config").values
-local path = require("plenary.path")
 
 local function _build_search_terms(tags, tag_marker)
 	if not tags or #tags == 0 then
@@ -30,26 +29,30 @@ local function _get_tagged_lines(tags, tag_marker)
 	return result
 end
 
+local function _tbl_slice(tbl, first, last, step)
+	local sliced = {}
+
+	for i = first or 1, last or #tbl, step or 1 do
+		sliced[#sliced + 1] = tbl[i]
+	end
+
+	return sliced
+end
+
 local M = {}
 
-function M.run()
-	local opts = {
-		tag_marker = "@",
-		tags = {
-			"BUG",
-			"CLEANUP",
-			"FEATURE",
-			"HACK",
-			"NOCHECKIN",
-			"REFACTOR",
-			"ROBUSTNESS",
-			"SPEED",
-			"TODO",
-			"TYPE",
-		},
-	}
+M.tags = {
+	"BUG",
+	"CLEANUP",
+	"FEATURE",
+	"FIXME",
+	"SPEED",
+}
 
-	local results = _get_tagged_lines(opts.tags, opts.tag_marker)
+M.tag_marker = "@"
+
+function M.run()
+	local results = _get_tagged_lines(M.tags, M.tag_marker)
 
 	if #results == 0 then
 		print("No taggregator results found!")
@@ -62,12 +65,15 @@ function M.run()
 			finder = finders.new_table({
 				results = results,
 				entry_maker = function(entry)
-					local split = vim.split(entry, ":")
-					local filename = split[1]
-					local lnum = tonumber(split[2])
-					local col = tonumber(split[3])
-					local line = split[4]
-					local display_filename = path:new(filename):make_relative(vim.fn.getcwd())
+					local parts = vim.split(entry, ":")
+					local filename = parts[1]
+					local lnum = tonumber(parts[2])
+					local col = tonumber(parts[3])
+
+					-- Reconstructing the line text from the remaining parts (in case it contains colons)
+					-- This skips the first 3 parts which are filename, line number, and column number
+					local line = table.concat(_tbl_slice(parts, 4), ":"):match("^%s*(.-)$")
+					local display_filename = filename:match("([^/\\]+)$")
 
 					return {
 						value = line,
