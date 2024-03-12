@@ -123,6 +123,7 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 	use("windwp/nvim-ts-autotag")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- Git
 	use("NeogitOrg/neogit")
