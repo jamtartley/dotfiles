@@ -18,6 +18,7 @@ conform.setup({
 		prisma = { "prismals" },
 		python = { "isort", "black" },
 		rust = { "rust_analyzer" },
+		sh = { "beautysh" },
 		templ = { "templ" },
 		typescript = { { "prettierd", "prettier" } },
 		typescriptreact = { { "prettierd", "prettier" } },

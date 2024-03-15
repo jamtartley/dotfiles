@@ -49,6 +49,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("ThePrimeagen/harpoon")
 	use("eandrju/cellular-automaton.nvim")
+	use("christoomey/vim-tmux-navigator")
 
 	-- copilot
 	use({
