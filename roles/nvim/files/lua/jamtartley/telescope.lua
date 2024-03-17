@@ -6,8 +6,8 @@ telescope.setup({
 		cache_picker = { num_pickers = 10 },
 		mappings = {
 			i = {
-				["<C-h>"] = actions.cycle_history_prev,
-				["<C-l>"] = actions.cycle_history_next,
+				["<C-j>"] = actions.cycle_history_prev,
+				["<C-k>"] = actions.cycle_history_next,
 				["<C-s>"] = actions.select_horizontal,
 			},
 		},
