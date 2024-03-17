@@ -42,8 +42,9 @@ keymap("n", "<leader>h", ":Telescope help_tags<cr>", opts)
 
 -- Git plugins
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
-keymap("n", "<leader>gd", ":DiffviewOpen<cr>", opts)
-keymap("n", "<leader>gf", ":DiffviewFileHistory<cr>", opts)
+keymap("n", "<leader>gdc", ":DiffviewClose<cr>", opts)
+keymap("n", "<leader>gdo", ":DiffviewOpen<cr>", opts)
+keymap("n", "<leader>gdh", ":DiffviewFileHistory %<cr>", opts)
 keymap("n", "<leader>gg", ":Neogit kind=vsplit<cr>", opts)
 keymap("n", "<leader>gn", ":Gitsigns next_hunk<cr>", opts)
 keymap("n", "<leader>gp", ":Gitsigns prev_hunk<cr>", opts)
