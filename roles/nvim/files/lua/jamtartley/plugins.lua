@@ -48,7 +48,6 @@ return packer.startup(function(use)
 	use("tpope/vim-surround")
 	use("windwp/nvim-autopairs")
 	use("ThePrimeagen/harpoon")
-	use("eandrju/cellular-automaton.nvim")
 	use("christoomey/vim-tmux-navigator")
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 

@@ -65,15 +65,6 @@ keymap("n", "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
 keymap("n", "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
 keymap("n", "<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
 
--- Pomodoro
-local pomodoro = require("jamtartley.pomodoro")
-keymap("n", "<leader>ps", function()
-	pomodoro.toggle_timer()
-end, opts)
-keymap("n", "<leader>pp", function()
-	pomodoro.peek()
-end, opts)
-
 -- Quickfix
 local quickfix = require("jamtartley.quickfix")
 keymap("n", "<leader>qq", function()
