@@ -1,6 +1,6 @@
-local finders = require("telescope.finders")
-local pickers = require("telescope.pickers")
-local conf = require("telescope.config").values
+local telescope_finders = require("telescope.finders")
+local telescope_pickers = require("telescope.pickers")
+local telescope_config = require("telescope.config")
 
 local function _build_search_terms(tags, tag_marker)
 	if not tags or #tags == 0 then
@@ -46,7 +46,9 @@ M.tags = {
 	"CLEANUP",
 	"FEATURE",
 	"FIXME",
+	"REFACTOR",
 	"SPEED",
+	"TODO",
 }
 
 M.tag_marker = "@"
@@ -59,10 +61,10 @@ function M.run()
 		return
 	end
 
-	pickers
+	telescope_pickers
 		.new({}, {
 			prompt_title = "taggregator",
-			finder = finders.new_table({
+			finder = telescope_finders.new_table({
 				results = results,
 				entry_maker = function(entry)
 					local parts = vim.split(entry, ":")
@@ -85,8 +87,8 @@ function M.run()
 					}
 				end,
 			}),
-			previewer = conf.qflist_previewer({}),
-			sorter = conf.generic_sorter({}),
+			previewer = telescope_config.values.qflist_previewer({}),
+			sorter = telescope_config.values.generic_sorter({}),
 		})
 		:find()
 end
