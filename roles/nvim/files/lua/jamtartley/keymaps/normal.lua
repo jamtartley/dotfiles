@@ -1,5 +1,5 @@
 local opts = { noremap = true, silent = false }
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- Better window navigation
 keymap("n", "<leader>wh", "<C-w>h", opts)
@@ -51,8 +51,13 @@ keymap("n", "<leader>gr", ":Gitsigns reset_hunk<cr>", opts)
 keymap("n", "<leader>gs", ":Gitsigns preview_hunk<cr>", opts)
 
 -- Folding
-keymap("n", "<leader><Tab>", "<cmd>lua require('jamtartley.folding').toggle_current_fold()<cr>", opts)
-keymap("n", "<leader><leader><Tab>", "<cmd>lua require('jamtartley.folding').toggle_all_folds()<cr>", opts)
+local folding = require("jamtartley.folding")
+keymap("n", "<leader><Tab>", function()
+	folding.toggle_fold()
+end, opts)
+keymap("n", "<leader><leader><Tab>", function()
+	folding.toggle_fold_all()
+end, opts)
 
 -- Harpoon
 keymap("n", "m", "<cmd>lua require('harpoon.mark').add_file()<cr><cmd>lua print('Harpoon mark added')<cr>", opts)
@@ -64,10 +69,18 @@ keymap("n", "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
 keymap("n", "<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
 
 -- Pomodoro
-keymap("n", "<leader>ps", "<cmd>lua require('jamtartley.pomodoro').toggle_timer()<cr>", opts)
-keymap("n", "<leader>pp", "<cmd>lua require('jamtartley.pomodoro').peek()<cr>", opts)
+local pomodoro = require("jamtartley.pomodoro")
+keymap("n", "<leader>ps", function()
+	pomodoro.toggle_timer()
+end, opts)
+keymap("n", "<leader>pp", function()
+	pomodoro.peek()
+end, opts)
 
 -- Quickfix
-keymap("n", "<leader>qq", ":lua require('jamtartley.quickfix').toggle_quickfix()<cr>", opts)
+local quickfix = require("jamtartley.quickfix")
+keymap("n", "<leader>qq", function()
+	quickfix.toggle_quickfix()
+end, opts)
 keymap("n", "<leader>q]", ":cn<CR>", opts)
 keymap("n", "<leader>q[", ":cp<CR>", opts)
