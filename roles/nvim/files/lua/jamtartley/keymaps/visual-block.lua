@@ -1,5 +1,5 @@
 local opts = { noremap = true, silent = false }
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)

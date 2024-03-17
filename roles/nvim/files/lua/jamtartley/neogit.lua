@@ -1,7 +1,4 @@
-local status_ok, neogit = pcall(require, "neogit")
-if not status_ok then
-	return
-end
+local neogit = require("neogit")
 
 neogit.setup({
 	disable_commit_confirmation = true,

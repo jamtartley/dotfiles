@@ -1,5 +1,5 @@
 local opts = { noremap = true, silent = false }
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- Indentation
 keymap("v", "<", "<gv", opts)

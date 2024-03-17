@@ -1,5 +1,4 @@
 local fn = vim.fn
-
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
@@ -35,23 +34,73 @@ packer.init({
 })
 
 return packer.startup(function(use)
+	-- Core Plugin Management
 	use("wbthomason/packer.nvim")
 
-	use("Mofiqul/dracula.nvim")
-	use("anuvyklack/pretty-fold.nvim")
-	use("nvim-tree/nvim-tree.lua")
-	use("nvim-tree/nvim-web-devicons")
-	use("numToStr/Comment.nvim")
+	-- Prerequisites
 	use("nvim-lua/plenary.nvim")
-	use("nvim-lua/popup.nvim")
+
+	-- User Interface Enhancements
+	use("Mofiqul/dracula.nvim")
+	use("nvim-tree/nvim-web-devicons")
 	use("nvim-lualine/lualine.nvim")
-	use("tpope/vim-surround")
-	use("windwp/nvim-autopairs")
-	use("ThePrimeagen/harpoon")
-	use("christoomey/vim-tmux-navigator")
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
-	-- copilot
+	-- Navigation and File Management
+	use("nvim-tree/nvim-tree.lua")
+	use("ThePrimeagen/harpoon")
+	use("christoomey/vim-tmux-navigator")
+
+	-- Editing Enhancements
+	use("numToStr/Comment.nvim")
+	use("tpope/vim-surround")
+	use("windwp/nvim-autopairs")
+	use("hrsh7th/nvim-cmp") -- Autocompletion engine
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
+	use({
+		"L3MON4D3/LuaSnip",
+		requires = {
+			{ "rafamadriz/friendly-snippets" },
+		},
+	})
+	use("saadparwaiz1/cmp_luasnip")
+
+	-- LSP and Syntax
+	use("stevearc/conform.nvim")
+	use("MunifTanjim/prettier.nvim")
+	use({
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v2.x",
+		requires = {
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim", run = pcall(vim.cmd, "MasonUpdate") },
+			{ "williamboman/mason-lspconfig.nvim" },
+		},
+	})
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("windwp/nvim-ts-autotag")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use({
+		"linrongbin16/lsp-progress.nvim",
+		requires = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lsp-progress").setup()
+		end,
+	})
+
+	-- Version Control
+	use("NeogitOrg/neogit")
+	use("lewis6991/gitsigns.nvim")
+	use("sindrets/diffview.nvim")
+
+	-- Copilot
 	use({
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -71,65 +120,10 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- cmp plugins
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/nvim-cmp")
-	use("saadparwaiz1/cmp_luasnip")
-
-	-- snippets
-	use({
-		"L3MON4D3/LuaSnip",
-		requires = {
-			{ "rafamadriz/friendly-snippets" },
-		},
-	})
-
-	-- LSP
-	use("stevearc/conform.nvim")
-	use("MunifTanjim/prettier.nvim")
-	use({
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
-		requires = {
-			{ "neovim/nvim-lspconfig" },
-			{
-				"williamboman/mason.nvim",
-				run = function()
-					pcall(vim.cmd, "MasonUpdate")
-				end,
-			},
-			{ "williamboman/mason-lspconfig.nvim" },
-		},
-	})
-	use({
-		"linrongbin16/lsp-progress.nvim",
-		requires = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("lsp-progress").setup()
-		end,
-	})
-
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-ui-select.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-
-	-- Treesitter
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-	use("windwp/nvim-ts-autotag")
-	use("nvim-treesitter/nvim-treesitter-textobjects")
-
-	-- Git
-	use("NeogitOrg/neogit")
-	use("lewis6991/gitsigns.nvim")
-	use("sindrets/diffview.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

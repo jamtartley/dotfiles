@@ -7,10 +7,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		})
 	end,
 })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "qf",
-	callback = function()
-		vim.api.nvim_set_keymap("n", "<cr>", "<cr><leader>w<cr>", { noremap = true, silent = true })
-	end,
-})

@@ -1,12 +1,5 @@
-local status_ok, lsp = pcall(require, "lsp-zero")
-if not status_ok then
-	return
-end
-
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	return
-end
+local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
 
 lsp.preset({})
 
