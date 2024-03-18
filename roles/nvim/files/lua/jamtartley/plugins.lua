@@ -1,107 +1,81 @@
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	print("Cloning lazy.nvim")
+	vim.fn.system({
 		"git",
 		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
 	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+	print("Cloning lazy.nvim... done")
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = false })
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
-
-packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "single" })
-		end,
-	},
-})
-
-return packer.startup(function(use)
-	-- Core Plugin Management
-	use("wbthomason/packer.nvim")
-
+require("lazy").setup({
 	-- Prerequisites
-	use("nvim-lua/plenary.nvim")
+	"nvim-lua/plenary.nvim",
 
 	-- User Interface Enhancements
-	use("Mofiqul/dracula.nvim")
-	use("nvim-tree/nvim-web-devicons")
-	use("nvim-lualine/lualine.nvim")
-	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+	"Mofiqul/dracula.nvim",
+	"nvim-tree/nvim-web-devicons",
+	"nvim-lualine/lualine.nvim",
+	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 
 	-- Navigation and File Management
-	use("nvim-tree/nvim-tree.lua")
-	use("ThePrimeagen/harpoon")
-	use("christoomey/vim-tmux-navigator")
+	"nvim-tree/nvim-tree.lua",
+	"ThePrimeagen/harpoon",
+	"christoomey/vim-tmux-navigator",
 
 	-- Editing Enhancements
-	use("numToStr/Comment.nvim")
-	use("tpope/vim-surround")
-	use("windwp/nvim-autopairs")
-	use("hrsh7th/nvim-cmp") -- Autocompletion engine
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use({
+	"numToStr/Comment.nvim",
+	"tpope/vim-surround",
+	"windwp/nvim-autopairs",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	{
 		"L3MON4D3/LuaSnip",
-		requires = {
+		dependencies = {
 			{ "rafamadriz/friendly-snippets" },
 		},
-	})
-	use("saadparwaiz1/cmp_luasnip")
+	},
+	"saadparwaiz1/cmp_luasnip",
 
 	-- LSP and Syntax
-	use("stevearc/conform.nvim")
-	use("MunifTanjim/prettier.nvim")
-	use({
+	"stevearc/conform.nvim",
+	"MunifTanjim/prettier.nvim",
+	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
-		requires = {
+		dependencies = {
 			{ "neovim/nvim-lspconfig" },
-			{ "williamboman/mason.nvim", run = pcall(vim.cmd, "MasonUpdate") },
+			{ "williamboman/mason.nvim", build = pcall(vim.cmd, "MasonUpdate") },
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
-	})
-	use({
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("windwp/nvim-ts-autotag")
-	use("nvim-treesitter/nvim-treesitter-textobjects")
-	use({
-		"linrongbin16/lsp-progress.nvim",
-		requires = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("lsp-progress").setup()
-		end,
-	})
+		build = ":TSUpdate",
+	},
+	"JoosepAlviste/nvim-ts-context-commentstring",
+	"windwp/nvim-ts-autotag",
+	"nvim-treesitter/nvim-treesitter-textobjects",
 
 	-- Version Control
-	use("NeogitOrg/neogit")
-	use("lewis6991/gitsigns.nvim")
-	use("sindrets/diffview.nvim")
+	"NeogitOrg/neogit",
+	"lewis6991/gitsigns.nvim",
+	"sindrets/diffview.nvim",
 
 	-- Copilot
-	use({
+	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
@@ -111,21 +85,17 @@ return packer.startup(function(use)
 				panel = { enabled = false },
 			})
 		end,
-	})
-	use({
+	},
+	{
 		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua" },
+		dependencies = { "copilot.lua" },
 		config = function()
 			require("copilot_cmp").setup({})
 		end,
-	})
+	},
 
 	-- Telescope
-	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-ui-select.nvim")
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
+	"nvim-telescope/telescope.nvim",
+	"nvim-telescope/telescope-ui-select.nvim",
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+})
