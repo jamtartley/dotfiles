@@ -29,7 +29,7 @@ require("lazy").setup({
 
 	-- Navigation and File Management
 	"nvim-tree/nvim-tree.lua",
-	"ThePrimeagen/harpoon",
+	{ "ThePrimeagen/harpoon", branch = "harpoon2" },
 	"christoomey/vim-tmux-navigator",
 
 	-- Editing Enhancements
