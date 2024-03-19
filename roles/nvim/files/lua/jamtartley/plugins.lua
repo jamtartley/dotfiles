@@ -33,6 +33,7 @@ require("lazy").setup({
 	"christoomey/vim-tmux-navigator",
 
 	-- Editing Enhancements
+	"jiaoshijie/undotree",
 	"numToStr/Comment.nvim",
 	"tpope/vim-surround",
 	"windwp/nvim-autopairs",
