@@ -1,13 +1,22 @@
 local lsp = require("lsp-zero")
 local lspconfig = require("lspconfig")
+local telescope = require("telescope.builtin")
 
 lsp.preset({})
 
 lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
 			diagnostics = {
 				globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					vim.env.VIMRUNTIME,
+				},
 			},
 		},
 	},
@@ -38,62 +47,18 @@ lsp.on_attach(function()
 	local opts = { noremap = true, silent = true }
 	local setkey = vim.keymap.set
 
-	setkey("n", "gd", function()
-		require("telescope.builtin").lsp_definitions()
-	end, opts)
-	setkey("n", "<leader>ds", function()
-		require("telescope.builtin").lsp_document_symbols()
-	end, opts)
-	setkey("n", "gr", function()
-		require("telescope.builtin").lsp_references()
-	end, opts)
-	setkey("n", "K", function()
-		vim.lsp.buf.hover()
-	end, opts)
-	setkey("n", "<leader>.", function()
-		vim.lsp.buf.code_action()
-	end, opts)
-	setkey("n", "<leader>f", function()
-		vim.lsp.buf.format()
-	end, opts)
-	setkey("n", "<leader>rn", function()
-		vim.lsp.buf.rename()
-	end, opts)
-	setkey("i", "<C-h>", function()
-		vim.lsp.buf.signature_help()
-	end, opts)
-	setkey("n", "<leader>dd", ":Telescope diagnostics<cr>", opts)
-	setkey("n", "<leader>dn", function()
-		vim.diagnostic.goto_next()
-	end, opts)
-	setkey("n", "<leader>dp", function()
-		vim.diagnostic.goto_prev()
-	end, opts)
-	setkey("n", "<leader>df", function()
-		vim.diagnostic.open_float()
-	end, opts)
+	setkey("n", "gd", telescope.lsp_definitions, opts)
+	setkey("n", "<leader>ds", telescope.lsp_document_symbols, opts)
+	setkey("n", "gr", telescope.lsp_references, opts)
+	setkey("n", "<leader>dd", telescope.diagnostics, opts)
+	setkey("n", "K", vim.lsp.buf.hover, opts)
+	setkey("n", "<leader>.", vim.lsp.buf.code_action, opts)
+	setkey("n", "<leader>f", vim.lsp.buf.format, opts)
+	setkey("n", "<leader>rn", vim.lsp.buf.rename, opts)
+	setkey("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+	setkey("n", "<leader>dn", vim.diagnostic.goto_next, opts)
+	setkey("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
+	setkey("n", "<leader>df", vim.diagnostic.open_float, opts)
 end)
-
-lsp.format_on_save({
-	format_opts = {
-		async = false,
-		timeout_ms = 10000,
-	},
-	servers = {
-		["hclfmt"] = { "hcl" },
-		["gopls"] = { "go" },
-		["null-ls"] = {
-			"javascript",
-			"javascriptreact",
-			"lua",
-			"typescript",
-			"typescriptreact",
-		},
-		["omnisharp"] = { "cs" },
-		["prismals"] = { "prisma" },
-		["rust_analyzer"] = { "rust" },
-		["templ"] = { "templ" },
-	},
-})
 
 lsp.setup()

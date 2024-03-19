@@ -43,9 +43,8 @@ require("lazy").setup({
 	"hrsh7th/cmp-cmdline",
 	{
 		"L3MON4D3/LuaSnip",
-		dependencies = {
-			{ "rafamadriz/friendly-snippets" },
-		},
+		version = "v2.*",
+		build = "make install_jsregexp",
 	},
 	"saadparwaiz1/cmp_luasnip",
 
