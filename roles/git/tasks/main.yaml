@@ -1,4 +1,16 @@
 ---
+- name: Set user.name
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: Sam Hartley
+
+- name: Set user.signingkey
+  community.general.git_config:
+    name: user.signingkey
+    scope: global
+    value: "{{ ansible_user_dir }}/.ssh/id_jamtartley_gitlab_rsa.pub"
+
 - name: Set core.pager
   community.general.git_config:
     name: core.pager
@@ -22,3 +34,15 @@
     name: pull.rebase
     scope: global
     value: true
+
+- name: Set commit.gpgsign
+  community.general.git_config:
+    name: commit.gpgsign
+    scope: global
+    value: true
+    
+- name: Set gpg.format
+  community.general.git_config:
+    name: gpg.format
+    scope: global
+    value: ssh
