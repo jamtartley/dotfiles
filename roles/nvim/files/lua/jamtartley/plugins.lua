@@ -54,7 +54,7 @@ require("lazy").setup({
 	"MunifTanjim/prettier.nvim",
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		dependencies = {
 			{ "neovim/nvim-lspconfig" },
 			{ "williamboman/mason.nvim", build = pcall(vim.cmd, "MasonUpdate") },
@@ -91,7 +91,9 @@ require("lazy").setup({
 		"zbirenbaum/copilot-cmp",
 		dependencies = { "copilot.lua" },
 		config = function()
-			require("copilot_cmp").setup({})
+			require("copilot_cmp").setup({
+				fix_pairs = false,
+			})
 		end,
 	},
 

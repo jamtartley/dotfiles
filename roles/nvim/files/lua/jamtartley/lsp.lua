@@ -1,8 +1,8 @@
 local lsp = require("lsp-zero")
 local lspconfig = require("lspconfig")
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
 local telescope = require("telescope.builtin")
-
-lsp.preset({})
 
 lspconfig.lua_ls.setup({
 	settings = {
@@ -26,21 +26,28 @@ lspconfig.htmx.setup({
 	filetypes = { "templ" },
 })
 
-lsp.ensure_installed({
-	"ansiblels",
-	"bashls",
-	"cmake",
-	"dockerls",
-	"emmet_ls",
-	"gopls",
-	"htmx",
-	"lua_ls",
-	"omnisharp",
-	"prismals",
-	"rust_analyzer",
-	"templ",
-	"terraformls",
-	"tsserver",
+mason.setup({})
+mason_lspconfig.setup({
+	ensure_installed = {
+		"ansiblels",
+		"bashls",
+		"cmake",
+		"dockerls",
+		"emmet_ls",
+		"gopls",
+		"htmx",
+		"jsonls",
+		"lua_ls",
+		"omnisharp",
+		"prismals",
+		"rust_analyzer",
+		"templ",
+		"terraformls",
+		"tsserver",
+	},
+	handlers = {
+		lsp.default_setup,
+	},
 })
 
 lsp.on_attach(function()
@@ -59,5 +66,3 @@ lsp.on_attach(function()
 	setkey("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
 	setkey("n", "<leader>df", vim.diagnostic.open_float, opts)
 end)
-
-lsp.setup()
