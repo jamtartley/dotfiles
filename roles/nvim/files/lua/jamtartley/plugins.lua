@@ -68,6 +68,7 @@ require("lazy").setup({
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"windwp/nvim-ts-autotag",
 	"nvim-treesitter/nvim-treesitter-textobjects",
+	"folke/trouble.nvim",
 
 	-- Version Control
 	"NeogitOrg/neogit",

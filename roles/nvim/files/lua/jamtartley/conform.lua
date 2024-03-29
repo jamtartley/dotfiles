@@ -11,6 +11,7 @@ conform.setup({
 		hcl = { "hclfmt" },
 		javascript = { { "prettierd", "prettier" } },
 		javascriptreact = { { "prettierd", "prettier" } },
+		json = { "prettierd", "prettier" },
 		lua = { "stylua" },
 		prisma = { "prismals" },
 		python = { "isort", "black" },
