@@ -70,6 +70,12 @@ require("lazy").setup({
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	"folke/trouble.nvim",
 
+	-- DAP
+	"mfussenegger/nvim-dap",
+	"leoluz/nvim-dap-go",
+	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+	"nvim-telescope/telescope-dap.nvim",
+
 	-- Version Control
 	"NeogitOrg/neogit",
 	"lewis6991/gitsigns.nvim",
