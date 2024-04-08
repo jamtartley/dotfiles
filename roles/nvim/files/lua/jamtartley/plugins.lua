@@ -35,7 +35,6 @@ require("lazy").setup({
 	-- Editing Enhancements
 	"jiaoshijie/undotree",
 	"numToStr/Comment.nvim",
-	"tpope/vim-surround",
 	"windwp/nvim-autopairs",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
@@ -48,6 +47,10 @@ require("lazy").setup({
 		build = "make install_jsregexp",
 	},
 	"saadparwaiz1/cmp_luasnip",
+
+	--tpope 🧎
+	"tpope/vim-repeat",
+	"tpope/vim-surround",
 
 	-- LSP and Syntax
 	"stevearc/conform.nvim",
