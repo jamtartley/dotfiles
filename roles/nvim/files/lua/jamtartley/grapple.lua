@@ -2,7 +2,7 @@ local grapple = require("grapple")
 local keymap = vim.keymap.set
 
 keymap("n", "m", function()
-	grapple.toggle()
+	grapple.tag()
 end)
 keymap("n", "M", function()
 	grapple.toggle_tags()
