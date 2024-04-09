@@ -24,7 +24,6 @@ base-devel
 bind
 blueman
 bluez
-bluez-plugins
 bluez-utils
 bmon
 boost-libs
@@ -48,6 +47,7 @@ dav1d
 dbus-glib
 dbus-python
 dconf
+delve
 desktop-file-utils
 dhcpcd
 diff-so-fancy
@@ -393,6 +393,7 @@ polkit-qt5
 polybar
 poppler
 postgresql-libs
+pre-commit
 python
 python-anytree
 python-asn1crypto
@@ -574,7 +575,6 @@ xdg-dbus-proxy
 xdg-utils
 xdotool
 xf86-input-libinput
-xf86-video-intel
 xfconf
 xfsprogs
 xkeyboard-config
