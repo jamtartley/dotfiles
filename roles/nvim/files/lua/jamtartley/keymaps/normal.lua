@@ -10,6 +10,7 @@ keymap("n", "<leader>wr", "<C-w>r", opts)
 keymap("n", "<leader>ws", "<C-w>s", opts)
 keymap("n", "<leader>wv", "<C-w>v", opts)
 keymap("n", "<leader>ww", "<C-w>w", opts)
+keymap("n", "<leader>wx", "<C-w>x", opts)
 keymap("n", "<leader>w=", "<C-w>=", opts)
 
 -- Centralise found item
@@ -17,8 +18,6 @@ keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 keymap("n", "{", "{zz", opts)
 keymap("n", "}", "}zz", opts)
-keymap("n", "<C-j>", "<C-d>zz", opts)
-keymap("n", "<C-k>", "<C-u>zz", opts)
 
 -- Misc
 keymap("n", "Q", ":q<cr>", opts)
@@ -33,12 +32,6 @@ keymap("n", ">", "V>", opts)
 
 -- Nvimtree
 keymap("n", "<C-n>", ":NvimTreeFindFileToggle<cr>", opts)
-
--- Telescope
-keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
-keymap("n", "<leader>re", ":Telescope oldfiles<cr>", opts)
-keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
-keymap("n", "<leader>h", ":Telescope help_tags<cr>", opts)
 
 -- Git plugins
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)

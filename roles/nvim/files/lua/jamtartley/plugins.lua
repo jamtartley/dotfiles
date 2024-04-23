@@ -91,8 +91,9 @@ require("lazy").setup({
 		event = "InsertEnter",
 		config = function()
 			require("copilot").setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false },
+				filetypes = {
+					["*"] = false,
+				},
 			})
 		end,
 	},

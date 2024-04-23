@@ -52,3 +52,36 @@ telescope.setup({
 telescope.load_extension("dap")
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
+
+local opts = { noremap = true, silent = false }
+local keymap = vim.keymap.set
+
+keymap("n", "<leader>re", ":Telescope oldfiles<cr>", opts)
+keymap("n", "<leader>bf", ":Telescope buffers<cr>", opts)
+keymap("n", "<leader>h", ":Telescope help_tags<cr>", opts)
+keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
+keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
+keymap("n", "<leader>f", function()
+	vim.ui.input({
+		completion = "dir",
+		prompt = "Grep from root > ",
+	}, function(root)
+		if root ~= "" then
+			require("telescope.builtin").live_grep({
+				cwd = root,
+			})
+		end
+	end)
+end, opts)
+keymap("n", "<leader>p", function()
+	vim.ui.input({
+		completion = "dir",
+		prompt = "Find file from root > ",
+	}, function(root)
+		if root ~= "" then
+			require("telescope.builtin").find_files({
+				cwd = root,
+			})
+		end
+	end)
+end, opts)
