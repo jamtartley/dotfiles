@@ -25,6 +25,7 @@ keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 keymap("n", "<leader>t", "<cmd>lua require('jamtartley.taggregator').run()<cr>", opts)
+keymap("n", "<leader>yfn", '<cmd>let @*=expand("%")<cr>', opts)
 
 -- Indentation
 keymap("n", "<", "V<", opts)

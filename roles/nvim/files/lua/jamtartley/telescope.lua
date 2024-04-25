@@ -19,7 +19,7 @@ telescope.setup({
 		},
 		live_grep = {
 			additional_args = function()
-				return { "--hidden" }
+				return { "--hidden", "--glob", "!*.bs.js", "--glob", "!*.mli", "--glob", "!*.ml" }
 			end,
 		},
 		find_files = {

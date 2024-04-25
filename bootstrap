@@ -14,7 +14,7 @@ function set_git_user_opt() {
 }
 
 function link_precommit_hook() {
-	ln -s "$HOME/dev/dotfiles/pre-commit" "$HOME/dev/dotfiles/.git/hooks/pre-commit"
+	ln -sf "$HOME/dev/dotfiles/pre-commit" "$HOME/dev/dotfiles/.git/hooks/pre-commit"
 }
 
 function link_dotfiles_bin() {
@@ -23,7 +23,7 @@ function link_dotfiles_bin() {
 
 	if [[ ! -f "$DOTFILES_BIN_PATH" ]]; then
 		mkdir -p "$LOCAL_BIN"
-		ln -s "$HOME/dev/dotfiles/bin/dotfiles" "$DOTFILES_BIN_PATH"
+		ln -sf "$HOME/dev/dotfiles/bin/dotfiles" "$DOTFILES_BIN_PATH"
 	fi
 }
 

@@ -1,3 +1,0 @@
----
-- name: Run fzf install script
-  ansible.builtin.shell: /usr/local/opt/fzf/install

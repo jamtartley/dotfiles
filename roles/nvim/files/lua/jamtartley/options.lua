@@ -46,7 +46,7 @@ local options = {
 	timeoutlen = 1000,
 	undofile = true,
 	updatetime = 300,
-	wrap = false,
+	wrap = true,
 	writebackup = false,
 }
 

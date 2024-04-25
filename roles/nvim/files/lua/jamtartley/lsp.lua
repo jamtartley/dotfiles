@@ -22,10 +22,6 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-lspconfig.htmx.setup({
-	filetypes = { "templ" },
-})
-
 mason.setup({})
 mason_lspconfig.setup({
 	ensure_installed = {
@@ -35,7 +31,6 @@ mason_lspconfig.setup({
 		"dockerls",
 		"emmet_ls",
 		"gopls",
-		"htmx",
 		"jsonls",
 		"lua_ls",
 		"omnisharp",

@@ -48,6 +48,7 @@ M.tags = {
 	"FIXME",
 	"REFACTOR",
 	"SPEED",
+	"TEMP",
 	"TODO",
 }
 
