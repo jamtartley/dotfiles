@@ -1,6 +1,7 @@
+local telescope_config = require("telescope.config")
 local telescope_finders = require("telescope.finders")
 local telescope_pickers = require("telescope.pickers")
-local telescope_config = require("telescope.config")
+local ivy = require("telescope.themes").get_ivy()
 
 local function _build_search_terms(tags, tag_marker)
 	if not tags or #tags == 0 then
@@ -63,7 +64,7 @@ function M.run()
 	end
 
 	telescope_pickers
-		.new({}, {
+		.new(ivy, {
 			prompt_title = "taggregator",
 			finder = telescope_finders.new_table({
 				results = results,
@@ -88,8 +89,8 @@ function M.run()
 					}
 				end,
 			}),
-			previewer = telescope_config.values.qflist_previewer({}),
-			sorter = telescope_config.values.generic_sorter({}),
+			previewer = telescope_config.values.grep_previewer({}),
+			sorter = telescope_config.values.file_sorter({}),
 		})
 		:find()
 end

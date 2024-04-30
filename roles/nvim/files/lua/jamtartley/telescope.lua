@@ -14,28 +14,29 @@ telescope.setup({
 		path_display = { "smart" },
 	},
 	pickers = {
+		buffers = {
+			theme = "ivy",
+		},
 		colorscheme = {
 			enable_preview = true,
+			theme = "ivy",
 		},
 		live_grep = {
 			additional_args = function()
 				return { "--hidden", "--glob", "!*.bs.js", "--glob", "!*.mli", "--glob", "!*.ml" }
 			end,
+			theme = "ivy",
 		},
 		find_files = {
 			hidden = true,
+			theme = "ivy",
 		},
-		lsp_definitions = {
-			jump_type = "vsplit",
-		},
-		lsp_references = {
-			include_current_line = true,
-			include_declaration = false,
-			show_line = false,
-			trim_text = true,
+		help_tags = {
+			theme = "ivy",
 		},
 		oldfiles = {
 			only_cwd = true,
+			theme = "ivy",
 		},
 	},
 	extensions = {
@@ -66,7 +67,7 @@ keymap("n", "<leader>f", function()
 		completion = "dir",
 		prompt = "Grep from root > ",
 	}, function(root)
-		if root ~= "" then
+		if root ~= nil then
 			require("telescope.builtin").live_grep({
 				cwd = root,
 			})
@@ -78,7 +79,7 @@ keymap("n", "<leader>p", function()
 		completion = "dir",
 		prompt = "Find file from root > ",
 	}, function(root)
-		if root ~= "" then
+		if root ~= nil then
 			require("telescope.builtin").find_files({
 				cwd = root,
 			})
