@@ -7,7 +7,9 @@ vim.keymap.set("n", "<leader>d6", ":lua require'dap'.step_into()<cr>")
 
 local dap = require("dap")
 local dap_go = require("dap-go")
+local dap_js = require("dap-vscode-js")
 local dap_ui = require("dapui")
+local dap_utils = require("dap.utils")
 
 dap.listeners.after.event_initialized["dapui_config"] = dap_ui.open
 dap.listeners.before.event_terminated["dapui_config"] = dap_ui.close
@@ -23,6 +25,30 @@ dap_go.setup({
 		detached = true,
 	},
 })
+
+dap_js.setup({
+	debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
+	adapters = { "pwa-node", "pwa-chrome" },
+})
+
+for _, language in ipairs({ "typescript", "javascript" }) do
+	dap.configurations[language] = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach",
+			processId = dap_utils.pick_process,
+			cwd = "${workspaceFolder}",
+		},
+	}
+end
 
 dap_ui.setup({
 	expand_lines = false,

@@ -94,6 +94,11 @@ require("lazy").setup({
 	"leoluz/nvim-dap-go",
 	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 	"nvim-telescope/telescope-dap.nvim",
+	"mxsdev/nvim-dap-vscode-js",
+	{
+		"microsoft/vscode-js-debug",
+		build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+	},
 
 	-- Version Control
 	"NeogitOrg/neogit",
