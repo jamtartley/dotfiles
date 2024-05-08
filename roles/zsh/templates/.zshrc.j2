@@ -4,6 +4,7 @@ source $HOME/.zsh/exports.zsh
 source $HOME/.zsh/functions.zsh
 source $HOME/.zsh/opts.zsh
 source $HOME/.zsh/sheldon.zsh
+source $HOME/.zsh/zstyle.zsh
 source $HOME/.zsh/nvm.zsh
 
 {% if is_linux %}
@@ -11,5 +12,7 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 {% endif %}
 {% if is_darwin %}
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit && compinit
 {% endif %}

@@ -10,3 +10,6 @@ github = 'dracula/zsh'
 
 [plugins.syntax]
 github = 'zsh-users/zsh-syntax-highlighting'
+
+[plugins.fzf]
+github = 'Aloxaf/fzf-tab'
