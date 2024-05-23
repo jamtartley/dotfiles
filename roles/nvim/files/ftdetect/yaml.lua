@@ -1,10 +1,13 @@
---[[ docker_compose_language_service expects the filetype to be yaml.docker-compose ]]
-function detect_compose_for_lsp()
-	local filename = vim.fn.expand("%:t")
-
-	if string.match(filename, "docker%-compose%.ya*ml") then
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "docker-compose.y[a]ml",
+	callback = function()
 		vim.bo.filetype = "yaml.docker-compose"
-	end
-end
+	end,
+})
 
-vim.cmd([[au BufRead * lua detect_compose_for_lsp()]])
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = ".gitlab*",
+	callback = function()
+		vim.bo.filetype = "yaml.gitlab"
+	end,
+})

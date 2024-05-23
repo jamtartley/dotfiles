@@ -18,6 +18,7 @@ conform.setup({
 		rust = { "rust_analyzer" },
 		sh = { "beautysh" },
 		templ = { "templ" },
+		toml = { "taplo" },
 		typescript = { { "prettierd", "prettier" } },
 		typescriptreact = { { "prettierd", "prettier" } },
 	},
