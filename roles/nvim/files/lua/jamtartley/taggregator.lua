@@ -47,6 +47,7 @@ M.tags = {
 	"CLEANUP",
 	"FEATURE",
 	"FIXME",
+	"PERF",
 	"REFACTOR",
 	"SPEED",
 	"TEMP",

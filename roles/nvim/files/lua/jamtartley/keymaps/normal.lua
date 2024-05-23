@@ -52,8 +52,11 @@ keymap("n", "zM", ufo.closeAllFolds, opts)
 
 -- Quickfix
 local quickfix = require("jamtartley.quickfix")
-keymap("n", "<leader>qq", function()
+keymap("n", "qq", function()
 	quickfix.toggle_quickfix()
 end, opts)
-keymap("n", "<leader>q]", ":cn<CR>", opts)
-keymap("n", "<leader>q[", ":cp<CR>", opts)
+keymap("n", "]q", ":cnext<cr>", opts)
+keymap("n", "[q", ":cprev<cr>", opts)
+
+-- Compilation
+keymap("n", "<leader>m", ":make<cr><cr>", opts)
