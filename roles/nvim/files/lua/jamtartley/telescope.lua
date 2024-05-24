@@ -57,9 +57,13 @@ telescope.load_extension("ui-select")
 local opts = { noremap = true, silent = false }
 local keymap = vim.keymap.set
 
-keymap("n", "<leader>re", ":Telescope oldfiles<cr>", opts)
-keymap("n", "<leader>bf", ":Telescope buffers<cr>", opts)
-keymap("n", "<leader>h", ":Telescope help_tags<cr>", opts)
+keymap("n", "<leader>to", ":Telescope oldfiles<cr>", opts)
+keymap("n", "<leader>tb", ":Telescope buffers<cr>", opts)
+keymap("n", "<leader>tc", ":Telescope colorscheme<cr>", opts)
+keymap("n", "<leader>tgb", ":Telescope git_branches<cr>", opts)
+keymap("n", "<leader>th", ":Telescope help_tags<cr>", opts)
+keymap("n", "<leader>tk", ":Telescope keymaps<cr>", opts)
+keymap("n", "<leader>tt", ":Telescope<cr>", opts)
 keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
 keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>f", function()

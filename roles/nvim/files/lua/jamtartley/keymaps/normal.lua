@@ -24,8 +24,8 @@ keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
-keymap("n", "<leader>t", "<cmd>lua require('jamtartley.taggregator').run()<cr>", opts)
-keymap("n", "<leader>yfn", '<cmd>let @*=expand("%")<cr>', opts)
+keymap("n", "<C-t>", "<cmd>lua require('jamtartley.taggregator').run()<cr>", opts)
+keymap("n", "<leader>yfn", '<cmd>let @*=expand("%")<cr><cmd>lua print("Yanked current filename")<cr>', opts)
 
 -- Indentation
 keymap("n", "<", "V<", opts)
@@ -46,14 +46,12 @@ keymap("n", "<leader>gr", ":Gitsigns reset_hunk<cr>", opts)
 keymap("n", "<leader>gs", ":Gitsigns preview_hunk<cr>", opts)
 
 -- Folding
-local ufo = require("ufo")
-keymap("n", "zR", ufo.openAllFolds, opts)
-keymap("n", "zM", ufo.closeAllFolds, opts)
+keymap("n", "zR", require("ufo").openAllFolds, opts)
+keymap("n", "zM", require("ufo").closeAllFolds, opts)
 
 -- Quickfix
-local quickfix = require("jamtartley.quickfix")
 keymap("n", "qq", function()
-	quickfix.toggle_quickfix()
+	require("jamtartley.quickfix").toggle_quickfix()
 end, opts)
 keymap("n", "]q", ":cnext<cr>", opts)
 keymap("n", "[q", ":cprev<cr>", opts)

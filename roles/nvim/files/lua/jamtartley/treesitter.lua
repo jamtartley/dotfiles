@@ -20,10 +20,12 @@ configs.setup({
 			enable = true,
 			set_jumps = true,
 			goto_next_start = {
-				["]m"] = "@function.inner",
+				["]c"] = "@class.inner",
+				["]f"] = "@function.inner",
 			},
 			goto_previous_start = {
-				["[m"] = "@function.inner",
+				["[c"] = "@class.inner",
+				["[f"] = "@function.inner",
 			},
 		},
 		select = {
