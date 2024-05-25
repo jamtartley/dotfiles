@@ -12,6 +12,7 @@ keymap("n", "<leader>wv", "<C-w>v", opts)
 keymap("n", "<leader>ww", "<C-w>w", opts)
 keymap("n", "<leader>wx", "<C-w>x", opts)
 keymap("n", "<leader>w=", "<C-w>=", opts)
+keymap("n", "<leader>b", ":buffer#<cr>", opts)
 
 -- Centralise found item
 keymap("n", "n", "nzz", opts)
