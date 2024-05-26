@@ -2,7 +2,6 @@
 
 export ANDROID_HOME=/opt/android-sdk
 export ANDROID_NDK_HOME=/opt/android-ndk
-export BROWSER=google-chrome-stable
 export DISABLE_AUTO_UPDATE="false"
 export DOCKER_BUILDKIT=1
 export EDITOR=nvim

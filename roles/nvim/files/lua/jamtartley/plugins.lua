@@ -132,4 +132,5 @@ require("lazy").setup({
 	"nvim-telescope/telescope.nvim",
 	"nvim-telescope/telescope-ui-select.nvim",
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{ "sopa0/telescope-makefile", dependencies = { "akinsho/toggleterm.nvim" } },
 })
