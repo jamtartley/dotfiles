@@ -31,6 +31,7 @@ require("lazy").setup({
 	"nvim-tree/nvim-tree.lua",
 	"christoomey/vim-tmux-navigator",
 	"cbochs/grapple.nvim",
+	{ "stevearc/oil.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 
 	-- Editing Enhancements
 	"jiaoshijie/undotree",
