@@ -27,15 +27,12 @@ keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 keymap("n", "<C-t>", "<cmd>lua require('jamtartley.taggregator').run()<cr>", opts)
 keymap("n", "<leader>yfn", '<cmd>let @*=expand("%")<cr><cmd>lua print("Yanked current filename")<cr>', opts)
-keymap("n", "<C-k>", "<C-a>", opts)
-keymap("n", "<C-j>", "<C-x>", opts)
+keymap("n", "<leader>k", "<C-a>", opts)
+keymap("n", "<leader>j", "<C-x>", opts)
 
 -- Indentation
 keymap("n", "<", "V<", opts)
 keymap("n", ">", "V>", opts)
-
--- Nvimtree
-keymap("n", "<C-n>", ":NvimTreeFindFileToggle<cr>", opts)
 
 -- Git plugins
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)

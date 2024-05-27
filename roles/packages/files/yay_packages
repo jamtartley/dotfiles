@@ -2,16 +2,15 @@ authy
 aws-nuke-bin
 beautysh
 chromedriver
+codelldb-bin
 dracula-cursors-git
 dracula-gtk-theme
 dracula-icons-git
 firebase-tools
 golangci-lint
 google-chrome
-google-cloud-cli
 libsidplay
 mullvad-vpn-bin
-neovim-nightly-bin
 neovim-symlinks
 nodejs-lts-gallium
 nvm-git
@@ -20,7 +19,9 @@ picom-git
 postman-bin
 prettierd
 pulseaudio-control
+python-cached-property
 python-docker-pycreds
+python-dockerpty
 python310
 simplescreenrecorder
 soundux

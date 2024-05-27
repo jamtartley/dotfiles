@@ -23,12 +23,10 @@ require("lazy").setup({
 
 	-- User Interface Enhancements
 	"Mofiqul/dracula.nvim",
-	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 
 	-- Navigation and File Management
-	"nvim-tree/nvim-tree.lua",
 	"christoomey/vim-tmux-navigator",
 	"cbochs/grapple.nvim",
 	{ "stevearc/oil.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },

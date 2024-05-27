@@ -15,7 +15,7 @@ lualine.setup({
 	options = {
 		always_divide_middle = true,
 		component_separators = { left = "", right = "" },
-		disabled_filetypes = { "NvimTree", "Outline" },
+		disabled_filetypes = { "Outline" },
 		icons_enabled = true,
 		section_separators = { left = "", right = "" },
 		theme = "dracula-nvim",

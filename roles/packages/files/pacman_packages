@@ -45,7 +45,6 @@ cups
 cups-filters
 dav1d
 dbus-glib
-dbus-python
 dconf
 delve
 desktop-file-utils
@@ -161,8 +160,6 @@ iso-codes
 itstool
 jack2
 jasper
-jdk11-openjdk
-jdk17-openjdk
 jdk8-openjdk
 jemalloc
 jq
@@ -335,6 +332,7 @@ mtdev
 mtools
 mujs
 musl
+neovim
 network-manager-applet
 networkmanager
 networkmanager-openvpn
@@ -347,6 +345,7 @@ nvidia
 nvidia-settings
 nvidia-utils
 oniguruma
+opam
 opencore-amr
 openjpeg2
 openmpi
@@ -402,14 +401,13 @@ python-babel
 python-bcrypt
 python-beaker
 python-botocore
-python-cached-property
 python-cairo
 python-cffi
 python-configobj
 python-cryptography
 python-dateutil
+python-dbus
 python-docker
-python-dockerpty
 python-docopt
 python-docutils
 python-gobject
@@ -552,6 +550,7 @@ wayland
 wayland-protocols
 webkit2gtk
 webrtc-audio-processing
+weechat
 wget
 wireguard-tools
 wireplumber
