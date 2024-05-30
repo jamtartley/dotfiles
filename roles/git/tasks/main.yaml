@@ -35,6 +35,12 @@
     scope: global
     value: true
 
+- name: Set push.autoSetupRemote
+  community.general.git_config:
+    name: push.autoSetupRemote
+    scope: global
+    value: true
+
 - name: Set commit.gpgsign
   community.general.git_config:
     name: commit.gpgsign
