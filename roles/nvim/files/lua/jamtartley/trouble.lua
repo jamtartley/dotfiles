@@ -4,4 +4,4 @@ trouble.setup({
 	auto_close = true,
 })
 
-vim.keymap.set("n", "<leader>dd", trouble.toggle)
+vim.keymap.set("n", "<leader>dd", "<cmd>Trouble diagnostics toggle<cr>")
