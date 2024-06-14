@@ -58,3 +58,4 @@ end
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd("colorscheme dracula")
+vim.cmd("packadd cfilter")
