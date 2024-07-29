@@ -18,15 +18,6 @@ function fd() {
 	fi
 }
 
-function fp() {
-	local SELECTION
-	SELECTION=$(find "$HOME/dev" -mindepth 1 -maxdepth 1 -type d | sort | fzf)
-
-	if [ $? -eq 0 ]; then
-		cd "$SELECTION"
-	fi
-}
-
 function git() {
 	if [ $# -eq 0 ]; then
 		command git status

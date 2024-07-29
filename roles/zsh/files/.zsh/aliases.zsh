@@ -28,9 +28,10 @@ alias k='kubectl'
 alias l='ls -al --color=always'
 alias mkd="mkdir -pv"
 alias p='pnpm'
+alias pf='pnpm --filter'
 alias t="tmux attach || tmux"
 alias tf="terraform"
-alias tg="terragrunt"
+alias tg="TERRAGRUNT_PROVIDER_CACHE=1 terragrunt"
 alias tks="tmux kill-session"
 alias v='nvim'
 alias vf='vim $(fzf)'

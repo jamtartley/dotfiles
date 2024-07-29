@@ -1,7 +1,14 @@
 #!/usr/bin/env zsh
 
-export ANDROID_HOME=/opt/android-sdk
-export ANDROID_NDK_HOME=/opt/android-ndk
+{% if is_linux %}
+# @TODO: Fill in with linux paths
+{% endif %}
+{% if is_darwin %}
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_NDK_HOME=$HOME/Library/Android/sdk/ndk
+export JAVA_HOME=/usr/local/opt/openjdk@17
+{% endif %}
+
 export DISABLE_AUTO_UPDATE="false"
 export DOCKER_BUILDKIT=1
 export EDITOR=nvim
@@ -9,7 +16,6 @@ export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow -g '!{.git,
 export GITHUB=https://github.com/jamtartley
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000000
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export KEYTIMEOUT=25
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999

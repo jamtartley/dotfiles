@@ -29,6 +29,12 @@
     src: .zprofile.j2
     dest: "{{ ansible_user_dir }}/.zprofile"
 
+- name: Template exports
+  ansible.builtin.template:
+    src: exports.zsh.j2
+    dest: "{{ ansible_user_dir }}/.zsh/exports.zsh"
+
+
 - name: Compile .zshrc
   ansible.builtin.shell: zsh -c "zcompile {{ ansible_user_dir }}/.zshrc"
 

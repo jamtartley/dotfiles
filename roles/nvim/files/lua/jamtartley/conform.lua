@@ -9,9 +9,9 @@ conform.setup({
 		cs = { "omnisharp" },
 		go = { "gopls" },
 		hcl = { "hclfmt" },
-		javascript = { { "prettierd", "prettier" } },
-		javascriptreact = { { "prettierd", "prettier" } },
-		json = { "prettierd", "prettier" },
+		javascript = { { "biome", "prettierd", "prettier" } },
+		javascriptreact = { { "biome", "prettierd", "prettier" } },
+		json = { { "biome", "prettierd", "prettier" } },
 		lua = { "stylua" },
 		prisma = { "prismals" },
 		python = { "isort", "black" },
@@ -19,8 +19,8 @@ conform.setup({
 		sh = { "beautysh" },
 		templ = { "templ" },
 		toml = { "taplo" },
-		typescript = { { "prettierd", "prettier" } },
-		typescriptreact = { { "prettierd", "prettier" } },
+		typescript = { { "biome", "prettierd", "prettier" } },
+		typescriptreact = { { "biome", "prettierd", "prettier" } },
 	},
 })
 
