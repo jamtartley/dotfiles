@@ -26,7 +26,7 @@ keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 keymap("n", "<C-t>", "<cmd>lua require('jamtartley.taggregator').run()<cr>", opts)
-keymap("n", "<leader>yfn", '<cmd>let @*=expand("%")<cr><cmd>lua print("Yanked current filename")<cr>', opts)
+keymap("n", "<leader>yfn", '<cmd>let @*=expand("%")<cr><cmd>lua print("Yanked current filename")<cr><cr>', opts)
 keymap("n", "<leader>k", "<C-a>", opts)
 keymap("n", "<leader>j", "<C-x>", opts)
 
@@ -50,7 +50,7 @@ keymap("n", "zR", require("ufo").openAllFolds, opts)
 keymap("n", "zM", require("ufo").closeAllFolds, opts)
 
 -- Quickfix
-keymap("n", "qq", function()
+keymap("n", "<leader>qq", function()
 	require("jamtartley.quickfix").toggle_quickfix()
 end, opts)
 keymap("n", "]q", ":cnext<cr>", opts)

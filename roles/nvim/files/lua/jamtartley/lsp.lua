@@ -31,6 +31,19 @@ lspconfig.eslint.setup({
 	end,
 })
 
+lspconfig.tailwindcss.setup({
+	settings = {
+		tailwindCSS = {
+			experimental = {
+				classRegex = {
+					{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+					{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+				},
+			},
+		},
+	},
+})
+
 mason.setup({})
 mason_lspconfig.setup({
 	ensure_installed = {
@@ -46,7 +59,7 @@ mason_lspconfig.setup({
 		"prismals",
 		"rust_analyzer",
 		"terraformls",
-		"tsserver",
+		"ts_ls",
 	},
 	handlers = {
 		lsp.default_setup,

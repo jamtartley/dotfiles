@@ -9,9 +9,9 @@ conform.setup({
 		cs = { "omnisharp" },
 		go = { "gopls" },
 		hcl = { "hclfmt" },
-		javascript = { { "biome", "prettierd", "prettier" } },
-		javascriptreact = { { "biome", "prettierd", "prettier" } },
-		json = { { "biome", "prettierd", "prettier" } },
+		javascript = { "biome" },
+		javascriptreact = { "biome" },
+		json = { "biome" },
 		lua = { "stylua" },
 		prisma = { "prismals" },
 		python = { "isort", "black" },
@@ -19,9 +19,10 @@ conform.setup({
 		sh = { "beautysh" },
 		templ = { "templ" },
 		toml = { "taplo" },
-		typescript = { { "biome", "prettierd", "prettier" } },
-		typescriptreact = { { "biome", "prettierd", "prettier" } },
+		typescript = { "biome" },
+		typescriptreact = { "biome" },
 	},
+	stop_after_first = true,
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {

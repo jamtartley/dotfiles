@@ -112,7 +112,19 @@ require("lazy").setup({
 		config = function()
 			require("copilot").setup({
 				filetypes = {
-					["*"] = false,
+					["*"] = true,
+				},
+				panel = {
+					enabled = false,
+				},
+				suggestion = {
+					auto_trigger = true,
+					enabled = false,
+					keymaps = {
+						accept = "<C-y>",
+						next = "<C-n>",
+						prev = "<C-p>",
+					},
 				},
 			})
 		end,
@@ -121,9 +133,7 @@ require("lazy").setup({
 		"zbirenbaum/copilot-cmp",
 		dependencies = { "copilot.lua" },
 		config = function()
-			require("copilot_cmp").setup({
-				fix_pairs = false,
-			})
+			require("copilot_cmp").setup()
 		end,
 	},
 

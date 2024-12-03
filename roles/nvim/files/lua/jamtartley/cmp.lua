@@ -38,13 +38,13 @@ cmp.setup({
 		},
 	},
 	sources = {
+		{ name = "copilot" },
 		{ name = "taggregator" },
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
 		{ name = "buffer" },
-		{ name = "copilot" },
 	},
 	view = {
 		entries = "custom",

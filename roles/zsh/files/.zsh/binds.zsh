@@ -20,3 +20,7 @@ function preexec() {
 zle -N zle-keymap-select
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
+
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line

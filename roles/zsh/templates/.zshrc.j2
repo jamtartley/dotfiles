@@ -1,4 +1,5 @@
 source $HOME/.zsh/aliases.zsh
+source $HOME/.zsh/autoload.zsh
 source $HOME/.zsh/binds.zsh
 source $HOME/.zsh/exports.zsh
 source $HOME/.zsh/functions.zsh
@@ -15,5 +16,5 @@ source /usr/share/fzf/completion.zsh
 eval "$(fzf --zsh)"
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
-. /usr/local/opt/asdf/libexec/asdf.sh
+. /opt/homebrew/Cellar/asdf/0.14.1/libexec/asdf.sh
 {% endif %}
