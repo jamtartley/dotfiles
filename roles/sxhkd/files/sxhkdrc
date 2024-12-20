@@ -26,7 +26,7 @@ alt + {_, shift + } f
 	{bspc_toggle_fullscreen_tiled,bspc_toggle_floating_tiled}
 
 alt + {_, shift + } g
-	{google-chrome-stable --incognito --new-window, google-chrome-stable --new-window}
+	{firefox --private-window, firefox}
 
 alt + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}

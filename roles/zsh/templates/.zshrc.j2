@@ -11,6 +11,7 @@ source $HOME/.zsh/zstyle.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 . /opt/asdf-vm/asdf.sh
+autoload -U +X compinit && compinit
 {% endif %}
 {% if is_darwin %}
 eval "$(fzf --zsh)"

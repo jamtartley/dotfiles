@@ -1,7 +1,7 @@
 [global]
     alignment = left
     always_run_script = true
-    browser = /usr/bin/google-chrome-stable --incognito --new-window
+    browser = /usr/bin/firefox --private-window
     class = Dunst
     corner_radius = 0
     ellipsize = middle
