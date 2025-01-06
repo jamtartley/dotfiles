@@ -1,4 +1,4 @@
-local options = {
+local opts = {
 	backup = false,
 	clipboard = "unnamedplus",
 	cmdheight = 0,
@@ -52,7 +52,7 @@ local options = {
 
 vim.opt.shortmess:append("c")
 
-for k, v in pairs(options) do
+for k, v in pairs(opts) do
 	vim.opt[k] = v
 end
 

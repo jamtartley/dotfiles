@@ -25,7 +25,7 @@ keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
-keymap("n", "<C-t>", "<cmd>lua require('jamtartley.taggregator').run()<cr>", opts)
+keymap("n", "<C-t>", "<cmd>lua require('config.taggregator').run()<cr>", opts)
 keymap("n", "<leader>yfn", '<cmd>let @*=expand("%")<cr><cmd>lua print("Yanked current filename")<cr><cr>', opts)
 keymap("n", "<leader>k", "<C-a>", opts)
 keymap("n", "<leader>j", "<C-x>", opts)
@@ -36,9 +36,6 @@ keymap("n", ">", "V>", opts)
 
 -- Git plugins
 keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
-keymap("n", "<leader>gdc", ":DiffviewClose<cr>", opts)
-keymap("n", "<leader>gdo", ":DiffviewOpen<cr>", opts)
-keymap("n", "<leader>gdh", ":DiffviewFileHistory %<cr>", opts)
 keymap("n", "<leader>gg", ":Neogit kind=auto<cr>", opts)
 keymap("n", "]g", ":Gitsigns next_hunk<cr><cr>", opts)
 keymap("n", "[g", ":Gitsigns prev_hunk<cr><cr>", opts)
@@ -51,10 +48,7 @@ keymap("n", "zM", require("ufo").closeAllFolds, opts)
 
 -- Quickfix
 keymap("n", "<leader>qq", function()
-	require("jamtartley.quickfix").toggle_quickfix()
+	require("config.quickfix").toggle_quickfix()
 end, opts)
 keymap("n", "]q", ":cnext<cr>", opts)
 keymap("n", "[q", ":cprev<cr>", opts)
-
--- Compilation
-keymap("n", "<leader>m", ":make<cr><cr>", opts)
