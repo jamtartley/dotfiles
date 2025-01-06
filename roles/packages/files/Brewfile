@@ -20,7 +20,7 @@ brew "go"
 brew "htop"
 brew "jq"
 brew "lazydocker"
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 brew "nethogs"
 brew "node"
 brew "nvm"
