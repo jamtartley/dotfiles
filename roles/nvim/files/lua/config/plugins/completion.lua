@@ -61,7 +61,7 @@ return {
 			preset = "enter",
 			["<C-space>"] = {
 				function(cmp)
-					cmp.show({ providers = { "snippets" } })
+					cmp.show()
 				end,
 			},
 		},
@@ -90,6 +90,11 @@ return {
 					end,
 				},
 			},
+			transform_items = function(_, items)
+				return vim.tbl_filter(function(item)
+					return item.kind ~= require("blink.cmp.types").CompletionItemKind.Snippet
+				end, items)
+			end,
 		},
 	},
 }

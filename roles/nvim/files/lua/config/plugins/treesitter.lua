@@ -6,7 +6,6 @@ return {
 			require("nvim-treesitter.configs").setup({
 				auto_install = true,
 				autopairs = { enable = true },
-				autotag = { enable = true },
 				ensure_installed = {},
 				highlight = {
 					enable = true,
@@ -46,5 +45,10 @@ return {
 		end,
 	},
 	"nvim-treesitter/nvim-treesitter-textobjects",
-	"windwp/nvim-ts-autotag",
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	},
 }
