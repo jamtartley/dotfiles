@@ -6,6 +6,7 @@ function add_to_path_if_not_exists() {
 
 typeset -U path PATH
 
+add_to_path_if_not_exists "$HOME/.asdf/shims"
 add_to_path_if_not_exists "$HOME/.cargo/bin"
 add_to_path_if_not_exists "$HOME/.local/bin"
 add_to_path_if_not_exists "$HOME/.local/bin/scripts"

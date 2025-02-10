@@ -1,3 +1,4 @@
+7zip
 a52dec
 aalib
 adobe-source-code-pro-fonts
@@ -36,7 +37,9 @@ cairo
 cairomm
 cantarell-fonts
 cdparanoia
+cheese
 cifs-utils
+cloc
 cmake
 colord
 containerd
@@ -65,13 +68,13 @@ efibootmgr
 egl-wayland
 eglexternalplatform
 enchant
-eslint_d
 exo
 eza
 fd
 feh
 ffmpeg
 fftw
+firefox
 flac
 fontconfig
 freetype2
@@ -160,7 +163,7 @@ iso-codes
 itstool
 jack2
 jasper
-jdk8-openjdk
+jdk17-openjdk
 jemalloc
 jq
 json-glib
@@ -264,7 +267,6 @@ liburing
 libutempter
 libva
 libvdpau
-libvisual
 libvoikko
 libvorbis
 libvpx
@@ -325,20 +327,18 @@ man-pages
 md4c
 mesa
 minizip
-mlocate
 moreutils
 mpg123
 mtdev
 mtools
 mujs
 musl
-neovim
+ncdu
+nethogs
 network-manager-applet
 networkmanager
 networkmanager-openvpn
 nm-connection-editor
-node-gyp
-npm
 ntfs-3g
 numactl
 nvidia
@@ -355,7 +355,6 @@ opus
 orc
 os-prober
 otf-font-awesome
-p7zip
 pacman-contrib
 pango
 pangomm
@@ -387,7 +386,7 @@ perl-xml-parser
 pipewire
 pipewire-pulse
 pixman
-pnpm
+plocate
 polkit-qt5
 polybar
 poppler
@@ -436,7 +435,6 @@ python-pypeg2
 python-pyqt5
 python-pyqt5-sip
 python-pyqt5-webengine
-python-pyrsistent
 python-pytz
 python-pywal
 python-rsa
@@ -471,7 +469,6 @@ quazip-qt5
 re2
 redshift
 reflector
-rest
 rhash
 ripgrep
 rofi-emoji
@@ -487,10 +484,9 @@ sbc
 screenkey
 scrot
 sdl12-compat
-sdl2
+sdl2-compat
 seabios
 seahorse
-semver
 shaderc
 shared-mime-info
 sheldon
@@ -524,6 +520,7 @@ texlive-latexextra
 tmux
 traceroute
 transmission-gtk
+tree
 tslib
 ttf-jetbrains-mono-nerd
 ttf-liberation
@@ -549,7 +546,7 @@ wavpack
 wayland
 wayland-protocols
 webkit2gtk
-webrtc-audio-processing
+webrtc-audio-processing-0.3
 weechat
 wget
 wireguard-tools
