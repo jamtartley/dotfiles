@@ -23,6 +23,7 @@ linux_roles:
 darwin_roles:
   - packages
   - alacritty
+  - ghostty
   - nvim
   - scripts
   - ssh

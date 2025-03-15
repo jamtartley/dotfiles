@@ -1,0 +1,8 @@
+---
+- name: Link config files
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/ghostty/files/"
+    dest: "{{ ansible_user_dir }}/.config/ghostty"
+    state: link
+    force: true
+

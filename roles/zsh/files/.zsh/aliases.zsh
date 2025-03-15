@@ -33,7 +33,7 @@ alias p='pnpm'
 alias pf='pnpm --filter'
 alias t="tmux attach || tmux"
 alias tf="terraform"
-alias tg="TERRAGRUNT_PROVIDER_CACHE=1 terragrunt"
+alias tg="TG_PROVIDER_CACHE=1 terragrunt"
 alias tks="tmux kill-session"
 alias v='nvim'
 alias vf='vim $(fzf)'

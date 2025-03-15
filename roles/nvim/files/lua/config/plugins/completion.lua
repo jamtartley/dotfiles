@@ -40,6 +40,9 @@ return {
 				TypeParameter = "󰬛",
 			},
 		},
+		cmdline = {
+			sources = {},
+		},
 		completion = {
 			documentation = {
 				window = {
@@ -72,7 +75,6 @@ return {
 			},
 		},
 		sources = {
-			cmdline = {},
 			default = { "lsp", "path", "buffer", "copilot" },
 			providers = {
 				copilot = {
