@@ -41,7 +41,7 @@ return {
 			},
 		},
 		cmdline = {
-			sources = {},
+			enabled = false,
 		},
 		completion = {
 			documentation = {

@@ -1,1 +1,5 @@
 theme = dracula
+
+font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
