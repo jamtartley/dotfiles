@@ -86,6 +86,7 @@ geoclue
 geocode-glib
 ghc
 ghc-libs
+ghostty
 giflib
 git
 git-lfs

@@ -3,3 +3,9 @@ theme = dracula
 font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
+
+font-size = 10
+
+confirm-close-surface = false
+
+window-decoration = none

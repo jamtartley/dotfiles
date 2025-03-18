@@ -8,6 +8,7 @@ linux_roles:
   - bspwm
   - docker
   - dunst
+  - ghostty
   - git
   - nvim
   - polybar

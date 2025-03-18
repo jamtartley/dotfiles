@@ -24,7 +24,6 @@ require("lazy").setup({
 
 		--🐐🐐🐐
 		"tpope/vim-repeat",
-		"tpope/vim-surround",
 
 		{ import = "config.plugins" },
 	},
