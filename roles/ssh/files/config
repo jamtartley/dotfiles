@@ -1,3 +1,7 @@
 Host gitlab.com
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_jamtartley_gitlab_rsa
+
+Host github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_jamtartley_github_rsa
