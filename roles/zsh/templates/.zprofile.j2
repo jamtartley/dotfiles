@@ -4,9 +4,15 @@ function add_to_path_if_not_exists() {
   [[ ":$path:" != *":$new_path:"* ]] && path+=("$new_path")
 }
 
+function prepend_to_path_if_not_exists() {
+ local new_path="$1"
+
+ [[ ":$PATH:" != *":$new_path:"* ]] && PATH="$new_path:$PATH"
+}
+
 typeset -U path PATH
 
-add_to_path_if_not_exists "$HOME/.asdf/shims"
+prepend_to_path_if_not_exists "$HOME/.asdf/shims"
 add_to_path_if_not_exists "$HOME/.cargo/bin"
 add_to_path_if_not_exists "$HOME/.local/bin"
 add_to_path_if_not_exists "$HOME/.local/bin/scripts"

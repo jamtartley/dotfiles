@@ -10,6 +10,7 @@ source $HOME/.zsh/zstyle.zsh
 {% if is_linux %}
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -U +X compinit && compinit
 {% endif %}
 {% if is_darwin %}
