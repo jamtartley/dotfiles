@@ -1,54 +1,6 @@
 ---
-- name: Set user.name
-  community.general.git_config:
-    name: user.name
-    scope: global
-    value: Sam Hartley
-
-- name: Set user.signingkey
-  community.general.git_config:
-    name: user.signingkey
-    scope: global
-    value: "{{ ansible_user_dir }}/.ssh/id_jamtartley_gitlab_rsa.pub"
-
-- name: Set core.pager
-  community.general.git_config:
-    name: core.pager
-    scope: global
-    value: diff-so-fancy | less --tabs=4 -RFX
-
-- name: Set credential.helper
-  community.general.git_config:
-    name: credential.helper
-    scope: global
-    value: store
-
-- name: Set init.defaultBranch
-  community.general.git_config:
-    name: init.defaultBranch
-    scope: global
-    value: main
-
-- name: Set pull.rebase
-  community.general.git_config:
-    name: pull.rebase
-    scope: global
-    value: true
-
-- name: Set push.autoSetupRemote
-  community.general.git_config:
-    name: push.autoSetupRemote
-    scope: global
-    value: true
-
-- name: Set commit.gpgsign
-  community.general.git_config:
-    name: commit.gpgsign
-    scope: global
-    value: true
-    
-- name: Set gpg.format
-  community.general.git_config:
-    name: gpg.format
-    scope: global
-    value: ssh
+- name: Copy config files
+  ansible.builtin.copy:
+    mode: preserve
+    src: "./"
+    dest: "{{ ansible_user_dir }}"

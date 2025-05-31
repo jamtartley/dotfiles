@@ -1,0 +1,26 @@
+[commit]
+	gpgsign = True
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[credential]
+	helper = store
+[gpg]
+	format = ssh
+[init]
+	defaultBranch = main
+[pull]
+	rebase = True
+[push]
+	autoSetupRemote = True
+[user]
+	name = Sam Hartley
+
+[includeIf "hasconfig:remote.*.url:https://github.com/*/**"]
+	path = ~/.gitconfig-github
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+	path = ~/.gitconfig-github
+
+[includeIf "hasconfig:remote.*.url:https://gitlab.com/*/**"]
+	path = ~/.gitconfig-gitlab
+[includeIf "hasconfig:remote.*.url:git@gitlab.com:*/**"]
+	path = ~/.gitconfig-gitlab
