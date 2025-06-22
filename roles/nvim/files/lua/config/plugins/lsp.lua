@@ -17,32 +17,31 @@ return {
 	config = function()
 		require("mason").setup()
 		require("mason-lspconfig").setup()
-		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-		require("mason-lspconfig").setup_handlers({
-			function(server_name)
-				require("lspconfig")[server_name].setup({ capabilities = capabilities })
-			end,
-			["lua_ls"] = function()
-				local lspconfig = require("lspconfig")
-				lspconfig.lua_ls.setup({
-					settings = {
-						Lua = {
-							runtime = {
-								version = "LuaJIT",
-							},
-							diagnostics = {
-								globals = { "vim" },
-							},
-							workspace = {
-								library = {
-									vim.env.VIMRUNTIME,
-								},
-							},
-						},
-					},
+		require("lspconfig").eslint.setup({
+			on_attach = function(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					command = "EslintFixAll",
 				})
 			end,
+		})
+		require("lspconfig").lua_ls.setup({
+			settings = {
+				Lua = {
+					runtime = {
+						version = "LuaJIT",
+					},
+					diagnostics = {
+						globals = { "vim" },
+					},
+					workspace = {
+						library = {
+							vim.env.VIMRUNTIME,
+						},
+					},
+				},
+			},
 		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
