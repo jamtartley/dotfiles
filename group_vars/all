@@ -6,6 +6,7 @@ linux_roles:
   - appearance
   - bluetooth
   - bspwm
+  - cursor
   - docker
   - dunst
   - ghostty
@@ -24,6 +25,7 @@ linux_roles:
 darwin_roles:
   - packages
   - alacritty
+  - cursor
   - ghostty
   - nvim
   - scripts

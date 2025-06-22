@@ -1,0 +1,13 @@
+---
+- name: Create Cursor config directory parent
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/Library/Application Support/Cursor/User"
+    state: directory
+    mode: "0755"
+
+- name: Link Cursor settings.json
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/cursor/files/settings.json"
+    dest: "{{ ansible_user_dir }}/Library/Application Support/Cursor/User/settings.json"
+    state: link
+    force: true 

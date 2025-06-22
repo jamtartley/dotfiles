@@ -1,45 +1,114 @@
 {
-	"breadcrumbs.enabled": false,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit"
-	},
-	"editor.cursorStyle": "line",
-	"editor.detectIndentation": false,
-	"editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-	"editor.fontSize": 18,
-	"editor.formatOnPaste": true,
-	"editor.formatOnSave": true,
-	"editor.hideCursorInOverviewRuler": true,
-	"editor.inlayHints.fontSize": 12,
-	"editor.inlayHints.padding": true,
-	"editor.insertSpaces": false,
-	"editor.lineNumbers": "relative",
-	"editor.matchBrackets": "always",
-	"editor.minimap.enabled": false,
-	"editor.overviewRulerBorder": false,
-	"editor.renderWhitespace": "all",
-	"editor.scrollbar.horizontal": "hidden",
-	"editor.scrollbar.vertical": "hidden",
-	"editor.scrollbar.verticalScrollbarSize": 0,
-	"editor.suggestSelection": "first",
-	"editor.tabSize": 2,
-	"editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-	"editor.wordWrap": "off",
-	"explorer.autoReveal": true,
-	"extensions.ignoreRecommendations": true,
-	"keyboard.dispatch": "keyCode",
-	"terminal.integrated.persistentSessionReviveProcess": "never",
-	"window.commandCenter": true,
-	"window.menuBarVisibility": "toggle",
-	"window.restoreWindows": "none",
-	"window.zoomLevel": -1,
-	"workbench.activityBar.location": "hidden",
-	"workbench.colorTheme": "Dracula Theme",
-	"workbench.editor.limit.enabled": true,
-	"workbench.editor.limit.perEditorGroup": true,
-	"workbench.editor.limit.value": 1,
-	"workbench.editor.showTabs": "none",
-	"workbench.panel.defaultLocation": "right",
-	"workbench.sideBar.location": "right",
-	"workbench.tree.indent": 16,
+  "breadcrumbs.enabled": false,
+  "editor.inlayHints.fontSize": 12,
+  "editor.inlayHints.padding": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicits"
+  },
+  "editor.cursorStyle": "line",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontSize": 16,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "relative",
+  "editor.matchBrackets": "always",
+  "editor.minimap.enabled": false,
+  "editor.overviewRulerBorder": false,
+  "editor.renderWhitespace": "all",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "explorer.autoReveal": true,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "keyboard.dispatch": "keyCode",
+  "prettier.requireConfig": true,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.hlsearch": true,
+  "vim.foldfix": true,
+  "vim.incsearch": true,
+  "vim.leader": " ",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "<cr>"],
+      "commands": [":nohlsearch"]
+    },
+    {
+      "before": ["<leader>", "w", "v"],
+      "commands": ["workbench.action.splitEditor"]
+    },
+    {
+      "before": ["<leader>", "w", "s"],
+      "commands": ["workbench.action.splitEditorOrthogonal"]
+    },
+    {
+      "before": ["<leader>", "w", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["<leader>", "w", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["<leader>", "w", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["<leader>", "w", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    {
+      "before": ["Q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["X"],
+      "commands": [
+        "workbench.action.files.save",
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-i>": true,
+    "<C-o>": true
+  },
+  "vim.useCtrlKeys": false,
+  "vim.useSystemClipboard": true,
+  "window.restoreWindows": "none",
+  "workbench.colorTheme": "Dracula Theme",
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 1,
+  "workbench.editor.showTabs": "none",
+  "workbench.panel.defaultLocation": "right",
+  "workbench.sideBar.location": "right",
+  "workbench.tree.indent": 16,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.restore": true,
+  "extensions.ignoreRecommendations": true,
+  "window.zoomLevel": -1,
+  "editor.stickyScroll.enabled": false,
+  "window.confirmBeforeClose": "keyboardOnly"
 }
