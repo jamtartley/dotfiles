@@ -73,6 +73,17 @@ function install_ansible_requirements() {
 	fi
 }
 
+function create_local_config() {
+	DOTFILES_DIR="$HOME/dev/dotfiles"
+	LOCAL_CONFIG="$DOTFILES_DIR/group_vars/all"
+	TEMPLATE_CONFIG="$DOTFILES_DIR/group_vars/all.template"
+
+	if [[ ! -f "$LOCAL_CONFIG" && -f "$TEMPLATE_CONFIG" ]]; then
+		cp "$TEMPLATE_CONFIG" "$LOCAL_CONFIG"
+		echo "Created $LOCAL_CONFIG from template. Edit it to customize your setup."
+	fi
+}
+
 mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.local/bin"
 
@@ -85,3 +96,4 @@ install_ssh
 create_ansible_ssh_key
 install_ansible
 install_ansible_requirements
+create_local_config

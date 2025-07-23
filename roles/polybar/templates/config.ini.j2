@@ -16,7 +16,11 @@ font-0 = "JetBrainsMono Nerd Font:size=10:weight=Medium;1"
 height = 3%
 line-size = 2
 module-margin = 1
+{% if has_battery %}
+modules-left = battery
+{% else %}
 modules-left = 
+{% endif %}
 modules-center = xworkspaces
 modules-right = package-updates pulseaudio-control date time
 override-redirect = false
@@ -73,6 +77,9 @@ click-left = pulseaudio-control togmute
 click-right = pulseaudio-control next-sink
 scroll-up = pulseaudio-control --volume-step 5 --volume-max 100 up
 scroll-down = pulseaudio-control --volume-step 5 --volume-max 100 down
+
+[module/battery]
+type = internal/battery
 
 [module/date]
 type = internal/date

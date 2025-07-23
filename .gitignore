@@ -1,1 +1,2 @@
 ansible-secret.yml
+group_vars/all
