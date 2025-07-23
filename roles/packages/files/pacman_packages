@@ -158,7 +158,7 @@ linux-headers
 lsof
 lua52
 luit
-lxappearance
+lxappearance-gtk3
 lxqt-config
 man-db
 man-pages
