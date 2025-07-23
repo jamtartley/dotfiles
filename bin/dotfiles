@@ -15,6 +15,7 @@ else
 	EXTRA_VARS="--extra-vars "roles_to_run=$ROLES_TO_RUN""
 fi
 
-ansible-playbook $EXTRA_VARS               \
+ansible-playbook $EXTRA_VARS                                \
+	--ask-become-pass                                          \
 	--vault-password-file $HOME/dev/dotfiles/ansible-secret.yml \
 	--diff "$HOME/dev/dotfiles/main.yml"
