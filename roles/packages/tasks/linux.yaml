@@ -6,14 +6,12 @@
 
 - name: Install pacman packages from the list
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ lookup('file', 'pacman_packages').split('\n') }}"
     state: present
-  loop: "{{ lookup('file', 'pacman_packages').split('\n') }}"
   become: yes
 
 - name: Install yay packages from the list
   kewlfft.aur.aur:
-    name: "{{ item }}"
+    name: "{{ lookup('file', 'yay_packages').split('\n') }}"
     state: present
     use: yay
-  loop: "{{ lookup('file', 'yay_packages').split('\n') }}"
