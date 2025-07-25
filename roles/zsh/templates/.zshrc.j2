@@ -7,10 +7,11 @@ source $HOME/.zsh/opts.zsh
 source $HOME/.zsh/sheldon.zsh
 source $HOME/.zsh/zstyle.zsh
 
+eval "$(mise activate zsh)"
+
 {% if is_linux %}
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -U +X compinit && compinit
 {% endif %}
 {% if is_darwin %}
