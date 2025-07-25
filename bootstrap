@@ -13,10 +13,6 @@ function set_git_user_opt() {
 	fi
 }
 
-function link_precommit_hook() {
-	ln -sf "$HOME/dev/dotfiles/pre-commit" "$HOME/dev/dotfiles/.git/hooks/pre-commit"
-}
-
 function link_dotfiles_bin() {
 	LOCAL_BIN="$HOME/.local/bin"
 	DOTFILES_BIN_PATH="$LOCAL_BIN/dotfiles"
@@ -89,7 +85,6 @@ mkdir -p "$HOME/.local/bin"
 
 set_git_user_opt "user.name" "git author"
 set_git_user_opt "user.email" "git email"
-link_precommit_hook
 link_dotfiles_bin
 install_homebrew
 install_ssh

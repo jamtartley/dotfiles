@@ -174,7 +174,6 @@ plocate
 polkit-qt5
 polybar
 postgresql-libs
-pre-commit
 python-anytree
 python-asn1crypto
 python-attrs
