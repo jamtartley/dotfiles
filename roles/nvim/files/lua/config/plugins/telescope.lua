@@ -10,6 +10,7 @@ return {
 		require("telescope").setup({
 			defaults = {
 				cache_picker = { num_pickers = 10 },
+				file_ignore_patterns = { ".git/", "node_modules" },
 				mappings = {
 					i = {
 						["<C-s>"] = require("telescope.actions").select_horizontal,
