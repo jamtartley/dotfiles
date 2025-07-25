@@ -2,11 +2,9 @@ linux_roles:
   - system
   - pacman
   - packages
-  - alacritty
   - appearance
   - bluetooth
   - bspwm
-  - cursor
   - docker
   - dunst
   - ghostty
@@ -24,8 +22,6 @@ linux_roles:
 
 darwin_roles:
   - packages
-  - alacritty
-  - cursor
   - ghostty
   - nvim
   - scripts
