@@ -12,6 +12,6 @@
 
 - name: Install yay packages from the list
   kewlfft.aur.aur:
-    name: "{{ lookup('file', 'yay_packages').split('\n') }}"
+    name: "{{ lookup('template', 'yay_packages.j2').split('\n') }}"
     state: present
     use: yay

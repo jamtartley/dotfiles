@@ -33,4 +33,4 @@ darwin_roles:
   - tmux
   - zsh
 
-has_battery: false
+is_laptop: true
