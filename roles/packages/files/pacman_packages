@@ -31,7 +31,6 @@ c-ares
 cairomm
 cantarell-fonts
 cdparanoia
-cheese
 cifs-utils
 cloc
 cmake
@@ -40,7 +39,6 @@ containerd
 cpio
 cups
 dbus-glib
-delve
 dhcpcd
 diff-so-fancy
 dkms
@@ -57,6 +55,7 @@ efibootmgr
 egl-wayland
 enchant
 exo
+expac
 eza
 fd
 feh
@@ -65,7 +64,6 @@ fzf
 gcr
 geoclue
 geocode-glib
-ghc
 ghostty
 git
 git-lfs
@@ -74,23 +72,9 @@ glib2-docs
 gnome-common
 gnome-keyring
 gobject-introspection
-godot
 gparted
 grub
 gtk2
-haskell-assoc
-haskell-attoparsec
-haskell-base-compat
-haskell-base-compat-batteries
-haskell-dlist
-haskell-erf
-haskell-quickcheck
-haskell-regex-base
-haskell-these
-haskell-time-compat
-haskell-unordered-containers
-haskell-uuid-types
-haskell-vector
 hspell
 htop
 http-parser
@@ -107,7 +91,6 @@ jdk17-openjdk
 jq
 just
 keepassxc
-kubectl
 kwayland5
 kwindowsystem5
 ldb
@@ -175,7 +158,6 @@ networkmanager-openvpn
 ntfs-3g
 nvidia
 nvidia-settings
-opam
 openmpi
 openresolv
 openssh
@@ -213,7 +195,6 @@ python-pykka
 python-pypeg2
 python-pyqt5
 python-pyqt5-webengine
-python-pywal
 python-snowballstemmer
 python-sphinx
 python-texttable
@@ -231,8 +212,6 @@ rtkit
 ruby
 ruby-irb
 run-parts
-rustup
-screenkey
 scrot
 sdl12-compat
 seahorse
@@ -248,10 +227,6 @@ sxiv
 sysfsutils
 tcl
 terragrunt
-texlive-basic
-texlive-fontsextra
-texlive-fontsrecommended
-texlive-latexextra
 tmux
 traceroute
 transmission-gtk
@@ -264,11 +239,9 @@ unixodbc
 unrar
 usbutils
 vamp-plugin-sdk
-vlc
 wayland-protocols
 webkit2gtk
 webrtc-audio-processing-0.3
-weechat
 wget
 wireguard-tools
 wmname
