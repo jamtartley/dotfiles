@@ -16,6 +16,5 @@ else
 fi
 
 ansible-playbook $EXTRA_VARS                                  \
-	--ask-become-pass                                           \
 	--vault-password-file $HOME/dev/dotfiles/ansible-secret.yml \
 	--diff "$HOME/dev/dotfiles/main.yml"

@@ -1,13 +1,6 @@
 [colors]
 fg = #f8f8f2
 light_bg = #44475a
-cyan = #8be9fd
-green = #50fa7b
-orange = #ffb86c
-pink = #ff79c6
-purple = #bd93f9
-red = #ff5555
-yellow = #f1fa8c
 
 [bar/main]
 border-size = 2pt
@@ -39,14 +32,12 @@ type = internal/xworkspaces
 label-active = •
 label-active-padding = 1
 label-active-foreground = ${colors.orange}
-label-active-underline = ${colors.orange}
 label-empty = ×
 label-empty-foreground = ${colors.light_bg}
 label-empty-padding = 1
 label-occupied = -
 label-occupied-foreground = ${colors.fg}
 label-occupied-padding = 1
-label-occupied-underline = ${colors.cyan}
 label-urgent = •
 label-urgent-foreground = ${colors.fg}
 label-urgent-padding = 1
@@ -57,20 +48,17 @@ type = internal/xwindow
 
 label = %title:0:100:...%
 label-maxlen = 30
-label-underline = ${colors.pink}
 
 [module/package-updates]
 type = custom/script
 
 exec = ~/.local/bin/scripts/package_updates
 interval = 3600
-label-underline = ${colors.purple}
 
 [module/pulseaudio-control]
 type = custom/script
 
 tail = true
-label-underline = ${colors.red}
 exec = pulseaudio-control --icons-volume " " --icon-muted "ﱝ " --node-nicknames-from "device.description" listen
 click-middle = exec pavucontrol &
 click-left = pulseaudio-control togmute
@@ -89,7 +77,6 @@ type = internal/date
 date = %d/%m
 interval = 1.0
 label = %date%
-label-underline = ${colors.yellow}
 
 [module/time]
 type = internal/date
@@ -97,4 +84,3 @@ type = internal/date
 interval = 1.0
 label = %time%
 time = %H:%M
-label-underline = ${colors.green}

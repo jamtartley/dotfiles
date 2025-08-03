@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     SELECTED=$1
 else
-    SELECTED=$(find $HOME/dev -mindepth 1 -maxdepth 1 -type d | sort | fzf)
+    SELECTED=$(find $HOME/dev -mindepth 1 -maxdepth 1 -type d | sort | xargs -I {} basename {} | fzf | xargs -I {} find $HOME/dev -mindepth 1 -maxdepth 1 -name {} -type d)
 fi
 
 if [[ -z $SELECTED ]]; then
