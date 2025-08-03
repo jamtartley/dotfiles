@@ -1,5 +1,8 @@
 return {
 	"NeogitOrg/neogit",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
 	config = function()
 		require("neogit").setup({
 			disable_commit_confirmation = true,

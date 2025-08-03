@@ -25,7 +25,6 @@ keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "X", ":x<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
-keymap("n", "<C-t>", "<cmd>lua require('config.taggregator').run()<cr>", opts)
 keymap("n", "<leader>yfn", '<cmd>let @*=expand("%")<cr><cmd>lua print("Yanked current filename")<cr><cr>', opts)
 keymap("n", "<leader>k", "<C-a>", opts)
 keymap("n", "<leader>j", "<C-x>", opts)
@@ -48,7 +47,9 @@ keymap("n", "zM", require("ufo").closeAllFolds, opts)
 
 -- Quickfix
 keymap("n", "<leader>qq", function()
-	require("config.quickfix").toggle_quickfix()
+	local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
+	local action = qf_winid > 0 and "cclose" or "copen"
+	vim.cmd(action)
 end, opts)
 keymap("n", "]q", ":cnext<cr>", opts)
 keymap("n", "[q", ":cprev<cr>", opts)

@@ -4,7 +4,7 @@ return {
 		"saghen/blink.cmp",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"nvim-telescope/telescope.nvim",
+		"ibhagwan/fzf-lua",
 		{
 			"folke/lazydev.nvim",
 			opts = {
@@ -47,11 +47,11 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(ev)
 				local opts = { buffer = ev.buf, noremap = true, silent = true }
-				local telescope = require("telescope.builtin")
+				local fzf = require("fzf-lua")
 
-				vim.keymap.set("n", "gd", telescope.lsp_definitions, opts)
-				vim.keymap.set("n", "<leader>ds", telescope.lsp_document_symbols, opts)
-				vim.keymap.set("n", "gr", telescope.lsp_references, opts)
+				vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
+				vim.keymap.set("n", "<leader>ds", fzf.lsp_document_symbols, opts)
+				vim.keymap.set("n", "gr", fzf.lsp_references, opts)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 				vim.keymap.set("n", "<leader>.", vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)

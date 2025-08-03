@@ -46,6 +46,7 @@ local opts = {
 	timeoutlen = 1000,
 	undofile = true,
 	updatetime = 300,
+	winborder = "rounded",
 	wrap = true,
 	writebackup = false,
 }
@@ -56,6 +57,5 @@ for k, v in pairs(opts) do
 	vim.opt[k] = v
 end
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd("colorscheme dracula")
 vim.cmd("packadd cfilter")
