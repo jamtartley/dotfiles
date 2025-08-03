@@ -1,74 +1,107 @@
 #!/usr/bin/env sh
 
-TYPE=$1
-
-case "$TYPE" in
-    song|track)
-        PROMPT="Spotify song search: "
-        SELECT_PROMPT="Select track: "
-        SEARCH_KEY="tracks"
-        DISPLAY_FORMAT='.[] | "\(.name) - \(.artists[0].name)"'
-        CONTEXT_TYPE="track"
-        ;;
-    album)
-        PROMPT="Spotify album search: "
-        SELECT_PROMPT="Select album: "
-        SEARCH_KEY="albums"
-        DISPLAY_FORMAT='.[] | "\(.name) - \(.artists | map(.name) | join(", "))"'
-        CONTEXT_TYPE="album"
-        ;;
-    *)
-        echo "Usage: $0 [song|album]"
-        echo "  song: Search for songs/tracks"
-        echo "  album: Search for albums"
-        exit 1
-        ;;
-esac
-
-QUERY=$(LINES=0 rofi -dmenu -p "$PROMPT")
+QUERY=$(LINES=0 rofi -dmenu -p "Spotify search: ")
 
 if [ -z "$QUERY" ]; then
     exit 0
 fi
 
-RESULTS_JSON=$(spotify_player search "$QUERY" | jq ".$SEARCH_KEY[:10]")
+# Check if query starts with "album"
+if echo "$QUERY" | grep -q "^album "; then
+    # Remove "album " prefix and search for albums only
+    ALBUM_QUERY=$(echo "$QUERY" | sed 's/^album //')
+    SEARCH_RESULTS=$(spotify_player search "$ALBUM_QUERY")
+    TRACKS="[]"
+    ALBUMS=$(echo "$SEARCH_RESULTS" | jq '.albums[:20]')
+else
+    # Search for tracks only
+    SEARCH_RESULTS=$(spotify_player search "$QUERY")
+    TRACKS=$(echo "$SEARCH_RESULTS" | jq '.tracks[:20]')
+    ALBUMS="[]"
+fi
 
-RESULT_COUNT=$(echo "$RESULTS_JSON" | jq 'length')
+# Remove duplicate tracks with exactly the same name (preserve order, keep first occurrence)
+TRACKS_DEDUPED=$(echo "$TRACKS" | jq '
+    reduce .[] as $item ([];
+        if map(.name) | index($item.name) then . else . + [$item] end
+    )')
+
+# Combine results with type indicators
+COMBINED_JSON=$(echo "$TRACKS_DEDUPED $ALBUMS" | jq -s '
+    (.[0] | map(. + {type: "track"})) + 
+    (.[1] | map(. + {type: "album"}))
+')
+
+RESULT_COUNT=$(echo "$COMBINED_JSON" | jq 'length')
 
 if [ "$RESULT_COUNT" -eq 0 ]; then
     notify-send "Spotify Search" "No results found for '$QUERY'"
     exit 1
 fi
 
-# Check if first result contains all query words (high confidence)
-FIRST_RESULT_NAME=$(echo "$RESULTS_JSON" | jq -r '.[0].name' | tr '[:upper:]' '[:lower:]')
+# Check confidence for both tracks and albums
 QUERY_LOWER=$(echo "$QUERY" | tr '[:upper:]' '[:lower:]')
 
-# Split query into words and check if all are in the first result
-CONFIDENCE_CHECK=$(echo "$QUERY_LOWER" | tr ' ' '\n' | while read -r word; do
-    if [ -n "$word" ] && ! echo "$FIRST_RESULT_NAME" | grep -q "$word"; then
-        echo "low"
-        break
-    fi
-done)
+# Check if first track has high confidence
+TRACK_CONFIDENCE="low"
+if [ "$(echo "$TRACKS" | jq 'length')" -gt 0 ]; then
+    FIRST_TRACK_NAME=$(echo "$TRACKS" | jq -r '.[0].name' | tr '[:upper:]' '[:lower:]')
+    TRACK_CONFIDENCE_CHECK=$(echo "$QUERY_LOWER" | tr ' ' '\n' | while read -r word; do
+        if [ -n "$word" ] && ! echo "$FIRST_TRACK_NAME" | grep -q "$word"; then
+            echo "low"
+            break
+        fi
+    done)
+    [ -z "$TRACK_CONFIDENCE_CHECK" ] && TRACK_CONFIDENCE="high"
+fi
 
-if [ "$RESULT_COUNT" -eq 1 ] || [ -z "$CONFIDENCE_CHECK" ]; then
-    # High confidence: single result or all query words found in first result
-    ITEM_ID=$(echo "$RESULTS_JSON" | jq -r '.[0].id')
+# Check if first album has high confidence
+ALBUM_CONFIDENCE="low"
+if [ "$(echo "$ALBUMS" | jq 'length')" -gt 0 ]; then
+    FIRST_ALBUM_NAME=$(echo "$ALBUMS" | jq -r '.[0].name' | tr '[:upper:]' '[:lower:]')
+    ALBUM_CONFIDENCE_CHECK=$(echo "$QUERY_LOWER" | tr ' ' '\n' | while read -r word; do
+        if [ -n "$word" ] && ! echo "$FIRST_ALBUM_NAME" | grep -q "$word"; then
+            echo "low"
+            break
+        fi
+    done)
+    [ -z "$ALBUM_CONFIDENCE_CHECK" ] && ALBUM_CONFIDENCE="high"
+fi
+
+# Auto-select logic: if both have results and either has high confidence, show menu unless only one type has high confidence
+if [ "$ALBUM_CONFIDENCE" = "high" ] && [ "$TRACK_CONFIDENCE" = "low" ]; then
+    # Only album has high confidence
+    ALBUM_INDEX=$(echo "$COMBINED_JSON" | jq 'map(.type == "album") | index(true)')
+    SELECTED_INDEX="$ALBUM_INDEX"
+elif [ "$TRACK_CONFIDENCE" = "high" ] && [ "$ALBUM_CONFIDENCE" = "low" ]; then
+    # Only track has high confidence
+    TRACK_INDEX=$(echo "$COMBINED_JSON" | jq 'map(.type == "track") | index(true)')
+    SELECTED_INDEX="$TRACK_INDEX"
+elif [ "$RESULT_COUNT" -eq 1 ]; then
+    # Single result
+    SELECTED_INDEX=0
 else
     # Low confidence: show menu
-    DISPLAY_LIST=$(echo "$RESULTS_JSON" | jq -r "$DISPLAY_FORMAT")
+    DISPLAY_LIST=$(echo "$COMBINED_JSON" | jq -r '.[] | 
+        if .type == "track" then 
+            "🎵 \(.name) - \(.artists[0].name)"
+        elif .type == "single" then
+            "🎵 \(.name) - \(.artists | map(.name) | join(", ")) (single)"
+        else 
+            "💿 \(.name) - \(.artists | map(.name) | join(", "))"
+        end')
     
-    SELECTED_INDEX=$(echo "$DISPLAY_LIST" | rofi -dmenu -p "$SELECT_PROMPT" -format i)
+    SELECTED_INDEX=$(echo "$DISPLAY_LIST" | rofi -dmenu -i -p "Select: " -format i)
     
     if [ -z "$SELECTED_INDEX" ]; then
         exit 0
     fi
-    
-    ITEM_ID=$(echo "$RESULTS_JSON" | jq -r ".[$SELECTED_INDEX].id")
 fi
 
-if [ "$CONTEXT_TYPE" = "album" ]; then
+ITEM_ID=$(echo "$COMBINED_JSON" | jq -r ".[$SELECTED_INDEX].id")
+ITEM_TYPE=$(echo "$COMBINED_JSON" | jq -r ".[$SELECTED_INDEX].type")
+
+if [ "$ITEM_TYPE" = "album" ]; then
     spotify_player playback start context --id "$ITEM_ID" album
 else
     spotify_player playback start track --id "$ITEM_ID"

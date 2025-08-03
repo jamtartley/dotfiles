@@ -47,7 +47,7 @@ alt + {_, shift + } r
 	{pgrep -x redshift || redshift, redshift -x && pkill redshift}
 
 alt + {_, shift + } s
-	{spotify_search song, spotify_search album}
+	{spotify_search, spotify_playlist}
 
 alt + {_, shift + } t
 	{translate es Spanish, translate it Italian}

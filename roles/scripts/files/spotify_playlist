@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+PLAYLISTS=$(spotify_player playlist list)
+
+if [ -z "$PLAYLISTS" ]; then
+    notify-send "Spotify Playlists" "No playlists found"
+    exit 1
+fi
+
+# Format playlists for rofi (show name, keep ID)
+PLAYLIST_LIST=$(echo "$PLAYLISTS" | sed 's/^[^:]*: //')
+
+SELECTED_PLAYLIST=$(echo "$PLAYLIST_LIST" | rofi -dmenu -i -p "Select playlist: ")
+
+if [ -z "$SELECTED_PLAYLIST" ]; then
+    exit 0
+fi
+
+# Get the ID for the selected playlist
+PLAYLIST_ID=$(echo "$PLAYLISTS" | grep ": $SELECTED_PLAYLIST" | cut -d: -f1)
+
+spotify_player playback start context --id "$PLAYLIST_ID" playlist

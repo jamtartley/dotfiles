@@ -42,7 +42,7 @@ configuration {
     text-color: @foreground;
 }
 #listview {
-		lines: env(LINES, 8);
+		lines: env(LINES, 10);
     border-color: @bordercolor;
     border:       0px;
     fixed-height: 0;
