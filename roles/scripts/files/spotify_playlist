@@ -8,7 +8,7 @@ if [ -z "$PLAYLISTS" ]; then
 fi
 
 # Format playlists for rofi (show name, keep ID)
-PLAYLIST_LIST=$(echo "$PLAYLISTS" | sed 's/^[^:]*: //')
+PLAYLIST_LIST=$(echo "$PLAYLISTS" | sed 's/^[^:]*: //' | sort)
 
 SELECTED_PLAYLIST=$(echo "$PLAYLIST_LIST" | rofi -dmenu -i -p "Select playlist: ")
 

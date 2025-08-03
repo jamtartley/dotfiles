@@ -1,16 +1,37 @@
 #!/usr/bin/env sh
 
-QUERY=$(LINES=0 rofi -dmenu -p "Spotify search: ")
+function usage() {
+    echo "Usage: $0 <song|album>"
+    echo "  song  - Search for songs/tracks"
+    echo "  album - Search for albums"
+
+		exit 1
+}
+
+if [ $# -ne 1 ]; then
+	usage
+fi
+
+SEARCH_TYPE="$1"
+
+if [ "$SEARCH_TYPE" != "song" ] && [ "$SEARCH_TYPE" != "album" ]; then
+	usage
+fi
+
+if [ "$SEARCH_TYPE" = "album" ]; then
+    QUERY=$(LINES=0 rofi -dmenu -p "Spotify album search: ")
+else
+    QUERY=$(LINES=0 rofi -dmenu -p "Spotify song search: ")
+fi
 
 if [ -z "$QUERY" ]; then
     exit 0
 fi
 
-# Check if query starts with "album"
-if echo "$QUERY" | grep -q "^album "; then
-    # Remove "album " prefix and search for albums only
-    ALBUM_QUERY=$(echo "$QUERY" | sed 's/^album //')
-    SEARCH_RESULTS=$(spotify_player search "$ALBUM_QUERY")
+# Search based on type argument
+if [ "$SEARCH_TYPE" = "album" ]; then
+    # Search for albums only
+    SEARCH_RESULTS=$(spotify_player search "$QUERY")
     TRACKS="[]"
     ALBUMS=$(echo "$SEARCH_RESULTS" | jq '.albums[:20]')
 else

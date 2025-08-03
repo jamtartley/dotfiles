@@ -37,8 +37,14 @@ alt + super + {h,j,k,l}
 alt + super + shift + {h,j,k,l}
     bspc node -z {right -300 0, top 0 300, bottom 0 -300, left 300 0}
 
+alt + {_, shift + } n
+	{playerctl next, playerctl previous}
+
 alt + {_, shift +, shift + ctrl + } o
 	{confirm "Logout?" "bspc quit", confirm "Shutdown?" "shutdown now", confirm "Reboot?" "reboot"}
+
+alt + {_, shift + } p
+	{playerctl play-pause,spotify_playlist}
 
 alt + {_, shift + } q
 	bspc node -{c,k}
@@ -47,7 +53,7 @@ alt + {_, shift + } r
 	{pgrep -x redshift || redshift, redshift -x && pkill redshift}
 
 alt + {_, shift + } s
-	{spotify_search, spotify_playlist}
+	{spotify_search song, spotify_search album}
 
 alt + {_, shift + } t
 	{translate es Spanish, translate it Italian}
@@ -57,12 +63,6 @@ alt + x
 
 alt + {_, shift + } y
 	{google_search, youtube_search}
-
-alt + minus
-	pactl set-sink-volume @DEFAULT_SINK@ -5%
-
-alt + plus
-	pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
