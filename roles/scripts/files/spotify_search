@@ -1,4 +1,75 @@
 #!/usr/bin/env sh
 
-SONG=$(LINES=0 rofi -dmenu -p "Spotify search: ")
-spotify_player playback start track --id $(spotify_player search "$SONG" | jq '.tracks.[0].id' | xargs)
+TYPE=$1
+
+case "$TYPE" in
+    song|track)
+        PROMPT="Spotify song search: "
+        SELECT_PROMPT="Select track: "
+        SEARCH_KEY="tracks"
+        DISPLAY_FORMAT='.[] | "\(.name) - \(.artists[0].name)"'
+        CONTEXT_TYPE="track"
+        ;;
+    album)
+        PROMPT="Spotify album search: "
+        SELECT_PROMPT="Select album: "
+        SEARCH_KEY="albums"
+        DISPLAY_FORMAT='.[] | "\(.name) - \(.artists | map(.name) | join(", "))"'
+        CONTEXT_TYPE="album"
+        ;;
+    *)
+        echo "Usage: $0 [song|album]"
+        echo "  song: Search for songs/tracks"
+        echo "  album: Search for albums"
+        exit 1
+        ;;
+esac
+
+QUERY=$(LINES=0 rofi -dmenu -p "$PROMPT")
+
+if [ -z "$QUERY" ]; then
+    exit 0
+fi
+
+RESULTS_JSON=$(spotify_player search "$QUERY" | jq ".$SEARCH_KEY[:10]")
+
+RESULT_COUNT=$(echo "$RESULTS_JSON" | jq 'length')
+
+if [ "$RESULT_COUNT" -eq 0 ]; then
+    notify-send "Spotify Search" "No results found for '$QUERY'"
+    exit 1
+fi
+
+# Check if first result contains all query words (high confidence)
+FIRST_RESULT_NAME=$(echo "$RESULTS_JSON" | jq -r '.[0].name' | tr '[:upper:]' '[:lower:]')
+QUERY_LOWER=$(echo "$QUERY" | tr '[:upper:]' '[:lower:]')
+
+# Split query into words and check if all are in the first result
+CONFIDENCE_CHECK=$(echo "$QUERY_LOWER" | tr ' ' '\n' | while read -r word; do
+    if [ -n "$word" ] && ! echo "$FIRST_RESULT_NAME" | grep -q "$word"; then
+        echo "low"
+        break
+    fi
+done)
+
+if [ "$RESULT_COUNT" -eq 1 ] || [ -z "$CONFIDENCE_CHECK" ]; then
+    # High confidence: single result or all query words found in first result
+    ITEM_ID=$(echo "$RESULTS_JSON" | jq -r '.[0].id')
+else
+    # Low confidence: show menu
+    DISPLAY_LIST=$(echo "$RESULTS_JSON" | jq -r "$DISPLAY_FORMAT")
+    
+    SELECTED_INDEX=$(echo "$DISPLAY_LIST" | rofi -dmenu -p "$SELECT_PROMPT" -format i)
+    
+    if [ -z "$SELECTED_INDEX" ]; then
+        exit 0
+    fi
+    
+    ITEM_ID=$(echo "$RESULTS_JSON" | jq -r ".[$SELECTED_INDEX].id")
+fi
+
+if [ "$CONTEXT_TYPE" = "album" ]; then
+    spotify_player playback start context --id "$ITEM_ID" album
+else
+    spotify_player playback start track --id "$ITEM_ID"
+fi
