@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+SONG=$(LINES=0 rofi -dmenu -p "Spotify search: ")
+spotify_player playback start track --id $(spotify_player search "$SONG" | jq '.tracks.[0].id' | xargs)

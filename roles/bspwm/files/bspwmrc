@@ -14,7 +14,6 @@ bspc config window_gap 4
 bspc monitor -d 1 2 3 4 5
 
 bspc rule -a \* rectangle 1600x900+0+0 center=true
-bspc rule -a csgo_linux64 state=fullscreen
 bspc rule -a Zathura state=tiled
 
 bspc rule -a Spotify desktop=5 follow=off -o
@@ -24,6 +23,7 @@ launch_polybar &
 nm-applet &
 pgrep -x dunst || dunst &
 pgrep -x sxhkd || sxhkd &
-spotify &
+picom -b --fade-in-step=1 --fade-out-step=1 --fade-delta=0
+spotify_player -d
 
 wmname LG3D

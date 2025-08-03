@@ -46,8 +46,8 @@ alt + {_, shift + } q
 alt + {_, shift + } r
 	{pgrep -x redshift || redshift, redshift -x && pkill redshift}
 
-alt + {_, shift + } s
-	{spotify, steam}
+alt + s
+	{spotify_search}
 
 alt + {_, shift + } t
 	{translate es Spanish, translate it Italian}
@@ -72,6 +72,15 @@ XF86AudioRaiseVolume
 
 XF86AudioLowerVolume
 	pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86AudioPlay
+	playerctl play-pause
+
+XF86AudioNext
+	playerctl next
+
+XF86AudioPrev
+	playerctl previous
 
 XF86MonBrightnessUp
 	backlight_control +10

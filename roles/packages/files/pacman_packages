@@ -82,6 +82,7 @@ hyphen
 i3-wm
 i3lock
 ijs
+imagemagick
 inetutils
 inotify-tools
 intel-ucode
@@ -167,8 +168,10 @@ pacman-contrib
 parallel
 pavucontrol
 pcmanfm
+picom
 pipewire
 pipewire-pulse
+playerctl
 plocate
 polkit-qt5
 polybar
@@ -219,6 +222,7 @@ smbclient
 sndio
 sof-firmware
 sox
+spotify-player
 stfl
 stylua
 sxhkd
