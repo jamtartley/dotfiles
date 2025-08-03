@@ -79,10 +79,8 @@ htop
 http-parser
 hunspell
 hyphen
-i3-wm
 i3lock
 ijs
-imagemagick
 inetutils
 inotify-tools
 intel-ucode
@@ -167,7 +165,7 @@ otf-font-awesome
 pacman-contrib
 parallel
 pavucontrol
-pcmanfm
+pcmanfm-gtk3
 picom
 pipewire
 pipewire-pulse
@@ -224,7 +222,6 @@ sof-firmware
 sox
 spotify-player
 stfl
-stylua
 sxhkd
 sxiv
 sysfsutils

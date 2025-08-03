@@ -2,13 +2,13 @@ linux_roles:
   - system
   - pacman
   - packages
-  - appearance
   - bluetooth
   - bspwm
   - docker
   - dunst
   - ghostty
   - git
+  - gtk
   - nvim
   - polybar
   - redshift

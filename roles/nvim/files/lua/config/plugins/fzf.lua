@@ -25,6 +25,7 @@ return {
 				stat_file = true,
 			})
 		end, opts)
+		vim.keymap.set("n", "<leader>tt", ":FzfLua builtin<cr>", opts)
 		vim.keymap.set("n", "<C-f>", ":FzfLua live_grep<cr>", opts)
 		vim.keymap.set("n", "<C-p>", ":FzfLua files<cr>", opts)
 		vim.keymap.set("n", "<leader>f", function()
