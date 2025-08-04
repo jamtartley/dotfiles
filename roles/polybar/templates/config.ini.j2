@@ -1,11 +1,14 @@
 [colors]
 fg = #f8f8f2
 light_bg = #44475a
+orange = #FFB86C
+pink = #FF79C6
 
 [bar/main]
 border-size = 2pt
 enable-ipc = true
 font-0 = "JetBrainsMono Nerd Font:size=10:weight=Medium;1"
+font-1 = "JetBrainsMono Nerd Font:size=14:weight=Bold;1"
 height = 3%
 line-size = 2
 module-margin = 1
@@ -15,7 +18,7 @@ modules-left = battery
 modules-left = 
 {% endif %}
 modules-center = xworkspaces
-modules-right = package-updates pulseaudio-control date time
+modules-right = pulseaudio-control date time
 override-redirect = false
 padding-left = 4
 padding-right = 4
@@ -30,16 +33,20 @@ wm-name = bspwm
 type = internal/xworkspaces
 
 label-active = •
+label-active-font = 2
 label-active-padding = 1
-label-active-foreground = ${colors.orange}
+label-active-foreground = ${colors.pink}
 label-empty = ×
+label-empty-font = 2
 label-empty-foreground = ${colors.light_bg}
 label-empty-padding = 1
-label-occupied = -
+label-occupied = •
+label-occupied-font = 2
 label-occupied-foreground = ${colors.fg}
 label-occupied-padding = 1
 label-urgent = •
-label-urgent-foreground = ${colors.fg}
+label-urgent-font = 2
+label-urgent-foreground = ${colors.orange}
 label-urgent-padding = 1
 reverse-scroll = true
 
@@ -48,12 +55,6 @@ type = internal/xwindow
 
 label = %title:0:100:...%
 label-maxlen = 30
-
-[module/package-updates]
-type = custom/script
-
-exec = ~/.local/bin/scripts/package_updates
-interval = 3600
 
 [module/pulseaudio-control]
 type = custom/script

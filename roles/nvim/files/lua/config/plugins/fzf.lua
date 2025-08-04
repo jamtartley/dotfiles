@@ -11,6 +11,14 @@ return {
 			fzf_opts = {
 				["--layout"] = "default",
 			},
+			keymap = {
+				builtin = {
+					["<C-q>"] = "select-all+accept",
+				},
+				fzf = {
+					["ctrl-q"] = "select-all+accept",
+				},
+			},
 		})
 
 		local opts = { noremap = true, silent = false }

@@ -1,5 +1,7 @@
 theme = dracula
 
+font-family = JetBrainsMono Nerd Font
+
 font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
