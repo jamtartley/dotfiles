@@ -34,3 +34,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.api.nvim_set_keymap("i", ";cl", "console.log()<left>", { noremap = true, silent = false })
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+	pattern = "*.j2",
+	callback = function()
+		vim.bo.filetype = "jinja"
+	end,
+})
