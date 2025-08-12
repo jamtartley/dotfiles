@@ -24,6 +24,7 @@ return {
 		local opts = { noremap = true, silent = false }
 
 		vim.keymap.set("n", "<leader>tc", ":FzfLua colorschemes<cr>", opts)
+		vim.keymap.set("n", "<leader>td", ":FzfLua lsp_document_diagnostics<cr>", opts)
 		vim.keymap.set("n", "<leader>th", ":FzfLua help_tags<cr>", opts)
 		vim.keymap.set("n", "<leader>tk", ":FzfLua keymaps<cr>", opts)
 		vim.keymap.set("n", "<leader>tm", ":FzfLua man_pages<cr>", opts)
