@@ -1,0 +1,17 @@
+#!/bin/bash
+
+status=$(playerctl status 2>/dev/null)
+if [ $? -eq 0 ]; then
+    artist=$(playerctl metadata artist 2>/dev/null)
+    title=$(playerctl metadata title 2>/dev/null)
+    
+    if [ -n "$artist" ] && [ -n "$title" ]; then
+        if [ "$status" = "Playing" ]; then
+            color="%{F#f8f8f2}"
+        else
+            color="%{F#6272a4}"
+        fi
+        
+        echo "${color}${title} - ${artist}%{F-}"
+    fi
+fi

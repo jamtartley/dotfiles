@@ -12,11 +12,7 @@ font-1 = "JetBrainsMono Nerd Font:size=14:weight=Bold;1"
 height = 3%
 line-size = 2
 module-margin = 1
-{% if is_laptop %}
-modules-left = battery
-{% else %}
-modules-left = 
-{% endif %}
+modules-left = {%if is_laptop %}battery{% endif %} playerctl
 modules-center = xworkspaces
 modules-right = pulseaudio-control date time
 override-redirect = false
@@ -85,3 +81,10 @@ type = internal/date
 interval = 1.0
 label = %time%
 time = %H:%M
+
+[module/playerctl]
+type = custom/script
+
+exec = ~/.config/polybar/playerctl
+interval = 1
+click-left = playerctl play-pause
