@@ -7,11 +7,11 @@
 - name: Install pacman packages from the list
   ansible.builtin.package:
     name: "{{ lookup('file', 'pacman_packages').split('\n') }}"
-    state: present
+    state: latest
   become: yes
 
 - name: Install yay packages from the list
   kewlfft.aur.aur:
     name: "{{ lookup('template', 'yay_packages.j2').split('\n') }}"
-    state: present
+    state: latest
     use: yay
