@@ -1,4 +1,10 @@
 ---
-- import_tasks: groups.yaml
-- import_tasks: sudo.yaml
-- import_tasks: aur.yaml
+- name: Run Linux tasks
+  import_tasks: linux.yaml
+  when:
+    - is_linux
+
+- name: Run Darwin tasks
+  import_tasks: darwin.yaml
+  when:
+    - is_darwin

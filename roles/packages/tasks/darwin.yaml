@@ -1,7 +1,6 @@
 ---
-- name: Set Brewfile location
-  set_fact:
-    brewfile: "{{ playbook_dir }}/roles/packages/files/Brewfile"
+- name: Update brew
+  ansible.builtin.shell: brew update
 
 - name: Brew bundle
-  ansible.builtin.shell: brew bundle --file {{ brewfile }}
+  ansible.builtin.shell: brew bundle --file {{ playbook_dir }}/roles/packages/files/Brewfile --cleanup --force

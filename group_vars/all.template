@@ -21,6 +21,7 @@ linux_roles:
   - zsh
 
 darwin_roles:
+  - system
   - packages
   - ghostty
   - nvim

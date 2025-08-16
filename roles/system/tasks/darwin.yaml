@@ -1,0 +1,8 @@
+---
+- name: Allow the `%admin` user to run `sudo` without a password
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    state: present
+    line: '%admin ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+  become: yes
