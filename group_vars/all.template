@@ -31,3 +31,4 @@ darwin_roles:
   - zsh
 
 is_laptop: true
+terminal_font_size: 10
