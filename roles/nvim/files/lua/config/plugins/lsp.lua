@@ -53,7 +53,7 @@ return {
 				vim.keymap.set("n", "<leader>ds", fzf.lsp_document_symbols, opts)
 				vim.keymap.set("n", "gr", fzf.lsp_references, opts)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-				vim.keymap.set("n", "<leader>.", fzf.lsp_code_actions, opts)
+				vim.keymap.set("n", "<leader>.", vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float, opts)

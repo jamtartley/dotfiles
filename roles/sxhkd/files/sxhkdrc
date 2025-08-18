@@ -44,7 +44,7 @@ alt + {_, shift +, shift + ctrl + } o
 	{confirm "Logout?" "bspc quit", confirm "Shutdown?" "shutdown now", confirm "Reboot?" "reboot"}
 
 alt + {_, shift + } p
-	{player_control,spotify_playlist}
+	{spotify_control,spotify_playlist}
 
 alt + {_, shift + } q
 	bspc node -{c,k}
