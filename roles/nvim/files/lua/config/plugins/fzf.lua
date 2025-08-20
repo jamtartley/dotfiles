@@ -20,6 +20,7 @@ return {
 				},
 			},
 		})
+		require("fzf-lua").register_ui_select()
 
 		local opts = { noremap = true, silent = false }
 
