@@ -2,6 +2,7 @@
 
 # needs to be set here for scripts to work in sxhkd config without specifying full path
 export PATH=/home/sam/.local/bin:$PATH
+export PATH=/home/sam/.cargo/bin:$PATH
 
 setxkbmap -option caps:escape
 xset r rate 350 90
