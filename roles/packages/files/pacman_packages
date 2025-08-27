@@ -160,6 +160,7 @@ pavucontrol
 pcmanfm-gtk3
 picom
 pipewire
+pipewire-alsa
 pipewire-pulse
 playerctl
 plocate
