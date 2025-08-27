@@ -1,6 +1,8 @@
 #!/bin/bash
 
 status=$(playerctl status 2>/dev/null)
+max_output_len=50
+
 if [ $? -eq 0 ]; then
     artist=$(playerctl metadata artist 2>/dev/null)
     title=$(playerctl metadata title 2>/dev/null)
@@ -12,6 +14,10 @@ if [ $? -eq 0 ]; then
             color="%{F#6272a4}"
         fi
         
-        echo "${color}${title} - ${artist}%{F-}"
+        text="${title} - ${artist}"
+        if [ ${#text} -gt $max_output_len ]; then
+            text="${text:0:$(($max_output_len-3))}..."
+        fi
+        echo "${color}${text}%{F-}"
     fi
 fi
