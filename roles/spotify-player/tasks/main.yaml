@@ -2,14 +2,8 @@
 - name: Set spotify-player variables
   set_fact:
     spotify_player_path: "{{ ansible_user_dir }}/dev/spotify-player"
-    spotify_player_version: "bd38dd05a3c52107f76665dc88002e5a0815d095"
+    spotify_player_version: "77af13b48b2a03e61fef1cffea899929057551dc"
     spotify_player_config_path: "{{ ansible_user_dir }}/.config/spotify-player"
-
-- name: Clone repo
-  git:
-    repo: https://github.com/aome510/spotify-player.git
-    dest: "{{ spotify_player_path }}"
-    version: "{{ spotify_player_version }}"
 
 - name: Check if spotify-player binary exists
   stat:
@@ -23,6 +17,12 @@
   register: current_sha
   when: spotify_player_binary.stat.exists
   failed_when: false
+
+- name: Clone repo
+  git:
+    repo: https://github.com/aome510/spotify-player.git
+    dest: "{{ spotify_player_path }}"
+    version: "{{ spotify_player_version }}"
 
 - name: Build spotify-player
   ansible.builtin.shell: cargo install --path "{{ spotify_player_path }}/spotify_player/" --no-default-features --features pulseaudio-backend,daemon,media-control,streaming
