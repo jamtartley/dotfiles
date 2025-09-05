@@ -16,20 +16,7 @@ return {
 	},
 	config = function()
 		require("mason").setup()
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"ansible",
-				"prettierd",
-				"eslint",
-				"jinja",
-				"lua",
-				"prisma",
-				"shellcheck",
-				"tailwindcss",
-				"terraform",
-				"typescript",
-			}
-		})
+		require("mason-lspconfig").setup({})
 
 		require("lspconfig").eslint.setup({
 			on_attach = function(client, bufnr)
