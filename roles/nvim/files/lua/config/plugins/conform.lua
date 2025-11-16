@@ -6,7 +6,14 @@ return {
 				timeout_ms = 500,
 				lsp_fallback = true,
 			},
+			formatters = {
+				csharpier = {
+					command = "dotnet-csharpier",
+					args = { "--write-stdout" },
+				}
+			},
 			formatters_by_ft = {
+				cs = { "csharpier" },
 				javascript = { "prettier" },
 				javascriptreact = { "prettier" },
 				json = { "prettier" },
