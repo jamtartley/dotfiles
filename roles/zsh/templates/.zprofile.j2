@@ -13,11 +13,13 @@ function prepend_to_path_if_not_exists() {
 typeset -U path PATH
 
 add_to_path_if_not_exists "$HOME/.cargo/bin"
+add_to_path_if_not_exists "$HOME/.dotnet/tools"
 add_to_path_if_not_exists "$HOME/.local/bin"
 add_to_path_if_not_exists "$HOME/.local/bin/scripts"
 add_to_path_if_not_exists "$HOME/go/bin"
 add_to_path_if_not_exists "/opt/android-sdk/platform-tools"
 add_to_path_if_not_exists "/usr/local/opt"
+add_to_path_if_not_exists "/usr/share/dotnet"
 
 {% if is_darwin %}
 add_to_path_if_not_exists "/opt/homebrew/bin"
