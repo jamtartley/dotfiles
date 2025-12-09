@@ -7,13 +7,18 @@ return {
 				lsp_fallback = true,
 			},
 			formatters = {
-				csharpier = {
-					command = "dotnet-csharpier",
-					args = { "--write-stdout" },
+				csharpier_jt = {
+					command = "csharpier",
+					args = {
+						"format",
+						"--write-stdout"
+					},
+					to_stdin = true
 				}
 			},
 			formatters_by_ft = {
-				cs = { "csharpier" },
+				cs = { "csharpier_jt" },
+				csproj = { "csharpier_jt" },
 				javascript = { "prettier" },
 				javascriptreact = { "prettier" },
 				json = { "prettier" },

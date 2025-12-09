@@ -2,7 +2,7 @@
 - name: Set spotify-player variables
   set_fact:
     spotify_player_path: "{{ ansible_user_dir }}/dev/spotify-player"
-    spotify_player_version: "77af13b48b2a03e61fef1cffea899929057551dc"
+    spotify_player_version: "6faa7803b1c5501096615a658291c08345b939b5"
     spotify_player_config_path: "{{ ansible_user_dir }}/.config/spotify-player"
 
 - name: Check if spotify-player binary exists
