@@ -18,7 +18,7 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({})
 
-		require("lspconfig").eslint.setup({
+		vim.lsp.config("eslint", {
 			on_attach = function(client, bufnr)
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufnr,
@@ -26,7 +26,7 @@ return {
 				})
 			end,
 		})
-		require("lspconfig").lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					runtime = {
