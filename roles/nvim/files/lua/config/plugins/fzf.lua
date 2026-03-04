@@ -33,6 +33,7 @@ return {
 			require("fzf-lua").oldfiles({
 				cwd_only = true,
 				stat_file = true,
+				include_current_session = true,
 			})
 		end, opts)
 		vim.keymap.set("n", "<leader>tt", ":FzfLua builtin<cr>", opts)
