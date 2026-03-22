@@ -3,11 +3,6 @@ return {
 	config = function()
 		require("fzf-lua").setup({
 			"ivy",
-			winopts = {
-				preview = {
-					default = "builtin",
-				},
-			},
 			fzf_opts = {
 				["--layout"] = "default",
 			},
