@@ -27,6 +27,7 @@ keymap("n", "}", "}zz", opts)
 -- Misc
 keymap("n", "Q", ":q<cr>", opts)
 keymap("n", "X", ":x<cr>", opts)
+keymap("n", "<C-t>", ":Taggregator<cr>", opts)
 keymap("n", "<cr>", ":noh<cr><cr>", opts)
 keymap("n", "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 keymap("n", "<leader>yfn", '<cmd>let @*=expand("%")<cr><cmd>lua print("Yanked current filename")<cr><cr>', opts)
