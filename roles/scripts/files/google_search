@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-LINES=0 rofi -dmenu -p "Google search: " | xargs -I{} firefox --private-window "https://google.com/search?q={}"
+LINES=0 rofi -dmenu -p "Google search: " | xargs -I{} brave --incognito "https://google.com/search?q={}"

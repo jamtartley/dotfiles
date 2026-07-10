@@ -1,7 +1,7 @@
 [global]
     alignment = left
     always_run_script = true
-    browser = /usr/bin/firefox --private-window
+    browser = /usr/bin/brave --incognito
     class = Dunst
     corner_radius = 0
     ellipsize = middle
