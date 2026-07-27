@@ -122,8 +122,21 @@ fi
 ITEM_ID=$(echo "$COMBINED_JSON" | jq -r ".[$SELECTED_INDEX].id")
 ITEM_TYPE=$(echo "$COMBINED_JSON" | jq -r ".[$SELECTED_INDEX].type")
 
+# Reconnect the integrated player before sending playback commands. Spotify can
+# leave the device registered but inactive, which makes playback fail with 404.
+if ! spotify_player connect --name spotify-player >/dev/null 2>&1; then
+    notify-send "Spotify Search" "Could not connect to the spotify-player device"
+    exit 1
+fi
+
 if [ "$ITEM_TYPE" = "album" ]; then
-    spotify_player playback start context --id "$ITEM_ID" album
+    if ! spotify_player playback start context --id "$ITEM_ID" album; then
+        notify-send "Spotify Search" "Could not start album playback"
+        exit 1
+    fi
 else
-    spotify_player playback start track --id "$ITEM_ID"
+    if ! spotify_player playback start track --id "$ITEM_ID"; then
+        notify-send "Spotify Search" "Could not start track playback"
+        exit 1
+    fi
 fi
