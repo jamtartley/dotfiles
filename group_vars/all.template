@@ -36,3 +36,4 @@ terminal_font_size: 10
 xrandr_output: DP-0
 xrandr_mode: 3840x2160
 xrandr_rate: 120.00
+bspwm_floating_geometry: 1920x1080+0+0
