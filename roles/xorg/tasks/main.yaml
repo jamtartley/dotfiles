@@ -1,7 +1,5 @@
 ---
-- name: Link .xinitrc
-  ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/xorg/files/.xinitrc"
+- name: Template .xinitrc
+  ansible.builtin.template:
+    src: .xinitrc.j2
     dest: "{{ ansible_user_dir }}/.xinitrc"
-    state: link
-    force: true

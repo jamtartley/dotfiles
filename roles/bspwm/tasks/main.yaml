@@ -1,7 +1,23 @@
----
-- name: Link config files
+- name: Remove linked config directory
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/bspwm/files/"
     dest: "{{ ansible_user_dir }}/.config/bspwm"
+    state: absent
+
+- name: Create config directory
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/bspwm"
+    state: directory
+    mode: "0755"
+
+- name: Template bspwmrc
+  ansible.builtin.template:
+    src: bspwmrc.j2
+    dest: "{{ ansible_user_dir }}/.config/bspwm/bspwmrc"
+    mode: "0755"
+
+- name: Link bspwm scripts
+  ansible.builtin.file:
+    src: "{{ ansible_env.PWD }}/roles/bspwm/files/scripts"
+    dest: "{{ ansible_user_dir }}/.config/bspwm/scripts"
     state: link
     force: true

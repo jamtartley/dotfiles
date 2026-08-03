@@ -7,7 +7,7 @@ export PATH=/home/sam/.cargo/bin:$PATH
 setxkbmap -option caps:escape
 xset r rate 350 90
 xsetroot -cursor_name left_pt
-xrandr --output DP-0 --mode 1920x1080 --rate 239.96
+xrandr --output DP-0 --mode 3840x2160 --rate 120.00
 
 TOUCHPAD_ID=$(xinput list | rg -i 'synaptics touchpad' | awk '{print $6}' | sed 's/id=\(.*\)/\1/')
 xinput set-prop $TOUCHPAD_ID "libinput Tapping Enabled" 1
@@ -26,4 +26,3 @@ then
 else
     xterm -geometry 80x24-0-0
 fi
-
