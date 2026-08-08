@@ -15,7 +15,7 @@ bspc monitor -d 1 2 3 4 5
 
 bspc rule -a \* rectangle {{ bspwm_floating_geometry }} center=true
 bspc rule -a Zathura state=tiled
-bspc rule -a Unity state=floating
+bspc rule -a Unity state=floating focus=off
 
 bspc rule -a Spotify desktop=5 follow=off -o
 
