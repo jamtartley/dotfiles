@@ -4,6 +4,7 @@ return {
 		"saghen/blink.cmp",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"ibhagwan/fzf-lua",
 		{
 			"folke/lazydev.nvim",
@@ -16,15 +17,8 @@ return {
 	},
 	config = function()
 		require("mason").setup()
-		require("mason-lspconfig").setup({})
-
-		vim.lsp.config("eslint", {
-			on_attach = function(client, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					command = "EslintFixAll",
-				})
-			end,
+		require("mason-tool-installer").setup({
+			ensure_installed = { "prettier" },
 		})
 		vim.lsp.config("lua_ls", {
 			settings = {
@@ -42,6 +36,10 @@ return {
 					},
 				},
 			},
+		})
+
+		require("mason-lspconfig").setup({
+			ensure_installed = { "eslint", "lua_ls", "ts_ls" },
 		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
