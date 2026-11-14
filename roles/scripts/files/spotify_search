@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-function usage() {
+usage() {
     echo "Usage: $0 <song|album>"
     echo "  song  - Search for songs/tracks"
     echo "  album - Search for albums"

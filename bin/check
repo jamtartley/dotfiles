@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ ${1:-} == --help || ${1:-} == -h ]]; then
+    cat <<'EOF'
+Usage: bin/check
+
+Run ShellCheck on tracked and untracked Bash/POSIX shell scripts, then
+Ansible lint on the playbook, roles, and collection requirements.
+Jinja templates are excluded from ShellCheck because they require rendering.
+
+Requires git, shellcheck, ansible-lint, and the collections in requirements.yml.
+Install collections with: ansible-galaxy collection install -r requirements.yml
+EOF
+    exit 0
+fi
+
+if [[ $# -gt 0 ]]; then
+    echo "Usage: bin/check" >&2
+    exit 1
+fi
+
+REPO_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)
+cd -- "$REPO_DIR"
+
+for TOOL in git shellcheck ansible-lint; do
+    if ! command -v "$TOOL" >/dev/null 2>&1; then
+        echo "Required tool not found: $TOOL. See bin/check --help." >&2
+        exit 1
+    fi
+done
+
+SCRIPTS=()
+while IFS= read -r -d '' FILE; do
+    SCRIPTS+=("$FILE")
+done < <(git grep --untracked -Ilz -E '^#!(/usr/bin/env (ba)?sh|/bin/(ba)?sh)( |$)' -- bootstrap bin roles ':!*.j2')
+
+echo "Checking ${#SCRIPTS[@]} shell scripts..."
+shellcheck "${SCRIPTS[@]}"
+
+echo "Checking Ansible playbook and roles..."
+ansible-lint main.yml roles requirements.yml
