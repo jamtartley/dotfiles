@@ -4,13 +4,14 @@ set -euo pipefail
 
 if [[ ${1:-} == --help || ${1:-} == -h ]]; then
 	cat <<'EOF'
-Usage: dotfiles [role,role,...] [ansible-playbook options]
+Usage: dotfiles [role,role,...] [--sudo] [ansible-playbook options]
 
 Examples:
   dotfiles                   Apply all configured roles
   dotfiles nvim,zsh           Apply selected roles
   dotfiles nvim,zsh --check   Preview selected roles
   dotfiles --check            Preview all configured roles
+  dotfiles --sudo            Explicitly prompt for a sudo password
 
 Roles must precede options. Remaining arguments are passed to ansible-playbook.
 EOF
@@ -38,7 +39,7 @@ for REQUIRED_FILE in main.yml group_vars/all ansible-secret.yml; do
 	fi
 done
 
-ARGS=(--ask-become-pass --vault-password-file "$DOTFILES_DIR/ansible-secret.yml" --diff)
+ARGS=(--vault-password-file "$DOTFILES_DIR/ansible-secret.yml" --diff)
 if [[ $# -gt 0 && $1 != -* ]]; then
 	# JSON preserves whitespace in comma-separated role names for Ansible to trim.
 	ROLES=$1
@@ -51,4 +52,12 @@ if [[ $# -gt 0 && $1 != -* ]]; then
 	shift
 fi
 
-exec ansible-playbook "${ARGS[@]}" "$DOTFILES_DIR/main.yml" "$@"
+for ARG in "$@"; do
+	if [[ "$ARG" == --sudo ]]; then
+		ARGS+=(--ask-become-pass)
+	else
+		ARGS+=("$ARG")
+	fi
+done
+
+exec ansible-playbook "${ARGS[@]}" "$DOTFILES_DIR/main.yml"
