@@ -1,21 +1,54 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-if ! [ -x "$(command -v ansible)" ]; then
-	echo "Ansible not found, run bootstrap script first..."
+if [[ ${1:-} == --help || ${1:-} == -h ]]; then
+	cat <<'EOF'
+Usage: dotfiles [role,role,...] [ansible-playbook options]
+
+Examples:
+  dotfiles                   Apply all configured roles
+  dotfiles nvim,zsh           Apply selected roles
+  dotfiles nvim,zsh --check   Preview selected roles
+  dotfiles --check            Preview all configured roles
+
+Roles must precede options. Remaining arguments are passed to ansible-playbook.
+EOF
+	exit 0
+fi
+
+# Follow relative and absolute symlinks without requiring GNU readlink -f.
+SCRIPT_PATH=${BASH_SOURCE[0]}
+while [[ -L "$SCRIPT_PATH" ]]; do
+	SCRIPT_DIR=$(cd -P -- "$(dirname -- "$SCRIPT_PATH")" && pwd)
+	SCRIPT_PATH=$(readlink "$SCRIPT_PATH")
+	[[ "$SCRIPT_PATH" == /* ]] || SCRIPT_PATH="$SCRIPT_DIR/$SCRIPT_PATH"
+done
+DOTFILES_DIR=$(cd -P -- "$(dirname -- "$SCRIPT_PATH")/.." && pwd)
+
+if ! command -v ansible-playbook >/dev/null 2>&1; then
+	echo "ansible-playbook not found. Run $DOTFILES_DIR/bootstrap first." >&2
 	exit 1
 fi
 
-ROLES_TO_RUN=$1
+for REQUIRED_FILE in main.yml group_vars/all ansible-secret.yml; do
+	if [[ ! -r "$DOTFILES_DIR/$REQUIRED_FILE" ]]; then
+		echo "Required file missing or unreadable: $DOTFILES_DIR/$REQUIRED_FILE" >&2
+		exit 1
+	fi
+done
 
-if [[ -z "$ROLES_TO_RUN" ]]; then
-	EXTRA_VARS=""
-else
-	EXTRA_VARS="--extra-vars "roles_to_run=$ROLES_TO_RUN""
+ARGS=(--ask-become-pass --vault-password-file "$DOTFILES_DIR/ansible-secret.yml" --diff)
+if [[ $# -gt 0 && $1 != -* ]]; then
+	# JSON preserves whitespace in comma-separated role names for Ansible to trim.
+	ROLES=$1
+	ROLES=${ROLES//\\/\\\\}
+	ROLES=${ROLES//\"/\\\"}
+	ROLES=${ROLES//$'\n'/\\n}
+	ROLES=${ROLES//$'\r'/\\r}
+	ROLES=${ROLES//$'\t'/\\t}
+	ARGS+=(--extra-vars "{\"roles_to_run\":\"$ROLES\"}")
+	shift
 fi
 
-ansible-playbook $EXTRA_VARS                                  \
-	--ask-become-pass                                           \
-	--vault-password-file $HOME/dev/dotfiles/ansible-secret.yml \
-	--diff "$HOME/dev/dotfiles/main.yml"
+exec ansible-playbook "${ARGS[@]}" "$DOTFILES_DIR/main.yml" "$@"

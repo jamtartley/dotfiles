@@ -2,13 +2,22 @@
 
 set -e
 
+# Follow relative and absolute symlinks without requiring GNU readlink -f.
+SCRIPT_PATH=${BASH_SOURCE[0]}
+while [[ -L "$SCRIPT_PATH" ]]; do
+	SCRIPT_DIR=$(cd -P -- "$(dirname -- "$SCRIPT_PATH")" && pwd)
+	SCRIPT_PATH=$(readlink "$SCRIPT_PATH")
+	[[ "$SCRIPT_PATH" == /* ]] || SCRIPT_PATH="$SCRIPT_DIR/$SCRIPT_PATH"
+done
+DOTFILES_DIR=$(cd -P -- "$(dirname -- "$SCRIPT_PATH")" && pwd)
+
 function set_git_user_opt() {
 	key="$1"
 	prompt="$2"
 
 	if ! [[ $(git config --global "$key") ]];
 	then
-		read -p "$prompt: " val
+		read -r -p "$prompt: " val
 		git config --global "$key" "$val"
 	fi
 }
@@ -17,10 +26,12 @@ function link_dotfiles_bin() {
 	LOCAL_BIN="$HOME/.local/bin"
 	DOTFILES_BIN_PATH="$LOCAL_BIN/dotfiles"
 
-	if [[ ! -f "$DOTFILES_BIN_PATH" ]]; then
-		mkdir -p "$LOCAL_BIN"
-		ln -sf "$HOME/dev/dotfiles/bin/dotfiles" "$DOTFILES_BIN_PATH"
+	if [[ -e "$DOTFILES_BIN_PATH" && ! -L "$DOTFILES_BIN_PATH" ]]; then
+		echo "Cannot install dotfiles link: $DOTFILES_BIN_PATH is not a symlink." >&2
+		return 1
 	fi
+	mkdir -p "$LOCAL_BIN"
+	ln -sfn "$DOTFILES_DIR/bin/dotfiles" "$DOTFILES_BIN_PATH"
 }
 
 function install_homebrew() {
@@ -62,15 +73,12 @@ function install_ansible() {
 }
 
 function install_ansible_requirements() {
-	DOTFILES_DIR="$HOME/dev/dotfiles"
-
 	if [[ -f "$DOTFILES_DIR/requirements.yml" ]]; then
 		ansible-galaxy install -r "$DOTFILES_DIR/requirements.yml"
 	fi
 }
 
 function create_local_config() {
-	DOTFILES_DIR="$HOME/dev/dotfiles"
 	LOCAL_CONFIG="$DOTFILES_DIR/group_vars/all"
 	TEMPLATE_CONFIG="$DOTFILES_DIR/group_vars/all.template"
 
