@@ -14,9 +14,3 @@
     state: link
     force: true
   become: yes
-
-- name: pacman update/upgrade
-  community.general.pacman:
-    update_cache: true
-    upgrade: true
-  become: yes
