@@ -8,8 +8,7 @@
 
 - name: Link scripts
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/scripts/files/"
+    src: "{{ playbook_dir }}/roles/scripts/files/"
     dest: "{{ ansible_user_dir }}/.local/bin/scripts"
     state: link
     force: true
-

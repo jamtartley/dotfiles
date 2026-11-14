@@ -17,7 +17,7 @@
 
 - name: Link bspwm scripts
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/bspwm/files/scripts"
+    src: "{{ playbook_dir }}/roles/bspwm/files/scripts"
     dest: "{{ ansible_user_dir }}/.config/bspwm/scripts"
     state: link
     force: true

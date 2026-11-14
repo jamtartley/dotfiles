@@ -7,7 +7,7 @@
 
 - name: Link theme files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/ghostty/files/themes/"
+    src: "{{ playbook_dir }}/roles/ghostty/files/themes/"
     dest: "{{ ansible_user_dir }}/.config/ghostty/themes"
     state: link
     force: true

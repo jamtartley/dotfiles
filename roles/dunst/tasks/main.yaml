@@ -1,7 +1,7 @@
 ---
 - name: Link config files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/dunst/files/"
+    src: "{{ playbook_dir }}/roles/dunst/files/"
     dest: "{{ ansible_user_dir }}/.config/dunst"
     state: link
     force: true

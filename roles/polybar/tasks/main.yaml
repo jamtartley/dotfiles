@@ -14,14 +14,14 @@
 
 - name: Link launch_polybar
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/polybar/files/launch_polybar"
+    src: "{{ playbook_dir }}/roles/polybar/files/launch_polybar"
     dest: "{{ ansible_user_dir }}/.local/bin/launch_polybar"
     state: link
     force: true
 
 - name: Copy playerctl script
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/polybar/files/playerctl"
+    src: "{{ playbook_dir }}/roles/polybar/files/playerctl"
     dest: "{{ ansible_user_dir }}/.config/polybar/playerctl"
     state: link
     force: true

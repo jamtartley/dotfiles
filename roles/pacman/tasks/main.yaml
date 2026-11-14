@@ -1,7 +1,7 @@
 ---
 - name: Link pacman.conf
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/pacman/files/pacman.conf"
+    src: "{{ playbook_dir }}/roles/pacman/files/pacman.conf"
     dest: "/etc/pacman.conf"
     state: link
     force: true
@@ -9,7 +9,7 @@
 
 - name: Link mirrorlist
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/pacman/files/mirrorlist"
+    src: "{{ playbook_dir }}/roles/pacman/files/mirrorlist"
     dest: "/etc/pacman.d/mirrorlist"
     state: link
     force: true

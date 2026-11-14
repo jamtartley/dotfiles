@@ -1,7 +1,7 @@
 ---
 - name: Link config files
   ansible.builtin.file:
-    src: "{{ ansible_env.PWD }}/roles/sxhkd/files/"
+    src: "{{ playbook_dir }}/roles/sxhkd/files/"
     dest: "{{ ansible_user_dir }}/.config/sxhkd"
     state: link
     force: true

@@ -17,6 +17,7 @@
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
     groups: android-sdk,docker,power,pulse,pulse-access,storage,wheel
+    append: true
   become: yes
 
 - name: Create sudoers.d folder
