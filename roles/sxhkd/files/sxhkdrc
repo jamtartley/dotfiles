@@ -13,6 +13,9 @@ alt + {Left, Right}
 alt + a
 	authy
 
+alt + shift + a
+	alarm.sh
+
 alt + {_, shift + } b
 	{blueman-manager, beekeeper-studio}
 
