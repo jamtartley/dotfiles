@@ -6,10 +6,41 @@
       set_fact:
         is_linux: "{{ ansible_facts['os_family'] == 'Archlinux' }}"
         is_darwin: "{{ ansible_facts['os_family'] == 'Darwin' }}"
+      tags:
+        - always
+
+    - name: Validate platform
+      ansible.builtin.assert:
+        that:
+          - is_linux or is_darwin
+        fail_msg: "Unsupported platform: {{ ansible_facts['os_family'] }}. Supported platforms are Arch Linux and macOS."
+      tags:
+        - always
+
+    - name: Validate role selection input
+      ansible.builtin.assert:
+        that:
+          - roles_to_run is string
+        fail_msg: "roles_to_run must be a comma-separated string of role names."
+      when: roles_to_run is defined
+      tags:
+        - always
 
     - name: Set roles
       set_fact:
-        roles: "{{ roles_to_run.split(',') if roles_to_run is defined else null | default(linux_roles if is_linux else darwin_roles) }}"
+        roles: "{{ (roles_to_run.split(',') | map('trim') | list) if roles_to_run is defined else (linux_roles if is_linux else darwin_roles) }}"
+      tags:
+        - always
+
+    - name: Validate selected roles
+      ansible.builtin.assert:
+        that:
+          - roles_item is match('^[a-zA-Z0-9_-]+$')
+          - (playbook_dir ~ '/roles/' ~ roles_item ~ '/tasks/main.yaml') is file or (playbook_dir ~ '/roles/' ~ roles_item ~ '/tasks/main.yml') is file
+        fail_msg: "Invalid role '{{ roles_item }}'. Choose a role directory from {{ playbook_dir }}/roles."
+      loop: "{{ roles }}"
+      loop_control:
+        loop_var: roles_item
       tags:
         - always
 
