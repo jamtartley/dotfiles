@@ -16,9 +16,15 @@ return {
 		},
 	},
 	config = function()
-		require("mason").setup()
+		require("mason").setup({
+			registries = {
+				"github:mason-org/mason-registry",
+				-- Roslyn builds matching the VS Code C# extension.
+				"github:Crashdummyy/mason-registry",
+			},
+		})
 		require("mason-tool-installer").setup({
-			ensure_installed = { "prettier" },
+			ensure_installed = { "prettier", "roslyn" },
 		})
 		vim.lsp.config("lua_ls", {
 			settings = {
@@ -40,6 +46,8 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = { "eslint", "lua_ls", "ts_ls" },
+			-- roslyn.nvim owns C# attachment, including previously installed servers.
+			automatic_enable = { exclude = { "omnisharp", "csharp_ls", "roslyn_ls", "roslyn" } },
 		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {

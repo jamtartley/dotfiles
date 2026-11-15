@@ -44,6 +44,7 @@ docker
 docker-buildx
 docker-compose
 dosfstools
+dotnet-sdk
 double-conversion
 dunst
 efibootmgr

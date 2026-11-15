@@ -18,7 +18,7 @@ return {
 						vim.notify("ESLint fixes failed: " .. vim.inspect(err or (result and result.err)), vim.log.levels.WARN)
 					end
 				end
-				return { timeout_ms = 500, lsp_format = "fallback" }
+				return { timeout_ms = vim.bo[bufnr].filetype == "cs" and 2000 or 500, lsp_format = "fallback" }
 			end,
 			formatters_by_ft = {
 				javascript = { "prettier" },
