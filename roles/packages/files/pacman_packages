@@ -220,6 +220,7 @@ tcl
 tmux
 traceroute
 tree
+tree-sitter-cli
 ttf-jetbrains-mono-nerd
 ttf-liberation
 uchardet

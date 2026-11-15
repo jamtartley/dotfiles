@@ -16,6 +16,7 @@ brew "neovim", args: ["HEAD"]
 brew "ripgrep"
 brew "sheldon"
 brew "tmux"
+brew "tree-sitter-cli"
 cask "adobe-creative-cloud"
 cask "beekeeper-studio"
 cask "brave-browser"
