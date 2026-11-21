@@ -18,6 +18,63 @@ if [ "$SEARCH_TYPE" != "song" ] && [ "$SEARCH_TYPE" != "album" ]; then
 	usage
 fi
 
+# Keep a separate debug log for each attempt, including command substitutions.
+LOG_FILE=$(mktemp "${TMPDIR:-/tmp}/spotify_search.XXXXXX.log") || exit 1
+printf 'Spotify Search log: %s\n' "$LOG_FILE" >&2
+exec >"$LOG_FILE" 2>&1
+printf 'Spotify Search started: %s\n' "$(date -Is)"
+trap 'status=$?; set +x; printf "Spotify Search exited with status %s: %s\n" "$status" "$(date -Is)"' 0
+set -x
+
+fail() {
+    printf '%s\n' "$1"
+    # The CLI returns before playback finishes; its real errors live here.
+    DAEMON_LOG=$(find "${XDG_CACHE_HOME:-$HOME/.cache}/spotify-player" -maxdepth 1 -name '*.log' -printf '%T@ %p\n' 2>/dev/null | sort -nr | head -n 1 | cut -d ' ' -f 2-)
+    [ -z "$DAEMON_LOG" ] || tail -n 60 "$DAEMON_LOG"
+    notify-send "Spotify Search" "$1. Log: $LOG_FILE"
+    exit 1
+}
+
+player() {
+    timeout 20s spotify_player "$@"
+}
+
+ensure_player() {
+    if ! pgrep -u "$(id -u)" -x spotify_player >/dev/null; then
+        player -d 9>&- || return 1
+    fi
+    wait_for_player
+}
+
+wait_for_player() {
+    # Use the CLI's empty-datagram handshake directly. Running the CLI itself as
+    # a readiness probe can spawn a competing client before the daemon is ready.
+    python3 - <<'PY'
+import pathlib
+import socket
+import time
+import tomllib
+
+config = pathlib.Path.home() / '.config/spotify-player/app.toml'
+settings = tomllib.loads(config.read_text()) if config.exists() else {}
+port = settings.get('client_port', 8080)
+deadline = time.monotonic() + 15
+while time.monotonic() < deadline:
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
+        sock.settimeout(0.5)
+        try:
+            sock.connect(('127.0.0.1', port))
+            sock.send(b'')
+            sock.recv(1)
+            raise SystemExit(0)
+        except OSError:
+            pass
+    time.sleep(0.25)
+print('Timed out waiting for the Spotify daemon command socket', flush=True)
+raise SystemExit(1)
+PY
+}
+
 if [ "$SEARCH_TYPE" = "album" ]; then
     QUERY=$(LINES=0 rofi -dmenu -p "Spotify album search: ")
 else
@@ -29,14 +86,28 @@ if [ -z "$QUERY" ]; then
 fi
 
 # Search based on type argument
+exec 9>"${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}}/spotify_search-$(id -u).lock"
+flock -n 9 || fail "Another Spotify search is already running"
+ensure_player || fail "Spotify player did not become ready"
+
+# Search responses can be truncated by the player's local CLI transport.
+SEARCH_RESULTS=
+for search_attempt in 1 2 3; do
+    if SEARCH_RESULTS=$(player search "$QUERY") &&
+        printf '%s\n' "$SEARCH_RESULTS" | jq -e '(.tracks | type == "array") and (.albums | type == "array")' >/dev/null; then
+        break
+    fi
+    SEARCH_RESULTS=
+    sleep 1
+done
+[ -n "$SEARCH_RESULTS" ] || fail "Spotify search failed after three attempts"
+
 if [ "$SEARCH_TYPE" = "album" ]; then
     # Search for albums only
-    SEARCH_RESULTS=$(spotify_player search "$QUERY")
     TRACKS="[]"
     ALBUMS=$(echo "$SEARCH_RESULTS" | jq '.albums[:20]')
 else
     # Search for tracks only
-    SEARCH_RESULTS=$(spotify_player search "$QUERY")
     TRACKS=$(echo "$SEARCH_RESULTS" | jq '.tracks[:20]')
     ALBUMS="[]"
 fi
@@ -122,21 +193,39 @@ fi
 ITEM_ID=$(echo "$COMBINED_JSON" | jq -r ".[$SELECTED_INDEX].id")
 ITEM_TYPE=$(echo "$COMBINED_JSON" | jq -r ".[$SELECTED_INDEX].type")
 
-# Reconnect the integrated player before sending playback commands. Spotify can
-# leave the device registered but inactive, which makes playback fail with 404.
-if ! spotify_player connect --name spotify-player >/dev/null 2>&1; then
-    notify-send "Spotify Search" "Could not connect to the spotify-player device"
-    exit 1
-fi
+[ -n "$ITEM_ID" ] && [ "$ITEM_ID" != "null" ] || fail "Invalid Spotify selection"
 
-if [ "$ITEM_TYPE" = "album" ]; then
-    if ! spotify_player playback start context --id "$ITEM_ID" album; then
-        notify-send "Spotify Search" "Could not start album playback"
-        exit 1
+for playback_attempt in 1 2 3; do
+    if [ "$playback_attempt" -gt 1 ]; then
+        sleep 2
     fi
-else
-    if ! spotify_player playback start track --id "$ITEM_ID"; then
-        notify-send "Spotify Search" "Could not start track playback"
-        exit 1
+    ensure_player || continue
+
+    DEVICES=$(player get key devices) || continue
+    PLAYER_ACTIVE=$(printf '%s\n' "$DEVICES" | jq -r 'any(.[]; .name == "spotify-player" and .is_active == true)') || continue
+    if [ "$PLAYER_ACTIVE" != "true" ]; then
+        # A failed transfer may still activate the device. Try playback anyway.
+        player connect --name spotify-player || printf '%s\n' "Transfer failed; trying fresh playback"
     fi
-fi
+
+    if [ "$ITEM_TYPE" = "album" ]; then
+        player playback start context --id "$ITEM_ID" album
+    else
+        player playback start track --id "$ITEM_ID"
+    fi
+
+    # A zero CLI exit status only means the asynchronous request was accepted.
+    for verify_attempt in 1 2 3 4 5; do
+        sleep 1
+        if PLAYBACK=$(player get key playback) &&
+            printf '%s\n' "$PLAYBACK" | jq -e --arg id "$ITEM_ID" --arg type "$ITEM_TYPE" '
+                .is_playing == true and .device.name == "spotify-player" and
+                (if $type == "album" then .item.album.id == $id else .item.id == $id end)
+            ' >/dev/null; then
+            printf '%s\n' "Verified requested playback on spotify-player"
+            exit 0
+        fi
+    done
+done
+
+fail "Spotify did not start the selected item after three attempts; check the log for API or player errors"

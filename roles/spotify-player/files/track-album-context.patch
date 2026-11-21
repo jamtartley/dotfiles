@@ -1,0 +1,32 @@
+diff --git a/README.md b/README.md
+--- a/README.md
++++ b/README.md
+@@ -417,6 +417,7 @@
+ 
+ - On first use, run `spotify_player authenticate` to authenticate the app.
+ - CLI commands communicate with a client socket on port `client_port` (default: `8080`). If no instance is running, a new client is started, which may increase latency.
++- This local build starts CLI tracks in their album context at the selected track's offset to avoid librespot rejecting bare URI lists. Subsequent playback can continue through the album.
+ 
+ #### Scripting
+ 
+diff --git a/spotify_player/src/cli/client.rs b/spotify_player/src/cli/client.rs
+--- a/spotify_player/src/cli/client.rs
++++ b/spotify_player/src/cli/client.rs
+@@ -417,7 +417,16 @@
+             };
+ 
+             let track = client.track(id).await?;
+-            PlayerRequest::StartPlayback(Playback::URIs(vec![track.id.into()], None), None)
++            // Librespot can reject bare URI lists with a missing playback context.
++            // An album context with an exact offset still starts the requested track.
++            let playback = match track.album {
++                Some(album) => Playback::Context(
++                    ContextId::Album(album.id),
++                    Some(rspotify::model::Offset::Uri(track.id.uri())),
++                ),
++                None => Playback::URIs(vec![track.id.into()], None),
++            };
++            PlayerRequest::StartPlayback(playback, None)
+         }
+         Command::PlayPause => PlayerRequest::ResumePause,
+         Command::Play => PlayerRequest::Resume,

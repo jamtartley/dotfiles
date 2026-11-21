@@ -2,7 +2,7 @@
 - name: Set spotify-player variables
   set_fact:
     spotify_player_path: "{{ ansible_user_dir }}/dev/spotify-player"
-    spotify_player_version: "v0.24.1"
+    spotify_player_version: "v0.25.2"
     spotify_player_config_path: "{{ ansible_user_dir }}/.config/spotify-player"
 
 - name: Check if spotify-player binary exists
@@ -10,11 +10,10 @@
     path: "{{ ansible_user_dir }}/.cargo/bin/spotify_player"
   register: spotify_player_binary
 
-- name: Get current commit SHA
-  ansible.builtin.command: git rev-parse HEAD
-  args:
-    chdir: "{{ spotify_player_path }}"
-  register: current_sha
+- name: Get installed spotify-player version
+  ansible.builtin.command: '"{{ ansible_user_dir }}/.cargo/bin/spotify_player" --version'
+  register: installed_spotify_player_version
+  changed_when: false
   when: spotify_player_binary.stat.exists
   failed_when: false
 
@@ -24,9 +23,48 @@
     dest: "{{ spotify_player_path }}"
     version: "{{ spotify_player_version }}"
 
-- name: Build spotify-player
-  ansible.builtin.shell: cargo install --path "{{ spotify_player_path }}/spotify_player/" --no-default-features --features pulseaudio-backend,daemon,media-control,streaming
-  when: not spotify_player_binary.stat.exists or (current_sha.stdout is defined and current_sha.stdout != spotify_player_version)
+- name: Copy track playback compatibility patch
+  ansible.builtin.copy:
+    src: track-album-context.patch
+    dest: "{{ spotify_player_path }}/.git/track-album-context.patch"
+    mode: '0644'
+
+- name: Calculate patched build signature
+  ansible.builtin.set_fact:
+    spotify_player_build_signature: "{{ spotify_player_version }}:{{ lookup('file', role_path ~ '/files/track-album-context.patch') | hash('sha256') }}"
+
+- name: Read installed build signature
+  ansible.builtin.slurp:
+    src: "{{ spotify_player_path }}/.git/installed-build"
+  register: spotify_player_installed_build
+  failed_when: false
+
+- name: Build patched spotify-player
+  when: >-
+    not spotify_player_binary.stat.exists or
+    (installed_spotify_player_version.stdout | default('')) != 'spotify_player ' ~ (spotify_player_version | regex_replace('^v', '')) or
+    (spotify_player_installed_build.content | default('') | b64decode) != spotify_player_build_signature
+  block:
+    - name: Apply album context playback patch
+      ansible.builtin.command: git apply .git/track-album-context.patch
+      args:
+        chdir: "{{ spotify_player_path }}"
+      register: spotify_player_patch_applied
+
+    - name: Install spotify-player
+      ansible.builtin.command: cargo install --locked --path "{{ spotify_player_path }}/spotify_player/" --no-default-features --features pulseaudio-backend,daemon,media-control,streaming,rustls-tls
+
+    - name: Record installed build signature
+      ansible.builtin.copy:
+        content: "{{ spotify_player_build_signature }}"
+        dest: "{{ spotify_player_path }}/.git/installed-build"
+        mode: '0644'
+  always:
+    - name: Restore clean upstream sources
+      ansible.builtin.command: git apply --reverse .git/track-album-context.patch
+      args:
+        chdir: "{{ spotify_player_path }}"
+      when: (spotify_player_patch_applied.rc | default(1)) == 0
 
 - name: Ensure config folder
   ansible.builtin.file:

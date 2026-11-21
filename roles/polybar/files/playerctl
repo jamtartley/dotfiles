@@ -2,9 +2,26 @@
 
 max_output_len=50
 
-if status=$(playerctl status 2>/dev/null); then
-    artist=$(playerctl metadata artist 2>/dev/null)
-    title=$(playerctl metadata title 2>/dev/null)
+# Prefer a playing Spotify client, otherwise the first available Spotify client.
+player=
+for candidate in spotify_player spotify; do
+    candidate_status=$(playerctl -p "$candidate" status 2>/dev/null) || continue
+    if [ -z "$player" ] || [ "$candidate_status" = "Playing" ]; then
+        player=$candidate
+        status=$candidate_status
+    fi
+    [ "$candidate_status" = "Playing" ] && break
+done
+
+[ -n "$player" ] || exit 0
+
+if [ "${1:-}" = "toggle" ]; then
+    exec playerctl -p "$player" play-pause
+fi
+
+if [ -n "$status" ]; then
+    artist=$(playerctl -p "$player" metadata artist 2>/dev/null)
+    title=$(playerctl -p "$player" metadata title 2>/dev/null)
     
     if [ -n "$artist" ] && [ -n "$title" ]; then
         if [ "$status" = "Playing" ]; then
